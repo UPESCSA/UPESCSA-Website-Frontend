@@ -1,13 +1,13 @@
 # UPES CSA
 ### Cloud Security Alliance
-This is official website of CSA UPES. 
+This is an official website of CSA UPES. 
 Cloud Security Alliance is an organization dedicated to defining and raising awareness of best practices to help ensure a secure cloud computing environment.
 UPES-CSA is the first domain specific student chapter. Here, we build our own legacy rather than following someone else's, 
 So, let's start a secure era with CSA!
 
 Founded in 2017 and specialties in Cloud and Security.
 
-TechStack: React, MongoDB, Anguler,MergeStack.
+TechStack: React, MongoDB, Angular,MergeStack.
 
 ## Getting Started
 
