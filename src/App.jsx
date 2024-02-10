@@ -13,6 +13,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 import Contact from "./components/Contact/Contact";
 import Navbar from "./components/Navbar/Navbar";
+import ValorantPage from "./pages/EventsPage/ValorantPage/ValorantPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         />
         <Route path="/team/*" element={<CommitteePageIndividual />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/valorant" element={<ValorantPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/evortal" element={<Evortal />} />
         <Route path="*" element={<PageNotFound />} />
