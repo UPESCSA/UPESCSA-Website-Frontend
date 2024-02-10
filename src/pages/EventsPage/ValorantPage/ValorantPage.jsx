@@ -15,7 +15,6 @@ const evortalEventText = [styles.evortalEventText].join("");
 const evortalEventDetails = [styles.evortalEventDetails].join("");
 const evortalEventDetailsDiv = [styles.evortalEventDetailsDiv].join("");
 const evortalEventDetail = [styles.evortalEventDetail].join("");
-const evortalEventRegisterButton = [styles.evortalEventRegisterButton].join("");
 const formDiv = [styles.formDiv].join("");
 const formContainer = [styles.formContainer].join(""); // New CSS class for the container
 
