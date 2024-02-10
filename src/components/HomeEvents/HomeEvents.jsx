@@ -1,11 +1,15 @@
+import { useState, useEffect } from "react";
 import styles from "./HomeEvents.module.css";
+
+import useFetch from "../../hooks/useFetch";
 
 import SectionHeading from "../SectionHeading/SectionHeading";
 import ShowMore from "../ShowMore/ShowMore";
-import { useState, useEffect } from "react";
+import Loading from "../Loading/Loading";
+import EventImg from "../EventImg/EventImg";
 
 // CSS STYLES
-const { homeEventsContainer, homeEventGrid, homeEventImage } = styles;
+const { homeEventsContainer, homeEventGrid } = styles;
 
 const HomeEvents = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -20,59 +24,17 @@ const HomeEvents = () => {
     };
   }, []);
 
-  // EVENTS DATA
-  const eventsData = [
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 1",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 1",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 2",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 2",
-      spany: "span 2",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 1",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 1",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 2",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 1",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 2",
-      spany: "span 1",
-    },
-    {
-      img: "/img/blogs/placeholder.png",
-      spanx: "span 1",
-      spany: "span 1",
-    },
-  ];
+  const { data, error, loading } = useFetch({
+    url: "http://localhost:3000/api/previousevent/?home=true",
+  });
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <h6>Something went wrong...</h6>;
+  }
 
   return (
     <div className={homeEventsContainer} id="events">
@@ -82,25 +44,11 @@ const HomeEvents = () => {
         textColor="var(--textDark)"
       />
       <div className={homeEventGrid}>
-        {eventsData.map((event, index) =>
+        {data.map((event, index) =>
           screenWidth > 1000 ? (
-            <div
-              key={index}
-              className={homeEventImage}
-              style={{ gridColumn: event.spanx, gridRow: event.spany }}
-            >
-              <img src={event.img} alt="event" />
-            </div>
+            <EventImg key={index} imageURL={event.imageURL} />
           ) : (
-            index < 4 && (
-              <div
-                key={index}
-                className={homeEventImage}
-                style={{ gridColumn: "span 1", gridRow: "span 1" }}
-              >
-                <img src={event.img} alt="event" />
-              </div>
-            )
+            index < 4 && <EventImg key={index} imageURL={event.imageURL} />
           )
         )}
       </div>

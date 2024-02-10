@@ -1,15 +1,28 @@
+.managementPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-inline: 5dvw;
+  margin-bottom: 10rem;
+}
+
+.managementPageContainer h2 {
+  margin-block: 5rem -2rem;
+}
+
+.managementDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .teamPageContainer {
   height: 100%;
   width: 100%;
   overflow: hidden;
   background-color: var(--bgLight);
   color: var(--textDark);
-}
-
-.teamPageDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 10rem;
 }

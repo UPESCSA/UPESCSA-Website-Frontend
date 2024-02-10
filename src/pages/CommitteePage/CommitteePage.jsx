@@ -4,10 +4,11 @@ import styles from "./CommitteePage.module.css";
 import useFetch from "../../hooks/useFetch";
 
 import ImageText from "../../components/ImageText/ImageText";
+import PageHeading from "../../components/PageHeading/PageHeading";
 import Loading from "../../components/Loading/Loading";
 
 // CSS STYLES
-const { committeePageContainer } = styles;
+const { committeePageContainer, teamPageContainer } = styles;
 
 const CommitteePage = () => {
   useEffect(() => {
@@ -29,18 +30,21 @@ const CommitteePage = () => {
   }
 
   return (
-    <div className={committeePageContainer}>
-      {data.map((committee) => (
-        <ImageText
-          key={committee._id}
-          title={committee.committeeName}
-          titleAlign="center"
-          link={committee.committeePageURL}
-          externalLink={false}
-          mainImg={committee.committeeImageURL}
-          textColor={"var(--textDark)"}
-        />
-      ))}
+    <div className={teamPageContainer}>
+      <PageHeading imgURL="/img/pageheaders/team.png" text="Committees" />
+      <div className={committeePageContainer}>
+        {data.map((committee) => (
+          <ImageText
+            key={committee._id}
+            title={committee.committeeName}
+            titleAlign="center"
+            link={committee.committeePageURL}
+            externalLink={false}
+            mainImg={"/logo/upescsa_nobg_low.png"}
+            textColor={"var(--textDark)"}
+          />
+        ))}
+      </div>
     </div>
   );
 };

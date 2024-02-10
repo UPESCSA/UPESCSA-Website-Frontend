@@ -1,48 +1,24 @@
 import Proptypes from "prop-types";
-import { useState, useEffect } from "react";
 import styles from "./EventGrid.module.css";
 
+import Loading from "../../components/Loading/Loading";
+import EventImg from "../../components/EventImg/EventImg";
+
 // CSS STYLES
-const { eventGrid, eventImage } = styles;
+const { eventGrid } = styles;
 
-const EventGrid = ({ data, year }) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  if (year) {
-    // FETCH THAT YEAR'S EVENT DATA & SET IT TO data
+const EventGrid = ({ data, loading, error }) => {
+  if (loading) {
+    return <Loading />;
   }
-
+  if (error) {
+    return <h6>Something went wrong...</h6>;
+  }
   return (
     <div className={eventGrid}>
-      {data.map((event, index) =>
-        screenWidth > 1000 ? (
-          <div
-            key={index}
-            className={eventImage}
-            style={{ gridColumn: event.spanx, gridRow: event.spany }}
-          >
-            <img src={event.imageURL} alt="event" />
-          </div>
-        ) : (
-          <div
-            key={index}
-            className={eventImage}
-            style={{ gridColumn: "span 1", gridRow: "span 1" }}
-          >
-            <img src={event.imageURL} alt="event" />
-          </div>
-        )
-      )}
+      {data.map((event, index) => (
+        <EventImg key={index} imageURL={event.imageURL} />
+      ))}
     </div>
   );
 };
@@ -55,7 +31,8 @@ EventGrid.propTypes = {
       spany: Proptypes.string,
     })
   ),
-  year: Proptypes.number,
+  loading: Proptypes.bool,
+  error: Proptypes.bool,
 };
 
 export default EventGrid;

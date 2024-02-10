@@ -63,7 +63,11 @@ const HomePage = () => {
       <About />
       <Suspense fallback={<Loading />}>
         <HomeEvents />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
         <Alliance />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
         <HomeBlogs />
       </Suspense>
     </div>

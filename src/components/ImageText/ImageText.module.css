@@ -6,6 +6,7 @@
   margin: 5rem 2rem 0 2rem;
   height: 100%;
   width: max(250px, 10dvw);
+  min-width: 250px;
 }
 
 .imageLink {

@@ -22,9 +22,11 @@ const useFetch = ({ url }) => {
   };
 
   useEffect(() => {
+    setLoading(true);
+    setError(false);
     fetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [url]);
 
   return { data, error, loading, refetchData: fetch };
 };

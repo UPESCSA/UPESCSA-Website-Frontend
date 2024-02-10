@@ -5,7 +5,6 @@ import useFetch from "../../hooks/useFetch";
 
 import PageHeading from "../../components/PageHeading/PageHeading";
 import EventGrid from "../../components/EventGrid/EventGrid";
-import Loading from "../../components/Loading/Loading";
 
 // CSS STYLES
 const { csrContainer, csrHeader } = styles;
@@ -19,22 +18,12 @@ const CsrPage = () => {
     url: `http://localhost:3000/api/csr/`,
   });
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  // REPLACE WITH ERROR COMPONENT
-
-  if (error) {
-    return <h6>Something went wrong...</h6>;
-  }
-
   return (
     <div className={csrContainer}>
       <div className={csrHeader}>
         <PageHeading imgURL="/img/pageheaders/csr.png" text="CSR" />
       </div>
-      <EventGrid data={data} />
+      <EventGrid data={data} loading={loading} error={error} />
     </div>
   );
 };

@@ -4,4 +4,13 @@
   align-items: center;
   flex-wrap: wrap;
   margin-inline: 20dvw;
+  margin-bottom: 5rem;
+}
+
+.teamPageContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bgLight);
+  color: var(--textDark);
 }

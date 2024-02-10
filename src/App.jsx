@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/HomePage";
 import CsrPage from "./pages/CsrPage/CsrPage";
-import TeamPage from "./pages/TeamPage/TeamPage";
 import CommitteePageIndividual from "./pages/CommitteePageIndividual/CommitteePageIndividual";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import BlogsPage from "./pages/BlogsPage/BlogsPage";
@@ -13,6 +12,8 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 import Contact from "./components/Contact/Contact";
 import Navbar from "./components/Navbar/Navbar";
+import ManagementPage from "./pages/TeamPage/TeamPage";
+import CommitteePage from "./pages/CommitteePage/CommitteePage";
 import ValorantPage from "./pages/EventsPage/ValorantPage/ValorantPage";
 
 function App() {
@@ -22,12 +23,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/csr" element={<CsrPage />} />
-        <Route path="/team" element={<TeamPage activeTab={"team"} />} />
-        <Route
-          path="/committee"
-          element={<TeamPage activeTab={"committee"} />}
-        />
-        <Route path="/team/*" element={<CommitteePageIndividual />} />
+        <Route path="/team" element={<ManagementPage />} />
+        <Route path="/committees" element={<CommitteePage />} />
+        <Route path="/committees/*" element={<CommitteePageIndividual />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/valorant" element={<ValorantPage />} />
         <Route path="/blogs" element={<BlogsPage />} />

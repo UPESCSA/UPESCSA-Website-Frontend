@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "./EventsPage.module.css";
 
+import useFetch from "../../hooks/useFetch";
+
 import PageHeading from "../../components/PageHeading/PageHeading";
 import EventYearSwitch from "../../components/EventYearSwitch/EventYearSwitch";
 import EventGrid from "../../components/EventGrid/EventGrid";
@@ -10,72 +12,29 @@ const { eventsPageContainer, eventsPageDiv } = styles;
 
 // EVENTS DATA
 
-// MOVE THIS DATA PART DIRECTLY TO THE CHILD COMPONENT
-
-const eventsData = [
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 1",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 1",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 2",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 2",
-    spany: "span 2",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 1",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 1",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 2",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 1",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 2",
-    spany: "span 1",
-  },
-  {
-    img: "/img/blogs/placeholder.png",
-    spanx: "span 1",
-    spany: "span 1",
-  },
-];
-
 const EventsPage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   const [activeYear, setActiveYear] = useState(2024);
+  const [url, setUrl] = useState(
+    `http://localhost:3000/api/previousevent/?year=${activeYear}`
+  );
+
   const yearData = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
 
   const changeYear = (year) => {
     setActiveYear(year);
   };
+
+  useEffect(() => {
+    setUrl(`http://localhost:3000/api/previousevent/?year=${activeYear}`);
+  }, [activeYear]);
+
+  const { data, error, loading } = useFetch({
+    url,
+  });
 
   return (
     <div className={eventsPageContainer}>
@@ -86,7 +45,7 @@ const EventsPage = () => {
           activeYear={activeYear}
           changeYear={changeYear}
         />
-        <EventGrid data={eventsData} year={activeYear} />
+        <EventGrid data={data} loading={loading} error={error} />
       </div>
     </div>
   );

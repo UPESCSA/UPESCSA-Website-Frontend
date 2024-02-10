@@ -28,18 +28,3 @@
     gap: 2rem;
   }
 }
-
-.homeEventImage {
-  width: 100%;
-  overflow: hidden;
-}
-
-.homeEventImage img {
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-    transition: transform 0.25s ease-in-out;
-  }
-}
