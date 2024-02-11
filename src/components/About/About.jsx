@@ -10,7 +10,7 @@ const About = () => {
   // STATS DATA
   const statsData = [
     {
-      number: "7+",
+      number: 7,
       text: (
         <p>
           Years of <br /> Excellence
@@ -18,7 +18,7 @@ const About = () => {
       ),
     },
     {
-      number: "550+",
+      number: 550,
       text: (
         <p>
           Successful <br /> Alumni
@@ -26,7 +26,7 @@ const About = () => {
       ),
     },
     {
-      number: "120+",
+      number: 120,
       text: (
         <p>
           Engaging <br /> Events
@@ -34,7 +34,7 @@ const About = () => {
       ),
     },
     {
-      number: "5+",
+      number: 5,
       text: (
         <p>
           Industry <br /> Collaborations
