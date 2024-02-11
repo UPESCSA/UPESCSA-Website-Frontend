@@ -1,14 +1,29 @@
 .mainDiv {
-  margin-top: 100px;
   display: flex;
-  margin-left: 100px;
-  margin-right: 100px;
+  padding: 100px;
+}
+
+body{
+  background: #000;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .heading {
   font-size: min(2.5rem, 8dvw);
   color: var(--text);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
   width: 100%;
   text-align: left;
 }
@@ -38,6 +53,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2.5rem;
+  min-width: 40vw;
   flex-direction: column;
   background-color: white;
   padding-inline: 72px;
@@ -60,8 +77,17 @@
 }
 
 .subtitle {
+  margin-top: 0px;
   font-size: 14px;
   color: black;
+}
+
+.divider{
+  height: 2px;
+  margin-bottom: 2rem;
+  width: 80%;
+  display: block;
+  background-color: #000000;
 }
 
 .backButton {
@@ -76,15 +102,16 @@
 }
 
 .evortalEventsContainer {
-  display: block;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 2rem 10dvw;
+  padding: 4rem 10dvw;
   color: var(--textDark);
 }
 
 .evortalEventImage img {
+  margin: auto;
   width: max(20dvw, 350px);
   height: max(20dvw, 350px);
 }
@@ -161,7 +188,30 @@
   align-items: center;
 }
 
+.button {
+  background-color: black;
+  color: white;
+  margin-top: 1rem;
+  border: none;
+  justify-content: center;
+  width: 15rem;
+  border-radius: 0;
+  padding: 10px 20px;
+  display: flex;
+  margin-inline: auto;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 1000px) {
+  .mainDiv{
+    flex-direction: column;
+  }
+
   .evortalEventsContainer {
     flex-direction: column;
     gap: 0.5rem;
@@ -194,7 +244,7 @@
 
   .evortalEventDetailsDiv {
     align-items: center;
-    justify-content: flex-start;
+    width: max(30dvw, 350px);
     gap: 0.5rem;
   }
 

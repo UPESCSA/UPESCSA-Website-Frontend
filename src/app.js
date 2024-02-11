@@ -12,6 +12,21 @@ import Contact from "./components/Contact/Contact";
 import Navbar from "./components/Navbar/Navbar";
 import ValorantPage from "./pages/EventsPage/ValorantPage/ValorantPage";
 function App() {
+  const fs = require('fs');
+
+  const folderPath = '/icons';
+
+  fs.readdir(folderPath, (err, files) => {
+    if (err) {
+      console.error('Error reading directory:', err);
+      return;
+    }
+
+    console.log('Files in the directory:');
+    files.forEach(file => {
+      console.log(file);
+    });
+  });
   return /*#__PURE__*/React.createElement("div", {
     className: "mainDiv"
   }, /*#__PURE__*/React.createElement(Navbar, null), /*#__PURE__*/React.createElement(Routes, null, /*#__PURE__*/React.createElement(Route, {

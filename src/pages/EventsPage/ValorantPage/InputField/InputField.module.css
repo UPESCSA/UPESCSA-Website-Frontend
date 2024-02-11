@@ -3,18 +3,21 @@
 }
 
 .formInput {
-  background-color: lightgrey;
+  background-color: #ddd;
   padding: 0.5rem;
   border: none;
+  min-width: 24rem;
   font-size: 1rem;
   width: max(30dvw, 16rem);
-  color: #636363;
+  color: #4a4a4a;
   font-weight: 600;
   transition: 0.1s ease-out;
   outline: none;
-  margin-bottom: 1.25rem;
+  margin-block: 1.25rem;
   border-radius: 0;
 }
+
+
 
 .formInput:focus {
   outline: none;
@@ -23,10 +26,8 @@
 
 .label {
   position: absolute;
-  font-size: 1rem;
-  left: 0;
-  bottom: -1.25rem;
-  top: 50%;
+  font-size: 1.2rem;
+  left: -0.5rem;
   transform: translateY(-50%);
   background-color: transparent;
   color: #424242;

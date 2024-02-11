@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./ValorantPage.module.css";
 import InputField from "./InputField/InputField";
-import SubmitButton from "./Button/Button";
 
 const mainDiv = [styles.mainDiv].join("");
 const subtitle = [styles.subtitle].join("");
@@ -12,6 +11,7 @@ const evortalEventImage = [styles.evortalEventImage].join("");
 const evortalEventDescripton = [styles.evortalEventDescripton].join("");
 const evortalEventHeading = [styles.evortalEventHeading].join("");
 const evortalEventText = [styles.evortalEventText].join("");
+const button = [styles.button].join("");
 const evortalEventDetails = [styles.evortalEventDetails].join("");
 const evortalEventDetailsDiv = [styles.evortalEventDetailsDiv].join("");
 const evortalEventDetail = [styles.evortalEventDetail].join("");
@@ -70,77 +70,80 @@ const ValorantPage = () => {
       </div>
       <div className={evortalEventDetailsDiv}>
         <div className={evortalEventDetail}>{eventDetails.eventMode}</div>
-        <div className={evortalEventDetail}>
-          <img
-            src="/icons/teamSize.png"
-            alt=""
-            style={{ marginTop: "-0.25rem" }}
-          />
-          <p>{eventDetails.eventTeamSize}</p>
+          <div className={evortalEventDetail}>
+            <img
+              src="/icons/teamSize.png"
+              alt=""
+              style={{ marginTop: "-0.25rem" }}
+            />
+            <p>{eventDetails.eventTeamSize}</p>
+          </div>
+          <div className={evortalEventDetail}>
+            <img src="/icons/date.png" alt="" />
+            <p>{eventDetails.eventDate}</p>
+          </div>
         </div>
-        <div className={evortalEventDetail}>
-          <img src="/icons/date.png" alt="" />
-          <p>{eventDetails.eventDate}</p>
+        <div className={evortalEventDescripton}>
+          <h4 className={evortalEventHeading}>{eventDetails.eventHeading}</h4>
+          <p className={evortalEventText}>{eventDetails.eventText}</p>
+          <div className={evortalEventDetails}>
+          </div>
         </div>
       </div>
-      <div className={evortalEventDescripton}>
-        <h4 className={evortalEventHeading}>{eventDetails.eventHeading}</h4>
-        <p className={evortalEventText}>{eventDetails.eventText}</p>
-        <div className={evortalEventDetails}>
+      <div>
+        <div className={formContainer}>
+          <h2 className={heading}>{eventDetails.eventHeading}</h2>
+          <p className={subtitle}>Registration Form</p> 
+          <div className={styles.divider}></div>
+          <form className={formDiv} onSubmit={submitForm}>
+            <InputField
+              id="name"
+              type="text"
+              placeholder="Name"
+              inputLabel="Name"
+              value={name}
+              valueUpdater={updateName}
+              required={true}
+            />
+            <InputField
+              id="email"
+              type="email"
+              placeholder="Email"
+              inputLabel="Email"
+              value={email}
+              valueUpdater={updateEmail}
+              required={true}
+            />
+            <InputField
+              id="sapId"
+              type="text"
+              placeholder="Sap ID"
+              inputLabel="Sap ID"
+              value={sapId}
+              valueUpdater={updateSapId}
+              required={true}
+            />
+            <InputField
+              id="course"
+              type="text"
+              placeholder="Course"
+              inputLabel="Course"
+              value={course}
+              valueUpdater={updateCourse}
+              required={true}
+            />
+            <InputField
+              id="yearOfStudy"
+              type="text"
+              placeholder="Year of Study"
+              inputLabel="Year of Study"
+              value={yearOfStudy}
+              valueUpdater={updateYearOfStudy}
+              required={true}
+            />
+            <button className={button}>Submit</button>
+          </form>
         </div>
-      </div>
-    </div>
-      <div className={formContainer}>
-        <h2 className={heading}>{eventDetails.eventHeading}</h2>
-        <p className={subtitle}>Registration Form</p> 
-        <form className={formDiv} onSubmit={submitForm}>
-          <InputField
-            id="name"
-            type="text"
-            placeholder=""
-            inputLabel="Name"
-            value={name}
-            valueUpdater={updateName}
-            required={true}
-          />
-          <InputField
-            id="email"
-            type="email"
-            placeholder=""
-            inputLabel="Email"
-            value={email}
-            valueUpdater={updateEmail}
-            required={true}
-          />
-          <InputField
-            id="sapId"
-            type="text"
-            placeholder=""
-            inputLabel="Sap ID"
-            value={sapId}
-            valueUpdater={updateSapId}
-            required={true}
-          />
-          <InputField
-            id="course"
-            type="text"
-            placeholder=""
-            inputLabel="Course"
-            value={course}
-            valueUpdater={updateCourse}
-            required={true}
-          />
-          <InputField
-            id="yearOfStudy"
-            type="text"
-            placeholder=""
-            inputLabel="Year of Study"
-            value={yearOfStudy}
-            valueUpdater={updateYearOfStudy}
-            required={true}
-          />
-          <SubmitButton/>
-        </form>
       </div>
     </div>
   );
