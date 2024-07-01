@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,31 +52,65 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/HIRING POST.jpg"
-          eventHeading="Registration Drive"
+          eventPosterURL="/img/events/live/Stack Up.jpg"
+          eventHeading="Stack Up! - Accelerate Your Dev Journey"
           eventText={
             <>
-              Join UPES-CSA for 2024-2025!
-              <br />
-              Unlock exclusive opportunities with the pioneering Cloud Security
-              Alliance student chapter in Uttarakhand.
-              <br />
-              <br />
               <p>
-                - Funded Courses: AWS User Group Mumbai, Code Warriors, Newton
-                School
+                This comprehensive workshop series will guide you from initial
+                concept to deployment, offering hands-on experience and insights
+                from industry experts.
               </p>
-              <p>- $200 AWS Vouchers</p>
-              <p>- Internships: Whizlabs, Hackershala</p>
-              <p>- Events: Cloud4Career, Entropedia, Hackathon 3.0, and more</p>
-              <p>- Community Connections</p>
+              Event Details:
+              <p>🗓️ Date: 6-7th, 13-14th July</p>
+              <p>⏰ Duration: Four days</p>
+              <p>📍 Location: Virtual</p>
               <br />
-              Don't miss out on growth, learning, and professional development.
-              Join UPES-CSA today!
+              Workshop Schedule:
+              <br />
+              <p>🌟 Day 1 – Interface Imagination: UI/UX:</p>
+              <p>- Introduction to design concepts/principles</p>
+              <p>- Basics of Figma: Interface, Navigation, and Basic Tools</p>
+              <p>- Designing wireframes to plan the webpage structure</p>
+              <br />
+              <p>🌟 Day 2 - MERN Magict:</p>
+              <p>- Introduction and use cases of MERN</p>
+              <p>- Setup: Node.js, npm, MongoDB, and code editor </p>
+              <p>
+                - Node.js and Express.js: create a web server and understand
+                routes/middleware{" "}
+              </p>
+              <p>- Building CRUD API and backend components</p>
+              <br />
+              <p>🌟 Day 3 - Backend Brilliance: </p>
+              <p>
+                - Creating and integrating API with database using Mongoose
+                (ORM)
+              </p>
+              <p>- Performing CRUD operations </p>
+              <p>
+                - Authentication and Authorization: JWT, route protection with
+                middleware
+              </p>
+              <p>- Testing API with Postman </p>
+              <br />
+              <p>🌟 Day 4 – React Realization: </p>
+              <p>
+                - Introduction and setup, creating components and complete UI
+              </p>
+              <p>- Connecting with backend </p>
+              <p>- Deployment on platforms like AWS, Netlify, Vercel, etc.</p>
+              <br />
+              <p>Join us for the Stack Up!</p>
+              and embark on a transformative journey to unleash your full stack
+              potential. Whether you're a beginner or looking to enhance your
+              skills, this workshop series promises to equip you with the
+              expertise needed to excel in web development.
             </>
           }
-          eventFormURL="https://forms.gle/mctt7HtoEMkTZfmZ8"
+          eventFormURL="https://forms.gle/g2AA4BVnV87YcrNe6"
           closePopup={togglePopup}
+          buttonText="Register Now!"
         />
       )}
       <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />
