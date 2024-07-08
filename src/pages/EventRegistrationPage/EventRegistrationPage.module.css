@@ -80,6 +80,10 @@
   height: auto;
 }
 
+.eventImage {
+  color: #ffff;
+}
+
 .eventDescripton {
   display: flex;
   flex-direction: column;
@@ -164,6 +168,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding-top: 1rem;
   width: 100%;
 }
 
@@ -174,7 +179,7 @@
   justify-content: center;
   gap: 1rem;
   width: 100%;
-  margin-top: -1rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -208,7 +213,7 @@
     height: max(30dvw, 350px);
     width: max(30dvw, 350px);
     padding-left: 1rem;
-    display: none;
+    /* display: none; */
   }
 
   .eventHeading {

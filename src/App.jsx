@@ -26,6 +26,8 @@ import RegistrationSuccess from "./pages/RegistrationSuccess/RegistrationSuccess
 import ProblemStatementPage from "./pages/Hackathon/ProblemStatementPage/ProblemStatementPage";
 import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboard/ProblemStatementDashboard";
 
+import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
+
 function App() {
   return (
     <div className="mainDiv">
@@ -132,6 +134,18 @@ function App() {
         />
 
         {/* EVENT ROUTES */}
+
+        {/* <Route
+          path="/Registration"
+          element={
+            <>
+              <Navbar />
+              <EventRegistrationForm />
+              <Contact />
+            </>
+          }
+        /> */}
+
         {/* <Route
           path="/evortal/hackersummit"
           element={<>      <Navbar /><HackerSummitRegistrationPage /></>}
