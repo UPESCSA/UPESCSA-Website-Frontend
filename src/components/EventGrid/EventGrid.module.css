@@ -3,8 +3,8 @@
   grid-template-columns: repeat(4, 15dvw);
   grid-auto-rows: 15dvw;
   grid-auto-columns: 15dvw;
-  gap: 1rem;
-  margin: 10rem 0;
+  gap: 4rem;
+  margin: 5rem 0;
 }
 
 @media screen and (max-width: 1000px) {
@@ -12,7 +12,7 @@
     grid-template-columns: repeat(1, max(40dvw, 300px));
     grid-auto-rows: max(40dvw, 300px);
     grid-auto-columns: max(40dvw, 300px);
-    gap: 2rem;
+    gap: 4rem;
   }
 }
 
@@ -25,6 +25,7 @@
   height: 100%;
   width: 100%;
   transition: all 0.25s ease-in-out;
+
   &:hover {
     transform: scale(1.1);
     transition: transform 0.25s ease-in-out;
