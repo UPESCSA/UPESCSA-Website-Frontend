@@ -33,19 +33,22 @@ const HomeBlogs = () => {
         textColor="var(--textDark)"
       />
       <div className={blogsDiv}>
-        {data.slice(0, 4).map((data) => (
-          <ImageText
-            key={data._id}
-            title={data.blogTitle}
-            titleAlign="left"
-            subTitle={data.blogAuthor}
-            subTitleAlign="left"
-            link={data.blogURL}
-            mainImg={data.blogImageURL}
-            externalLink={true}
-            textColor="var(--textDark)"
-          />
-        ))}
+        {data
+          .slice(-6)
+          .reverse()
+          .map((data) => (
+            <ImageText
+              key={data._id}
+              title={data.blogTitle}
+              titleAlign="left"
+              subTitle={data.blogAuthor}
+              subTitleAlign="left"
+              link={data.blogURL}
+              mainImg={data.blogImageURL}
+              externalLink={true}
+              textColor="var(--textDark)"
+            />
+          ))}
       </div>
       <ShowMore link="/blogs" />
     </div>
