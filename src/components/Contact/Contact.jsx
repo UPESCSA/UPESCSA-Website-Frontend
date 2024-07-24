@@ -48,7 +48,7 @@ const Contact = () => {
               alt="phone"
             />
             <p className={contactFieldInfo}>
-              +91 72890 10301 <br /> +91 62393 21512
+              +91 89586 11888 <br /> +91 88280 44674
             </p>
           </div>
           <div className={contactField}>

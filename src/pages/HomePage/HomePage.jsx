@@ -108,7 +108,7 @@ const HomePage = () => {
               expertise needed to excel in web development.
             </>
           }
-          eventFormURL="/Registration"
+          eventFormURL="/memoir3.0"
           closePopup={togglePopup}
           buttonText="Register Now!"
         />

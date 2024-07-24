@@ -27,11 +27,22 @@ import ProblemStatementPage from "./pages/Hackathon/ProblemStatementPage/Problem
 import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboard/ProblemStatementDashboard";
 
 import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
+import AluminiPage from "./pages/AluminiPage/AluminiPage";
 
 function App() {
   return (
     <div className="mainDiv">
       <Routes>
+        {/* <Route
+          path="/alumini"
+          element={
+            <>
+              <Navbar />
+              <AluminiPage />
+              <Contact />
+            </>
+          }
+        /> */}
         <Route
           path="/"
           element={
@@ -135,7 +146,7 @@ function App() {
 
         {/* EVENT ROUTES */}
 
-        <Route
+        {/* <Route
           path="/memoir3.0"
           element={
             <>
@@ -144,7 +155,7 @@ function App() {
               <Contact />
             </>
           }
-        />
+        /> */}
 
         {/* <Route
           path="/evortal/hackersummit"
