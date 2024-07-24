@@ -135,8 +135,8 @@ function App() {
 
         {/* EVENT ROUTES */}
 
-        {/* <Route
-          path="/Registration"
+        <Route
+          path="/memoir3.0"
           element={
             <>
               <Navbar />
@@ -144,7 +144,7 @@ function App() {
               <Contact />
             </>
           }
-        /> */}
+        />
 
         {/* <Route
           path="/evortal/hackersummit"

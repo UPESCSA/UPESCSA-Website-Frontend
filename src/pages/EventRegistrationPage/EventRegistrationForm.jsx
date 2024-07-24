@@ -48,20 +48,17 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventRegistrationURL: `${
-      import.meta.env.VITE_SERVER_URL
-    }/api/event/register/ultimateshowdown`,
     eventImageURL: "",
-    eventHeading: "Event Name",
+    eventHeading: "Memoir 3.0",
     eventText: "Event Description",
     eventMode: "Mode",
-    eventTeamSize: "TeamSize",
-    eventRegistrationFee: "Fee",
+    eventTeamSize: "1",
+    eventRegistrationFee: "free",
     eventDate: "Date",
-    IsFree: false,
+    IsFree: true,
     whatsGroup: "KOs5eU309ktJzLEhSvkSLD",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/17LnV0dabUVwKOj50JXCnfIrU8ZRBO1qJG571X7okqqo/edit?usp=sharing",
+      "https://docs.google.com/spreadsheets/d/1DYhHmnXVXb2XcJFN37h_hY6lsOhELpKtsVsJPPM2rDU/edit?usp=sharing",
     FolderId: "1PvGxPe2Abql66J4Hpmt6_ak4eD5IHbp0",
   };
 
@@ -79,6 +76,7 @@ const EventRegistrationForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [WhatsApp, setWhatsApp] = useState("");
   const [course, setCourse] = useState("");
   const [yearOfStudy, setYearOfStudy] = useState("");
   const [sapID, setSapID] = useState("");
@@ -118,6 +116,9 @@ const EventRegistrationForm = () => {
   const updatePhone = (e) => {
     setPhone(e.target.value);
   };
+  const updateWhatsApp = (e) => {
+    setWhatsApp(e.target.value);
+  };
   const updateCourse = (e) => {
     setCourse(e.target.value);
   };
@@ -145,6 +146,7 @@ const EventRegistrationForm = () => {
   const [isNameValid, setIsNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
+  const [isWhatsAppValid, setIsWhatsAppValid] = useState(true);
   const [isCourseValid, setIsCourseValid] = useState(true);
   const [isYearOfStudyValid, setIsYearOfStudyValid] = useState(true);
   const [isSapIDValid, setIsSapIDValid] = useState(true);
@@ -157,6 +159,7 @@ const EventRegistrationForm = () => {
     const NameValid = VALIDATENAME(name, setIsNameValid);
     const EmailValid = VALIDATEEMAIL(email, setIsEmailValid);
     const PhoneValid = VALIDATEPHONE(phone, setIsPhoneValid);
+    const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid);
     const CourseValid = VALIDATECOURSE(course, setIsCourseValid);
     const YearOfStudyValid = VALIDATEYEAROFSTUDY(
       yearOfStudy,
@@ -170,9 +173,10 @@ const EventRegistrationForm = () => {
       EmailValid &&
       PhoneValid &&
       CourseValid &&
-      YearOfStudyValid &&
       SapIDValid &&
-      CSAMemberValid
+      WhatsAppValid
+      //&& YearOfStudyValid
+      //&& CSAMemberValid
     ) {
       if (csaMember === "yes") {
         return VALIDATECSAID(csaID, setIsCSAIDValid);
@@ -192,7 +196,6 @@ const EventRegistrationForm = () => {
 
   const submitFormFinal = async (e) => {
     e.preventDefault();
-
     // VALIDATION
     if (validate()) {
       setLoading(true);
@@ -201,6 +204,7 @@ const EventRegistrationForm = () => {
         email,
         phone,
         course,
+        WhatsApp,
         yearOfStudy,
         sapID,
         csaMember,
@@ -223,7 +227,7 @@ const EventRegistrationForm = () => {
       // console.log(finalData);
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbyjdxHgpTHEGDjoCsXSzTUttYhqz6TrvNviv_U6vsQB-rasPf9j6fxVt9WJv1eIXCo-/exec",
+          "https://script.google.com/macros/s/AKfycbzotgtmJL3cSPjw-K1uBiXrx6JYmluiydw7sSCmZqk_jlhLrxj5DU3WfWsWfabVBnlO/exec",
           {
             method: "POST",
             body: finalData,
@@ -332,6 +336,17 @@ const EventRegistrationForm = () => {
                   <span className={errorMessage}>Invalid Phone</span>
                 )}
                 <InputField
+                  id="participantPhone"
+                  type="text"
+                  inputLabel="WhatsApp Number"
+                  value={WhatsApp}
+                  valueUpdater={updateWhatsApp}
+                  required={true}
+                />
+                {!isWhatsAppValid && (
+                  <span className={errorMessage}>Invalid WhatsApp Number</span>
+                )}
+                <InputField
                   id="participantSapID"
                   type="text"
                   inputLabel="SAP ID"
@@ -342,7 +357,7 @@ const EventRegistrationForm = () => {
                 {!isSapIDValid && (
                   <span className={errorMessage}>Invalid SAP ID</span>
                 )}
-                <DropDownSelectField
+                {/* <DropDownSelectField
                   id="participantCSAMember"
                   value={csaMember}
                   valueUpdater={updateCSAMember}
@@ -353,8 +368,8 @@ const EventRegistrationForm = () => {
                 />
                 {!isCSAMemberValid && (
                   <span className={errorMessage}>Invalid Option</span>
-                )}
-                {csaMember === "yes" && (
+                )} */}
+                {/* {csaMember === "yes" && (
                   <InputField
                     id="participantCSAID"
                     type="text"
@@ -363,7 +378,7 @@ const EventRegistrationForm = () => {
                     valueUpdater={updateCSAID}
                     required={csaMember === "yes"}
                   />
-                )}
+                )} */}
                 {!isCSAIDValid && (
                   <span className={errorMessage}>Invalid CSA ID</span>
                 )}
@@ -378,7 +393,7 @@ const EventRegistrationForm = () => {
                 {!isCourseValid && (
                   <span className={errorMessage}>Invalid Course</span>
                 )}
-                <InputField
+                {/* <InputField
                   id="participantYearOfStudy"
                   type="text"
                   inputLabel="Year of Study"
@@ -388,7 +403,7 @@ const EventRegistrationForm = () => {
                 />
                 {!isYearOfStudyValid && (
                   <span className={errorMessage}>Invalid Year of Study</span>
-                )}
+                )} */}
               </div>
 
               {/* USER SECTION END */}

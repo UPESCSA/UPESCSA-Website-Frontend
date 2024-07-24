@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -53,7 +53,7 @@ const HomePage = () => {
       {popupOpen && (
         <Popup
           eventPosterURL="/img/events/live/Stack Up.jpg"
-          eventHeading="Stack Up! - Accelerate Your Dev Journey"
+          eventHeading="Memoir 3.0"
           eventText={
             <>
               <p>
@@ -108,7 +108,7 @@ const HomePage = () => {
               expertise needed to excel in web development.
             </>
           }
-          eventFormURL="https://forms.gle/g2AA4BVnV87YcrNe6"
+          eventFormURL="/Registration"
           closePopup={togglePopup}
           buttonText="Register Now!"
         />
