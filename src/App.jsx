@@ -14,7 +14,6 @@ import Contact from "./components/Contact/Contact";
 import Navbar from "./components/Navbar/Navbar";
 import ManagementPage from "./pages/TeamPage/TeamPage";
 import CommitteePage from "./pages/CommitteePage/CommitteePage";
-import FormTesting from "./pages/EventRegistrationPage/FormTesting";
 // import HackerSummitRegistrationPage from "./pages/EventRegistrationPage/HackerSummitRegistrationPage";
 import FrenzyPitchRegistrationPage from "./pages/EventRegistrationPage/FrenzyPitchRegistrationPage";
 import UltimateShowdownRegistrationPage from "./pages/EventRegistrationPage/UltimateShowDownRegistrationPage";
@@ -27,12 +26,9 @@ import RegistrationSuccess from "./pages/RegistrationSuccess/RegistrationSuccess
 import ProblemStatementPage from "./pages/Hackathon/ProblemStatementPage/ProblemStatementPage";
 import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboard/ProblemStatementDashboard";
 
-<<<<<<< Updated upstream
-=======
 import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
 import AlumniPage from "./pages/AlumniPage/AlumniPage";
 
->>>>>>> Stashed changes
 function App() {
   return (
     <div className="mainDiv">
@@ -107,16 +103,16 @@ function App() {
             </>
           }
         /> */}
-        <Route
+
+        {/* <Route
           path="/registrationSuccess"
           element={
             <>
-              {/* <Navbar /> */}
               <RegistrationSuccess />
-              {/* <Contact /> */}
             </>
           }
-        />
+        /> */}
+
         <Route
           path="/committees"
           element={
@@ -147,7 +143,7 @@ function App() {
             </>
           }
         />
-        <Route
+        {/* <Route
           path="/test1"
           element={
             <>
@@ -156,7 +152,7 @@ function App() {
               <Contact />
             </>
           }
-        />
+        /> */}
 
         {/* EVENT ROUTES */}
         {/* <Route
