@@ -50,6 +50,10 @@ const Navbar = () => {
       title: "Blogs",
       action: "/blogs",
     },
+    // {
+    //   title: "Alumni",
+    //   action: "/alumni",
+    // },
   ];
 
   // FUNCTIONS
