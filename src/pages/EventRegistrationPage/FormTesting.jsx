@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styles from "./EventRegistrationPage.module.css";
 import InputField from "../../components/InputField/InputField";
 import DropDownSelectField from "../../components/DropDownSelectField/DropDownSelectField";
@@ -38,7 +39,7 @@ const {
   paymentQRDiv,
 } = styles;
 
-const EventRegistrationForm = () => {
+const TestingEvent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,23 +49,30 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
+<<<<<<< Updated upstream:src/pages/EventRegistrationPage/FormTesting.jsx
     eventRegistrationURL: `${
       import.meta.env.VITE_SERVER_URL
     }/api/event/register/ultimateshowdown`,
-    eventImageURL: "",
-    eventHeading: "Event Name",
+    eventImageURL: "/img/events/live/Ultimate Showdown.jpg",
+    eventHeading: "The Ultimate ShowDown",
+    eventText:
+      'Engage in a physical and mental test through the "Floor is Lava" and "Stack It Challenge", designed to test your agility, precision, and strategy.',
+    eventMode: "Offline",
+=======
+    eventImageURL: "/img/events/live/Frenzy Pitch.jpg",
+    eventHeading: "Memoir 3.0",
     eventText: "Event Description",
     eventMode: "Mode",
-    eventTeamSize: "TeamSize",
-    eventRegistrationFee: "Fee",
-    eventDate: "Date",
-    IsFree: false,
+>>>>>>> Stashed changes:src/pages/EventRegistrationPage/EventRegistrationForm.jsx
+    eventTeamSize: "1",
+    eventRegistrationFee: "All-CSA: 20Rs | Non-CSA: 30Rs",
+    eventDate: "20 Mar",
+    IsFree: true,
     whatsGroup: "KOs5eU309ktJzLEhSvkSLD",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/17LnV0dabUVwKOj50JXCnfIrU8ZRBO1qJG571X7okqqo/edit?usp=sharing",
     FolderId: "1PvGxPe2Abql66J4Hpmt6_ak4eD5IHbp0",
   };
-
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
   // FORM STATES
 
@@ -83,7 +91,7 @@ const EventRegistrationForm = () => {
   const [yearOfStudy, setYearOfStudy] = useState("");
   const [sapID, setSapID] = useState("");
   const [csaMember, setCSAMember] = useState("");
-  const [csaID, setCSAID] = useState("");
+  const [csaID, setCSAID] = useState("not a csa member");
 
   // UPDATE FUNCTIONS
 
@@ -129,15 +137,9 @@ const EventRegistrationForm = () => {
   };
   const updateCSAMember = (e) => {
     setCSAMember(e.target.value);
-    if (e.target.value === "no") {
-      setCSAID("not a csa member");
-    } else if (e.target.value === "yes") {
-      setCSAID("");
-    }
   };
   const updateCSAID = (e) => {
-    let value = e.target.value;
-    setCSAID(value.toUpperCase());
+    setCSAID(e.target.value);
   };
 
   // VALIDATION STATES
@@ -194,6 +196,7 @@ const EventRegistrationForm = () => {
     e.preventDefault();
 
     // VALIDATION
+
     if (validate()) {
       setLoading(true);
       const data = {
@@ -216,7 +219,10 @@ const EventRegistrationForm = () => {
         finalData.append(key, data[key]);
       }
       if (!eventDetails.IsFree) {
-        finalData.append("fileName", `${name}_${phone}_${EventName}_PaymentSS`);
+        finalData.details.append(
+          "fileName",
+          `${name}_${phone}_${EventName}_PaymentSS`
+        );
         finalData.append("fileData", PaymentSS.fileData);
         finalData.append("fileType", PaymentSS.fileType);
       }
@@ -231,7 +237,7 @@ const EventRegistrationForm = () => {
         );
         const data = await response.json();
         // console.log(data);
-        if (data.status == "success") {
+        if (data.status == "sucess") {
           navigate("/registrationSuccess?wg=" + eventDetails.whatsGroup);
           setLoading(false);
         }
@@ -426,7 +432,7 @@ const EventRegistrationForm = () => {
               </h3>
 
               <div className={paymentQRDiv}>
-                <img loading="lazy" src="/img/qr/QR.jpg" alt="Payment OR" />
+                <img loading="lazy" src="/img/qr/qr.jpg" alt="frenzypitchQR" />
               </div>
 
               <InputField
@@ -456,4 +462,4 @@ const EventRegistrationForm = () => {
   );
 };
 
-export default EventRegistrationForm;
+export default TestingEvent;

@@ -34,18 +34,15 @@ const CommitteePage = () => {
       <PageHeading imgURL="/img/pageheaders/team.jpg" text="Committees" />
       <div className={committeePageContainer}>
         {data.map((committee) => (
-          <>
-            {console.log(committee)}{" "}
-            <ImageText
-              key={committee._id}
-              title={committee.committeeName}
-              titleAlign="center"
-              link={committee.committeePageURL}
-              externalLink={false}
-              mainImg={"/logo/upescsa_nobg_low.png"}
-              textColor={"var(--textDark)"}
-            />{" "}
-          </>
+          <ImageText
+            key={committee._id}
+            title={committee.committeeName}
+            titleAlign="center"
+            link={committee.committeePageURL}
+            externalLink={false}
+            mainImg={"/logo/upescsa_nobg_low.png"}
+            textColor={"var(--textDark)"}
+          />
         ))}
       </div>
     </div>

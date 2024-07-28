@@ -38,7 +38,7 @@ const {
   paymentQRDiv,
 } = styles;
 
-const EventRegistrationForm = () => {
+const RegistrationDrive = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const EventRegistrationForm = () => {
 
   const [paymentPage, setPaymentPage] = useState(false);
   const [transactionID, setTransactionID] = useState("");
-  const [PaymentSS, setPaymentSS] = useState({
+  const [uploadedPDF, setUploadedPDF] = useState({
     fileData: "",
     fileType: "",
     fileName: "",
@@ -90,7 +90,7 @@ const EventRegistrationForm = () => {
   const updateTransactionID = (e) => {
     setTransactionID(e.target.value);
   };
-  const updateTransactionSS = (e) => {
+  const updatePDF = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -99,7 +99,7 @@ const EventRegistrationForm = () => {
         const fileType = file.type;
         const fileName = file.name;
 
-        setPaymentSS({
+        setUploadedPDF({
           fileData: base64Data,
           fileType: fileType,
           fileName: fileName,
@@ -171,8 +171,7 @@ const EventRegistrationForm = () => {
       PhoneValid &&
       CourseValid &&
       YearOfStudyValid &&
-      SapIDValid &&
-      CSAMemberValid
+      SapIDValid
     ) {
       if (csaMember === "yes") {
         return VALIDATECSAID(csaID, setIsCSAIDValid);
@@ -216,14 +215,17 @@ const EventRegistrationForm = () => {
         finalData.append(key, data[key]);
       }
       if (!eventDetails.IsFree) {
-        finalData.append("fileName", `${name}_${phone}_${EventName}_PaymentSS`);
-        finalData.append("fileData", PaymentSS.fileData);
-        finalData.append("fileType", PaymentSS.fileType);
+        finalData.append(
+          "fileName",
+          `${name}_${phone}_${EventName}_uploadedPDF`
+        );
+        finalData.append("fileData", uploadedPDF.fileData);
+        finalData.append("fileType", uploadedPDF.fileType);
       }
       // console.log(finalData);
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbyjdxHgpTHEGDjoCsXSzTUttYhqz6TrvNviv_U6vsQB-rasPf9j6fxVt9WJv1eIXCo-/exec",
+          "https://script.google.com/macros/s/AKfycbz6GS9YI_y1pRxYeREfBRVbVY303i5abH-InsQZ6tJrAsL7AywOX9TfNgAaeo8ZH1lAug/exec",
           {
             method: "POST",
             body: finalData,
@@ -342,31 +344,6 @@ const EventRegistrationForm = () => {
                 {!isSapIDValid && (
                   <span className={errorMessage}>Invalid SAP ID</span>
                 )}
-                <DropDownSelectField
-                  id="participantCSAMember"
-                  value={csaMember}
-                  valueUpdater={updateCSAMember}
-                  inputLabel="Are you a CSA Member?"
-                  required={true}
-                  options={["Yes", "No"]}
-                  defaultOption="Select"
-                />
-                {!isCSAMemberValid && (
-                  <span className={errorMessage}>Invalid Option</span>
-                )}
-                {csaMember === "yes" && (
-                  <InputField
-                    id="participantCSAID"
-                    type="text"
-                    inputLabel="CSA ID"
-                    value={csaID}
-                    valueUpdater={updateCSAID}
-                    required={csaMember === "yes"}
-                  />
-                )}
-                {!isCSAIDValid && (
-                  <span className={errorMessage}>Invalid CSA ID</span>
-                )}
                 <InputField
                   id="participantCourse"
                   type="text"
@@ -438,11 +415,13 @@ const EventRegistrationForm = () => {
                 required={true}
               />
 
+              <div className={sectionHeading}>Upload PDF</div>
               <FileSelect
-                id="transactionSS"
-                inputLabel="Transaction Screenshot"
-                valueUpdater={updateTransactionSS}
-                required={true}
+                label="Upload your document (PDF only)"
+                accept=".pdf"
+                onChange={updatePDF}
+                isValid={true}
+                errorMessage=""
               />
 
               <button type="submit" className={submitButton}>
@@ -456,4 +435,4 @@ const EventRegistrationForm = () => {
   );
 };
 
-export default EventRegistrationForm;
+export default RegistrationDrive;

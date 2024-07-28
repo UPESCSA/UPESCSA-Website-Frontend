@@ -36,18 +36,15 @@ const CommitteePageIndividual = () => {
     photography: "Photography",
     publicrelations: "Public Relations",
     registrations: "Registrations",
-    SocialMediaPhotography: "Social Media, Photography",
+    socialmedia: "Social Media",
     technical: "Technical",
   };
   const currentTeamValue = teamId ? Object.values(teamId)[0] : null;
   teamValue = committeeNames[currentTeamValue];
 
   const { data, error, loading } = useFetch({
-    url: `${
-      import.meta.env.VITE_SERVER_URL
-    }/api/committee/name/?committeeName=${teamValue}`,
+    url: `${import.meta.env.VITE_SERVER_URL}/api/committee/name/?committeeName=${teamValue}`,
   });
-  console.log(data, error, loading);
 
   if (loading) {
     return <Loading />;
