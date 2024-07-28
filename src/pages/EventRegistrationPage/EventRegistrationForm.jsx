@@ -60,6 +60,7 @@ const EventRegistrationForm = () => {
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1DYhHmnXVXb2XcJFN37h_hY6lsOhELpKtsVsJPPM2rDU/edit?usp=sharing",
     FolderId: "1PvGxPe2Abql66J4Hpmt6_ak4eD5IHbp0",
+    eventTemplate: "VALORANT",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -226,6 +227,7 @@ const EventRegistrationForm = () => {
       }
       // console.log(finalData);
       try {
+        // First POST request to Google Apps Script URL (now executed first)
         const response = await fetch(
           "https://script.google.com/macros/s/AKfycbzotgtmJL3cSPjw-K1uBiXrx6JYmluiydw7sSCmZqk_jlhLrxj5DU3WfWsWfabVBnlO/exec",
           {
@@ -233,14 +235,32 @@ const EventRegistrationForm = () => {
             body: finalData,
           }
         );
+
         const data = await response.json();
         // console.log(data);
+        const sendMailResponse = await fetch(
+          `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              template: eventDetails.eventTemplate,
+            }),
+          }
+        );
+
         if (data.status == "success") {
+          const sendMailData = await sendMailResponse.json();
+          console.log(sendMailData);
           navigate("/registrationSuccess?wg=" + eventDetails.whatsGroup);
           setLoading(false);
         }
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error:", error);
       }
     }
   };
