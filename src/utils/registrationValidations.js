@@ -125,7 +125,7 @@ const validateCSAID = (value, validatorFunction, csaMember, upesStudent) => {
     value !== null &&
     value !== "" &&
     value.length === 9 &&
-    value.toLowerCase().startsWith("csa24")
+    value.startsWith("CSA23")
   ) {
     validatorFunction(true);
     return true;

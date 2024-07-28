@@ -1,17 +1,12 @@
 .eventImage {
   width: 100%;
-  color: #000000;
-}
-
-.eventTitle {
-  text-align: center;
+  overflow: hidden;
 }
 
 .eventImage img {
   height: 100%;
   width: 100%;
   transition: all 0.25s ease-in-out;
-
   &:hover {
     transform: scale(1.1);
     transition: transform 0.25s ease-in-out;
@@ -19,10 +14,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .eventTitle {
-    margin-top: 10px !important;
-  }
-
   .eventImage img {
     width: max(40dvw, 300px);
     height: max(40dvw, 300px);

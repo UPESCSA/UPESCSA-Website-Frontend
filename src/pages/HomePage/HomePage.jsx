@@ -53,7 +53,7 @@ const HomePage = () => {
       {popupOpen && (
         <Popup
           eventPosterURL="/img/events/live/Stack Up.jpg"
-          eventHeading="Memoir 3.0"
+          eventHeading="Stack Up! - Accelerate Your Dev Journey"
           eventText={
             <>
               <p>
@@ -108,7 +108,7 @@ const HomePage = () => {
               expertise needed to excel in web development.
             </>
           }
-          eventFormURL="/memoir3.0"
+          eventFormURL="https://forms.gle/g2AA4BVnV87YcrNe6"
           closePopup={togglePopup}
           buttonText="Register Now!"
         />
