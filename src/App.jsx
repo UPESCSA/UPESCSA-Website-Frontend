@@ -27,22 +27,12 @@ import ProblemStatementPage from "./pages/Hackathon/ProblemStatementPage/Problem
 import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboard/ProblemStatementDashboard";
 
 import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
-import AluminiPage from "./pages/AluminiPage/AluminiPage";
+import AlumniPage from "./pages/AlumniPage/AlumniPage";
 
 function App() {
   return (
     <div className="mainDiv">
       <Routes>
-        {/* <Route
-          path="/alumini"
-          element={
-            <>
-              <Navbar />
-              <AluminiPage />
-              <Contact />
-            </>
-          }
-        /> */}
         <Route
           path="/"
           element={
@@ -93,7 +83,18 @@ function App() {
             </>
           }
         />
-        <Route
+        {/* <Route
+          path="/alumni"
+          element={
+            <>
+              <Navbar />
+              <AlumniPage />
+              <Contact />
+            </>
+          }
+        /> */}
+
+        {/* <Route
           path="/evortal"
           element={
             <>
@@ -102,17 +103,17 @@ function App() {
               <Contact />
             </>
           }
-        />
-        <Route
+        /> */}
+
+        {/* <Route
           path="/registrationSuccess"
           element={
             <>
-              {/* <Navbar /> */}
               <RegistrationSuccess />
-              {/* <Contact /> */}
             </>
           }
-        />
+        /> */}
+
         <Route
           path="/committees"
           element={
