@@ -91,7 +91,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   width: max(20dvw, 350px);
-  height: max(20dvw, 350px);
+  height: max(20dvw, 100%);
   color: var(--textDark);
   background-color: var(--bgLight);
   padding: 1.5rem 0rem 1rem 1rem;
@@ -210,7 +210,7 @@
   }
 
   .eventDescripton {
-    height: max(30dvw, 350px);
+    height: max(30dvw, 100%);
     width: max(30dvw, 350px);
     padding-left: 1rem;
     /* display: none; */
