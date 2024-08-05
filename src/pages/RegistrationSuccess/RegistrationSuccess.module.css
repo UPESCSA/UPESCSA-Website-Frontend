@@ -29,6 +29,7 @@
   right: 5px;
   margin: 0 auto;
 }
+
 .checkmarkCircle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
@@ -53,6 +54,7 @@
 }
 
 @keyframes scale {
+
   0%,
   100% {
     transform: none;
@@ -73,6 +75,7 @@
   0% {
     transform: rotatey(0deg);
   }
+
   100% {
     transform: rotatey(90deg);
   }
@@ -103,12 +106,14 @@
   0% {
     transform: rotatey(90deg);
   }
+
   100% {
     transform: rotatey(0deg);
   }
 }
 
 .csatextBox {
+  margin-top: 1.5rem !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,7 +136,21 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
+}
+
+.Note {
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: grey !important;
+  opacity: 1;
+}
+
+.NoteMail {
+  border-bottom: 1px solid black;
+  color: black !important
 }

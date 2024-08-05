@@ -48,19 +48,31 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "",
-    eventHeading: "Memoir 3.0",
-    eventText: "Event Description",
-    eventMode: "Mode",
+    eventImageURL: "/img/events/live/MEMOIR 3.0.jpg",
+    eventHeading: "MEMOIR 3.0",
+    eventText: `
+              <p>📅 Date:August 11th, 2024</p>
+              <p>
+                🕒 Time:
+                <ul>
+                  <li>Session 1: 10:00 AM to 12:00 PM</li>
+                  <li>Session 2: 2:00 PM to 4:00 PM</li>
+                </ul>
+              </p>
+              <p>🌐 Platform: Microsoft Teams</p>
+              <p>Transform your career trajectory with Memoir 3.0.</p>
+              <p>Fill the form below and be part of this transformative journey!</p>
+            </>`,
+    eventMode: "Online",
     eventTeamSize: "1",
     eventRegistrationFee: "free",
-    eventDate: "Date",
+    eventDate: "11/08/24",
     IsFree: true,
-    whatsGroup: "KOs5eU309ktJzLEhSvkSLD",
+    whatsGroup: "CrMhm8hRREG0fKrU08KMnq",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1DYhHmnXVXb2XcJFN37h_hY6lsOhELpKtsVsJPPM2rDU/edit?usp=sharing",
     FolderId: "1PvGxPe2Abql66J4Hpmt6_ak4eD5IHbp0",
-    eventTemplate: "VALORANT",
+    eventTemplate: "MEMOIR3.0",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -256,7 +268,9 @@ const EventRegistrationForm = () => {
         if (data.status == "success") {
           const sendMailData = await sendMailResponse.json();
           console.log(sendMailData);
-          navigate("/registrationSuccess?wg=" + eventDetails.whatsGroup);
+          navigate(
+            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`
+          );
           setLoading(false);
         }
       } catch (error) {
@@ -302,7 +316,10 @@ const EventRegistrationForm = () => {
         </div>
         <div className={eventDescripton}>
           <h4 className={eventHeading}>Event Details</h4>
-          <p className={eventText}>{eventDetails.eventText}</p>
+          <p
+            className={eventText}
+            dangerouslySetInnerHTML={{ __html: eventDetails.eventText }}
+          ></p>
         </div>
       </div>
       <div className={formContainer}>

@@ -73,13 +73,22 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
   align-items: center;
 }
 
 @media screen and (max-width: 1000px) {
   .blogsContainer {
+    margin: 2rem 10dvw;
+    padding: 0 !important;
+
+    background-color: var(--eventDescBg);
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .blogsImage {
+    height: auto;
   }
 
   .blogsImage img {

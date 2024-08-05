@@ -13,6 +13,8 @@ const {
   csaheading,
   csatextBox,
   csabackToHome,
+  Note,
+  NoteMail,
 } = styles;
 
 const RegistrationSuccess = () => {
@@ -23,6 +25,14 @@ const RegistrationSuccess = () => {
   const [searchParams] = useSearchParams();
 
   const wgLink = "https://chat.whatsapp.com/" + searchParams.get("wg");
+  const Sap = searchParams.get("Sap");
+  const Name = searchParams.get("Name");
+  const Email = searchParams.get("Email");
+  const Event = searchParams.get("Event");
+  const mailBody = `Name: ${Name},
+  Sap: ${Sap},
+  Email: ${Email},
+  Event Name: ${Event}`;
 
   useEffect(() => {
     const mainBoxHeading = document.getElementById("mainBoxHeading");
@@ -92,6 +102,18 @@ const RegistrationSuccess = () => {
           >
             Join Whatsapp
           </a>
+          <div className={Note}>
+            <p>
+              Note! If you don't receive the confirmation email, contact{"    "}
+              <a
+                href={`mailto:support@upescsa.in?subject=CONFORMATION EMAIL NOT RECEIVED &body=${mailBody}`}
+                target="_blank"
+                className={NoteMail}
+              >
+                support@upescsa.in
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

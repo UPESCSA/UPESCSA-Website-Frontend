@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,60 +52,42 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/Stack Up.jpg"
+          eventPosterURL="/img/events/live/MEMOIR 3.0.jpg"
           eventHeading="Memoir 3.0"
           eventText={
             <>
               <p>
-                This comprehensive workshop series will guide you from initial
-                concept to deployment, offering hands-on experience and insights
-                from industry experts.
+                <strong>
+                  Welcome to Memoir 3.0, the ultimate event designed to elevate
+                  your professional growth! 🚀
+                </strong>
               </p>
-              Event Details:
-              <p>🗓️ Date: 6-7th, 13-14th July</p>
-              <p>⏰ Duration: Four days</p>
-              <p>📍 Location: Virtual</p>
-              <br />
-              Workshop Schedule:
-              <br />
-              <p>🌟 Day 1 – Interface Imagination: UI/UX:</p>
-              <p>- Introduction to design concepts/principles</p>
-              <p>- Basics of Figma: Interface, Navigation, and Basic Tools</p>
-              <p>- Designing wireframes to plan the webpage structure</p>
-              <br />
-              <p>🌟 Day 2 - MERN Magict:</p>
-              <p>- Introduction and use cases of MERN</p>
-              <p>- Setup: Node.js, npm, MongoDB, and code editor </p>
+              Are you ready to refine your resume and ace those interviews? This
+              dynamic two-day event is designed to transform your professional
+              journey. Memoir 3.0 is back, bigger and better than ever, with a
+              refreshed focus on equipping you with cutting-edge career tools.
               <p>
-                - Node.js and Express.js: create a web server and understand
-                routes/middleware{" "}
+                Join us for an immersive experience that blends expert insights
+                with practical strategies. Session 1 will guide you through
+                crafting a standout resume, while Session 2 will prepare you to
+                master interview techniques with confidence.
               </p>
-              <p>- Building CRUD API and backend components</p>
-              <br />
-              <p>🌟 Day 3 - Backend Brilliance: </p>
               <p>
-                - Creating and integrating API with database using Mongoose
-                (ORM)
+                Don’t miss this chance to invest in yourself and take your
+                career to the next level! Secure your spot now and prepare to
+                unlock new professional opportunities.
               </p>
-              <p>- Performing CRUD operations </p>
+              <p>📅 Date: August 11th, 2024</p>
               <p>
-                - Authentication and Authorization: JWT, route protection with
-                middleware
+                🕒 Time:
+                <ul>
+                  <li>Session 1: 10:00 AM to 12:00 PM</li>
+                  <li>Session 2: 2:00 PM to 4:00 PM</li>
+                </ul>
               </p>
-              <p>- Testing API with Postman </p>
-              <br />
-              <p>🌟 Day 4 – React Realization: </p>
-              <p>
-                - Introduction and setup, creating components and complete UI
-              </p>
-              <p>- Connecting with backend </p>
-              <p>- Deployment on platforms like AWS, Netlify, Vercel, etc.</p>
-              <br />
-              <p>Join us for the Stack Up!</p>
-              and embark on a transformative journey to unleash your full stack
-              potential. Whether you're a beginner or looking to enhance your
-              skills, this workshop series promises to equip you with the
-              expertise needed to excel in web development.
+              <p>🌐 Platform: Microsoft Teams</p>
+              <p>Transform your career trajectory with Memoir 3.0.</p>
+              <p>Click below and be part of this transformative journey!</p>
             </>
           }
           eventFormURL="/memoir3.0"
