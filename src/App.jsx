@@ -83,7 +83,7 @@ function App() {
             </>
           }
         />
-        <Route
+        {/* <Route
           path="/alumni"
           element={
             <>
@@ -92,7 +92,7 @@ function App() {
               <Contact />
             </>
           }
-        />
+        /> */}
 
         {/* <Route
           path="/evortal"
