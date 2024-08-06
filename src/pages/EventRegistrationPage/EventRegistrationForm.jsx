@@ -95,6 +95,7 @@ const EventRegistrationForm = () => {
   const [sapID, setSapID] = useState("");
   const [csaMember, setCSAMember] = useState("");
   const [csaID, setCSAID] = useState("");
+  const [disabled, setdisabled] = useState(false);
 
   // UPDATE FUNCTIONS
 
@@ -178,7 +179,7 @@ const EventRegistrationForm = () => {
       yearOfStudy,
       setIsYearOfStudyValid
     );
-    const SapIDValid = VALIDATESAPID(sapID, setIsSapIDValid);
+    // const SapIDValid = VALIDATESAPID(sapID, setIsSapIDValid);
     const CSAMemberValid = VALIDATECSAMEMBER(csaMember, setIsCSAMemberValid);
 
     if (
@@ -186,8 +187,8 @@ const EventRegistrationForm = () => {
       EmailValid &&
       PhoneValid &&
       CourseValid &&
-      SapIDValid &&
       WhatsAppValid
+      //&& SapIDValid
       //&& YearOfStudyValid
       //&& CSAMemberValid
     ) {
@@ -212,6 +213,7 @@ const EventRegistrationForm = () => {
     // VALIDATION
     if (validate()) {
       setLoading(true);
+      setdisabled(true);
       const data = {
         name,
         email,
@@ -448,7 +450,11 @@ const EventRegistrationForm = () => {
               {/* ------------------------------------------------------------------------------------ */}
 
               {eventDetails.IsFree ? (
-                <button type="submit" className={submitButton}>
+                <button
+                  disabled={disabled}
+                  type="submit"
+                  className={submitButton}
+                >
                   Submit Form
                 </button>
               ) : (
