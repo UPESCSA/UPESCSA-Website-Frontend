@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,47 +52,45 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/MEMOIR 3.0.jpg"
-          eventHeading="Memoir 3.0"
+          eventPosterURL="/img/events/live/REGISTRATION POSTER 2024 AUG.jpg"
+          eventHeading="Reistration Drive"
           eventText={
             <>
+              <p>Venture into the Digital Frontier with UPES-CSA! 🌟</p>
               <p>
-                <strong>
-                  Welcome to Memoir 3.0, the ultimate event designed to elevate
-                  your professional growth! 🚀
-                </strong>
+                Be part of UPES-CSA and explore a realm where aspirations soar
+                and technological brilliance opens new doors.
               </p>
-              Are you ready to refine your resume and ace those interviews? This
-              dynamic two-day event is designed to transform your professional
-              journey. Memoir 3.0 is back, bigger and better than ever, with a
-              refreshed focus on equipping you with cutting-edge career tools.
+              <p>Here’s what you can look forward to:</p>
+
               <p>
-                Join us for an immersive experience that blends expert insights
-                with practical strategies. Session 1 will guide you through
-                crafting a standout resume, while Session 2 will prepare you to
-                master interview techniques with confidence.
+                <strong>💻 Coding Events:</strong> Immerse yourself in a variety
+                of coding experiences that challenge and refine your skills.
               </p>
               <p>
-                Don’t miss this chance to invest in yourself and take your
-                career to the next level! Secure your spot now and prepare to
-                unlock new professional opportunities.
+                <strong>🔥 Career Workshops:</strong> Elevate your abilities
+                with specialised sessions designed to guide you toward success.
               </p>
-              <p>📅 Date: August 11th, 2024</p>
               <p>
-                🕒 Time:
-                <ul>
-                  <li>Session 1: 10:00 AM to 12:00 PM</li>
-                  <li>Session 2: 2:00 PM to 4:00 PM</li>
-                </ul>
+                <strong>💡 Seminars, Webinars & Hackathons:</strong> Stay ahead
+                with insightful seminars featuring industry leaders, top-tier
+                partnerships, and engaging hackathons like the recent Hackathon
+                3.0.
               </p>
-              <p>🌐 Platform: Microsoft Teams</p>
-              <p>Transform your career trajectory with Memoir 3.0.</p>
-              <p>Click below and be part of this transformative journey!</p>
+              <p>
+                <strong>🏆 Exciting Competitions & Prizes:</strong> Challenge
+                yourself in thrilling competitions for a chance to win
+                impressive prizes, mementos, and certification vouchers.
+              </p>
+              <p>
+                Don’t miss this chance to join a student chapter where
+                opportunities are abundant, and dreams become reality.
+              </p>
             </>
           }
-          eventFormURL="/memoir3.0"
+          eventFormURL="/Registration"
           closePopup={togglePopup}
-          buttonText="Register Now!"
+          buttonText="JOIN US"
         />
       )}
       <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />

@@ -48,12 +48,12 @@
   padding: 0.5rem;
 }
 
-.dropDownSelect:focus + .label {
+.dropDownSelect:focus+.label {
   top: 0;
   transform: translateY(-30%) scale(0.85);
 }
 
-.dropDownSelect:not(:placeholder-shown) + .label {
+.dropDownSelect:not(:placeholder-shown)+.label {
   top: 0;
   transform: translateY(-30%) scale(0.85);
 }

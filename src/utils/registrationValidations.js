@@ -87,7 +87,7 @@ const validateSAPID = (value, validatorFunction, upesStudent) => {
     value !== null &&
     value !== "" &&
     value.length === 9 &&
-    value.startsWith("500")
+    value.startsWith("5")
   ) {
     validatorFunction(true);
     return true;
@@ -136,19 +136,47 @@ const validateCSAID = (value, validatorFunction, csaMember, upesStudent) => {
 };
 
 const validateYearOfStudy = (value, validatorFunction) => {
-  if (
-    value !== null &&
-    value !== "" &&
-    parseInt(value, 10) > 0 &&
-    parseInt(value, 10) <= 5
-  ) {
-    validatorFunction(true);
-    return true;
-  } else {
-    validatorFunction(false);
-    return false;
-  }
+  const Years = ["1st", "2nd", "3rd", "4th", "5th"];
+
+  const isvalid = Years.includes(value);
+  validatorFunction(isvalid);
+  return isvalid;
 };
+
+const validateCommittee = (value, validatorFunction) => {
+  const committees = [
+    "technical",
+    "events",
+    "public relations",
+    "social media and photography",
+    "design and vfx",
+    "logistics",
+    "editorial",
+    "registrations"
+  ];
+
+  const isvalid = committees.includes(value)
+  validatorFunction(isvalid);
+  return isvalid;
+};
+
+const validatepaymentmode = (value, validatorFunction) => {
+  const PaymentModes = ["cash", "upi"];
+
+  const isvalid = PaymentModes.includes(value)
+  validatorFunction(isvalid);
+  return isvalid;
+
+};
+
+const validategender = (value, validatorFunction) => {
+  const Genders = ["male", "female", "other"];
+
+  const isvalid = Genders.includes(value)
+  validatorFunction(isvalid);
+  return isvalid;
+};
+
 
 export {
   validateTeam as VALIDATETEAM,
@@ -162,4 +190,7 @@ export {
   validateYearOfStudy as VALIDATEYEAROFSTUDY,
   validateUpesStudent as VALIDATEUPESSTUDENT,
   validateCSAMember as VALIDATECSAMEMBER,
+  validateCommittee as VALIDATECOMMITTEE,
+  validatepaymentmode as VALIDATEPAYMENTMODE,
+  validategender as VALIDATEGENDER,
 };

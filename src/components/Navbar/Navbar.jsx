@@ -82,7 +82,7 @@ const Navbar = () => {
     };
   } else {
     navbarStyle = {
-      backgroundColor: scrollPosition > 50 ? "var(--navDark)" : "transparent",
+      backgroundColor: scrollPosition > -50 ? "var(--navDark)" : "transparent",
     };
   }
 

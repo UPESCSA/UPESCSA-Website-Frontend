@@ -28,6 +28,7 @@ import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboa
 
 import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
 import AlumniPage from "./pages/AlumniPage/AlumniPage";
+import RegistrationDriveForm from "./pages/EventRegistrationPage/RegistrationDriveForm";
 
 function App() {
   return (
@@ -146,6 +147,17 @@ function App() {
         />
 
         {/* EVENT ROUTES */}
+
+        <Route
+          path="/Registration"
+          element={
+            <>
+              <Navbar />
+              <RegistrationDriveForm />
+              <Contact />
+            </>
+          }
+        />
 
         {/* <Route
           path="/memoir3.0"
