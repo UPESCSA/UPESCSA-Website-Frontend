@@ -53,7 +53,7 @@ const HomePage = () => {
       {popupOpen && (
         <Popup
           eventPosterURL="/img/events/live/REGISTRATION POSTER 2024 AUG.jpg"
-          eventHeading="Reistration Drive"
+          eventHeading="Registration Drive"
           eventText={
             <>
               <p>Venture into the Digital Frontier with UPES-CSA! 🌟</p>
