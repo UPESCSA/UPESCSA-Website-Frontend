@@ -522,23 +522,35 @@ const RegistrationDriveForm = () => {
                 <>
                   <div className={paymentQRDiv}>
                     {/* FIRSR QR */}
-                    <img
+                    {/* <img
                       loading="lazy"
                       src="/img/PaymentModes/Piklu.jpeg"
                       alt="Payment OR"
-                    />
+                    /> */}
                     {/* SECOND QR */}
                     {/* <img
                       loading="lazy"
                       src="/img/PaymentModes/Anvita.jpeg"
                       alt="Payment OR"
-                      /> */}
+                    /> */}
                     {/* THIRD QR */}
                     {/* <img
                       loading="lazy"
                       src="/img/PaymentModes/Aman.jpeg"
                       alt="Payment OR"
                     /> */}
+                    {/* Fourth QR */}
+                    {/* <img
+                      loading="lazy"
+                      src="/img/PaymentModes/Vinayak.jpeg"
+                      alt="Payment OR"
+                    /> */}
+                    {/* Fifth QR */}
+                    <img
+                      loading="lazy"
+                      src="/img/PaymentModes/garv.jpeg"
+                      alt="Payment OR"
+                    />
                   </div>
                   <InputField
                     id="transactionID"
