@@ -65,7 +65,7 @@ const RegistrationDriveForm = () => {
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
   // FORM STATES
 
-  const [paymentPage, setPaymentPage] = useState(true);
+  const [paymentPage, setPaymentPage] = useState(false);
   const [transactionID, setTransactionID] = useState("");
   const [PaymentSS, setPaymentSS] = useState({
     fileData: "",
@@ -86,7 +86,7 @@ const RegistrationDriveForm = () => {
   const [disabled, setdisabled] = useState(false);
   const [committee1, setcommittee1] = useState("");
   const [committee2, setcommittee2] = useState("");
-  const [ModeOfPayment, setModeOfPayment] = useState("UPI");
+  const [ModeOfPayment, setModeOfPayment] = useState("");
 
   // Committees
   const committees = [
