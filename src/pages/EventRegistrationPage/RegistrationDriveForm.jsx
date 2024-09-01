@@ -65,7 +65,7 @@ const RegistrationDriveForm = () => {
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
   // FORM STATES
 
-  const [paymentPage, setPaymentPage] = useState(false);
+  const [paymentPage, setPaymentPage] = useState(true);
   const [transactionID, setTransactionID] = useState("");
   const [PaymentSS, setPaymentSS] = useState({
     fileData: "",
@@ -86,7 +86,7 @@ const RegistrationDriveForm = () => {
   const [disabled, setdisabled] = useState(false);
   const [committee1, setcommittee1] = useState("");
   const [committee2, setcommittee2] = useState("");
-  const [ModeOfPayment, setModeOfPayment] = useState("");
+  const [ModeOfPayment, setModeOfPayment] = useState("UPI");
 
   // Committees
   const committees = [
@@ -516,6 +516,16 @@ const RegistrationDriveForm = () => {
                 }}
               >
                 Payment Section
+              </h3>
+              <h3
+                className={sectionHeading}
+                style={{
+                  textAlign: "center",
+                  width: "100%",
+                  fontSize: "1.5rem",
+                }}
+              >
+                ₹ 250
               </h3>
 
               {ModeOfPayment.toUpperCase() == "UPI" ? (
