@@ -4,18 +4,24 @@ import styles from "./Navlinks.module.css";
 import { Link } from "react-router-dom";
 
 // CSS STYLES
-const { navLinks } = styles;
+const { navLinks, glowText } = styles;
 
-const Navlinks = ({ title, action, size, textStyle, closeNavbar }) => {
+const Navlinks = ({ title, action, size, textStyle, closeNavbar, glow }) => {
   return (
     <li
       className={navLinks}
       style={{ fontSize: size }}
       onClick={() => closeNavbar}
     >
-      <Link to={action} style={textStyle}>
-        {title}
-      </Link>
+      {glow ? (
+        <Link to={action} className={glowText} style={textStyle}>
+          {title}
+        </Link>
+      ) : (
+        <Link to={action} style={textStyle}>
+          {title}
+        </Link>
+      )}
     </li>
   );
 };

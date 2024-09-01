@@ -50,6 +50,10 @@ const Navbar = () => {
       title: "Blogs",
       action: "/blogs",
     },
+    {
+      title: "JOIN NOW",
+      action: "/Registration",
+    },
     // {
     //   title: "Alumni",
     //   action: "/alumni",
@@ -82,7 +86,7 @@ const Navbar = () => {
     };
   } else {
     navbarStyle = {
-      backgroundColor: scrollPosition > -50 ? "var(--navDark)" : "transparent",
+      backgroundColor: scrollPosition > 0 ? "var(--navDark)" : "transparent",
     };
   }
 
@@ -138,15 +142,28 @@ const Navbar = () => {
           </div>
           <ul className={navLinks}>
             <hr className={mobileLine} />
-            {navlinks.map((navlink) => (
-              <Navlinks
-                key={navlink.title}
-                title={navlink.title}
-                action={navlink.action}
-                separatePage={navlink.separatePage}
-                closeNavbar={displayNavBar}
-              />
-            ))}
+            {navlinks.map((navlink) =>
+              navlink.title === "JOIN NOW" ? (
+                <Navlinks
+                  key={navlink.title}
+                  title={navlink.title}
+                  action={navlink.action}
+                  separatePage={navlink.separatePage}
+                  closeNavbar={displayNavBar}
+                  glow={true}
+                />
+              ) : (
+                <Navlinks
+                  key={navlink.title}
+                  title={navlink.title}
+                  action={navlink.action}
+                  separatePage={navlink.separatePage}
+                  closeNavbar={displayNavBar}
+                  glow={false}
+                />
+              )
+            )}
+
             {/* <hr className={verticalLine} />
             <Navlinks
               title={"Evortal"}
