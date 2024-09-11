@@ -148,7 +148,7 @@ function App() {
 
         {/* EVENT ROUTES */}
 
-        <Route
+        {/* <Route
           path="/Registration"
           element={
             <>
@@ -157,7 +157,7 @@ function App() {
               <Contact />
             </>
           }
-        />
+        /> */}
 
         {/* <Route
           path="/memoir3.0"

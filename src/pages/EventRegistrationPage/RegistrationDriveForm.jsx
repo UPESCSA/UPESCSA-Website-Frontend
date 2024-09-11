@@ -544,11 +544,11 @@ const RegistrationDriveForm = () => {
                       alt="Payment OR"
                     /> */}
                     {/* THIRD QR */}
-                    {/* <img
+                    <img
                       loading="lazy"
                       src="/img/PaymentModes/Aman.jpeg"
                       alt="Payment OR"
-                    /> */}
+                    />
                     {/* Fourth QR */}
                     {/* <img
                       loading="lazy"
@@ -556,11 +556,11 @@ const RegistrationDriveForm = () => {
                       alt="Payment OR"
                     /> */}
                     {/* Fifth QR */}
-                    <img
+                    {/* <img
                       loading="lazy"
                       src="/img/PaymentModes/garv.jpeg"
                       alt="Payment OR"
-                    />
+                    /> */}
                   </div>
                   <InputField
                     id="transactionID"
