@@ -50,10 +50,10 @@ const Navbar = () => {
       title: "Blogs",
       action: "/blogs",
     },
-    {
-      title: "JOIN NOW",
-      action: "/Registration",
-    },
+    // {
+    //   title: "JOIN NOW",
+    //   action: "/Registration",
+    // },
     // {
     //   title: "Alumni",
     //   action: "/alumni",
