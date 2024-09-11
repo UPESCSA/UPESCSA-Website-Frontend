@@ -6,6 +6,10 @@
   font-size: 1.1rem;
 }
 
+body {
+  color: white !important;
+}
+
 @keyframes glow {
   0% {
     text-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow;
