@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,45 +52,48 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/REGISTRATION POSTER 2024 AUG.jpg"
+          eventPosterURL="/img/events/live/TechChronicals.png"
           eventHeading="Registration Drive"
           eventText={
             <>
-              <p>Venture into the Digital Frontier with UPES-CSA! 🌟</p>
               <p>
-                Be part of UPES-CSA and explore a realm where aspirations soar
-                and technological brilliance opens new doors.
-              </p>
-              <p>Here’s what you can look forward to:</p>
-
-              <p>
-                <strong>💻 Coding Events:</strong> Immerse yourself in a variety
-                of coding experiences that challenge and refine your skills.
+                {" "}
+                Welcome to TechChronicles – Blogging the Blueprint of Tomorrow’s
+                Tech!
               </p>
               <p>
-                <strong>🔥 Career Workshops:</strong> Elevate your abilities
-                with specialised sessions designed to guide you toward success.
+                Embark on a journey into the future of technology with
+                TechChronicles, our dynamic two-round blog-writing competition.
+                This is your chance to showcase your innovative ideas and gain
+                valuable insights.
+              </p>
+              <p>Join us for an engaging experience where you will:</p>
+              <p>
+                - Round 1: Create an interactive, multimedia-rich blog on how a
+                chosen technology will evolve over the next decade and shape the
+                world in a more advanced form.
               </p>
               <p>
-                <strong>💡 Seminars, Webinars & Hackathons:</strong> Stay ahead
-                with insightful seminars featuring industry leaders, top-tier
-                partnerships, and engaging hackathons like the recent Hackathon
-                3.0.
+                - Round 2: Present your blog in a live session, defending your
+                insights and predictions in an interactive Q&A with industry
+                experts.
               </p>
+              <p>Prizes Await:</p>
+              <p>First Place: ₹6000 + Goodies</p>
+              <p>Second Place: ₹4000 + Goodies</p>
+              <p>Third Place: ₹2500 + Goodies</p>
+              <p>Date:13th to 16th September</p>
+              <p>Platform: Online (Virtual Event)</p>
               <p>
-                <strong>🏆 Exciting Competitions & Prizes:</strong> Challenge
-                yourself in thrilling competitions for a chance to win
-                impressive prizes, mementos, and certification vouchers.
-              </p>
-              <p>
-                Don’t miss this chance to join a student chapter where
-                opportunities are abundant, and dreams become reality.
+                Don’t miss this opportunity to make your mark in the tech world!
+                Click below to register and secure your spot in TechChronicles
+                today!
               </p>
             </>
           }
-          eventFormURL="/Registration"
+          eventFormURL="https://forms.gle/18SrtdVQ2Urvj6Ln7"
           closePopup={togglePopup}
-          buttonText="JOIN US"
+          buttonText="REGISTER NOW!"
         />
       )}
       <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />
