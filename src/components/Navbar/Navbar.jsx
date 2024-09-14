@@ -58,10 +58,10 @@ const Navbar = () => {
     //   title: "JOIN NOW",
     //   action: "/Registration",
     // },
-    // {
-    //   title: "Alumni",
-    //   action: "/alumni",
-    // },
+    {
+      title: "Alumni",
+      action: "/alumni",
+    },
   ];
 
   // FUNCTIONS

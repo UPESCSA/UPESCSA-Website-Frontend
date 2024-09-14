@@ -10,8 +10,18 @@ const AlumniCard = ({ index, alumnus }) => {
       <AlumniImg src={alumnus.alumniImgURL} />
       <div className={AlumniInfo}>
         <p className={Name}>{alumnus.name}</p>
-        <p className={Info}>{alumnus.position}</p>
-        <p className={Info}>{alumnus.company}</p>
+        <p className={Info}>
+          {alumnus.position.toLowerCase() == "nil" ||
+          alumnus.position.toLowerCase() == "nan"
+            ? ""
+            : alumnus.position}
+        </p>
+        <p className={Info}>
+          {alumnus.company.toLowerCase() == "nil" ||
+          alumnus.company.toLowerCase() == "nan"
+            ? ""
+            : alumnus.company}
+        </p>
       </div>
       <Link target="_blank" className={ConnectButton} to={alumnus.linkedInURL}>
         CONNECT

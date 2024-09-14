@@ -4,8 +4,8 @@
     border: 0;
     padding: 1rem;
     border-radius: 8px;
-    width: 400px;
-    height: 170px;
+    width: 430px;
+    height: 190px;
     background-color: #ffffff;
     margin-top: .5rem;
     margin-bottom: 5rem;
@@ -17,9 +17,9 @@
     justify-content: center;
     font-weight: 600;
     font-size: 17px;
-    margin-top: 5.5rem;
+    margin-top: 8%;
     position: absolute;
-    margin-left: 15.2rem;
+    margin-left: 17.2rem;
     width: 120px;
     padding: 4px 5px;
     background-color: #fff;
@@ -41,34 +41,34 @@
         padding-top: 2rem !important;
         border-radius: 8px;
         width: 300px;
-        height: 400px;
+        height: 420px;
         background-color: #ffffff;
         margin-top: .5rem;
         margin-bottom: 2rem;
     }
 
     .Info {
-        line-height: 0;
+        line-height: 1;
         padding: 0;
-        margin: 10px;
+        margin: 5px;
     }
 
     .AlumniInfo {
         justify-content: center;
         align-items: center;
-        margin-bottom: 1.5rem;
-        line-height: 0 !important;
+        margin-bottom: 2 rem;
+        line-height: 1 !important;
         padding: 0px !important;
         margin: 0px !important;
         color: #656565;
         display: flex;
         flex-direction: column;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .Name {
-        font-size: 25px;
+        font-size: 20px;
         padding: 1rem !important;
         margin: 0px 0 !important;
         color: #000;
@@ -78,7 +78,7 @@
     .ConnectButton {
         font-weight: 600;
         font-size: 17px;
-        margin-top: 35px;
+        margin-top: 20px;
         position: static;
         margin-left: 0;
         width: 250px;
@@ -94,17 +94,25 @@
 }
 
 .AlumniInfo {
+    align-items: center;
     margin-bottom: 1.5rem;
-    line-height: 0.3;
+    line-height: 1;
     padding: 1rem;
     color: #656565;
-    display: absolute;
+    display: flex;
+    flex-direction: column;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.Info {
+    padding: 0px !important;
+    margin: 5px !important;
+    text-align: center;
 }
 
 .Name {
-    font-size: 25px;
+    font-size: 20px;
     padding: 0;
     margin: 0;
     color: #000;
