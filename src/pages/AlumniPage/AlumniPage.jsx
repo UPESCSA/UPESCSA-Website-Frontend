@@ -4,27 +4,6 @@ import styles from "./AlumniPage.module.css";
 import AlumniCard from "../../components/AlumniCard/AlumniCard";
 import useFetch from "../../hooks/useFetch";
 
-const alumniData = [
-  { name: "Pranav Aeron", title: "Data Analyst", company: "Microsoft" },
-  { name: "John Doe", title: "Software Engineer", company: "Google" },
-  { name: "Jane Smith", title: "Product Manager", company: "Facebook" },
-  { name: "Pranav Aeron", title: "Data Analyst", company: "Microsoft" },
-  { name: "John Doe", title: "Software Engineer", company: "Google" },
-  { name: "Jane Smith", title: "Product Manager", company: "Facebook" },
-  { name: "Pranav Aeron", title: "Data Analyst", company: "Microsoft" },
-  { name: "John Doe", title: "Software Engineer", company: "Google" },
-  { name: "Jane Smith", title: "Product Manager", company: "Facebook" },
-  { name: "Pranav Aeron", title: "Data Analyst", company: "Microsoft" },
-  { name: "John Doe", title: "Software Engineer", company: "Google" },
-  { name: "Jane Smith", title: "Product Manager", company: "Facebook" },
-  { name: "Pranav Aeron", title: "Data Analyst", company: "Microsoft" },
-  { name: "John Doe", title: "Software Engineer", company: "Google" },
-  { name: "Jane Smith", title: "Product Manager", company: "Facebook" },
-  { name: "Pranav Aeron", title: "Data Analyst", company: "Microsoft" },
-  { name: "John Doe", title: "Software Engineer", company: "Google" },
-  { name: "Jane Smith", title: "Product Manager", company: "Facebook" },
-];
-
 const AlumniPage = () => {
   const {
     MainDiv,
@@ -44,10 +23,10 @@ const AlumniPage = () => {
   });
 
   const updateCount = () => {
-    if (alumniData.length > count + 6) {
+    if (data.length > count + 6) {
       setcount(count + 6);
     } else {
-      setcount(alumniData.length);
+      setcount(data.length);
       setshowLoadMore(false);
     }
   };
@@ -64,16 +43,11 @@ const AlumniPage = () => {
           <hr className={Line} />
         </p>
         <div className={AlumniContainer}>
-          {alumniData.slice(0, count).map((alumnus, index) => (
-            <AlumniCard
-              className={alumnicard}
-              alumnus={alumnus}
-              index={index}
-            />
-          ))}
           {data
             ? data
-                .slice(0, 3)
+                .slice()
+                .reverse()
+                .slice(0, count)
                 .map((alumnus, index) => (
                   <AlumniCard
                     className={alumnicard}
