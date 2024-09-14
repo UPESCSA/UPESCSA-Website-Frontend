@@ -51,6 +51,10 @@ const Navbar = () => {
       action: "/blogs",
     },
     {
+      title: "Alumni",
+      action: "/alumni",
+    },
+    {
       title: "Contact Us",
       action: "#contact",
     },
@@ -58,10 +62,7 @@ const Navbar = () => {
     //   title: "JOIN NOW",
     //   action: "/Registration",
     // },
-    {
-      title: "Alumni",
-      action: "/alumni",
-    },
+
   ];
 
   // FUNCTIONS

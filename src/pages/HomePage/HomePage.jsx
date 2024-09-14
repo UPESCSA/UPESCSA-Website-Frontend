@@ -53,7 +53,7 @@ const HomePage = () => {
       {popupOpen && (
         <Popup
           eventPosterURL="/img/events/live/TechChronicals.png"
-          eventHeading="Registration Drive"
+          eventHeading="Tech Chronicles"
           eventText={
             <>
               <p>
