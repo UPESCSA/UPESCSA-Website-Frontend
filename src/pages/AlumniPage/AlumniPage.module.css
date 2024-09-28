@@ -24,6 +24,26 @@ body {
     line-height: 1;
     margin-left: 5rem;
     color: #020202;
+    margin-bottom: 5rem;
+}
+
+.Input {
+    margin: 15 0;
+    width: 210px;
+    height: 40px;
+    outline: none;
+    border: 3px solid rgb(51, 194, 255);
+    border-radius: 8px;
+    position: absolute;
+    padding-left: 35px;
+}
+
+.icon {
+    margin-top: 9px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
 }
 
 .Line {
@@ -122,6 +142,7 @@ body {
 
 
 .AlumniContainer {
+    margin-top: 100px !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
