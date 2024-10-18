@@ -72,11 +72,11 @@ const FuntopiaRegistrationsPage = () => {
               <p>
                 🕒 Time:
                 <ul>
-                <li>4:00 PM - 6:00 PM</li>
+                <li>4:00 PM - 7:00 PM</li>
                 </ul>
               </p>
               <p>🌐 Location: Bidholi Campus</p>
-                <p>👥 Team Size: 4-7 members</p>
+                <p>👥 Team Size: 2 - 4 members</p>
 
               <p>Pricing:
                 <ul>
@@ -88,7 +88,7 @@ const FuntopiaRegistrationsPage = () => {
                   <p>Fill out the form below and let's kick off the fun!</p>
             </>`,
       eventMode: "Online",
-      eventTeamSize: "4-7",
+      eventTeamSize: "2 - 4",
       eventRegistrationFee: "120",
       eventDate: "22/10/24",
     },
