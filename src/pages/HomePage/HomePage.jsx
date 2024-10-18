@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,46 +52,49 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/TechChronicals.png"
-          eventHeading="Tech Chronicles"
+          eventPosterURL="/img/events/live/Funtopia 5/Funtopia 5 Banner.png"
+          eventHeading="Funtopia 5.0"
           eventText={
             <>
               <p>
-                {" "}
-                Welcome to TechChronicles – Blogging the Blueprint of Tomorrow’s
-                Tech!
+                🎉 Get Ready for Funtopia 5.0 – The Ultimate Adventure Awaits!
+                🚀
               </p>
               <p>
-                Embark on a journey into the future of technology with
-                TechChronicles, our dynamic two-round blog-writing competition.
-                This is your chance to showcase your innovative ideas and gain
-                valuable insights.
+                This October, embark on a journey of thrill, creativity, and
+                excitement at Funtopia 5.0, the highly anticipated 3-day
+                festival organized by the UPES-Cloud Security Alliance Student
+                Chapter. Packed with adrenaline-fueled competitions,
+                mind-bending puzzles, and epic gaming challenges, Funtopia 5.0
+                promises something for everyone! 🎮🧩
               </p>
-              <p>Join us for an engaging experience where you will:</p>
+              <p>📅 Event Dates: 21st – 23rd October, 2024</p>
+              <p>Format: Online + Offline</p>
+              <p>🎯 What’s in Store:</p>
               <p>
-                - Round 1: Create an interactive, multimedia-rich blog on how a
-                chosen technology will evolve over the next decade and shape the
-                world in a more advanced form.
+                🎮 Valorant Blitz: UPES Rapid Fire – Prove your tactical skills
+                in a fast-paced Valorant showdown.
               </p>
               <p>
-                - Round 2: Present your blog in a live session, defending your
-                insights and predictions in an interactive Q&A with industry
-                experts.
+                📱 BGMI Tournament – Battle it out for supremacy in
+                Battlegrounds Mobile India.
               </p>
-              <p>Prizes Await:</p>
-              <p>First Place: ₹6000 + Goodies</p>
-              <p>Second Place: ₹4000 + Goodies</p>
-              <p>Third Place: ₹2500 + Goodies</p>
-              <p>Date:13th to 16th September</p>
-              <p>Platform: Online (Virtual Event)</p>
               <p>
-                Don’t miss this opportunity to make your mark in the tech world!
-                Click below to register and secure your spot in TechChronicles
-                today!
+                🕵️‍♂️ Into the Upside: Halloween Treasure Hunt – Dive into a
+                spine-chilling adventure and solve eerie puzzles on-campus.
+              </p>
+              <p>
+                Whether you're a hardcore gamer, puzzle solver, or adventure
+                seeker, this is your moment to shine. 🌟 Fantastic prizes 🏆 and
+                unforgettable memories are up for grabs!
+              </p>
+              <p>
+                Register now and be a part of the biggest, most exhilarating
+                event of the year! 🎊
               </p>
             </>
           }
-          eventFormURL="https://forms.gle/18SrtdVQ2Urvj6Ln7"
+          eventFormURL="/Funtopia/Registration"
           closePopup={togglePopup}
           buttonText="REGISTER NOW!"
         />

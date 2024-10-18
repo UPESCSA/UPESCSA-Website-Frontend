@@ -29,6 +29,7 @@ import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboa
 import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
 import AlumniPage from "./pages/AlumniPage/AlumniPage";
 import RegistrationDriveForm from "./pages/EventRegistrationPage/RegistrationDriveForm";
+import FuntopiaRegistrationsPage from "./pages/EventRegistrationPage/FuntopiaRegistrationPage/FuntopiaRegistrationsPage";
 
 function App() {
   return (
@@ -158,7 +159,16 @@ function App() {
             </>
           }
         /> */}
-
+        <Route
+          path="/Funtopia/Registration"
+          element={
+            <>
+              <Navbar />
+              <FuntopiaRegistrationsPage />
+              <Contact />
+            </>
+          }
+        />
         {/* <Route
           path="/memoir3.0"
           element={
