@@ -16,6 +16,7 @@ import {
 } from "../../utils/registrationValidations";
 import FormLoading from "../../components/FormLoading/FormLoading";
 import FileSelect from "../../components/FileSelect/FileSelect";
+import toast, { Toaster } from "react-hot-toast";
 
 const {
   mainDiv,
@@ -36,6 +37,8 @@ const {
   errorMessage,
   loadingDiv,
   paymentQRDiv,
+  RegisterButton,
+  RegisterButtonDiv,
 } = styles;
 
 const EventRegistrationForm = () => {
@@ -48,31 +51,41 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/MEMOIR 3.0.jpg",
-    eventHeading: "MEMOIR 3.0",
+    eventImageURL: "/img/events/live/AZURE CLOUDSCAPE.jpg",
+    eventHeading: "Azure CloudScape",
     eventText: `
-              <p>📅 Date:August 11th, 2024</p>
-              <p>
-                🕒 Time:
-                <ul>
-                  <li>Session 1: 10:00 AM to 12:00 PM</li>
-                  <li>Session 2: 2:00 PM to 4:00 PM</li>
-                </ul>
-              </p>
-              <p>🌐 Platform: Microsoft Teams</p>
-              <p>Transform your career trajectory with Memoir 3.0.</p>
-              <p>Fill the form below and be part of this transformative journey!</p>
-            </>`,
+    <p>
+      <strong>Azure Cloudscape - Cloud Revolution</strong>
+    </p>
+    <p>
+      <strong>🕒 Timings:</strong>
+    </p>
+    <ul>
+      <li><strong>Session 1 (12-2pm):</strong> Fly High with AI</li>
+      <li><strong>Session 2 (3:30-5:30pm):</strong> Demystifying the Path to Becoming an Azure Cloud Engineer</li>
+    </ul>
+
+    <p>
+      Explore the limitless possibilities of cloud computing with
+      <strong>Mr. Saket Kumar</strong>
+      and
+      <strong>Ms. Neelam Mourya</strong>
+      from Microsoft. Gain hands-on experience in Azure tools, tackle real-world challenges, and compete for exciting prizes and certificates!
+    </p>
+    <p>
+      <strong>Fill the form below to participate!</strong>
+    </p>
+`,
     eventMode: "Online",
     eventTeamSize: "1",
     eventRegistrationFee: "free",
-    eventDate: "11/08/24",
+    eventDate: "16/11/24",
     IsFree: true,
-    whatsGroup: "CrMhm8hRREG0fKrU08KMnq",
+    whatsGroup: "F1nsNdAOIV815TfBtCj4wl",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1DYhHmnXVXb2XcJFN37h_hY6lsOhELpKtsVsJPPM2rDU/edit?usp=sharing",
-    FolderId: "1PvGxPe2Abql66J4Hpmt6_ak4eD5IHbp0",
-    eventTemplate: "MEMOIR3.0",
+      "https://docs.google.com/spreadsheets/d/1b_AqF3HPhALH8rtIy7nWXiusLUG2b8suXYqS8BfSkT4/edit?usp=sharing",
+    FolderId: "NEW_FOLDER_ID",
+    eventTemplate: "AzureCloudScape",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -95,7 +108,10 @@ const EventRegistrationForm = () => {
   const [sapID, setSapID] = useState("");
   const [csaMember, setCSAMember] = useState("");
   const [csaID, setCSAID] = useState("");
+  const [collegeEmail, setCollegeEmail] = useState("");
+  const [Session, setSession] = useState("Select");
   const [disabled, setdisabled] = useState(false);
+  const [DisplayForm, setDisplayForm] = useState(false);
 
   // UPDATE FUNCTIONS
 
@@ -154,6 +170,13 @@ const EventRegistrationForm = () => {
     let value = e.target.value;
     setCSAID(value.toUpperCase());
   };
+  const updateCollegeEmail = (e) => {
+    setCollegeEmail(e.target.value);
+  };
+  const updateSession = (e) => {
+    setSession(e.target.value);
+    console.log(e.target.value);
+  };
 
   // VALIDATION STATES
 
@@ -166,8 +189,30 @@ const EventRegistrationForm = () => {
   const [isSapIDValid, setIsSapIDValid] = useState(true);
   const [isCSAMemberValid, setIsCSAMemberValid] = useState(true);
   const [isCSAIDValid, setIsCSAIDValid] = useState(true);
+  const [isCollegeEmailValid, setIsCollegeEmailValid] = useState(true);
+  const [isSessionValid, setIsSessionValid] = useState(true);
+  const options = [
+    "Fly High with AI",
+    "Demystifying the Path to Becoming an Azure Cloud Engineer",
+    "Both",
+  ];
 
   // VALIDATION FUNCTIONS
+  const VALIDATESESSION = (value, setValid) => {
+    // Convert value to lowercase and check if any option matches (case-insensitive)
+    const isValid = options.some(
+      (option) => option.toLowerCase() === value.toLowerCase()
+    );
+
+    if (isValid) {
+      setValid(true);
+      return true;
+    }
+
+    toast.error("Please select a valid option");
+    setValid(false);
+    return false;
+  };
 
   const validate = () => {
     const NameValid = VALIDATENAME(name, setIsNameValid);
@@ -179,6 +224,11 @@ const EventRegistrationForm = () => {
       yearOfStudy,
       setIsYearOfStudyValid
     );
+    const CollegeEmailValid = VALIDATEEMAIL(
+      collegeEmail,
+      setIsCollegeEmailValid
+    );
+    const SessionValid = VALIDATESESSION(Session, setIsSessionValid);
     // const SapIDValid = VALIDATESAPID(sapID, setIsSapIDValid);
     const CSAMemberValid = VALIDATECSAMEMBER(csaMember, setIsCSAMemberValid);
 
@@ -187,9 +237,11 @@ const EventRegistrationForm = () => {
       EmailValid &&
       PhoneValid &&
       CourseValid &&
-      WhatsAppValid
+      WhatsAppValid &&
+      CollegeEmailValid &&
+      YearOfStudyValid &&
+      SessionValid
       //&& SapIDValid
-      //&& YearOfStudyValid
       //&& CSAMemberValid
     ) {
       if (csaMember === "yes") {
@@ -213,15 +265,17 @@ const EventRegistrationForm = () => {
     // VALIDATION
     if (validate()) {
       setLoading(true);
-      setdisabled(true);
+      // setdisabled(true);
       const data = {
         name,
-        email,
-        phone,
-        course,
-        WhatsApp,
-        yearOfStudy,
         sapID,
+        course,
+        yearOfStudy,
+        phone,
+        WhatsApp,
+        email,
+        collegeEmail,
+        Session,
         csaMember,
         csaID,
         transactionID,
@@ -241,17 +295,21 @@ const EventRegistrationForm = () => {
       }
       // console.log(finalData);
       try {
-        // First POST request to Google Apps Script URL (now executed first)
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbzotgtmJL3cSPjw-K1uBiXrx6JYmluiydw7sSCmZqk_jlhLrxj5DU3WfWsWfabVBnlO/exec",
+          "https://script.google.com/macros/s/AKfycbyjdxHgpTHEGDjoCsXSzTUttYhqz6TrvNviv_U6vsQB-rasPf9j6fxVt9WJv1eIXCo-/exec",
           {
             method: "POST",
             body: finalData,
           }
         );
-
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
+        if (data.message === "Duplicate SAP ID") {
+          toast.error("Duplicate SAP ID");
+          setLoading(false);
+          setIsSapIDValid(false);
+          return;
+        }
         const sendMailResponse = await fetch(
           `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
           {
@@ -270,13 +328,16 @@ const EventRegistrationForm = () => {
         if (data.status == "success") {
           const sendMailData = await sendMailResponse.json();
           console.log(sendMailData);
+          toast.success("Form Submitted Successfully");
           navigate(
             `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`
           );
           setLoading(false);
         }
       } catch (error) {
-        console.error("Error:", error);
+        toast.error("Error Submitting Form");
+        setLoading(false);
+        console.log("Error:", error);
       }
     }
   };
@@ -288,115 +349,136 @@ const EventRegistrationForm = () => {
           <FormLoading />
         </div>
       )}
-      <div className={eventsContainer}>
-        <div className={eventImage}>
-          <img
-            loading="lazy"
-            src={eventDetails.eventImageURL}
-            alt="eventPoster"
-          />
-        </div>
-        <div className={eventDetailsDiv}>
-          <div className={eventDetail}>{eventDetails.eventMode}</div>
-          <div className={eventDetail}>
+
+      {(DisplayForm && (
+        <div className={formContainer}>
+          <h2 className={heading}>{eventDetails.eventHeading}</h2>
+          <div className={styles.divider}></div>
+          <Toaster />
+          <form
+            className={formDiv}
+            encType="multipart/form-data"
+            onSubmit={submitFormFinal}
+          >
             <img
               loading="lazy"
-              src="/icons/teamSize.png"
-              alt=""
-              style={{ marginTop: "-0.25rem" }}
+              src="/icons/rightArrow.png"
+              alt="backArrow"
+              className={backArrow}
+              onClick={() => setDisplayForm(false)}
             />
-            <p>{eventDetails.eventTeamSize}</p>
-          </div>
-          <div className={eventDetail}>
-            <img loading="lazy" src="/icons/date.png" alt="" />
-            <p>{eventDetails.eventDate}</p>
-          </div>
-          <div className={eventDetail} style={{ width: "100%" }}>
-            <img loading="lazy" src="/icons/registrationFee.png" alt="" />
-            <p>{eventDetails.eventRegistrationFee}</p>
-          </div>
-        </div>
-        <div className={eventDescripton}>
-          <h4 className={eventHeading}>Event Details</h4>
-          <p
-            className={eventText}
-            dangerouslySetInnerHTML={{ __html: eventDetails.eventText }}
-          ></p>
-        </div>
-      </div>
-      <div className={formContainer}>
-        <h2 className={heading}>{eventDetails.eventHeading}</h2>
-        <div className={styles.divider}></div>
+            {/* TEAM DETAILS SECTION START */}
+            {!paymentPage ? (
+              <div className={formDiv}>
+                <h3 className={sectionHeading}>Participant Details</h3>
 
-        <form
-          className={formDiv}
-          encType="multipart/form-data"
-          onSubmit={submitFormFinal}
-        >
-          {/* TEAM DETAILS SECTION START */}
-          {!paymentPage ? (
-            <div className={formDiv}>
-              <h3 className={sectionHeading}>Participant Details</h3>
+                {/* USER SECTION START */}
 
-              {/* USER SECTION START */}
+                <div className={memberSection}>
+                  <InputField
+                    id="participantName"
+                    type="text"
+                    inputLabel="Name"
+                    value={name}
+                    valueUpdater={updateName}
+                    required={true}
+                  />
+                  {!isNameValid && (
+                    <span className={errorMessage}>Invalid Name</span>
+                  )}
+                  <InputField
+                    id="participantSapID"
+                    type="text"
+                    inputLabel="SAP ID"
+                    value={sapID}
+                    valueUpdater={updateSapID}
+                    required={true}
+                  />
+                  {!isSapIDValid && (
+                    <span className={errorMessage}>Invalid SAP ID</span>
+                  )}
+                  <InputField
+                    id="participantCourse"
+                    type="text"
+                    inputLabel="Course (with specialization)"
+                    value={course}
+                    valueUpdater={updateCourse}
+                    required={true}
+                  />
+                  {!isCourseValid && (
+                    <span className={errorMessage}>Invalid Course</span>
+                  )}
+                  <InputField
+                    id="participantYearOfStudy"
+                    type="text"
+                    inputLabel="Year of Study"
+                    value={yearOfStudy}
+                    valueUpdater={updateYearOfStudy}
+                    required={true}
+                  />
+                  {!isYearOfStudyValid && (
+                    <span className={errorMessage}>Invalid Year of Study</span>
+                  )}
+                  <InputField
+                    id="participantPhone"
+                    type="text"
+                    inputLabel="Phone Number"
+                    value={phone}
+                    valueUpdater={updatePhone}
+                    required={true}
+                  />
+                  {!isPhoneValid && (
+                    <span className={errorMessage}>Invalid Phone</span>
+                  )}
+                  <InputField
+                    id="participantPhone"
+                    type="text"
+                    inputLabel="WhatsApp Number"
+                    value={WhatsApp}
+                    valueUpdater={updateWhatsApp}
+                    required={true}
+                  />
+                  {!isWhatsAppValid && (
+                    <span className={errorMessage}>
+                      Invalid WhatsApp Number
+                    </span>
+                  )}
+                  <InputField
+                    id="participantEmail"
+                    type="email"
+                    inputLabel="Email"
+                    value={email}
+                    valueUpdater={updateEmail}
+                    required={true}
+                  />
+                  {!isEmailValid && (
+                    <span className={errorMessage}>Invalid Email</span>
+                  )}
+                  <InputField
+                    id="participantCollegeEmail"
+                    type="email"
+                    inputLabel="College Email"
+                    value={collegeEmail}
+                    valueUpdater={updateCollegeEmail}
+                    required={true}
+                  />
+                  {!isCollegeEmailValid && (
+                    <span className={errorMessage}>Invalid College Email</span>
+                  )}
 
-              <div className={memberSection}>
-                <InputField
-                  id="participantName"
-                  type="text"
-                  inputLabel="Name"
-                  value={name}
-                  valueUpdater={updateName}
-                  required={true}
-                />
-                {!isNameValid && (
-                  <span className={errorMessage}>Invalid Name</span>
-                )}
-                <InputField
-                  id="participantEmail"
-                  type="email"
-                  inputLabel="Email"
-                  value={email}
-                  valueUpdater={updateEmail}
-                  required={true}
-                />
-                {!isEmailValid && (
-                  <span className={errorMessage}>Invalid Email</span>
-                )}
-                <InputField
-                  id="participantPhone"
-                  type="text"
-                  inputLabel="Phone Number"
-                  value={phone}
-                  valueUpdater={updatePhone}
-                  required={true}
-                />
-                {!isPhoneValid && (
-                  <span className={errorMessage}>Invalid Phone</span>
-                )}
-                <InputField
-                  id="participantPhone"
-                  type="text"
-                  inputLabel="WhatsApp Number"
-                  value={WhatsApp}
-                  valueUpdater={updateWhatsApp}
-                  required={true}
-                />
-                {!isWhatsAppValid && (
-                  <span className={errorMessage}>Invalid WhatsApp Number</span>
-                )}
-                <InputField
-                  id="participantSapID"
-                  type="text"
-                  inputLabel="SAP ID"
-                  value={sapID}
-                  valueUpdater={updateSapID}
-                  required={true}
-                />
-                {!isSapIDValid && (
-                  <span className={errorMessage}>Invalid SAP ID</span>
-                )}
-                {/* <DropDownSelectField
+                  <DropDownSelectField
+                    id="participantCSAMember"
+                    value={Session}
+                    valueUpdater={updateSession}
+                    inputLabel="Select Session"
+                    required={true}
+                    options={options}
+                    defaultOption="Select"
+                  />
+                  {!isSessionValid && (
+                    <span className={errorMessage}>Invalid Option</span>
+                  )}
+                  {/* <DropDownSelectField
                   id="participantCSAMember"
                   value={csaMember}
                   valueUpdater={updateCSAMember}
@@ -408,7 +490,7 @@ const EventRegistrationForm = () => {
                 {!isCSAMemberValid && (
                   <span className={errorMessage}>Invalid Option</span>
                 )} */}
-                {/* {csaMember === "yes" && (
+                  {/* {csaMember === "yes" && (
                   <InputField
                     id="participantCSAID"
                     type="text"
@@ -418,98 +500,129 @@ const EventRegistrationForm = () => {
                     required={csaMember === "yes"}
                   />
                 )} */}
-                {!isCSAIDValid && (
-                  <span className={errorMessage}>Invalid CSA ID</span>
+                  {/* {!isCSAIDValid && (
+                    <span className={errorMessage}>Invalid CSA ID</span>
+                  )} */}
+                </div>
+
+                {/* USER SECTION END */}
+
+                {/* ------------------------------------------------------------------------------------ */}
+
+                {eventDetails.IsFree ? (
+                  <button
+                    disabled={disabled}
+                    type="submit"
+                    className={submitButton}
+                  >
+                    Submit Form
+                  </button>
+                ) : (
+                  <button className={submitButton} onClick={submitFormOne}>
+                    NEXT
+                  </button>
                 )}
-                <InputField
-                  id="participantCourse"
-                  type="text"
-                  inputLabel="Course"
-                  value={course}
-                  valueUpdater={updateCourse}
-                  required={true}
-                />
-                {!isCourseValid && (
-                  <span className={errorMessage}>Invalid Course</span>
-                )}
-                {/* <InputField
-                  id="participantYearOfStudy"
-                  type="text"
-                  inputLabel="Year of Study"
-                  value={yearOfStudy}
-                  valueUpdater={updateYearOfStudy}
-                  required={true}
-                />
-                {!isYearOfStudyValid && (
-                  <span className={errorMessage}>Invalid Year of Study</span>
-                )} */}
               </div>
-
-              {/* USER SECTION END */}
-
-              {/* ------------------------------------------------------------------------------------ */}
-
-              {eventDetails.IsFree ? (
-                <button
-                  disabled={disabled}
-                  type="submit"
-                  className={submitButton}
+            ) : (
+              <div className={formDiv}>
+                <img
+                  loading="lazy"
+                  src="/icons/rightArrow.png"
+                  alt="backArrow"
+                  className={backArrow}
+                  onClick={() => setPaymentPage(false)}
+                />
+                <h3
+                  className={sectionHeading}
+                  style={{
+                    textAlign: "center",
+                    width: "100%",
+                    fontSize: "1.5rem",
+                  }}
                 >
+                  Payment Section
+                </h3>
+
+                <div className={paymentQRDiv}>
+                  <img loading="lazy" src="/img/qr/QR.jpg" alt="Payment OR" />
+                </div>
+
+                <InputField
+                  id="transactionID"
+                  type="text"
+                  inputLabel="Transaction ID"
+                  value={transactionID}
+                  valueUpdater={updateTransactionID}
+                  required={true}
+                />
+
+                <FileSelect
+                  id="transactionSS"
+                  inputLabel="Transaction Screenshot"
+                  valueUpdater={updateTransactionSS}
+                  required={true}
+                />
+
+                <button type="submit" className={submitButton}>
                   Submit Form
                 </button>
-              ) : (
-                <button className={submitButton} onClick={submitFormOne}>
-                  NEXT
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className={formDiv}>
-              <img
-                loading="lazy"
-                src="/icons/rightArrow.png"
-                alt="backArrow"
-                className={backArrow}
-                onClick={() => setPaymentPage(false)}
-              />
-              <h3
-                className={sectionHeading}
-                style={{
-                  textAlign: "center",
-                  width: "100%",
-                  fontSize: "1.5rem",
-                }}
-              >
-                Payment Section
-              </h3>
-
-              <div className={paymentQRDiv}>
-                <img loading="lazy" src="/img/qr/QR.jpg" alt="Payment OR" />
               </div>
-
-              <InputField
-                id="transactionID"
-                type="text"
-                inputLabel="Transaction ID"
-                value={transactionID}
-                valueUpdater={updateTransactionID}
-                required={true}
-              />
-
-              <FileSelect
-                id="transactionSS"
-                inputLabel="Transaction Screenshot"
-                valueUpdater={updateTransactionSS}
-                required={true}
-              />
-
-              <button type="submit" className={submitButton}>
-                Submit Form
-              </button>
+            )}
+          </form>
+        </div>
+      )) || (
+        <>
+          <div className={eventsContainer}>
+            <div>
+              <div className={eventImage}>
+                <img
+                  loading="lazy"
+                  src={eventDetails.eventImageURL}
+                  alt="eventPoster"
+                />
+              </div>
+              <div className={eventDetailsDiv}>
+                <div className={eventDetail}>{eventDetails.eventMode}</div>
+                <div className={eventDetail}>
+                  <img
+                    loading="lazy"
+                    src="/icons/teamSize.png"
+                    alt=""
+                    style={{ marginTop: "-0.25rem" }}
+                  />
+                  <p>{eventDetails.eventTeamSize}</p>
+                </div>
+                <div className={eventDetail}>
+                  <img loading="lazy" src="/icons/date.png" alt="" />
+                  <p>{eventDetails.eventDate}</p>
+                </div>
+                <div className={eventDetail} style={{ width: "100%" }}>
+                  <img loading="lazy" src="/icons/registrationFee.png" alt="" />
+                  <p>{eventDetails.eventRegistrationFee}</p>
+                </div>
+              </div>
             </div>
-          )}
-        </form>
-      </div>
+            <div className={eventDescripton}>
+              <h4 className={eventHeading}>Event Details</h4>
+              <p
+                className={eventText}
+                dangerouslySetInnerHTML={{ __html: eventDetails.eventText }}
+              ></p>
+            </div>
+          </div>
+          <div className={RegisterButtonDiv}>
+            <button
+              className={RegisterButton}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                setDisplayForm(true);
+              }}
+            >
+              Register Now
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
