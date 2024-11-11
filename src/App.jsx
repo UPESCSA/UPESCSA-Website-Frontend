@@ -149,6 +149,21 @@ function App() {
 
         {/* EVENT ROUTES */}
 
+        {/* // * Active Events */}
+
+        <Route
+          path="/AzureCloudScape"
+          element={
+            <>
+              <Navbar />
+              <EventRegistrationForm />
+              <Contact />
+            </>
+          }
+        />
+
+        {/* // * Past Events */}
+
         {/* <Route
           path="/Registration"
           element={
@@ -169,6 +184,7 @@ function App() {
             </>
           }
         /> */}
+
         {/* <Route
           path="/memoir3.0"
           element={
