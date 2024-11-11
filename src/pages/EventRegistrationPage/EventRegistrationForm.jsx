@@ -61,7 +61,7 @@ const EventRegistrationForm = () => {
       <strong>🕒 Timings:</strong>
     </p>
     <ul>
-      <li><strong>Session 1 (12-2pm):</strong> Fly High with AI</li>
+      <li><strong>Session 1 (12-2pm):</strong> Intro to Azure</li>
       <li><strong>Session 2 (3:30-5:30pm):</strong> Demystifying the Path to Becoming an Azure Cloud Engineer</li>
     </ul>
 
@@ -192,7 +192,7 @@ const EventRegistrationForm = () => {
   const [isCollegeEmailValid, setIsCollegeEmailValid] = useState(true);
   const [isSessionValid, setIsSessionValid] = useState(true);
   const options = [
-    "Fly High with AI",
+    "Intro to Azure",
     "Demystifying the Path to Becoming an Azure Cloud Engineer",
     "Both",
   ];
