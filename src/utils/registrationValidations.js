@@ -136,11 +136,11 @@ const validateCSAID = (value, validatorFunction, csaMember, upesStudent) => {
 };
 
 const validateYearOfStudy = (value, validatorFunction) => {
-  const Years = ["1st", "2nd", "3rd", "4th", "5th"];
+  const validYears = ["1st", "2nd", "3rd", "4th", "5th", '1', '2', '3', '4', '5'];
+  const isValid = validYears.includes(value.trim().toLowerCase());
 
-  const isvalid = Years.includes(value);
-  validatorFunction(isvalid);
-  return isvalid;
+  validatorFunction(isValid);
+  return isValid;
 };
 
 const validateCommittee = (value, validatorFunction) => {
