@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./RegistrationDriveForm.module.css";
-import InputField from "../../components/InputField/InputField";
-import DropDownSelectField from "../../components/DropDownSelectField/DropDownSelectField";
+import InputField from "../../../components/InputField/InputField";
+import DropDownSelectField from "../../../components/DropDownSelectField/DropDownSelectField";
 
 import {
   VALIDATENAME,
@@ -16,9 +16,9 @@ import {
   VALIDATECOMMITTEE,
   VALIDATEPAYMENTMODE,
   VALIDATEGENDER,
-} from "../../utils/registrationValidations";
-import FormLoading from "../../components/FormLoading/FormLoading";
-import FileSelect from "../../components/FileSelect/FileSelect";
+} from "../../../utils/registrationValidations";
+import FormLoading from "../../../components/FormLoading/FormLoading";
+import FileSelect from "../../../components/FileSelect/FileSelect";
 import toast, { Toaster } from "react-hot-toast";
 
 const {
@@ -345,7 +345,6 @@ const RegistrationDriveForm = () => {
           encType="multipart/form-data"
           onSubmit={submitFormFinal}
         >
-          <Toaster />
           {/* TEAM DETAILS SECTION START */}
           {!paymentPage ? (
             <div className={formDiv}>

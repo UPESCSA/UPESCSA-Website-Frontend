@@ -28,7 +28,7 @@ import ProblemStatementDashboard from "./pages/Hackathon/ProblemStatementDashboa
 
 import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrationForm";
 import AlumniPage from "./pages/AlumniPage/AlumniPage";
-import RegistrationDriveForm from "./pages/EventRegistrationPage/RegistrationDriveForm";
+import RegistrationDriveForm from "./pages/EventRegistrationPage/RegistrationDrive/RegistrationDriveForm";
 import FuntopiaRegistrationsPage from "./pages/EventRegistrationPage/FuntopiaRegistrationPage/FuntopiaRegistrationsPage";
 
 function App() {
@@ -149,6 +149,21 @@ function App() {
 
         {/* EVENT ROUTES */}
 
+        {/* // * Active Events */}
+
+        <Route
+          path="/AzureCloudScape"
+          element={
+            <>
+              <Navbar />
+              <EventRegistrationForm />
+              <Contact />
+            </>
+          }
+        />
+
+        {/* // * Past Events */}
+
         {/* <Route
           path="/Registration"
           element={
@@ -159,7 +174,7 @@ function App() {
             </>
           }
         /> */}
-        <Route
+        {/* <Route
           path="/Funtopia/Registration"
           element={
             <>
@@ -168,7 +183,8 @@ function App() {
               <Contact />
             </>
           }
-        />
+        /> */}
+
         {/* <Route
           path="/memoir3.0"
           element={

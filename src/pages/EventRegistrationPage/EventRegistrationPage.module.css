@@ -1,12 +1,13 @@
 .mainDiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background: url("/img/registrationBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  gap: 5rem;
+  /* gap: 5rem; */
   width: 100%;
   padding-block: 10rem;
   position: relative;
@@ -68,7 +69,8 @@
 
 .eventsContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   color: var(--textDark);
@@ -91,10 +93,11 @@
   justify-content: flex-start;
   box-sizing: border-box;
   width: max(20dvw, 350px);
-  height: max(20dvw, 100%);
+  height: max(20dvw, 475px);
   color: var(--textDark);
   background-color: var(--bgLight);
-  padding: 1.5rem 0rem 1rem 1rem;
+  /* padding: 1.5rem 0rem 1rem 1rem; */
+  padding: 1.5rem 0rem 0 1rem;
 }
 
 .eventHeading {
@@ -242,13 +245,82 @@
   }
 
   .eventRegisterButton {
+    background-color: black;
+    color: white;
+    margin-top: 1rem;
+    border: none;
+    text-align: center;
+    width: 250px !important;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .RegisterButtonDiv {
+    width: 330px !important;
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+
+  .RegisterButton {
+    background-color: black;
+    color: white;
+    margin-top: 1rem;
+    border: none;
+    text-align: center;
     width: 100%;
-    margin-inline: 1rem;
-    justify-content: center;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   .backArrow {
-    top: -5rem;
+    top: 0.5rem;
     left: -2rem;
   }
+}
+
+@keyframes glow {
+  0% {
+    /* text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; */
+    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+  }
+
+  50% {
+    /* text-shadow: 0 0 25px white, 0 0 35px white, 0 0 45px white; */
+    box-shadow: 0 0 25px white, 0 0 35px white, 0 0 45px white;
+  }
+
+  100% {
+    /* text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; */
+    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+  }
+}
+
+.RegisterButtonDiv {
+  margin: 0;
+  margin-top: 1rem;
+  width: 700px;
+}
+
+.RegisterButton {
+  background-color: black;
+  color: white;
+  margin-top: 1rem;
+  border: none;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  /* text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; */
+  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+  animation: glow 1.5s ease-in-out infinite;
 }
