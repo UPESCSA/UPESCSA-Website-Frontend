@@ -76,7 +76,7 @@ const EventRegistrationForm = () => {
       <strong>Fill the form below to participate!</strong>
     </p>
 `,
-    eventMode: "Online",
+    eventMode: "Offline",
     eventTeamSize: "1",
     eventRegistrationFee: "free",
     eventDate: "16/11/24",
