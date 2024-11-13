@@ -151,7 +151,7 @@ function App() {
 
         {/* // * Active Events */}
 
-        <Route
+        {/* <Route
           path="/AzureCloudScape"
           element={
             <>
@@ -160,7 +160,7 @@ function App() {
               <Contact />
             </>
           }
-        />
+        /> */}
 
         {/* // * Past Events */}
 
