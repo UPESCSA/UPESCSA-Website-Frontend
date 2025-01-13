@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,48 +52,36 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/AZURE CLOUDSCAPE.jpg"
-          eventHeading="Azure Cloudscape"
+          eventPosterURL="/img/events/live/hackathon4.0.jpg"
+          eventHeading="Hackathon 4.0"
           eventText={
             <>
+              <p>🚀 Hackathon 4.0: Where Innovation Meets Impact! 🚀</p>
               <p>
-                🎉 Cloud Revolution at Azure Cloudscape: Navigating Tomorrow’s
-                Tech! ☁️
+                Brace yourself for the most thrilling tech extravaganza of the
+                year—Hackathon 4.0 is here! Whether you're a seasoned developer,
+                a visionary problem-solver, or an aspiring tech enthusiast, this
+                is your moment to create, innovate, and lead the charge in
+                solving real-world challenges.
+              </p>
+              <p>📅 Event Date: 24-26 JAN 2025</p>
+              <p>🌐 Mode: Online</p>
+              <p>
+                💡 Hackathon 4.0 isn’t just an event; it’s a movement to
+                redefine possibilities and shape the future. Collaborate with
+                brilliant minds, tackle challenges that matter, and bring your
+                groundbreaking ideas to life.
               </p>
               <p>
-                “The cloud doesn’t just store data—it's a catalyst that stirs
-                potential”
+                🔗Register Now and take your first step toward making a
+                difference. Be the force that drives innovation, creativity, and
+                collaboration.
               </p>
-              <p>
-                On 16th November, immerse yourself in the vibrant world of Azure
-                Cloudscape: Navigating Tomorrow’s Tech, where aspiring tech
-                professionals gather to harness the power of Azure tools and
-                technologies. Experience an enriching atmosphere that celebrates
-                innovation and collaboration, empowering you to explore new
-                horizons and elevate your skills while navigating the exciting
-                frontiers of cloud computing.
-              </p>
-              <p>What Awaits You:</p>
-              <p>
-                🌟 Featured Speaker: Mr. Saket Kumar, Senior Consultant at
-                Microsoft and Ms. Neelam Mourya, Consultant at Microsoft
-              </p>
-              <p>
-                🎓 Interactive Workshops: Roll up your sleeves and tackle
-                real-world challenges in our hands-on sessions.
-              </p>
-              <p>
-                🏆 Exciting Challenges: Test your knowledge and win exciting
-                goodies and certificates!
-              </p>
-              <p>
-                This is your chance to amplify your cloud expertise and forge
-                connections with like-minded innovators. Are you ready to leap
-                into the future of technology?
-              </p>
+              <p>💻 Dream it. Build it. Impact the World.</p>
+              <p>Don’t wait—your journey to innovation starts here! 🌍✨</p>
             </>
           }
-          eventFormURL="/AzureCloudScape"
+          eventFormURL="/hackathon4.0/register"
           closePopup={togglePopup}
           buttonText="REGISTER NOW!"
         />

@@ -21,7 +21,7 @@ const PopupHackathon = ({
   statementDescription,
   statementFunctionalRequirement,
   statementNonFunctionalRequirement,
-  statementActive,
+  statementActive = true,
   eventFormURL,
   closePopup,
 }) => {

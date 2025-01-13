@@ -22,16 +22,16 @@ const HomeSection = () => {
   return (
     <div className={mainDiv}>
       <div className={homeImage}>
-        <img src="/logo/hackathon.png" alt="Hackathon" />
+        <img src="/logo/Hackathon4.0.png" alt="Hackathon" />
       </div>
       <div className={homeContent}>
         <h2 className={homeSubHeading}>
           For minds that innovate <br />
           Unveil your vision!
         </h2>
-        <Link to={"/hackathon3.0/problemStatements"}>
+        {/* <Link to={"/hackathon3.0/problemStatements"}>
           <button className="registrationButton">Problem Statements</button>
-        </Link>
+        </Link> */}
       </div>
 
       {/* BACKGROUND VECTORS */}

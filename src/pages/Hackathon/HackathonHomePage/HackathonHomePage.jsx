@@ -21,11 +21,11 @@ const HackathonHomePage = () => {
       <HackthonNavbar />
       <HomeSection />
       <AboutHackathon />
-      <CommunityPartnerSection />
+      {/* <CommunityPartnerSection /> */}
       <Timeline />
-      <Panelist />
+      {/* <Panelist /> */}
       <SponsorsSection />
-      <CampusPartnersSection />
+      {/* <CampusPartnersSection /> */}
       <FaqSection />
       <RegistrationPromptSection />
       <ContactSection />

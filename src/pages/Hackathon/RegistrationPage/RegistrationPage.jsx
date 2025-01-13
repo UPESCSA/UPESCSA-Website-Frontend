@@ -422,12 +422,7 @@ const RegistrationPage = () => {
   };
 
   const validateTeamLeadCSAID = () => {
-    return VALIDATECSAID(
-      teamLeadCSAID,
-      setIsTeamLeadCSAIDValid,
-      teamLeadCSAMember,
-      teamLeadUPESStudent
-    );
+    return true;
   };
 
   const validateTeamLeadCourse = () => {
@@ -485,12 +480,7 @@ const RegistrationPage = () => {
   };
 
   const validateMemberTwoCSAID = () => {
-    return VALIDATECSAID(
-      memberTwoCSAID,
-      setIsMemberTwoCSAIDValid,
-      memberTwoCSAMember,
-      memberTwoUPESStudent
-    );
+    return true;
   };
 
   const validateMemberTwoCourse = () => {
@@ -550,12 +540,7 @@ const RegistrationPage = () => {
   };
 
   const validateMemberThreeCSAID = () => {
-    return VALIDATECSAID(
-      memberThreeCSAID,
-      setIsMemberThreeCSAIDValid,
-      memberThreeCSAMember,
-      memberThreeUPESStudent
-    );
+    return true;
   };
 
   const validateMemberThreeCourse = () => {
@@ -607,12 +592,7 @@ const RegistrationPage = () => {
   };
 
   const validateMemberFourCSAID = () => {
-    return VALIDATECSAID(
-      memberFourCSAID,
-      setIsMemberFourCSAIDValid,
-      memberFourCSAMember,
-      memberFourUPESStudent
-    );
+    return true;
   };
 
   const validateMemberFourCollegeName = () => {
@@ -802,7 +782,7 @@ const RegistrationPage = () => {
       )
       .then((response) => {
         console.log(response);
-        navigate("/registrationSuccess?wg=" + "LRouuNA8hFx73tFVQguPf9");
+        navigate("/registrationSuccess?wg=" + "IDM52E9kBKgCJ0UCnkI3OR");
       })
       .catch((error) => {
         console.error(error);
@@ -837,7 +817,7 @@ const RegistrationPage = () => {
 
   return (
     <div className={mainDiv}>
-      <Link to="/hackathon3.0">
+      <Link to="/hackathon4.0">
         <img
           src="/icons/rightArrow.png"
           alt="backButton"
@@ -854,7 +834,7 @@ const RegistrationPage = () => {
       <div className={registrationForm}>
         <div className={formSideImage}>
           <img
-            src="/logo/hackathon.png"
+            src="/logo/Hackathon4.0.png"
             alt="hackathon"
             className={hackathonLogo}
           />
@@ -1456,7 +1436,16 @@ const RegistrationPage = () => {
               <div className={paymentDetails}>
                 <div className={paymentInstructions}>
                   <h3 className={paymentText}>
-                    <strong>Registration Fee - ₹250</strong>
+                    <strong>
+                      Registration Fee - ₹
+                      {teamLeadCSAMember === "yes" ||
+                      memberTwoCSAMember === "yes" ||
+                      memberThreeCSAMember === "yes" ||
+                      memberFourCSAMember === "yes"
+                        ? 200
+                        : 250}
+                      {console.log(teamLeadCSAMember)}
+                    </strong>
                   </h3>
                   <h3 className={paymentHeading}>Payment Instructions</h3>
                   <p className={paymentText}>
@@ -1473,7 +1462,7 @@ const RegistrationPage = () => {
                 </div>
                 <div className={qrCode}>
                   <img
-                    src="/img/qr/qr.jpg"
+                    src="/img/PaymentModes/QR.jpeg"
                     alt="qrCode"
                     className={qrCodeImg}
                   />

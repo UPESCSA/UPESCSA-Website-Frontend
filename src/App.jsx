@@ -20,7 +20,7 @@ import UltimateShowdownRegistrationPage from "./pages/EventRegistrationPage/Ulti
 import VirtualEscapeRoomRegistrationPage from "./pages/EventRegistrationPage/VirtualEscapeRoomRegistrationPage";
 
 import HackathonHomePage from "./pages/Hackathon/HackathonHomePage/HackathonHomePage";
-// import RegistrationPage from "./pages/Hackathon/RegistrationPage/RegistrationPage";
+import RegistrationPage from "./pages/Hackathon/RegistrationPage/RegistrationPage";
 
 import RegistrationSuccess from "./pages/RegistrationSuccess/RegistrationSuccess";
 import ProblemStatementPage from "./pages/Hackathon/ProblemStatementPage/ProblemStatementPage";
@@ -95,7 +95,6 @@ function App() {
             </>
           }
         />
-
         {/* <Route
           path="/evortal"
           element={
@@ -106,7 +105,6 @@ function App() {
             </>
           }
         /> */}
-
         <Route
           path="/registrationSuccess"
           element={
@@ -115,7 +113,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/committees"
           element={
@@ -146,11 +143,8 @@ function App() {
             </>
           }
         />
-
         {/* EVENT ROUTES */}
-
         {/* // * Active Events */}
-
         {/* <Route
           path="/AzureCloudScape"
           element={
@@ -161,9 +155,7 @@ function App() {
             </>
           }
         /> */}
-
         {/* // * Past Events */}
-
         {/* <Route
           path="/Registration"
           element={
@@ -184,7 +176,6 @@ function App() {
             </>
           }
         /> */}
-
         {/* <Route
           path="/memoir3.0"
           element={
@@ -195,7 +186,6 @@ function App() {
             </>
           }
         /> */}
-
         {/* <Route
           path="/evortal/hackersummit"
           element={<>      <Navbar /><HackerSummitRegistrationPage /></>}
@@ -230,17 +220,16 @@ function App() {
             </>
           }
         /> */}
-
-        {/* <Route path="/hackathon3.0/" element={<HackathonHomePage />} /> */}
-        {/* <Route path="/hackathon3.0/register" element={<RegistrationPage />} /> */}
+        <Route path="/hackathon4.0/" element={<HackathonHomePage />} />
+        <Route path="/hackathon4.0/register" element={<RegistrationPage />} />
         {/* <Route
-          path="/hackathon3.0/problemStatements"
+          path="/hackathon4.0/problemStatements"
           element={<ProblemStatementPage />}
-        />
+        /> */}
         <Route
           path="/hackathon3.0/jdfsdjgf73428"
           element={<ProblemStatementDashboard />}
-        /> */}
+        />
       </Routes>
     </div>
   );
