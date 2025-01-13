@@ -59,8 +59,8 @@ const Navbar = () => {
       action: "#contact",
     },
     // {
-    //   title: "JOIN NOW",
-    //   action: "/Registration",
+    //   title: "HACKATHON 4.0",
+    //   action: "/hackathon4.0",
     // },
 
   ];
@@ -169,15 +169,15 @@ const Navbar = () => {
               )
             )}
 
-            {/* <hr className={verticalLine} />
+            <hr className={verticalLine} />
             <Navlinks
-              title={"Evortal"}
-              action={"/evortal"}
+              title={"HACKATHON 4.0"}
+              action={"/hackathon4.0"}
               separatePage={true}
               closeNavbar={displayNavBar}
               textStyle={{ color: "gold" }}
             />
-            <hr className={mobileLine} /> */}
+            <hr className={mobileLine} />
           </ul>
           <div className={socialsDiv}>
             <Socials orientation={"row"} />

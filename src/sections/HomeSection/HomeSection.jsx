@@ -29,9 +29,9 @@ const HomeSection = () => {
           For minds that innovate <br />
           Unveil your vision!
         </h2>
-        {/* <Link to={"/hackathon3.0/problemStatements"}>
-          <button className="registrationButton">Problem Statements</button>
-        </Link> */}
+        <Link to={"/hackathon4.0/register"}>
+          <button className="registrationButton">REGISTER NOW</button>
+        </Link>
       </div>
 
       {/* BACKGROUND VECTORS */}

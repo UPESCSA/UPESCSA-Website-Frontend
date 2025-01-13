@@ -81,7 +81,7 @@ const HomePage = () => {
               <p>Don’t wait—your journey to innovation starts here! 🌍✨</p>
             </>
           }
-          eventFormURL="/hackathon4.0/register"
+          eventFormURL="/hackathon4.0"
           closePopup={togglePopup}
           buttonText="REGISTER NOW!"
         />
