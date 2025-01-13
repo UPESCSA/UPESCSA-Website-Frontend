@@ -27,7 +27,7 @@ const ContactSection = () => {
         </div>
         <div className={logoDiv}>
           <Logo src="/logo/upescsa.png" />
-          <Logo src="/logo/hackathon.png" />
+          <Logo src="/logo/Hackathon4.0.png" />
         </div>
         <div className={contactInfoDiv}>
           <div className={contactField}>
@@ -50,7 +50,7 @@ const ContactSection = () => {
               alt="phone"
             />
             <p className={contactFieldInfo}>
-              +91 72890 10301 <br /> +91 62393 21512
+              +91 89586 11888 <br /> +91 88280 44674
             </p>
           </div>
           <div className={contactField}>

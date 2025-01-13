@@ -15,16 +15,16 @@ const {
 const SponsorsSection = () => {
   const sponsors = [
     {
-      name: "HoverRobotix",
-      id: "hoverrobotix",
-      link: "https://hoverrobotix.com/",
-      image: "/sponsors/sponsors/hoverrobotix.png",
+      name: "Live AI",
+      id: "liveai",
+      link: "https://www.liveai.eu/",
+      image: "/sponsors/sponsors/LiveAi.jpg",
     },
     {
-      name: "Indian Hempstore",
-      id: "indianhempstore",
-      link: "https://indianhempstore.com/",
-      image: "/sponsors/sponsors/indianhempstore.png",
+      name: "Rabbit AI",
+      id: "rabbitai",
+      link: "https://rabbitt.ai/",
+      image: "/sponsors/sponsors/RabbitAi.jpg",
     },
     {
       name: "Learning with Travelling",
@@ -33,10 +33,10 @@ const SponsorsSection = () => {
       image: "/sponsors/sponsors/lwt.png",
     },
     {
-      name: "MentorX",
-      id: "mentorx",
-      link: "https://thementorx.com/",
-      image: "/sponsors/sponsors/mentorx.png",
+      name: "The Web Gravity",
+      id: "thewebgravity",
+      link: "https://www.thewebgravity.com/",
+      image: "/sponsors/sponsors/TheWebGravity.png",
     },
     {
       name: "GiveMyCertificate",
@@ -45,10 +45,10 @@ const SponsorsSection = () => {
       image: "/sponsors/sponsors/givemycertificate.png",
     },
     {
-      name: "InterviewBuddy",
-      id: "interviewbuddy",
-      link: "https://www.interviewbuddy.in/",
-      image: "/sponsors/sponsors/interviewbuddy.png",
+      name: "XYZ",
+      id: "xyz",
+      link: "https://gen.xyz/",
+      image: "/sponsors/sponsors/xyz.png",
     },
   ];
 
@@ -75,22 +75,6 @@ const SponsorsSection = () => {
             </a>
           </div>
         ))}
-        <div className={sponsorsInfo}>
-          <a
-            href="https://www.bluelearn.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className={sponsorInfo}>
-              <img
-                src="/sponsors/sponsors/bluelearn.png"
-                alt="Blue Learn"
-                className={sponsorImage}
-                id={bluelearn}
-              />
-            </div>
-          </a>
-        </div>
       </div>
     </div>
   );

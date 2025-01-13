@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./RegistrationPromptSection.module.css";
 
 const { mainDiv, content, contentHeading, earthVideo } = styles;
@@ -11,9 +11,9 @@ const RegistrationPromptSection = () => {
           Unleash your research, Build the future. <br />
           Join the Hackathon!
         </h1>
-        {/* <Link to={"/hackathon3.0/register"}>
+        <Link to={"/hackathon4.0/register"}>
           <button className="registrationButton">REGISTER NOW!</button>
-        </Link> */}
+        </Link>
       </div>
 
       <video
