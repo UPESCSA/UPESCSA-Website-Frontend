@@ -846,7 +846,10 @@ const RegistrationPage = () => {
         <form
           className={registrationFormDiv}
           encType="multipart/form-data"
-          onSubmit={() => console.log("submit")}
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log("submit");
+          }}
         >
           {/* TEAM DETAILS SECTION START */}
 
