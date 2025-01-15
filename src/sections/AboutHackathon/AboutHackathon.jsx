@@ -28,7 +28,7 @@ const AboutHackathon = () => {
           Driven by the spirit of innovation and impactful problem-solving,
           &quot;Hackathon 4.0&quot; aims to address real-world chalenges through
           cutting-edge technologies. Centered around the themes of "Adaptive
-          Welness" and "Hazard and Disaster Management," the event empowers
+          Wellness" and "Hazard and Disaster Management," the event empowers
           participants to design solutions that tackle critical societal issues.
           <br />
           <br />
@@ -66,7 +66,7 @@ const AboutHackathon = () => {
           <div className={contentPointer}>
             <h1 className={contentPointerHeading}>Theme</h1>
             <div className={contentPointerText}>
-              Adaptive Welness &amp; Hazard and Disaster Management
+              Adaptive Wellness &amp; Hazard and Disaster Management
             </div>
           </div>
         </div>
