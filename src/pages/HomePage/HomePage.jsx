@@ -64,7 +64,7 @@ const HomePage = () => {
                 is your moment to create, innovate, and lead the charge in
                 solving real-world challenges.
               </p>
-              <p>📅 Event Date: 24-26 JAN 2025</p>
+              <p>📅 Event Date: 7-9 FEB 2025</p>
               <p>🌐 Mode: Online</p>
               <p>
                 💡 Hackathon 4.0 isn’t just an event; it’s a movement to

@@ -17,7 +17,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/psreveal.png",
       timelineHeading: "Problem Statement Reveal & Selection",
-      timelineDate: "23 January 2025",
+      timelineDate: "6th February 2025",
       timelineTime: "11:00 AM",
       reverseOrder: false,
       height: "250px",
@@ -25,14 +25,14 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/inaugralceremony.avif",
       timelineHeading: "Inaugural Ceremony",
-      timelineDate: "24 January 2025",
+      timelineDate: "7th February 2025",
       timelineTime: "10:00 AM",
       reverseOrder: true,
     },
     {
       timelineImage: "/img/timeline/presentation.avif",
       timelineHeading: "Presentation Round Evaluation",
-      timelineDate: "24 January 2025",
+      timelineDate: "7th February 2025",
       timelineTime: "12:00 PM",
       reverseOrder: false,
       height: "250px",
@@ -40,7 +40,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/result.avif",
       timelineHeading: "Presentation Round Result",
-      timelineDate: "24 January 2025",
+      timelineDate: "7th February 2025",
       timelineTime: "04:00 PM",
       reverseOrder: true,
       height: "250px",
@@ -48,7 +48,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/round1.avif",
       timelineHeading: "Round 1 Evaluation",
-      timelineDate: "25 January 2025",
+      timelineDate: "8th February 2025",
       timelineTime: "10:00 AM",
       reverseOrder: false,
       height: "250px",
@@ -56,7 +56,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/round1result.png",
       timelineHeading: "Round 1 Result",
-      timelineDate: "25 January 2025",
+      timelineDate: "8th February 2025",
       timelineTime: "1:00 PM",
       reverseOrder: true,
       height: "250px",
@@ -64,7 +64,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/round2.png",
       timelineHeading: "Round 2 Evaluation",
-      timelineDate: "25 January 2025",
+      timelineDate: "8th February 2025",
       timelineTime: "05:00 PM",
       reverseOrder: false,
       height: "250px",
@@ -72,7 +72,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/round2result.png",
       timelineHeading: "Round 2 Result",
-      timelineDate: "25 January 2025",
+      timelineDate: "8th February 2025",
       timelineTime: "8:00 PM",
       reverseOrder: true,
       height: "250px",
@@ -80,7 +80,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/finale.png",
       timelineHeading: "Grand Finale",
-      timelineDate: "26 January 2025",
+      timelineDate: "9th February 2025",
       timelineTime: "10:00 AM",
       reverseOrder: false,
       height: "250px",
@@ -88,7 +88,7 @@ const TimelineSection = () => {
     {
       timelineImage: "/img/timeline/finale.avif",
       timelineHeading: "Closing Ceremony",
-      timelineDate: "26 January 2025",
+      timelineDate: "9th February 2025",
       timelineTime: "03:00 PM",
       reverseOrder: true,
       height: "250px",
