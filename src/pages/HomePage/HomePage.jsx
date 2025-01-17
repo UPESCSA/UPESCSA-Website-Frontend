@@ -52,7 +52,7 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/hackathon4.0.jpg"
+          eventPosterURL="/img/events/live/hackathon4.0.jpeg"
           eventHeading="Hackathon 4.0"
           eventText={
             <>
