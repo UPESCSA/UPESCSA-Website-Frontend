@@ -221,7 +221,7 @@ function App() {
           }
         /> */}
         <Route path="/hackathon4.0/" element={<HackathonHomePage />} />
-        <Route path="/hackathon4.0/register" element={<RegistrationPage />} />
+        {/* <Route path="/hackathon4.0/register" element={<RegistrationPage />} /> */}
         {/* <Route
           path="/hackathon4.0/problemStatements"
           element={<ProblemStatementPage />}
