@@ -83,7 +83,7 @@ const HomePage = () => {
           }
           eventFormURL="/hackathon4.0"
           closePopup={togglePopup}
-          buttonText="REGISTER NOW!"
+          buttonText="View Now!"
         />
       )}
       <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />

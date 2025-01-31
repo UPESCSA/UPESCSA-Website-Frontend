@@ -11,9 +11,9 @@ const RegistrationPromptSection = () => {
           Unleash your research, Build the future. <br />
           Join the Hackathon!
         </h1>
-        <Link to={"/hackathon4.0/register"}>
+        {/* <Link to={"/hackathon4.0/register"}>
           <button className="registrationButton">REGISTER NOW!</button>
-        </Link>
+        </Link> */}
       </div>
 
       <video
