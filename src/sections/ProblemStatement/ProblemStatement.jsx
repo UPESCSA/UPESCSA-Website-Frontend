@@ -894,7 +894,7 @@ const ProblemStatement = () => {
             selectedStatement.PSNonFunctionalRequirement
           }
           statementActive={selectedStatement.PSActive}
-          eventFormURL="https://forms.gle/tD9ZCnFHNm7oFs1V9"
+          eventFormURL="https://forms.gle/6aHxGtjkMnSgrrUT6"
           closePopup={closePopup}
         />
       )}
