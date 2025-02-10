@@ -220,16 +220,16 @@ function App() {
             </>
           }
         /> */}
-        <Route path="/hackathon4.0/" element={<HackathonHomePage />} />
+        {/* <Route path="/hackathon4.0/" element={<HackathonHomePage />} /> */}
         {/* <Route path="/hackathon4.0/register" element={<RegistrationPage />} /> */}
-        <Route
+        {/* <Route
           path="/hackathon4.0/problemStatements"
           element={<ProblemStatementPage />}
         />
         <Route
           path="/hackathon4.0/jdfsdjgf73428"
           element={<ProblemStatementDashboard />}
-        />
+        /> */}
       </Routes>
     </div>
   );

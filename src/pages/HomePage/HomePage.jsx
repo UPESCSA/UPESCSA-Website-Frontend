@@ -52,7 +52,7 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/hackathon4.0.jpeg"
+          eventPosterURL="/img/events/live/hackathon4.0.jpg"
           eventHeading="Hackathon 4.0"
           eventText={
             <>
@@ -64,7 +64,7 @@ const HomePage = () => {
                 is your moment to create, innovate, and lead the charge in
                 solving real-world challenges.
               </p>
-              <p>📅 Event Date: 7-9 FEB 2025</p>
+              <p>📅 Event Date: 24-26 JAN 2025</p>
               <p>🌐 Mode: Online</p>
               <p>
                 💡 Hackathon 4.0 isn’t just an event; it’s a movement to
@@ -83,7 +83,7 @@ const HomePage = () => {
           }
           eventFormURL="/hackathon4.0"
           closePopup={togglePopup}
-          buttonText="View Now!"
+          buttonText="REGISTER NOW!"
         />
       )}
       <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />
