@@ -169,7 +169,7 @@ const Navbar = () => {
               )
             )}
 
-            <hr className={verticalLine} />
+            {/* <hr className={verticalLine} />
             <Navlinks
               title={"HACKATHON 4.0"}
               action={"/hackathon4.0"}
@@ -177,7 +177,7 @@ const Navbar = () => {
               closeNavbar={displayNavBar}
               textStyle={{ color: "gold" }}
             />
-            <hr className={mobileLine} />
+            <hr className={mobileLine} /> */}
           </ul>
           <div className={socialsDiv}>
             <Socials orientation={"row"} />
