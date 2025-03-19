@@ -108,12 +108,10 @@ a {
 .separator {
   width: 100%;
   height: 1px;
-  background: linear-gradient(
-    to right,
-    var(--hackbuttonDark),
-    var(--hackneonHighlight),
-    var(--hackbuttonDark)
-  );
+  background: linear-gradient(to right,
+      var(--hackbuttonDark),
+      var(--hackneonHighlight),
+      var(--hackbuttonDark));
   margin: 3rem 0 1rem 0;
   border: none;
   outline: none;
@@ -121,18 +119,22 @@ a {
 
 .registrationButton {
   background-color: transparent;
-  box-shadow: 0 0 1px 1px var(--hackbuttonShadow);
+  box-shadow: 0 0 1px 1px var(--hackneonHighlight);
   border: none;
-  color: var(--hacktextLight);
-  padding: 1rem 2rem;
+  color: var(--hackneonHighlight);
+  padding: 1.5rem 2.5rem;
   border-radius: 5px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 900;
-  font-style: italic;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  &:hover {
-    background-color: var(--hackbuttonShadow);
-    transition: all 0.3s;
-  }
+}
+
+.registrationButton:hover {
+  background-color: var(--hackneonHighlight);
+  color: white;
+}
+
+.registrationButton:focus {
+  outline: 2px solid var(--hackneonHighlight);
 }

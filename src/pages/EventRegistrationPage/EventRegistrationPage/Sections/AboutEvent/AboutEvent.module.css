@@ -1,0 +1,156 @@
+.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    background-color: #212121;
+    position: relative;
+    padding: 0 5rem 3rem 5rem;
+    margin-top: 10dvh;
+}
+
+.headingSpan {
+    color: #EC2227 !important;
+    font-size: 2rem;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.contentText {
+    line-height: 1.5rem;
+    width: 95%;
+}
+
+.contentPointers {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.contentPointer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    line-height: 1.5rem;
+}
+
+.contentPointerHeading {
+    font-weight: 500;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #EC2227;
+}
+
+.contentPointerText {
+    text-align: center;
+}
+
+.backgroundVectors {
+    position: absolute;
+}
+
+@keyframes randomMove {
+    0% {
+        transform: rotate3d(1, 1, 1, 25deg);
+    }
+
+    25% {
+        transform: rotate3d(1, 1, 1, -25deg);
+    }
+
+    50% {
+        transform: rotate3d(1, 1, 1, 25deg);
+    }
+
+    75% {
+        transform: rotate3d(1, 1, 1, -25deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 1, 1, 25deg);
+    }
+}
+
+@keyframes randomMove1 {
+    0% {
+        transform: rotate3d(1, 1, 1, -25deg);
+    }
+
+    25% {
+        transform: rotate3d(1, 1, 1, 25deg);
+    }
+
+    50% {
+        transform: rotate3d(1, 1, 1, -25deg);
+    }
+
+    75% {
+        transform: rotate3d(1, 1, 1, 25deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 1, 1, -25deg);
+    }
+}
+
+#sphereLogo {
+    top: -5dvh;
+    left: -4dvw;
+    height: 200px;
+    width: 200px;
+    transform: rotate3d(1, 1, 1, 25deg);
+    animation: randomMove1 50s infinite linear;
+    z-index: 10;
+}
+
+#cubeLogo {
+    bottom: -5dvh;
+    right: -5dvw;
+    height: 250px;
+    width: 250px;
+    transform: rotate3d(1, 1, 1, 25deg);
+    animation: randomMove1 50s infinite linear;
+    z-index: 10;
+}
+
+@media screen and (max-width: 768px) {
+    .mainDiv {
+        padding: 3rem 2rem 3rem 2rem;
+        width: 85%;
+    }
+
+    .contentPointers {
+        padding: 0;
+    }
+
+    .contentPointer {
+        width: 100%;
+    }
+
+    #sphereLogo {
+        top: -5dvh;
+        left: -4dvw;
+        height: 150px;
+        width: 150px;
+    }
+
+    #cubeLogo {
+        bottom: -5dvh;
+        right: -5dvw;
+        height: 150px;
+        width: 150px;
+    }
+}

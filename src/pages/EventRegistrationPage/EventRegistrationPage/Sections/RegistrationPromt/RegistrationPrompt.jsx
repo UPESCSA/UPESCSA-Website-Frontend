@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import styles from "./RegistrationPromptSection.module.css";
+import styles from "./RegistrationPrompt.module.css";
 
 const { mainDiv, content, contentHeading } = styles;
 
-const RegistrationPromptSection = () => {
+const RegistrationPrompt = () => {
   return (
     <div className={mainDiv}>
       <div className={content}>
         <h1 className="heading" id={contentHeading}>
-          Unleash your research, Build the future. <br />
-          Join the Hackathon!
+          Turning Vision into Venture!
         </h1>
-        {/* <Link to={"/hackathon4.0/register"}>
+
+        {/* <Link to={"/Entropedia/register"}>
           <button className="registrationButton">REGISTER NOW!</button>
         </Link> */}
       </div>
@@ -19,4 +19,4 @@ const RegistrationPromptSection = () => {
   );
 };
 
-export default RegistrationPromptSection;
+export default RegistrationPrompt;
