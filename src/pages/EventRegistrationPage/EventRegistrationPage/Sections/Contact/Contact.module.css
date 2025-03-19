@@ -1,0 +1,81 @@
+.contactContainer {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--hackneonDark) !important;
+    gap: 1rem;
+    padding: 2rem 0 1rem 0;
+    color: var(--hacktextLight);
+    font-weight: 500;
+    width: 80%;
+}
+
+.contactDiv {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.EcellLogo {
+    width: 55px !important;
+    height: 55px !important;
+}
+
+.logoDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50dvw;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contactField {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contactFieldLogo {
+    filter: invert(1);
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.copyRight {
+    position: relative;
+    text-align: center;
+}
+
+@media screen and (max-width: 850px) {
+    .contactContainer {
+        padding: 3.5rem 1.5rem 2rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .contactDiv {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+
+    .logoDiv {
+        scale: 1;
+        order: 1;
+    }
+
+    .contactFieldsDiv {
+        width: 100%;
+        order: 1;
+    }
+
+    .socialsDiv {
+        text-align: center;
+        order: 1;
+    }
+}

@@ -58,11 +58,15 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
+    {
+      title: "ENTROPEDIA 2.0",
+      action: "/entropedia",
+      glow: true,
+    },
     // {
     //   title: "HACKATHON 4.0",
     //   action: "/hackathon4.0",
     // },
-
   ];
 
   // FUNCTIONS
@@ -148,7 +152,7 @@ const Navbar = () => {
           <ul className={navLinks}>
             <hr className={mobileLine} />
             {navlinks.map((navlink) =>
-              navlink.title === "JOIN NOW" ? (
+              navlink.glow ? (
                 <Navlinks
                   key={navlink.title}
                   title={navlink.title}

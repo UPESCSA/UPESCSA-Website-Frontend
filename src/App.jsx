@@ -20,7 +20,7 @@ import UltimateShowdownRegistrationPage from "./pages/EventRegistrationPage/Ulti
 import VirtualEscapeRoomRegistrationPage from "./pages/EventRegistrationPage/VirtualEscapeRoomRegistrationPage";
 
 import HackathonHomePage from "./pages/Hackathon/HackathonHomePage/HackathonHomePage";
-import RegistrationPage from "./pages/Hackathon/RegistrationPage/RegistrationPage";
+// import RegistrationPage from "./pages/Hackathon/RegistrationPage/RegistrationPage";
 
 import RegistrationSuccess from "./pages/RegistrationSuccess/RegistrationSuccess";
 import ProblemStatementPage from "./pages/Hackathon/ProblemStatementPage/ProblemStatementPage";
@@ -30,6 +30,9 @@ import EventRegistrationForm from "./pages/EventRegistrationPage/EventRegistrati
 import AlumniPage from "./pages/AlumniPage/AlumniPage";
 import RegistrationDriveForm from "./pages/EventRegistrationPage/RegistrationDrive/RegistrationDriveForm";
 import FuntopiaRegistrationsPage from "./pages/EventRegistrationPage/FuntopiaRegistrationPage/FuntopiaRegistrationsPage";
+
+import EventRegistration from "./pages/EventRegistrationPage/EventRegistrationPage/EventRegistration";
+import RegistrationPage from "./pages/EventRegistrationPage/EventRegistrationPage/RegistrationPage/RegistrationPage";
 
 function App() {
   return (
@@ -143,8 +146,24 @@ function App() {
             </>
           }
         />
+
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
+
+        <Route
+          path="/Entropedia"
+          element={
+            <>
+              <Navbar />
+              <EventRegistration />
+            </>
+          }
+        />
+
+        <Route path="/Entropedia/register" element={<RegistrationPage />} />
+
+        {/* // * Past Events */}
+
         {/* <Route
           path="/AzureCloudScape"
           element={
@@ -155,7 +174,7 @@ function App() {
             </>
           }
         /> */}
-        {/* // * Past Events */}
+
         {/* <Route
           path="/Registration"
           element={
@@ -220,6 +239,7 @@ function App() {
             </>
           }
         /> */}
+
         {/* <Route path="/hackathon4.0/" element={<HackathonHomePage />} /> */}
         {/* <Route path="/hackathon4.0/register" element={<RegistrationPage />} /> */}
         {/* <Route

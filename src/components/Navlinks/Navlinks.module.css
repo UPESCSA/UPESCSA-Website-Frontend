@@ -29,3 +29,23 @@ body {
   text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
   animation: glow 1.5s ease-in-out infinite;
 }
+
+/* @keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #EC2227, 0 0 10px #EC2227, 0 0 15px #EC2227;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #EC2227, 0 0 30px #EC2227, 0 0 40px #EC2227;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #EC2227, 0 0 10px #EC2227, 0 0 15px #EC2227;
+  }
+}
+
+.glowText {
+  color: #EC2227;
+  text-shadow: 0 0 10px #EC2227, 0 0 20px #EC2227, 0 0 30px #EC2227;
+  animation: glowRed 1.5s ease-in-out infinite;
+} */

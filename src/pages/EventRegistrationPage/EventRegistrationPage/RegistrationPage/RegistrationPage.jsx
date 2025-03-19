@@ -3,11 +3,11 @@ import axios from "axios";
 
 import { useNavigate, Link } from "react-router-dom";
 
-import InputField from "../../../components/RegistrationFormComponents/InputField/InputField";
-import DropDownSelectField from "../../../components/RegistrationFormComponents/DropDownSelectField/DropDownSelectField";
-import FileSelect from "../../../components/RegistrationFormComponents/FileSelect/FileSelect";
-import FormNavigation from "../../../components/RegistrationFormComponents/FormNavigation/FormNavigation";
-import FormLoading from "../../../components/RegistrationFormComponents/FormLoading/FormLoading";
+import InputField from "../../../../components/RegistrationFormComponents/InputField/InputField";
+import DropDownSelectField from "../../../../components/RegistrationFormComponents/DropDownSelectField/DropDownSelectField";
+import FileSelect from "../../../../components/RegistrationFormComponents/FileSelect/FileSelect";
+import FormNavigation from "../../../../components/RegistrationFormComponents/FormNavigation/FormNavigation";
+import FormLoading from "../../../../components/RegistrationFormComponents/FormLoading/FormLoading";
 
 import {
   VALIDATETEAM,
@@ -21,7 +21,7 @@ import {
   VALIDATECOLLEGENAME,
   VALIDATECSAMEMBER,
   VALIDATECSAID,
-} from "../../../utils/registrationValidations";
+} from "../../../../utils/registrationValidations";
 
 import styles from "./RegistrationPage.module.css";
 
@@ -781,25 +781,26 @@ const RegistrationPage = () => {
     finalData.append("hackathonTransactionSS", hackathonScreenShot);
 
     console.log(data, hackathonScreenShot);
-    axios.post(
-      `${import.meta.env.VITE_SERVER_URL}/api/event/entropedia/register`,
-      finalData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
-    // .then((response) => {
-    //   console.log(response);
-    //   navigate("/registrationSuccess?wg=" + "IDM52E9kBKgCJ0UCnkI3OR");
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    // })
-    // .finally(() => {
-    //   setLoading(false);
-    // });
+    axios
+      .post(
+        `${import.meta.env.VITE_SERVER_URL}/api/event/entropedia/register`,
+        finalData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        navigate("/registrationSuccess?wg=" + "KmLThlhH9vE0xnJav8Oq0a");
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const moveToNextPage = () => {
@@ -827,7 +828,7 @@ const RegistrationPage = () => {
 
   return (
     <div className={mainDiv}>
-      <Link to="/hackathon4.0">
+      <Link to="/entropedia">
         <img
           src="/icons/rightArrow.png"
           alt="backButton"
@@ -844,14 +845,11 @@ const RegistrationPage = () => {
       <div className={registrationForm}>
         <div className={formSideImage}>
           <img
-            src="/logo/Hackathon4.0.png"
-            alt="hackathon"
+            src="/img/events/live/Entropedia Poster.jpg"
+            alt="Entropedia LOGO"
             className={hackathonLogo}
           />
-          <h2 className={homeSubHeading}>
-            For minds that innovate <br />
-            Unveil your vision!
-          </h2>
+          <h2 className={homeSubHeading}>Turning Vision into Venture!</h2>
         </div>
         <form
           className={registrationFormDiv}

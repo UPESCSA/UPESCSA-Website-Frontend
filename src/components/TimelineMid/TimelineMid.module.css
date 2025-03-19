@@ -27,7 +27,7 @@
 
 .sectionImage {
   width: 300px;
-  background-color: var(--hackbgDark);
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,15 +38,19 @@
   0% {
     transform: rotate3d(0, 1, 0, 15deg);
   }
+
   25% {
     transform: rotate3d(0, 1, 0, -15deg);
   }
+
   50% {
     transform: rotate3d(0, 1, 0, 15deg);
   }
+
   75% {
     transform: rotate3d(0, 1, 0, -15deg);
   }
+
   100% {
     transform: rotate3d(0, 1, 0, 15deg);
   }
@@ -55,7 +59,7 @@
 .sectionContent {
   width: 300px;
   height: max-content;
-  background-color: var(--hackbuttonDark);
+  background-color: black;
   border-radius: 10px;
   padding: 2rem;
 }
