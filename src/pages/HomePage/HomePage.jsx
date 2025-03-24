@@ -52,38 +52,46 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/hackathon4.0.jpg"
-          eventHeading="Hackathon 4.0"
+          eventPosterURL="/img/events/live/Entropedia Poster.jpg"
+          eventHeading="ENTROPEDIA 2.0"
           eventText={
             <>
-              <p>🚀 Hackathon 4.0: Where Innovation Meets Impact! 🚀</p>
+              <p>🚀 Entropedia 2.0 – Ignite. Innovate. Impact!</p>
               <p>
-                Brace yourself for the most thrilling tech extravaganza of the
-                year—Hackathon 4.0 is here! Whether you're a seasoned developer,
-                a visionary problem-solver, or an aspiring tech enthusiast, this
-                is your moment to create, innovate, and lead the charge in
-                solving real-world challenges.
-              </p>
-              <p>📅 Event Date: 24-26 JAN 2025</p>
-              <p>🌐 Mode: Online</p>
-              <p>
-                💡 Hackathon 4.0 isn’t just an event; it’s a movement to
-                redefine possibilities and shape the future. Collaborate with
-                brilliant minds, tackle challenges that matter, and bring your
-                groundbreaking ideas to life.
+                The wait is over! Entropedia 2.0 is here – a powerhouse of
+                entrepreneurial energy, where ideas transform into reality! 🌟
               </p>
               <p>
-                🔗Register Now and take your first step toward making a
-                difference. Be the force that drives innovation, creativity, and
-                collaboration.
+                Join us in collaboration with E-Cell as we bring together
+                aspiring innovators, industry experts, and startup mentors to
+                shape the future of entrepreneurship. Whether you're a budding
+                entrepreneur or a curious problem-solver, this is your chance to
+                pitch, refine, and build the next big venture!
               </p>
-              <p>💻 Dream it. Build it. Impact the World.</p>
-              <p>Don’t wait—your journey to innovation starts here! 🌍✨</p>
+              <p>
+                💡 <strong>What to Expect?</strong>
+              </p>
+              <ul>
+                <li>🏆 Expert Mentorship & Guidance</li>
+                <li>🌍 Real-World Startup Exposure</li>
+                <li>🎖 Networking with Investors & Founders</li>
+                <li>🎓 Exciting Prizes & Incubation Support</li>
+              </ul>
+              <p>
+                📅 <strong>Date:</strong> 7Th April 2025
+              </p>
+              <p>
+                📍 <strong>Venue:</strong> MAC, UPES Bidholi Campus
+              </p>
+              <p>
+                Don’t miss this opportunity to turn your ideas into impact! Stay
+                tuned for updates. 🚀
+              </p>
             </>
           }
-          eventFormURL="/hackathon4.0"
+          eventFormURL="/entropedia/register"
           closePopup={togglePopup}
-          buttonText="REGISTER NOW!"
+          buttonText="REGISTER NOW"
         />
       )}
       <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />
