@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100dvh;
+  height: 170dvh;
   width: 100%;
   background: url("/img/bg3.jpg");
   background-position: center;
@@ -13,7 +13,7 @@
   position: relative;
   gap: 2rem;
   font-family: "Barlow", sans-serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   color: var(--hacktextLight);
   background-color: var(--hackbgDark);
 }
@@ -74,7 +74,7 @@
 .registrationForm {
   position: relative;
   width: max(350px, 60dvw);
-  height: 70dvh;
+  height: 150dvh !important;
   background: var(--hackbgLight);
   border-radius: 16px;
   display: flex;
@@ -106,7 +106,7 @@
 
 .formPageDiv {
   position: relative;
-  height: 70dvh;
+  height: 70dvh !important;
   overflow-y: auto;
 }
 
@@ -132,7 +132,7 @@
 
 .teamMemberDetails,
 .paymentDetails {
-  height: 45dvh;
+  height: 70dvh !important;
   overflow-y: scroll;
 }
 
