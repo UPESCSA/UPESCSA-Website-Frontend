@@ -156,6 +156,10 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .mainDiv {
+    height: 100vh !important;
+  }
+
   .formSideImage img {
     width: max(150px, 15dvw);
     height: max(150px, 15dvw);
@@ -163,7 +167,7 @@
 
   .registrationForm {
     flex-direction: column;
-    min-height: 110dvh;
+    height: 110dvh !important;
     justify-content: flex-start;
     width: max(380px, 60dvw);
   }
@@ -183,7 +187,7 @@
   }
 
   .formPageDiv {
-    min-height: 100vh;
+    height: 100vh !important;
     min-height: -webkit-fill-available;
     display: flex;
     justify-content: flex-start;
