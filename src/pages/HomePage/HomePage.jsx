@@ -78,7 +78,7 @@ const HomePage = () => {
                 <li>🎓 Exciting Prizes & Incubation Support</li>
               </ul>
               <p>
-                📅 <strong>Date:</strong> 7Th April 2025
+                📅 <strong>Date:</strong> 14Th April 2025
               </p>
               <p>
                 📍 <strong>Venue:</strong> MAC, UPES Bidholi Campus
