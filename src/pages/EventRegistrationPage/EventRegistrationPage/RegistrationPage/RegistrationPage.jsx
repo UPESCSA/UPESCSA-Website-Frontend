@@ -1461,8 +1461,8 @@ const RegistrationPage = () => {
                       memberTwoCSAMember === "yes" ||
                       memberThreeCSAMember === "yes" ||
                       memberFourCSAMember === "yes"
-                        ? 200
-                        : 250}
+                        ? 350
+                        : 400}
                       {console.log(teamLeadCSAMember)}
                     </strong>
                   </h3>
