@@ -58,11 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
-    {
-      title: "ENTROPEDIA 2.0",
-      action: "/entropedia",
-      glow: true,
-    },
+    // {
+    //   title: "ENTROPEDIA 2.0",
+    //   action: "/entropedia",
+    //   glow: true,
+    // },
     // {
     //   title: "HACKATHON 4.0",
     //   action: "/hackathon4.0",

@@ -150,7 +150,7 @@ function App() {
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
 
-        <Route
+        {/* <Route
           path="/Entropedia"
           element={
             <>
@@ -158,9 +158,9 @@ function App() {
               <EventRegistration />
             </>
           }
-        />
+        /> */}
 
-        <Route path="/Entropedia/register" element={<RegistrationPage />} />
+        {/* <Route path="/Entropedia/register" element={<RegistrationPage />} /> */}
 
         {/* // * Past Events */}
 
