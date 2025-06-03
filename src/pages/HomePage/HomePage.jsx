@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -89,7 +89,7 @@ const HomePage = () => {
               </p>
             </>
           }
-          eventFormURL="/entropedia/register"
+          eventFormURL="/register"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />
