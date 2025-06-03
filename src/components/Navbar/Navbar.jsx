@@ -58,6 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
+    {
+      title: "Register Now",
+      action: "/register",
+      glow: true,
+    },
     // {
     //   title: "ENTROPEDIA 2.0",
     //   action: "/entropedia",
