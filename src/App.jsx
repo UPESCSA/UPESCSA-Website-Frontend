@@ -149,7 +149,18 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
+        <Route
+          path="/Register"
+          element={
+            <>
+              <Navbar />
+              <RegistrationDriveForm />
+              <Contact />
+            </>
+          }
+        />
 
+        {/* // * Past Events */}
         {/* <Route
           path="/Entropedia"
           element={
@@ -158,11 +169,9 @@ function App() {
               <EventRegistration />
             </>
           }
-        /> */}
+        />
 
-        {/* <Route path="/Entropedia/register" element={<RegistrationPage />} /> */}
-
-        {/* // * Past Events */}
+        <Route path="/Entropedia/register" element={<RegistrationPage />} /> */}
 
         {/* <Route
           path="/AzureCloudScape"
@@ -175,16 +184,6 @@ function App() {
           }
         /> */}
 
-        {/* <Route
-          path="/Registration"
-          element={
-            <>
-              <Navbar />
-              <RegistrationDriveForm />
-              <Contact />
-            </>
-          }
-        /> */}
         {/* <Route
           path="/Funtopia/Registration"
           element={

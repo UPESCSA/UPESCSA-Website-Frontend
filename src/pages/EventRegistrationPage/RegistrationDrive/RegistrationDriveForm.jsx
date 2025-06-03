@@ -52,14 +52,14 @@ const RegistrationDriveForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/MEMOIR 3.0.jpg",
+    eventImageURL: "/img/events/live/MEMOIR 3.0.jpg", //TODO Change this to the actual image URL
     eventHeading: "REGISTRATION",
     IsFree: false,
-    whatsGroup: "I4OrFl4cDbaDoM3JWUofi5",
+    whatsGroup: "I4OrFl4cDbaDoM3JWUofi5", // TODO Change this to the actual WhatsApp group link
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1QSUab7zxOc5iAmkVvXdfmBjqqCqCeppOWnV0QD7kFSU/edit?usp=sharing",
-    FolderId: "167Etty8I43aE4hqKNH6qPnRNGkUPvUqz",
-    eventTemplate: "RegistrationDrive",
+      "https://docs.google.com/spreadsheets/d/1hvnjVnSxqCz5sS1W51nwwlVgwrmupqiei4TIuOm71gE/edit?usp=sharing",
+    FolderId: "143xPA3LdYIfD3pVPofjjT36paadmt8WK",
+    eventTemplate: "RegistrationDrive", // TODO Change Backend Template
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -75,6 +75,7 @@ const RegistrationDriveForm = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [collegeEmail, setCollegeEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [WhatsApp, setWhatsApp] = useState("");
   const [course, setCourse] = useState("");
@@ -86,7 +87,7 @@ const RegistrationDriveForm = () => {
   const [disabled, setdisabled] = useState(false);
   const [committee1, setcommittee1] = useState("");
   const [committee2, setcommittee2] = useState("");
-  const [ModeOfPayment, setModeOfPayment] = useState("");
+  const [ModeOfPayment, setModeOfPayment] = useState("UPI");
 
   // Committees
   const committees = [
@@ -109,6 +110,7 @@ const RegistrationDriveForm = () => {
   const updateTransactionID = (e) => {
     setTransactionID(e.target.value);
   };
+
   const updateTransactionSS = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -131,24 +133,35 @@ const RegistrationDriveForm = () => {
   const updateName = (e) => {
     setName(e.target.value);
   };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
+
+  const updateCollegeEmail = (e) => {
+    setCollegeEmail(e.target.value);
+  };
+
   const updatePhone = (e) => {
     setPhone(e.target.value);
   };
+
   const updateWhatsApp = (e) => {
     setWhatsApp(e.target.value);
   };
+
   const updateCourse = (e) => {
     setCourse(e.target.value);
   };
+
   const updateYearOfStudy = (e) => {
     setYearOfStudy(e.target.value);
   };
+
   const updateSapID = (e) => {
     setSapID(e.target.value);
   };
+
   const updateCSAMember = (e) => {
     setCSAMember(e.target.value);
     if (e.target.value === "no") {
@@ -185,6 +198,7 @@ const RegistrationDriveForm = () => {
 
   const [isNameValid, setIsNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isCollegeEmailValid, setIsCollegeEmailValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
   const [isWhatsAppValid, setIsWhatsAppValid] = useState(true);
   const [isCourseValid, setIsCourseValid] = useState(true);
@@ -202,6 +216,10 @@ const RegistrationDriveForm = () => {
   const validate = () => {
     const NameValid = VALIDATENAME(name, setIsNameValid);
     const EmailValid = VALIDATEEMAIL(email, setIsEmailValid);
+    const CollegeEmailValid = VALIDATEEMAIL(
+      collegeEmail,
+      setIsCollegeEmailValid
+    );
     const PhoneValid = VALIDATEPHONE(phone, setIsPhoneValid);
     const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid);
     const CourseValid = VALIDATECOURSE(course, setIsCourseValid);
@@ -222,6 +240,7 @@ const RegistrationDriveForm = () => {
     if (
       NameValid &&
       EmailValid &&
+      CollegeEmailValid &&
       PhoneValid &&
       CourseValid &&
       WhatsAppValid &&
@@ -229,8 +248,8 @@ const RegistrationDriveForm = () => {
       YearOfStudyValid &&
       GenderValid &&
       Committee1Valid &&
-      Committee2Valid &&
-      ModeOfPaymentValid
+      Committee2Valid
+      // && ModeOfPaymentValid
     ) {
       if (csaMember === "yes") {
         return VALIDATECSAID(csaID, setIsCSAIDValid);
@@ -262,12 +281,13 @@ const RegistrationDriveForm = () => {
         sapID,
         phone,
         WhatsApp,
+        collegeEmail,
         email,
         course,
         yearOfStudy,
         committee1,
         committee2,
-        ModeOfPayment,
+        // ModeOfPayment,
         transactionID,
         SheetUrl: eventDetails.SheetUrl,
         FolderId: eventDetails.FolderId,
@@ -281,16 +301,20 @@ const RegistrationDriveForm = () => {
       if (!eventDetails.IsFree) {
         finalData.append(
           "fileName",
-          `${name}_${phone}_${EventName}_${ModeOfPayment}`
+          `${name}_${phone}_${EventName}`
+          // `${name}_${phone}_${EventName}_${ModeOfPayment}`
         );
         finalData.append("fileData", PaymentSS.fileData);
         finalData.append("fileType", PaymentSS.fileType);
       }
+
       // console.log(finalData);
       try {
+        console.log("Submitting form...");
+        console.log("Final Data:", finalData.entries());
         // First POST request to Google Apps Script URL (now executed first)
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbyjdxHgpTHEGDjoCsXSzTUttYhqz6TrvNviv_U6vsQB-rasPf9j6fxVt9WJv1eIXCo-/exec",
+          "https://script.google.com/macros/s/AKfycbxegUi1O6lk3_wCbJNLd-bwrk4_SRvP6yA7M6F55Pp7Kr7q4ja0dvdUjAAhy7f_mk2j/exec",
           {
             method: "POST",
             body: finalData,
@@ -298,7 +322,7 @@ const RegistrationDriveForm = () => {
         );
 
         const data = await response.json();
-        console.log(data);
+        console.log(data.status);
         const sendMailResponse = await fetch(
           `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
           {
@@ -321,9 +345,21 @@ const RegistrationDriveForm = () => {
             `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`
           );
           setLoading(false);
+        } else {
+          toast.error(
+            "An error occurred while submitting the form. Please try again."
+          );
+          setLoading(false);
+          setdisabled(false);
+          setPaymentPage(false);
         }
       } catch (error) {
         console.error("Error:", error);
+        toast.error(
+          "An error occurred while submitting the form. Please try again."
+        );
+        setLoading(false);
+        setdisabled(false);
       }
     }
   };
@@ -410,6 +446,18 @@ const RegistrationDriveForm = () => {
                 <InputField
                   id="participantEmail"
                   type="email"
+                  inputLabel="College Email ID"
+                  value={collegeEmail}
+                  valueUpdater={updateCollegeEmail}
+                  required={true}
+                />
+                {!isCollegeEmailValid && (
+                  <span className={errorMessage}>Invalid Email</span>
+                )}
+
+                <InputField
+                  id="participantEmail"
+                  type="email"
                   inputLabel="Personal Email ID"
                   value={email}
                   valueUpdater={updateEmail}
@@ -465,7 +513,8 @@ const RegistrationDriveForm = () => {
                 {!isCommittee2Valid && (
                   <span className={errorMessage}>Invalid Prefrence</span>
                 )}
-                <DropDownSelectField
+
+                {/* <DropDownSelectField
                   id="participantCommittee2"
                   value={ModeOfPayment}
                   valueUpdater={updateModeOfPayment}
@@ -476,7 +525,7 @@ const RegistrationDriveForm = () => {
                 />
                 {!isModeOfPaymentValid && (
                   <span className={errorMessage}>Invalid Mode Of Payment</span>
-                )}
+                )} */}
               </div>
 
               {/* USER SECTION END */}
@@ -524,42 +573,25 @@ const RegistrationDriveForm = () => {
                   fontSize: "1.5rem",
                 }}
               >
-                ₹ 250
+                ₹ 300
               </h3>
 
               {ModeOfPayment.toUpperCase() == "UPI" ? (
                 <>
                   <div className={paymentQRDiv}>
-                    {/* FIRSR QR */}
+                    {/* FIRST QR */}
+                    {/*//TODO Change the QR code image to the actual UPI QR code */}
                     {/* <img
                       loading="lazy"
                       src="/img/PaymentModes/Piklu.jpeg"
                       alt="Payment OR"
                     /> */}
                     {/* SECOND QR */}
-                    {/* <img
+                    <img
                       loading="lazy"
                       src="/img/PaymentModes/Anvita.jpeg"
                       alt="Payment OR"
-                    /> */}
-                    {/* THIRD QR */}
-                    <img
-                      loading="lazy"
-                      src="/img/PaymentModes/Aman.jpeg"
-                      alt="Payment OR"
                     />
-                    {/* Fourth QR */}
-                    {/* <img
-                      loading="lazy"
-                      src="/img/PaymentModes/Vinayak.jpeg"
-                      alt="Payment OR"
-                    /> */}
-                    {/* Fifth QR */}
-                    {/* <img
-                      loading="lazy"
-                      src="/img/PaymentModes/garv.jpeg"
-                      alt="Payment OR"
-                    /> */}
                   </div>
                   <InputField
                     id="transactionID"
