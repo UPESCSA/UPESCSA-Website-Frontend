@@ -72,6 +72,28 @@ const TeamPage = () => {
     <div className={teamPageContainer}>
       <PageHeading imgURL="/img/pageheaders/team.jpg" text="TEAM" />
       <div className={managementPageContainer}>
+        <div
+          style={{
+            textAlign: "center",
+            margin: "2rem 0 3rem 0", // Increased bottom margin
+            padding: "1.5rem", // Increased padding
+            border: "1px dashed var(--primary)",
+            borderRadius: "8px",
+          }}
+        >
+          <h2
+            style={{
+              fontWeight: "bold",
+              color: "red",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Tenure 2025-2026 Coming Soon!
+          </h2>
+          <p style={{ fontWeight: "bold", color: "red" }}>
+            Our team for the new tenure will be updated shortly. Stay tuned!
+          </p>
+        </div>
         <h2>Faculty Coordinator</h2>
         <div className={managementDiv}>
           {faculties.map((member) => (
