@@ -33,6 +33,7 @@ import FuntopiaRegistrationsPage from "./pages/EventRegistrationPage/FuntopiaReg
 
 import EventRegistration from "./pages/EventRegistrationPage/EventRegistrationPage/EventRegistration";
 import RegistrationPage from "./pages/EventRegistrationPage/EventRegistrationPage/RegistrationPage/RegistrationPage";
+import PageHeading from "./components/PageHeading/PageHeading";
 
 function App() {
   return (
@@ -154,7 +155,31 @@ function App() {
           element={
             <>
               <Navbar />
-              <RegistrationDriveForm />
+              {/* <RegistrationDriveForm /> */}
+              <div
+                style={{
+                  paddingTop: "50px",
+                  backgroundColor: "#000",
+                  width: "100%",
+                }}
+              >
+                {" "}
+                {/* Added wrapper div with paddingTop */}
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "10rem",
+                    width: "100%",
+                    fontSize: "24px",
+                    fontWeight: "bold",
+                    color: "var(--hackredHighlight)",
+                    paddingTop: "100px", // Added space above
+                    backgroundColor: "black", // Added background color
+                  }}
+                >
+                  Stay tuned! Opening soon...
+                </div>
+              </div>
               <Contact />
             </>
           }
