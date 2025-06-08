@@ -52,7 +52,7 @@ const EventRegistrationForm = () => {
 
   const eventDetails = {
     eventImageURL: "/img/events/live/AZURE CLOUDSCAPE.jpg",
-    eventHeading: "Azure CloudScape",
+    eventHeading: "BootCamp",
     eventText: `
     <p>
       <strong>Azure Cloudscape - Cloud Revolution</strong>

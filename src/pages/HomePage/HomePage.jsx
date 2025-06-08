@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,41 +52,53 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/Entropedia Poster.jpg"
-          eventHeading="ENTROPEDIA 2.0"
+          eventPosterURL="/img/events/live/RegistrationDrive.avif"
+          eventHeading="Join UPES-CSA: Registrations Open!"
           eventText={
             <>
-              <p>🚀 Entropedia 2.0 – Ignite. Innovate. Impact!</p>
               <p>
-                The wait is over! Entropedia 2.0 is here – a powerhouse of
-                entrepreneurial energy, where ideas transform into reality! 🌟
+                🚀 <strong>Ignite Your Future with UPES-CSA!</strong>
               </p>
               <p>
-                Join us in collaboration with E-Cell as we bring together
-                aspiring innovators, industry experts, and startup mentors to
-                shape the future of entrepreneurship. Whether you're a budding
-                entrepreneur or a curious problem-solver, this is your chance to
-                pitch, refine, and build the next big venture!
+                We’re thrilled to invite you to become a part of the{" "}
+                <strong>
+                  UPES Cloud Security Alliance (UPES-CSA) Student Chapter
+                </strong>
+                —a vibrant, tech-focused community where collaboration meets
+                innovation.
               </p>
               <p>
-                💡 <strong>What to Expect?</strong>
+                Are you ready to take the next big step in your tech journey?
+                Here’s why you should join us:
               </p>
               <ul>
-                <li>🏆 Expert Mentorship & Guidance</li>
-                <li>🌍 Real-World Startup Exposure</li>
-                <li>🎖 Networking with Investors & Founders</li>
-                <li>🎓 Exciting Prizes & Incubation Support</li>
+                <li>
+                  💼 <strong>Exclusive Access</strong> to workshops, seminars,
+                  and webinars with industry experts.
+                </li>
+                <li>
+                  🤝 <strong>Networking Opportunities</strong> with
+                  professionals and like-minded peers.
+                </li>
+                <li>
+                  🛠 <strong>Skill Development</strong> via hands-on experiences
+                  and technical sessions.
+                </li>
+                <li>
+                  🚀 <strong>Career Growth</strong> through mentorship and
+                  expert guidance.
+                </li>
+                <li>
+                  🎓 <strong>Internship Opportunities</strong> for
+                  high-performing members.
+                </li>
               </ul>
               <p>
-                📅 <strong>Date:</strong> 14Th April 2025
+                Ready to join our mission and grow with UPES-CSA? Be a part of
+                our Core Committee and shape the future of cloud security at
+                UPES!
               </p>
-              <p>
-                📍 <strong>Venue:</strong> MAC, UPES Bidholi Campus
-              </p>
-              <p>
-                Don’t miss this opportunity to turn your ideas into impact! Stay
-                tuned for updates. 🚀
-              </p>
+              <p>🔗 Secure your spot by clicking the button below.</p>
             </>
           }
           eventFormURL="/register"
