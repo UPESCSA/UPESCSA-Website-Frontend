@@ -55,11 +55,11 @@ const RegistrationDriveForm = () => {
     eventImageURL: "/img/events/live/MEMOIR 3.0.jpg", //TODO Change this to the actual image URL
     eventHeading: "REGISTRATION",
     IsFree: false,
-    whatsGroup: "I4OrFl4cDbaDoM3JWUofi5", // TODO Change this to the actual WhatsApp group link
+    whatsGroup: "LGu6r9GyK5A68gDVSVc4wr",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1hvnjVnSxqCz5sS1W51nwwlVgwrmupqiei4TIuOm71gE/edit?usp=sharing",
     FolderId: "143xPA3LdYIfD3pVPofjjT36paadmt8WK",
-    eventTemplate: "RegistrationDrive", // TODO Change Backend Template
+    eventTemplate: "RegistrationDrive2025",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -345,6 +345,11 @@ const RegistrationDriveForm = () => {
             `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`
           );
           setLoading(false);
+        } else if (data.status === "duplicate") {
+          toast.error("This SAP ID has already been registered.");
+          setLoading(false);
+          setdisabled(false);
+          setPaymentPage(false);
         } else {
           toast.error(
             "An error occurred while submitting the form. Please try again."
@@ -573,25 +578,30 @@ const RegistrationDriveForm = () => {
                   fontSize: "1.5rem",
                 }}
               >
-                ₹ 300
+                <s>₹300</s> ₹250{" "}
+                <span style={{ fontSize: "1rem", color: "#888" }}>
+                  (till 11th)
+                </span>
               </h3>
 
               {ModeOfPayment.toUpperCase() == "UPI" ? (
                 <>
                   <div className={paymentQRDiv}>
                     {/* FIRST QR */}
-                    {/*//TODO Change the QR code image to the actual UPI QR code */}
-                    {/* <img
-                      loading="lazy"
-                      src="/img/PaymentModes/Piklu.jpeg"
-                      alt="Payment OR"
-                    /> */}
-                    {/* SECOND QR */}
+
                     <img
                       loading="lazy"
-                      src="/img/PaymentModes/Anvita.jpeg"
+                      src="/img/PaymentModes/QR (1).jpeg"
                       alt="Payment OR"
                     />
+
+                    {/* SECOND QR */}
+
+                    {/* <img
+                      loading="lazy"
+                      src="/img/PaymentModes/QR (2).jpeg"
+                      alt="Payment OR"
+                    /> */}
                   </div>
                   <InputField
                     id="transactionID"
