@@ -93,8 +93,9 @@ const RegistrationDriveForm = () => {
   const committees = [
     "Technical",
     "Events",
-    "Public Relations",
-    "Social Media And Photography",
+    "Public Relations & Sponsorship",
+    "Social Media",
+    "Photography",
     "Design and VFX",
     "Logistics",
     "Editorial",
@@ -516,7 +517,7 @@ const RegistrationDriveForm = () => {
                   defaultOption="Select"
                 />
                 {!isCommittee2Valid && (
-                  <span className={errorMessage}>Invalid Prefrence</span>
+                  <span className={errorMessage}>Invalid Preference</span>
                 )}
 
                 {/* <DropDownSelectField
@@ -606,7 +607,7 @@ const RegistrationDriveForm = () => {
                   <InputField
                     id="transactionID"
                     type="text"
-                    inputLabel="Transaction ID"
+                    inputLabel="Transaction ID(UTR)"
                     value={transactionID}
                     valueUpdater={updateTransactionID}
                     required={true}

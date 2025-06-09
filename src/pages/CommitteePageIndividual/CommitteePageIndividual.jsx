@@ -34,9 +34,9 @@ const CommitteePageIndividual = () => {
     events: "Events",
     logistics: "Logistics",
     photography: "Photography",
-    publicrelations: "Public Relations",
+    publicrelationsandsponsorship: "Public Relations and Sponsorship",
     registrations: "Registrations",
-    SocialMediaPhotography: "Social Media, Photography",
+    SocialMedia: "Social Media",
     technical: "Technical",
   };
   const currentTeamValue = teamId ? Object.values(teamId)[0] : null;
