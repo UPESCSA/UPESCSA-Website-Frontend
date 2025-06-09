@@ -147,8 +147,9 @@ const validateCommittee = (value, validatorFunction) => {
   const committees = [
     "technical",
     "events",
-    "public relations",
-    "social media and photography",
+    "public relations & sponsorship",
+    "social media",
+    "photography",
     "design and vfx",
     "logistics",
     "editorial",
