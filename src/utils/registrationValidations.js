@@ -171,7 +171,7 @@ const validatepaymentmode = (value, validatorFunction) => {
 };
 
 const validategender = (value, validatorFunction) => {
-  const Genders = ["male", "female", "other"];
+  const Genders = ["male", "female", "others"];
 
   const isvalid = Genders.includes(value)
   validatorFunction(isvalid);

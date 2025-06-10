@@ -590,19 +590,19 @@ const RegistrationDriveForm = () => {
                   <div className={paymentQRDiv}>
                     {/* FIRST QR */}
 
-                    <img
+                    {/* <img
                       loading="lazy"
                       src="/img/PaymentModes/QR (1).jpeg"
                       alt="Payment OR"
-                    />
+                    /> */}
 
                     {/* SECOND QR */}
 
-                    {/* <img
+                    <img
                       loading="lazy"
                       src="/img/PaymentModes/QR (2).jpeg"
                       alt="Payment OR"
-                    /> */}
+                    />
                   </div>
                   <InputField
                     id="transactionID"
