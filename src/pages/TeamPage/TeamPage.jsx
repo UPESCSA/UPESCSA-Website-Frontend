@@ -72,7 +72,7 @@ const TeamPage = () => {
     <div className={teamPageContainer}>
       <PageHeading imgURL="/img/pageheaders/team.jpg" text="TEAM" />
       <div className={managementPageContainer}>
-        <div
+        {/* <div
           style={{
             textAlign: "center",
             margin: "2rem 0 3rem 0", // Increased bottom margin
@@ -93,7 +93,7 @@ const TeamPage = () => {
           <p style={{ fontWeight: "bold", color: "red" }}>
             Our team for the new tenure will be updated shortly. Stay tuned!
           </p>
-        </div>
+        </div> */}
         <h2>Faculty Coordinator</h2>
         <div className={managementDiv}>
           {faculties.map((member) => (

@@ -156,6 +156,15 @@ function App() {
             <>
               <Navbar />
               <RegistrationDriveForm />
+              <Contact />
+            </>
+          }
+        />
+        <Route
+          path="/BootCamp"
+          element={
+            <>
+              <Navbar />
               <div
                 style={{
                   paddingTop: "50px",
@@ -164,7 +173,7 @@ function App() {
                 }}
               >
                 {" "}
-                {/* <div
+                <div
                   style={{
                     textAlign: "center",
                     padding: "10rem",
@@ -177,22 +186,13 @@ function App() {
                   }}
                 >
                   Stay tuned! Opening soon...
-                </div> */}
+                </div>
               </div>
+              {/* <EventRegistrationForm /> */}
               <Contact />
             </>
           }
         />
-        {/* <Route
-          path="/BootCamp"
-          element={
-            <>
-              <Navbar />
-              <EventRegistrationForm />
-              <Contact />
-            </>
-          }
-        /> */}
 
         {/* // * Past Events */}
         {/* <Route
