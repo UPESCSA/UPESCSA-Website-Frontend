@@ -78,8 +78,8 @@
 
 .eventImage img {
   margin: auto;
-  width: max(20dvw, 350px);
-  height: auto;
+  width: max(20dvw, 450px);
+  height: 400px;
 }
 
 .eventImage {
@@ -115,7 +115,7 @@
 
 .eventDetailsDiv {
   display: flex;
-  width: max(20dvw, 350px);
+  width: max(20dvw, 450px);
   align-items: center;
   justify-content: center;
   margin-block: 10px;
@@ -231,6 +231,12 @@
     padding-right: 1rem;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .eventDetail {
+    height: 3.5rem;
+    padding: 1rem;
+    width: 31.7%;
   }
 
   .eventDetailsDiv {

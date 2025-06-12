@@ -79,13 +79,13 @@ const EventRegistrationForm = () => {
     eventMode: "Offline",
     eventTeamSize: "1",
     eventRegistrationFee: "free",
-    eventDate: "16/11/24",
+    eventDate: "June - Jully",
     IsFree: false,
     whatsGroup: "F1nsNdAOIV815TfBtCj4wl",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1b_AqF3HPhALH8rtIy7nWXiusLUG2b8suXYqS8BfSkT4/edit?usp=sharing",
+      "https://docs.google.com/spreadsheets/d/1n7lOoUtAnX0qx8UQKrQVfAzlQkwswo4rp7QN4lj2T5Y",
     FolderId: "NEW_FOLDER_ID",
-    eventTemplate: "AzureCloudScape",
+    eventTemplate: "BootCamp",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");

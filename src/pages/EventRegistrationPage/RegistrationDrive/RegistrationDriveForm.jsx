@@ -579,10 +579,7 @@ const RegistrationDriveForm = () => {
                   fontSize: "1.5rem",
                 }}
               >
-                <s>₹300</s> ₹250{" "}
-                <span style={{ fontSize: "1rem", color: "#888" }}>
-                  (till 11th)
-                </span>
+                ₹300{" "}
               </h3>
 
               {ModeOfPayment.toUpperCase() == "UPI" ? (
