@@ -1,32 +1,89 @@
 import { useState, useEffect } from "react";
 import { Calendar, Mail, ArrowRight } from "lucide-react";
 import styles from "./ComingSoonPage.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const ComingSoonPage = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   const handleSubmit = async () => {
-    if (!email) return;
+    if (!email) {
+      setError("Please enter an email address");
+      return;
+    }
+
+    // Basic email validation
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
 
     setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitted(true);
-    setIsLoading(false);
-    setEmail("");
+    setError("");
 
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      console.log("Submitting email:", email);
+      console.log("Server URL:", import.meta.env.VITE_SERVER_URL);
+
+      if (!import.meta.env.VITE_SERVER_URL) {
+        throw new Error("Server URL not configured");
+      }
+
+      const formData = new FormData();
+      formData.append(
+        "SheetUrl",
+        "https://docs.google.com/spreadsheets/d/1hKpS67ikaeUyLVPF3mqkGQSUpyEpljjlcVoC1VSry2M/edit?usp=sharing"
+      );
+      formData.append("email", email);
+      formData.append("type", "coming_soon_notification");
+      formData.append("timestamp", new Date().toISOString());
+
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/api/form/submit`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Response result:", result.status);
+
+        if (result.status === "duplicate") {
+          toast.error("This email is already subscribed.");
+          setIsLoading(false);
+          return;
+        }
+
+        setIsSubmitted(true);
+        setEmail("");
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        const errorText = await response.text();
+        console.error("Form submission failed:", response.status, errorText);
+        setError(
+          `Submission failed: ${response.status} ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setError(`Error: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className={styles.container}>
+      <Toaster />
       {/* Animated background elements */}
       <div className={styles.backgroundElements}>
         <div className={styles.bgElement1}></div>
@@ -55,7 +112,7 @@ const ComingSoonPage = () => {
         <div
           className={`${styles.emailSection} ${styles.fadeInUp} ${styles.delay400}`}
         >
-          {/* <div className={styles.emailForm}>
+          <div className={styles.emailForm}>
             <div className={styles.inputContainer}>
               <Mail className={styles.emailIcon} />
               <input
@@ -64,11 +121,12 @@ const ComingSoonPage = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className={styles.emailInput}
+                onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
               />
             </div>
             <button
               onClick={handleSubmit}
-              disabled={isLoading}
+              disabled={isLoading || !email}
               className={styles.submitButton}
             >
               {isLoading ? (
@@ -80,7 +138,7 @@ const ComingSoonPage = () => {
                 </>
               )}
             </button>
-          </div> */}
+          </div>
 
           {/* Success message */}
           <div
