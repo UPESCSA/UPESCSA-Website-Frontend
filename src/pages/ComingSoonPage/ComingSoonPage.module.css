@@ -1,67 +1,360 @@
-.comingSoonContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    overflow-x: hidden;
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --bgDark: #020202;
+    --bgLight: #fcfcfc;
+    --navDark: #010101;
+    --textLight: #ffffff;
+    --textDark: #000000;
+    --textDisabled: #464646;
+    --buttonDark: #000000;
+    --buttonLight: #ffffff;
+    --buttonLink: #2797ff;
+    --buttonDisabled: #a5a5a5;
+    --scrollBar: #aaaaaa;
+    --scrollBarHover: #888888;
+    --separatorHr: #a5a5a5;
+    --blueUnderLine: #33c2ff;
+    --yellowUnderLine: #ffe600;
+    --eventDescBg: #d9d9d9;
+    --switchBg: #eeeeee;
+    --hackbgDark: #000000;
+    --hackbgLight: #fcfcfc;
+    --hacktextDark: #000000;
+    --hacktextLight: #fcfcfc;
+    --hackbuttonLight: #fcfcfc;
+    --hackbuttonDark: #212121;
+    --hackborderLight: #88888881;
+    --hacknavbarDark: #050505;
+    --hackformSideColor: rgb(19, 19, 19);
+    --hackbuttonColor: #3827cd;
+    --hackbuttonShadow: #3827cd;
+    --hackhighlights: rgb(47, 95, 252);
+    --hackredHighlight: #ff0000;
+    --hackneonHighlight: #18b4f1;
+    --hackheading: 3rem;
+    --hacksubheading: 2rem;
+    --hackminisubheading: 1.5rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.05;
+    }
+
+    50% {
+        opacity: 0.15;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--hackneonHighlight), 0 0 10px var(--hackneonHighlight), 0 0 15px var(--hackneonHighlight);
+    }
+
+    50% {
+        box-shadow: 0 0 10px var(--hackneonHighlight), 0 0 20px var(--hackneonHighlight), 0 0 30px var(--hackneonHighlight);
+    }
+}
+
+.container {
     width: 100%;
-    height: 63.5vh;
+    min-height: 100vh;
+    background: var(--hackbgDark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    padding-top: 5rem;
+    /* Space for hamburger menu */
+    overflow: hidden;
+    position: relative;
+    font-family: "Maven Pro", sans-serif;
+}
+
+.backgroundElements {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.bgElement1 {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 20rem;
+    height: 20rem;
+    background: radial-gradient(circle, var(--hackneonHighlight) 20%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: pulse 2s infinite;
+}
+
+.bgElement2 {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 24rem;
+    height: 24rem;
+    background: radial-gradient(circle, var(--hackneonHighlight) 20%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: pulse 2s infinite;
+    animation-delay: 1s;
+}
+
+.bgElement3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 8rem;
+    background: radial-gradient(circle, var(--hackneonHighlight) 30%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: bounce 2s infinite;
 }
 
 .content {
-    margin-top: 3rem;
-    /* Space below PageHeading or top of page if no PageHeading */
-    padding: 2rem;
-}
-
-.title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    /* Responsive font size */
-    color: var(--primary);
-    /* Use your theme's primary color */
-    margin-bottom: 1rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.message {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    /* Responsive font size */
-    color: var(--textLight);
-    /* Use a lighter text color or var(--textDark) */
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-}
-
-.icon {
-    width: clamp(80px, 15vw, 150px);
-    /* Responsive icon size */
-    height: auto;
-    margin-top: 2rem;
-    opacity: 0.8;
-}
-
-/* Adjustments for PageHeading if used */
-.comingSoonContainer>div:first-child {
-    /* Targets PageHeading if it's the first child */
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto;
     width: 100%;
 }
 
+.logo {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 2rem;
+    background: transparent;
+    border: 2px solid var(--hackneonHighlight);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: glow 2s ease-in-out infinite;
+}
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .content {
-        margin-top: 2rem;
-        padding: 1.5rem;
-    }
+.logoIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--hackneonHighlight);
+}
 
-    .title {
-        margin-bottom: 0.75rem;
-    }
+.mainHeading {
+    font-size: var(--hackheading);
+    font-weight: 800;
+    color: var(--textLight);
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+    font-family: "Maven Pro", sans-serif;
+    text-shadow: 0 0 20px var(--hackneonHighlight);
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
 
-    .message {
-        margin-bottom: 1.5rem;
-    }
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--textLight);
+    margin-bottom: 3rem;
+    font-weight: 400;
+    opacity: 0.9;
+    font-family: "Maven Pro", sans-serif;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.emailSection {
+    max-width: 32rem;
+    margin: 0 auto 2rem;
+    width: 100%;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.emailForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.inputContainer {
+    position: relative;
+    width: 100%;
+}
+
+.emailIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--hackneonHighlight);
+    width: 1.25rem;
+    height: 1.25rem;
+    opacity: 0.8;
+}
+
+.emailInput {
+    width: 100%;
+    padding: 1.2rem 1rem 1.2rem 3rem;
+    border: 1px solid var(--hackneonHighlight);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--textLight);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: "Maven Pro", sans-serif;
+    box-shadow: 0 0 0 0 var(--hackneonHighlight);
+}
+
+.emailInput:focus {
+    box-shadow: 0 0 10px var(--hackneonHighlight);
+    border-color: var(--hackneonHighlight);
+}
+
+.emailInput::placeholder {
+    color: var(--textLight);
+    opacity: 0.6;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background: transparent;
+    border: 2px solid var(--hackneonHighlight);
+    border-radius: 8px;
+    color: var(--hackneonHighlight);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    outline: none;
+    font-family: "Maven Pro", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: var(--hackneonHighlight);
+    color: var(--hackbgDark);
+    box-shadow: 0 0 20px var(--hackneonHighlight);
+}
+
+.submitButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.loadingSpinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--hackneonHighlight);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.buttonIcon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.successMessage {
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.successText {
+    color: var(--hackneonHighlight);
+    background: rgba(24, 180, 241, 0.1);
+    border: 1px solid var(--hackneonHighlight);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: "Maven Pro", sans-serif;
+    box-shadow: 0 0 15px rgba(24, 180, 241, 0.3);
+    margin: 0;
+}
+
+.separator {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--hackneonHighlight), transparent);
+    margin: 3rem auto 2rem;
+    border: none;
+    outline: none;
+}
+
+/* Animation classes */
+.fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.delay200 {
+    animation-delay: 0.2s;
+}
+
+.delay400 {
+    animation-delay: 0.4s;
+}
+
+.delay600 {
+    animation-delay: 0.6s;
+}
+
+.delay800 {
+    animation-delay: 0.8s;
+}
+
+.delay1000 {
+    animation-delay: 1s;
+}
+
+body {
+    font-family: "Maven Pro", sans-serif !important;
 }
