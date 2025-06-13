@@ -14,30 +14,46 @@ const DropDownSelectField = ({
   required,
   options,
   defaultOption = "choose",
+  multiple = false,
 }) => {
+  const handleChange = (e) => {
+    if (multiple) {
+      const selectedValues = Array.from(
+        e.target.selectedOptions,
+        (option) => option.value
+      );
+      valueUpdater(selectedValues);
+    } else {
+      valueUpdater(e.target.value);
+    }
+  };
+
   return (
     <div className={dropDownSelectDiv}>
       <select
         className={dropDownSelect}
-        value={value}
+        value={multiple ? undefined : value}
         id={id}
         name={inputLabel}
-        onInput={valueUpdater}
+        onChange={handleChange}
         required={required}
+        multiple={multiple}
       >
-        <option
-          className={dropDownOption}
-          id="defaultDrop"
-          defaultChecked
-          defaultValue={defaultOption}
-        >
-          {defaultOption}
-        </option>
+        {!multiple && (
+          <option className={dropDownOption} id="defaultDrop" value="">
+            {defaultOption}
+          </option>
+        )}
         {options.map((option) => (
           <option
             className={dropDownOption}
             key={option.toLowerCase()}
             value={option.toLowerCase()}
+            selected={
+              multiple &&
+              Array.isArray(value) &&
+              value.includes(option.toLowerCase())
+            }
           >
             {option}
           </option>
@@ -52,12 +68,16 @@ const DropDownSelectField = ({
 
 DropDownSelectField.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
   valueUpdater: PropTypes.func.isRequired,
   inputLabel: PropTypes.string.isRequired,
   required: PropTypes.bool.isRequired,
   options: PropTypes.array.isRequired,
-  defaultOption: PropTypes.string.isRequired,
+  defaultOption: PropTypes.string,
+  multiple: PropTypes.bool,
 };
 
 export default DropDownSelectField;

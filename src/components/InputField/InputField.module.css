@@ -48,12 +48,19 @@
   padding: 0.5rem;
 }
 
-.formInput:focus + .label {
+.formInput:focus+.label {
   top: 0;
   transform: translateY(-30%) scale(0.85);
 }
 
-.formInput:not(:placeholder-shown) + .label {
+.formInput:not(:placeholder-shown)+.label {
   top: 0;
   transform: translateY(-30%) scale(0.85);
+}
+
+@media (max-width: 768px) {
+  .formInput {
+    width: clamp(19rem, 30dvw, 22rem);
+
+  }
 }

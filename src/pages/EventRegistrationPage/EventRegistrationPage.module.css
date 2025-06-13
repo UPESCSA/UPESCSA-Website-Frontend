@@ -192,7 +192,20 @@
   height: auto;
 }
 
+@media (max-width: 768px) {
+  .formContainer {
+    width: 60dvw !important;
+    min-width: 95% !important;
+  }
+}
+
 @media screen and (max-width: 1000px) {
+
+  .formContainer {
+    width: 60dvw;
+    min-width: 75%;
+  }
+
   .mainDiv {
     flex-direction: column;
     align-items: center;
@@ -285,8 +298,8 @@
   }
 
   .backArrow {
-    top: 0.5rem;
-    left: -2rem;
+    top: -0.7rem;
+    left: -1.8rem;
   }
 }
 
