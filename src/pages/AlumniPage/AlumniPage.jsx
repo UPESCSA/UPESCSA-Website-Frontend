@@ -56,14 +56,14 @@ const AlumniPage = () => {
             CONNECT WITH OUR ALUMNI
             <hr className={Line} />
             {/* Search input */}
-            {/* <input
+            <input
               type="text"
               className={Input}
               placeholder="Search by name"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)} // Update search query on input
             />
-            <img className={icon} src={SearchIcon} alt="Search icon" /> */}
+            <img className={icon} src={SearchIcon} alt="Search icon" />
           </p>
         </span>
         <div className={AlumniContainer}>

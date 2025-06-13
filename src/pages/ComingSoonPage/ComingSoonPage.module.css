@@ -1,0 +1,67 @@
+.comingSoonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    overflow-x: hidden;
+    width: 100%;
+    height: 63.5vh;
+}
+
+.content {
+    margin-top: 3rem;
+    /* Space below PageHeading or top of page if no PageHeading */
+    padding: 2rem;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Responsive font size */
+    color: var(--primary);
+    /* Use your theme's primary color */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.message {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    /* Responsive font size */
+    color: var(--textLight);
+    /* Use a lighter text color or var(--textDark) */
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.icon {
+    width: clamp(80px, 15vw, 150px);
+    /* Responsive icon size */
+    height: auto;
+    margin-top: 2rem;
+    opacity: 0.8;
+}
+
+/* Adjustments for PageHeading if used */
+.comingSoonContainer>div:first-child {
+    /* Targets PageHeading if it's the first child */
+    width: 100%;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .content {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+
+    .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .message {
+        margin-bottom: 1.5rem;
+    }
+}
