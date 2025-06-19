@@ -52,56 +52,68 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/RegistrationDrive.avif"
-          eventHeading="Join UPES-CSA: Registrations Open!"
+          eventPosterURL="/img/events/live/WebGenesis.avif"
+          eventHeading="WebGenesis: REGISTER NOW!"
           eventText={
             <>
               <p>
-                🚀 <strong>Ignite Your Future with UPES-CSA!</strong>
+                🚀 <strong>Build. Automate. Deploy.</strong> Welcome to{" "}
+                <strong>WebGenesis: Code to Cloud!</strong>
               </p>
               <p>
-                We’re thrilled to invite you to become a part of the{" "}
-                <strong>
-                  UPES Cloud Security Alliance (UPES-CSA) Student Chapter
-                </strong>
-                —a vibrant, tech-focused community where collaboration meets
-                innovation.
+                Ready to launch your tech skills into the real world? Join us
+                for <strong>WebGenesis: Code to Cloud</strong>, an intensive
+                4-weekend online bootcamp hosted by the{" "}
+                <strong>UPES Cloud Security Alliance Student Chapter</strong>.
               </p>
               <p>
-                Are you ready to take the next big step in your tech journey?
-                Here’s why you should join us:
+                Whether you're a beginner or aiming to sharpen your full-stack
+                and DevOps skills, this bootcamp is your gateway to mastering
+                modern web development.
               </p>
               <ul>
                 <li>
-                  💼 <strong>Exclusive Access</strong> to workshops, seminars,
-                  and webinars with industry experts.
+                  ✅ <strong>Full-Stack Web Dev:</strong> HTML, CSS, JavaScript,
+                  Node.js, Express
                 </li>
                 <li>
-                  🤝 <strong>Networking Opportunities</strong> with
-                  professionals and like-minded peers.
+                  ✅ <strong>DevOps Skills:</strong> GitHub, CI/CD, Docker
                 </li>
                 <li>
-                  🛠 <strong>Skill Development</strong> via hands-on experiences
-                  and technical sessions.
+                  ✅ <strong>Cloud Deployment:</strong> AWS, Vercel, Render &
+                  more
                 </li>
                 <li>
-                  🚀 <strong>Career Growth</strong> through mentorship and
-                  expert guidance.
+                  ✅ <strong>Real-World Projects:</strong> Hands-on labs and
+                  live mentoring
                 </li>
                 <li>
-                  🎓 <strong>Internship Opportunities</strong> for
-                  high-performing members.
+                  ✅ <strong>Certificate + Recognition:</strong> Stand out with
+                  verified participation
+                </li>
+                <li>
+                  ✅ <strong>Free Registration</strong> | Open to All SoCS
+                  Students
                 </li>
               </ul>
               <p>
-                Ready to join our mission and grow with UPES-CSA? Be a part of
-                our Core Committee and shape the future of cloud security at
-                UPES!
+                🚨 <strong>Limited Seats Available!</strong>
               </p>
-              <p>🔗 Secure your spot by clicking the button below.</p>
+              <p>
+                📆 <strong>Bootcamp Dates:</strong> 21 June – 13 July 2025
+                (Weekends Only)
+              </p>
+              <p>
+                💡 Learn to build, automate, and ship real applications from
+                scratch to the cloud!
+              </p>
+              <p>
+                🔗{" "}
+                <strong>Secure your seat by clicking the button below!</strong>
+              </p>
             </>
           }
-          eventFormURL="/register"
+          eventFormURL="/Webgenesis"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />

@@ -39,14 +39,14 @@ const ComingSoonPage = () => {
       const formData = new FormData();
       formData.append(
         "SheetUrl",
-        "https://docs.google.com/spreadsheets/d/1hKpS67ikaeUyLVPF3mqkGQSUpyEpljjlcVoC1VSry2M/edit?usp=sharing"
+        "https://docs.google.com/spreadsheets/d/1jabJxxffvBoNFL_0toxZF55vwdAD0gnPde1VKkuw_nY/edit?usp=sharing"
       );
       formData.append("email", email);
       formData.append("type", "coming_soon_notification");
       formData.append("timestamp", new Date().toISOString());
 
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/api/form/submit`,
+        `https://script.google.com/macros/s/AKfycbyakUWSjJBj4raVzYCQ1EAZwML7e6ehk1SeiHvRX_aKXiYJvBTstrqxsOCbiK24gFOd/exec`,
         {
           method: "POST",
           body: formData,
@@ -55,7 +55,7 @@ const ComingSoonPage = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Response result:", result.status);
+        console.log("Response result:", result);
 
         if (result.status === "duplicate") {
           toast.error("This email is already subscribed.");
@@ -93,9 +93,9 @@ const ComingSoonPage = () => {
 
       <div className={styles.content}>
         {/* Logo/Icon */}
-        <div className={styles.logo}>
+        {/* <div className={styles.logo}>
           <Calendar className={styles.logoIcon} />
-        </div>
+        </div> */}
 
         {/* Main heading with animation */}
         <div className={styles.fadeInUp}>
@@ -104,7 +104,7 @@ const ComingSoonPage = () => {
 
         <div className={`${styles.fadeInUp} ${styles.delay200}`}>
           <p className={styles.subtitle}>
-            WebGenesis is on the way. Get ready for an unforgettable experience.
+            Alumini Page is on the way. Stay tuned for updates!
           </p>
         </div>
 
@@ -112,7 +112,7 @@ const ComingSoonPage = () => {
         <div
           className={`${styles.emailSection} ${styles.fadeInUp} ${styles.delay400}`}
         >
-          <div className={styles.emailForm}>
+          {/* <div className={styles.emailForm}>
             <div className={styles.inputContainer}>
               <Mail className={styles.emailIcon} />
               <input
@@ -138,7 +138,7 @@ const ComingSoonPage = () => {
                 </>
               )}
             </button>
-          </div>
+          </div> */}
 
           {/* Success message */}
           <div

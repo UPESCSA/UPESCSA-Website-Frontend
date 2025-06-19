@@ -128,7 +128,7 @@
   background-color: var(--bgLight);
   padding: 0 0.75rem;
   height: 2.5rem;
-  width: 31.7%;
+  width: 49%;
   border-radius: 5px;
   gap: 0.25rem;
   display: flex;
@@ -196,6 +196,10 @@
   .formContainer {
     width: 60dvw !important;
     min-width: 95% !important;
+  }
+
+  .eventDetail {
+    width: 48.5% !important;
   }
 }
 
