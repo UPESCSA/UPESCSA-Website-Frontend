@@ -214,6 +214,7 @@ const EventRegistrationForm = () => {
     "Week 3: DevOps & Automation",
     "Week 4: Cloud Deployment",
   ];
+  const disabledOptions = ["Week 1: Web Development"]; // Options that should be disabled in the dropdown
 
   // VALIDATION FUNCTIONS
   // const VALIDATESESSION = (value, setValid) => {
@@ -490,7 +491,7 @@ const EventRegistrationForm = () => {
                     inputLabel="Select Sessions"
                     required={true}
                     options={options}
-                    disabledOptions={[""]}
+                    disabledOptions={disabledOptions}
                   />
                   {/* <DropDownSelectField
                       id="participantCSAMember"
