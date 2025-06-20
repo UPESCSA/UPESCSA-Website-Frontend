@@ -95,7 +95,8 @@ function App() {
           element={
             <>
               <Navbar />
-              <AlumniPage />
+              <ComingSoonPage />
+              {/* <AlumniPage /> */}
               <Contact />
             </>
           }
@@ -167,8 +168,7 @@ function App() {
             <>
               <Navbar />
 
-              <ComingSoonPage />
-              {/* <EventRegistrationForm /> */}
+              <EventRegistrationForm />
               <Contact />
             </>
           }

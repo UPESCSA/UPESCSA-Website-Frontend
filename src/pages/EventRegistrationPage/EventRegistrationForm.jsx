@@ -54,41 +54,40 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/AZURE CLOUDSCAPE.jpg",
+    eventImageURL: "/img/events/live/WebGenesis.avif",
     eventHeading: "WebGenesis: Code to Cloud",
     eventText: `
-    <p>
-      <strong>Azure Cloudscape - Cloud Revolution</strong>
-    </p>
-    <p>
-      <strong>🕒 Timings:</strong>
-    </p>
-    <ul>
-      <li><strong>Session 1 (12-2pm):</strong> Intro to Azure</li>
-      <li><strong>Session 2 (3:30-5:30pm):</strong> Demystifying the Path to Becoming an Azure Cloud Engineer</li>
-    </ul>
-
-    <p>
-      Explore the limitless possibilities of cloud computing with
-      <strong>Mr. Saket Kumar</strong>
-      and
-      <strong>Ms. Neelam Mourya</strong>
-      from Microsoft. Gain hands-on experience in Azure tools, tackle real-world challenges, and compete for exciting prizes and certificates!
-    </p>
-    <p>
-      <strong>Fill the form below to participate!</strong>
-    </p>
+  <p>
+    <strong>🚀 WebGenesis: Code to Cloud – A Full-Stack & DevOps Bootcamp</strong>
+  </p>
+  <p>
+    <strong>🕒 Timings:</strong> Weekends only
+  </p>
+  <ul>
+    <li>✅ <strong>Full-Stack Web Dev:</strong> HTML, CSS, JavaScript, Node.js, Express</li>
+    <li>✅ <strong>DevOps Skills:</strong> GitHub, CI/CD, Docker</li>
+    <li>✅ <strong>Cloud Deployment:</strong> AWS, Vercel, Render & more</li>
+    <li>✅ <strong>Real-World Projects:</strong> Hands-on labs and live mentoring</li>
+    <li>✅ <strong>Certificate + Recognition:</strong> Verified participation</li>
+    <li>✅ <strong>Free Registration</strong> | Open to All SoCS Students</li>
+  </ul>
+  <p>
+    🚨 <strong>Limited Seats Available!</strong>
+  </p>
+  <p>
+    <strong>📩 Secure your seat by filling out the form below!</strong>
+  </p>
 `,
-    eventMode: "Offline",
+    eventMode: "Online",
     eventTeamSize: "1",
     eventRegistrationFee: "free",
-    eventDate: "June - July",
+    eventDate: "21/06 – 13/07",
     IsFree: true,
     whatsGroup: "CvBKpYcBNQDKc5SjuSeHO2",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1n7lOoUtAnX0qx8UQKrQVfAzlQkwswo4rp7QN4lj2T5Y/edit?gid=0#gid=0",
     FolderId: "NEW_FOLDER_ID",
-    eventTemplate: "WebGenesis",
+    eventTemplate: "WEBGENESIS",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -215,6 +214,7 @@ const EventRegistrationForm = () => {
     "Week 3: DevOps & Automation",
     "Week 4: Cloud Deployment",
   ];
+  const disabledOptions = ["Week 1: Web Development"]; // Options that should be disabled in the dropdown
 
   // VALIDATION FUNCTIONS
   // const VALIDATESESSION = (value, setValid) => {
@@ -491,7 +491,7 @@ const EventRegistrationForm = () => {
                     inputLabel="Select Sessions"
                     required={true}
                     options={options}
-                    disabledOptions={[""]}
+                    disabledOptions={disabledOptions}
                   />
                   {/* <DropDownSelectField
                       id="participantCSAMember"
@@ -579,7 +579,7 @@ const EventRegistrationForm = () => {
                     type="submit"
                     className={submitButton}
                   >
-                    Submit Form
+                    Submit
                   </button>
                 ) : (
                   <button className={submitButton} onClick={submitFormOne}>
@@ -660,7 +660,7 @@ const EventRegistrationForm = () => {
                   <img loading="lazy" src="/icons/date.png" alt="" />
                   <p>{eventDetails.eventDate}</p>
                 </div>
-                <div className={eventDetail} style={{ width: "100%" }}>
+                <div className={eventDetail}>
                   <img loading="lazy" src="/icons/registrationFee.png" alt="" />
                   <p>{eventDetails.eventRegistrationFee}</p>
                 </div>

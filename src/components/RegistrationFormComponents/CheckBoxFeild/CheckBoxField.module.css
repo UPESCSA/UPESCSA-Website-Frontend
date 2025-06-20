@@ -100,7 +100,7 @@
     opacity: 0.4;
     cursor: not-allowed;
     background-color: #f5f5f5 !important;
-    border-color: #ccc !important;
+    border-color: #000000 !important;
 }
 
 .checkBoxInput:disabled {
@@ -111,17 +111,17 @@
 .disabled {
     opacity: 0.4 !important;
     cursor: not-allowed !important;
-    color: #999 !important;
+    color: #000000 !important;
 }
 
 .disabled:hover .checkMark {
-    border-color: #ccc !important;
+    border-color: #000000 !important;
     background-color: #f5f5f5 !important;
 }
 
 .checkBoxInput:disabled:focus+.checkMark {
-    background-color: #f5f5f5 !important;
-    border-color: #ccc !important;
+    background-color: #000000 !important;
+    border-color: #000000 !important;
     box-shadow: none !important;
 }
 
