@@ -214,7 +214,11 @@ const EventRegistrationForm = () => {
     "Week 3: DevOps & Automation",
     "Week 4: Cloud Deployment",
   ];
-  const disabledOptions = ["Week 1: Web Development"]; // Options that should be disabled in the dropdown
+  const disabledOptions = [
+    "Week 1: Web Development",
+    "Week 2: Collaboration & Version Control",
+    "Week 3: DevOps & Automation",
+  ]; // Options that should be disabled in the dropdown
 
   // VALIDATION FUNCTIONS
   // const VALIDATESESSION = (value, setValid) => {

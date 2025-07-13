@@ -152,29 +152,28 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
-        <Route
-          path="/Register"
-          element={
-            <>
-              <Navbar />
-              <RegistrationDriveForm />
-              <Contact />
-            </>
-          }
-        />
-        <Route
+        {/* <Route
           path="/WebGenesis"
           element={
             <>
               <Navbar />
-
               <EventRegistrationForm />
               <Contact />
             </>
           }
-        />
+        /> */}
 
         {/* // * Past Events */}
+        {/* <Route
+            path="/Register"
+            element={
+              <>
+                <Navbar />
+                <RegistrationDriveForm />
+                <Contact />
+              </>
+            }
+          /> */}
         {/* <Route
           path="/Entropedia"
           element={
