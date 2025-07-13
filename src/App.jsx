@@ -152,6 +152,18 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
+        { <Route
+          path="/AlumniConnect"
+          element={
+            <>
+              <Navbar />
+              <EventRegistrationForm />
+              <Contact />
+            </>
+          }
+        /> }
+
+        {/* // * Past Events */}
         {/* <Route
           path="/WebGenesis"
           element={
@@ -162,8 +174,6 @@ function App() {
             </>
           }
         /> */}
-
-        {/* // * Past Events */}
         {/* <Route
             path="/Register"
             element={

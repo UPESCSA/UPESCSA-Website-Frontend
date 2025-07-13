@@ -85,7 +85,7 @@ const EventRegistrationForm = () => {
     IsFree: true,
     whatsGroup: "CvBKpYcBNQDKc5SjuSeHO2",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1n7lOoUtAnX0qx8UQKrQVfAzlQkwswo4rp7QN4lj2T5Y/edit?gid=0#gid=0",
+      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?usp=drivesdk/edit?gid=0#gid=0",
     FolderId: "NEW_FOLDER_ID",
     eventTemplate: "WEBGENESIS",
   };
@@ -331,7 +331,7 @@ const EventRegistrationForm = () => {
       // console.log(finalData);
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbyQ36e313hhT49vK0AjzAudL8D3GSqc27XAw3SmaGwCzl4b4NfUrH0q9aoXGDO5toYH/exec",
+          "https://script.google.com/macros/s/AKfycbxegUi1O6lk3_wCbJNLd-bwrk4_SRvP6yA7M6F55Pp7Kr7q4ja0dvdUjAAhy7f_mk2j/exec",
           {
             method: "POST",
             body: finalData,

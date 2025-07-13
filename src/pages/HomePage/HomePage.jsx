@@ -113,7 +113,7 @@ const HomePage = () => {
               </p>
             </>
           }
-          eventFormURL="/Webgenesis"
+          eventFormURL="/AlumniConnect"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />
