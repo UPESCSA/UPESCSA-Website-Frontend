@@ -298,24 +298,26 @@ const EventRegistrationForm = () => {
     if (validate()) {
       setLoading(true);
       // setdisabled(true);
+      // Prepare data for Google Spreadsheet columns
       const data = {
-        name,
-        course,
-        phone,
-        collegeEmail,
-        selectedSessions,
-        yearOfStudy,
-        email,
-        gender,
-        collegeName,
+        Name: name, // Name
+        Gender: gender, // Gender
+        "Contact Number": phone, // Contact Number
+        "WhatsApp Number": WhatsApp, // WhatsApp Number
+        "Email ID": email, // Email ID
+        Course: course, // Course
+        "Year Of Study": yearOfStudy, // Year Of Study
+        College: collegeName, // College
+        // Timestamp: new Date().toISOString(), // Optional: Apps Script can handle this
+        // selectedSessions, // Not needed for spreadsheet, comment out
+        // collegeEmail, // Not needed for spreadsheet, comment out
         // session,
         // sapID,
-        // WhatsApp,
         // csaMember,
         // csaID,
         // transactionID,
-        SheetUrl: eventDetails.SheetUrl,
-        // FolderId: eventDetails.FolderId,
+        // SheetUrl: eventDetails.SheetUrl, // Not needed for spreadsheet, comment out
+        // FolderId: eventDetails.FolderId, // Not needed for spreadsheet, comment out
       };
       // console.log(data);
       const finalData = new FormData();
