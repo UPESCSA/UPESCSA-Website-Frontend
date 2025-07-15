@@ -241,18 +241,13 @@ const EventRegistrationForm = () => {
     const NameValid = VALIDATENAME(name, setIsNameValid);
     const EmailValid = VALIDATEEMAIL(email, setIsEmailValid);
     const PhoneValid = VALIDATEPHONE(phone, setIsPhoneValid);
-    const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid);
+    const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid); // Ensure WhatsApp is validated and checked
     const CourseValid = VALIDATECOURSE(course, setIsCourseValid);
     const YearOfStudyValid = VALIDATEYEAROFSTUDY(
       yearOfStudy,
       setIsYearOfStudyValid
     );
-    const CollegeEmailValid = VALIDATEEMAIL(
-      collegeEmail,
-      setIsCollegeEmailValid
-    );
     const CollegeNameValid = VALIDATENAME(
-      // Using VALIDATENAME for collegeName
       collegeName,
       setIsCollegeNameValid
     );
@@ -265,6 +260,7 @@ const EventRegistrationForm = () => {
       NameValid &&
       EmailValid &&
       PhoneValid &&
+      WhatsAppValid && // Enforce WhatsApp validation
       CourseValid &&
       CollegeNameValid &&
       YearOfStudyValid &&
