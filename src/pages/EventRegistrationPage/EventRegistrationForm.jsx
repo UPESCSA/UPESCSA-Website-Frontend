@@ -85,7 +85,7 @@ const EventRegistrationForm = () => {
     IsFree: true,
     whatsGroup: "CvBKpYcBNQDKc5SjuSeHO2",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?gid=0#gid=0",
+      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?usp=drivesdk/edit?gid=0#gid=0",
     // FolderId: "NEW_FOLDER_ID",
     eventTemplate: "WEBGENESIS",
   };
