@@ -85,8 +85,8 @@ const EventRegistrationForm = () => {
     IsFree: true,
     whatsGroup: "CvBKpYcBNQDKc5SjuSeHO2",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?usp=drivesdk/edit?gid=0#gid=0",
-    FolderId: "NEW_FOLDER_ID",
+      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?gid=0#gid=0",
+    // FolderId: "NEW_FOLDER_ID",
     eventTemplate: "WEBGENESIS",
   };
 
@@ -316,7 +316,7 @@ const EventRegistrationForm = () => {
         // csaMember,
         // csaID,
         // transactionID,
-        // SheetUrl: eventDetails.SheetUrl, // Not needed for spreadsheet, comment out
+        SheetUrl: eventDetails.SheetUrl, // Not needed for spreadsheet, comment out
         // FolderId: eventDetails.FolderId, // Not needed for spreadsheet, comment out
       };
       // console.log(data);
