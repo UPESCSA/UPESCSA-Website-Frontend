@@ -58,6 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
+    {
+      title: "AlumnVerse",
+      action: "/alumnverse",
+      glow: true,
+    },
     // {
     //   title: "Register Now",
     //   action: "/register",

@@ -52,68 +52,56 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/WebGenesis.avif"
-          eventHeading="WebGenesis: REGISTER NOW!"
+          eventPosterURL="/img/events/live/AlumnVerse.avif"
+          eventHeading="AlumnVerse: REGISTER NOW!"
           eventText={
             <>
               <p>
-                🚀 <strong>Build. Automate. Deploy.</strong> Welcome to{" "}
-                <strong>WebGenesis: Code to Cloud!</strong>
+                <strong>
+                  Step Into the AlumnVerse: A CSA Alumni Panel Event
+                </strong>
               </p>
               <p>
-                Ready to launch your tech skills into the real world? Join us
-                for <strong>WebGenesis: Code to Cloud</strong>, an intensive
-                4-weekend online bootcamp hosted by the{" "}
-                <strong>UPES Cloud Security Alliance Student Chapter</strong>.
+                Ever wondered what life looks like after college? What choices
+                shaped the journeys of your seniors? What mistakes to avoid and
+                what paths to chase?
               </p>
               <p>
-                Whether you're a beginner or aiming to sharpen your full-stack
-                and DevOps skills, this bootcamp is your gateway to mastering
-                modern web development.
+                <strong>AlumnVerse</strong> is your chance to connect directly
+                with three accomplished alumni of the{" "}
+                <strong>UPES Cloud Security Alliance Student Chapter</strong>,
+                as they return to share their real-life stories, career
+                insights, academic experiences, and answer your burning
+                questions!
               </p>
               <ul>
                 <li>
-                  ✅ <strong>Full-Stack Web Dev:</strong> HTML, CSS, JavaScript,
-                  Node.js, Express
+                  <strong>Date:</strong> 19th July, 2025
                 </li>
                 <li>
-                  ✅ <strong>DevOps Skills:</strong> GitHub, CI/CD, Docker
+                  <strong>Mode:</strong> Online through Microsoft Teams
                 </li>
                 <li>
-                  ✅ <strong>Cloud Deployment:</strong> AWS, Vercel, Render &
-                  more
-                </li>
-                <li>
-                  ✅ <strong>Real-World Projects:</strong> Hands-on labs and
-                  live mentoring
-                </li>
-                <li>
-                  ✅ <strong>Certificate + Recognition:</strong> Stand out with
-                  verified participation
-                </li>
-                <li>
-                  ✅ <strong>Free Registration</strong> | Open to All SoCS
-                  Students
+                  <strong>Featuring:</strong> A live panel discussion + Q&A with
+                  Alumni
                 </li>
               </ul>
               <p>
-                🚨 <strong>Limited Seats Available!</strong>
+                🚀 Whether you’re curious about job roles, higher studies,
+                research, or just navigating life after graduation; this is your
+                moment to ask, listen, and learn.
               </p>
               <p>
-                📆 <strong>Bootcamp Dates:</strong> 21 June – 13 July 2025
-                (Weekends Only)
+                👥 <strong>Seats are limited!</strong> Don’t miss this
+                opportunity to learn directly from those who were once in your
+                shoes.
               </p>
               <p>
-                💡 Learn to build, automate, and ship real applications from
-                scratch to the cloud!
-              </p>
-              <p>
-                🔗{" "}
-                <strong>Secure your seat by clicking the button below!</strong>
+                👉 <strong>Register Now to reserve your spot!</strong>
               </p>
             </>
           }
-          eventFormURL="/AlumniConnect"
+          eventFormURL="/AlumnVerse"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />
