@@ -86,7 +86,7 @@ const EventRegistrationForm = () => {
     whatsGroup: "CvBKpYcBNQDKc5SjuSeHO2",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?usp=drivesdk/edit?gid=0#gid=0",
-    FolderId: "NEW_FOLDER_ID",
+    // FolderId: "NEW_FOLDER_ID",
     eventTemplate: "WEBGENESIS",
   };
 
@@ -247,12 +247,11 @@ const EventRegistrationForm = () => {
       yearOfStudy,
       setIsYearOfStudyValid
     );
-    const CollegeEmailValid = VALIDATEEMAIL(
-      collegeEmail,
-      setIsCollegeEmailValid
-    );
+    // const CollegeEmailValid = VALIDATEEMAIL(
+    //   collegeEmail,
+    //   setIsCollegeEmailValid
+    // );
     const CollegeNameValid = VALIDATENAME(
-      // Using VALIDATENAME for collegeName
       collegeName,
       setIsCollegeNameValid
     );
@@ -265,6 +264,7 @@ const EventRegistrationForm = () => {
       NameValid &&
       EmailValid &&
       PhoneValid &&
+      WhatsAppValid && // Enforce WhatsApp validation
       CourseValid &&
       CollegeNameValid &&
       YearOfStudyValid &&
@@ -298,24 +298,26 @@ const EventRegistrationForm = () => {
     if (validate()) {
       setLoading(true);
       // setdisabled(true);
+      // Prepare data for Google Spreadsheet columns
       const data = {
-        name,
-        course,
-        phone,
-        collegeEmail,
-        selectedSessions,
-        yearOfStudy,
-        email,
-        gender,
-        collegeName,
+        Name: name, // Name
+        Gender: gender, // Gender
+        "Contact Number": phone, // Contact Number
+        "WhatsApp Number": WhatsApp, // WhatsApp Number
+        "Email ID": email, // Email ID
+        Course: course, // Course
+        "Year Of Study": yearOfStudy, // Year Of Study
+        College: collegeName, // College
+        // Timestamp: new Date().toISOString(), // Optional: Apps Script can handle this
+        // selectedSessions, // Not needed for spreadsheet, comment out
+        // collegeEmail, // Not needed for spreadsheet, comment out
         // session,
         // sapID,
-        // WhatsApp,
         // csaMember,
         // csaID,
         // transactionID,
-        SheetUrl: eventDetails.SheetUrl,
-        // FolderId: eventDetails.FolderId,
+        SheetUrl: eventDetails.SheetUrl, // Not needed for spreadsheet, comment out
+        // FolderId: eventDetails.FolderId, // Not needed for spreadsheet, comment out
       };
       // console.log(data);
       const finalData = new FormData();
