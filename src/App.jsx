@@ -152,16 +152,18 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
-        { <Route
-          path="/AlumniConnect"
-          element={
-            <>
-              <Navbar />
-              <EventRegistrationForm />
-              <Contact />
-            </>
-          }
-        /> }
+        {
+          <Route
+            path="/AlumnVerse"
+            element={
+              <>
+                <Navbar />
+                <EventRegistrationForm />
+                <Contact />
+              </>
+            }
+          />
+        }
 
         {/* // * Past Events */}
         {/* <Route

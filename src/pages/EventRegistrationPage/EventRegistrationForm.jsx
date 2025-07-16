@@ -54,40 +54,39 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/WebGenesis.avif",
-    eventHeading: "WebGenesis: Code to Cloud",
+    eventImageURL: "/img/events/live/AlumnVerse.avif",
+    eventHeading: "AlumnVerse: A CSA Alumni Panel",
     eventText: `
-  <p>
-    <strong>🚀 WebGenesis: Code to Cloud – A Full-Stack & DevOps Bootcamp</strong>
-  </p>
-  <p>
-    <strong>🕒 Timings:</strong> Weekends only
-  </p>
-  <ul>
-    <li>✅ <strong>Full-Stack Web Dev:</strong> HTML, CSS, JavaScript, Node.js, Express</li>
-    <li>✅ <strong>DevOps Skills:</strong> GitHub, CI/CD, Docker</li>
-    <li>✅ <strong>Cloud Deployment:</strong> AWS, Vercel, Render & more</li>
-    <li>✅ <strong>Real-World Projects:</strong> Hands-on labs and live mentoring</li>
-    <li>✅ <strong>Certificate + Recognition:</strong> Verified participation</li>
-    <li>✅ <strong>Free Registration</strong> | Open to All SoCS Students</li>
-  </ul>
-  <p>
-    🚨 <strong>Limited Seats Available!</strong>
-  </p>
-  <p>
-    <strong>📩 Secure your seat by filling out the form below!</strong>
-  </p>
-`,
+    <p>
+      <strong>🚀 Step Into the AlumnVerse: A CSA Alumni Panel Event</strong>
+    </p>
+    <p>
+      Ever wondered what life looks like after college? Connect directly with accomplished alumni as they return to share their real-life stories, career insights, and academic experiences.
+    </p>
+    <ul>
+      <li>✅ <strong>Career Insights:</strong> Learn about different job roles and industries.</li>
+      <li>✅ <strong>Higher Studies:</strong> Get advice on pursuing further education and research.</li>
+      <li>✅ <strong>Real-World Advice:</strong> Discover mistakes to avoid and paths to chase.</li>
+      <li>✅ <strong>Live Q&A:</strong> Get your burning questions answered directly by the panelists.</li>
+      <li>✅ <strong>Free Registration:</strong> Open to all students.</li>
+    </ul>
+    <p>
+      👥 <strong>Seats are limited!</strong> Don’t miss this opportunity to learn from those who were once in your shoes.
+    </p>
+    <p>
+      <strong>📩 Secure your seat by filling out the form below!</strong>
+    </p>
+  `,
     eventMode: "Online",
     eventTeamSize: "1",
-    eventRegistrationFee: "free",
-    eventDate: "21/06 – 13/07",
+    eventRegistrationFee: "Free",
+    eventDate: "19/07/2025",
     IsFree: true,
-    whatsGroup: "CvBKpYcBNQDKc5SjuSeHO2",
+    whatsGroup: "EdzliRgo1iY68DrtbiEaAj", // To be updated
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?usp=drivesdk/edit?gid=0#gid=0",
+      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?gid=0#gid=0", // To be updated
     // FolderId: "NEW_FOLDER_ID",
-    eventTemplate: "WEBGENESIS",
+    eventTemplate: "ALUMNVERSE",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -251,10 +250,7 @@ const EventRegistrationForm = () => {
     //   collegeEmail,
     //   setIsCollegeEmailValid
     // );
-    const CollegeNameValid = VALIDATENAME(
-      collegeName,
-      setIsCollegeNameValid
-    );
+    const CollegeNameValid = VALIDATENAME(collegeName, setIsCollegeNameValid);
     const GenderValid = VALIDATEGENDER(gender, setIsGenderValid);
     // const SessionValid = VALIDATESESSION(session, setIsSessionValid);
     // const SapIDValid = VALIDATESAPID(sapID, setIsSapIDValid);
@@ -447,6 +443,19 @@ const EventRegistrationForm = () => {
                     <span className={errorMessage}>Invalid Phone</span>
                   )}
                   <InputField
+                    id="participantPhone"
+                    type="text"
+                    inputLabel="WhatsApp Number"
+                    value={WhatsApp}
+                    valueUpdater={updateWhatsApp}
+                    required={true}
+                  />
+                  {!isWhatsAppValid && (
+                    <span className={errorMessage}>
+                      Invalid WhatsApp Number
+                    </span>
+                  )}
+                  <InputField
                     id="participantEmail"
                     type="email"
                     inputLabel="Email"
@@ -490,7 +499,7 @@ const EventRegistrationForm = () => {
                   {!isCollegeNameValid && (
                     <span className={errorMessage}>Invalid College Name</span>
                   )}
-                  <CheckBoxField
+                  {/* <CheckBoxField
                     id="participantSessions"
                     selectedValues={selectedSessions}
                     valueUpdater={handleSessionsChange}
@@ -498,7 +507,7 @@ const EventRegistrationForm = () => {
                     required={true}
                     options={options}
                     disabledOptions={disabledOptions}
-                  />
+                  /> */}
                   {/* <DropDownSelectField
                       id="participantCSAMember"
                       value={session}
@@ -532,20 +541,6 @@ const EventRegistrationForm = () => {
                   />
                   {!isSapIDValid && (
                     <span className={errorMessage}>Invalid SAP ID</span>
-                  )} */}
-
-                  {/* <InputField
-                    id="participantPhone"
-                    type="text"
-                    inputLabel="WhatsApp Number"
-                    value={WhatsApp}
-                    valueUpdater={updateWhatsApp}
-                    required={true}
-                  />
-                  {!isWhatsAppValid && (
-                    <span className={errorMessage}>
-                      Invalid WhatsApp Number
-                    </span>
                   )} */}
 
                   {/* <DropDownSelectField
