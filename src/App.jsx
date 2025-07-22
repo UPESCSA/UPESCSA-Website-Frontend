@@ -154,7 +154,7 @@ function App() {
         {/* // * Active Events */}
         {
           <Route
-            path="/AlumnVerse"
+            path="/AlumVerse"
             element={
               <>
                 <Navbar />

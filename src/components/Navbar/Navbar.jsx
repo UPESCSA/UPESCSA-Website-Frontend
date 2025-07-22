@@ -59,8 +59,8 @@ const Navbar = () => {
       action: "#contact",
     },
     {
-      title: "AlumnVerse",
-      action: "/alumnverse",
+      title: "AlumVerse",
+      action: "/alumverse",
       glow: true,
     },
     // {
