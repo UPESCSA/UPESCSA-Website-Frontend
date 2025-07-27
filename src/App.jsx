@@ -95,8 +95,8 @@ function App() {
           element={
             <>
               <Navbar />
-              <ComingSoonPage />
-              {/* <AlumniPage /> */}
+              {/* <ComingSoonPage /> */}
+              <AlumniPage />
               <Contact />
             </>
           }
@@ -152,9 +152,9 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
-        {
+        {/* {
           <Route
-            path="/AlumnVerse"
+            path="/AlumVerse"
             element={
               <>
                 <Navbar />
@@ -163,7 +163,7 @@ function App() {
               </>
             }
           />
-        }
+        } */}
 
         {/* // * Past Events */}
         {/* <Route

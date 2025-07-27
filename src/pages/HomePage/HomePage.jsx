@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = true;
+  const eventActive = false;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,13 +52,13 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/AlumnVerse.avif"
-          eventHeading="AlumnVerse: REGISTER NOW!"
+          eventPosterURL="/img/events/live/AlumVerse.avif"
+          eventHeading="AlumVerse: REGISTER NOW!"
           eventText={
             <>
               <p>
                 <strong>
-                  Step Into the AlumnVerse: A CSA Alumni Panel Event
+                  Step Into the AlumVerse: A CSA Alumni Panel Event
                 </strong>
               </p>
               <p>
@@ -67,7 +67,7 @@ const HomePage = () => {
                 what paths to chase?
               </p>
               <p>
-                <strong>AlumnVerse</strong> is your chance to connect directly
+                <strong>AlumVerse</strong> is your chance to connect directly
                 with three accomplished alumni of the{" "}
                 <strong>UPES Cloud Security Alliance Student Chapter</strong>,
                 as they return to share their real-life stories, career
@@ -76,7 +76,7 @@ const HomePage = () => {
               </p>
               <ul>
                 <li>
-                  <strong>Date:</strong> 19th July, 2025
+                  <strong>Date:</strong> 26th July, 2025
                 </li>
                 <li>
                   <strong>Mode:</strong> Online through Microsoft Teams
@@ -101,7 +101,7 @@ const HomePage = () => {
               </p>
             </>
           }
-          eventFormURL="/AlumnVerse"
+          eventFormURL="/AlumVerse"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />

@@ -54,11 +54,11 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/AlumnVerse.avif",
-    eventHeading: "AlumnVerse: A CSA Alumni Panel",
+    eventImageURL: "/img/events/live/AlumVerse.avif",
+    eventHeading: "AlumVerse: A CSA Alumni Panel",
     eventText: `
     <p>
-      <strong>🚀 Step Into the AlumnVerse: A CSA Alumni Panel Event</strong>
+      <strong>🚀 Step Into the AlumVerse: A CSA Alumni Panel Event</strong>
     </p>
     <p>
       Ever wondered what life looks like after college? Connect directly with accomplished alumni as they return to share their real-life stories, career insights, and academic experiences.
@@ -80,13 +80,13 @@ const EventRegistrationForm = () => {
     eventMode: "Online",
     eventTeamSize: "1",
     eventRegistrationFee: "Free",
-    eventDate: "19/07/2025",
+    eventDate: "26/07/2025",
     IsFree: true,
     whatsGroup: "EdzliRgo1iY68DrtbiEaAj", // To be updated
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?gid=0#gid=0", // To be updated
     // FolderId: "NEW_FOLDER_ID",
-    eventTemplate: "ALUMNVERSE",
+    eventTemplate: "ALUMVERSE",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
