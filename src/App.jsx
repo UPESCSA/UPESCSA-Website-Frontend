@@ -165,15 +165,6 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/acd/timeline"
-          element={
-            <>
-              <ACDTimelinePage />
-              <ContactSection />
-            </>
-          }
-        />
 
         {/* // * Past Events */}
         {/* {
