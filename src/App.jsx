@@ -36,7 +36,9 @@ import RegistrationPage from "./pages/EventRegistrationPage/EventRegistrationPag
 import PageHeading from "./components/PageHeading/PageHeading";
 import ComingSoonPage from "./pages/ComingSoonPage/ComingSoonPage";
 import ACDPage from "./pages/ACDPage/ACDPage";
+import ACDTimelinePage from "./pages/ACDPage/ACDTimelinePage";
 import ContactSection from "./sections/ContactSection/ContactSection";
+
 
 function App() {
   return (
@@ -159,6 +161,15 @@ function App() {
           element={
             <>
               <ACDPage />
+              <ContactSection />
+            </>
+          }
+        />
+        <Route
+          path="/acd/timeline"
+          element={
+            <>
+              <ACDTimelinePage />
               <ContactSection />
             </>
           }

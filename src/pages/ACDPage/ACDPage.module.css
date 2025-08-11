@@ -62,8 +62,8 @@
 }
 
 .wrapper {
-  margin-inline: auto;
-  max-inline-size: 100rem;
+  margin-inline: 5rem;
+  width: 90%;
   min-block-size: 100vh;
   display: flex;
   flex-direction: column;

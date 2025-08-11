@@ -47,10 +47,10 @@ const ACDNavbar = () => {
           }`}
         >
           <li>
-            <a href="">About ACD</a>
+            <a href="/acd">About ACD</a>
           </li>
           <li>
-            <a href="">Timeline</a>
+            <a href="/acd/timeline">Timeline</a>
           </li>
           <li>
             <a href="">Speakers</a>
