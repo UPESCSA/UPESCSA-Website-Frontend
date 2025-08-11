@@ -1,4 +1,6 @@
 /* siteMain/front/src/pages/ACDPage/ACDPage.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -7,18 +9,36 @@
 :global(html), :global(body), :global(#root) {
   margin: 0;
   padding: 0;
-  block-size: 100%;
   inline-size: 100%;
 }
 
-
 :global(body) {
-  background-image: url('/img/ACDbackground.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #150580;
-  font-family: sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: none;
+  /* Remove image & solid color from here */
 }
+
+/* Blurred background layer */
+:global(body)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #150580 url('/img/ACDbackground.png') center / cover no-repeat;
+  filter: blur(5px);
+  z-index: -1;
+  /* Push behind content */
+}
+
 
 .main {
   padding-inline: 2rem;
@@ -31,21 +51,23 @@
   padding-inline: 5rem;
   align-items: center;
   font-size: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .logo {
   display: block;
   max-inline-size: 100%;
+  height: auto;
 }
 
 .wrapper {
   margin-inline: auto;
   max-inline-size: 100rem;
-  min-block-size: 100vh;       /* ensure at least full viewport height */
+  min-block-size: 100vh;
   display: flex;
-  flex-direction: column;      /* so header, main, etc. stack */
+  flex-direction: column;
 }
-
 
 .mainNav ul {
   list-style: none;
@@ -53,16 +75,17 @@
   padding: 0;
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .mainNav a {
   text-decoration: none;
   color: #ffffff;
   font-weight: bold;
+  white-space: nowrap;
 }
 
-.mainNav a:hover,
-.mainNav a:focus-visible {
+.mainNav a:hover, .mainNav a:focus-visible {
   color: #087a98;
 }
 
@@ -82,18 +105,28 @@
   display: flex;
   gap: 1.5rem;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .CSA {
   text-align: left;
+  flex: 1;
 }
 
 .AWS {
   text-align: right;
+  flex: 1;
 }
 
 .AWS img {
   margin-inline-start: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.CSA img {
+  max-width: 100%;
+  height: auto;
 }
 
 .headingWrapper {
@@ -124,6 +157,14 @@
   margin: 0;
 }
 
+.registerContainer {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block: 2rem;
+}
+
 .register {
   background-color: #ffa600;
   padding: 1rem;
@@ -140,11 +181,165 @@
   font-weight: bold;
 }
 
-.registerLink:hover,
-.registerLink:focus-visible {
+.registerLink:hover, .registerLink:focus-visible {
   color: #087a98;
 }
 
 .registerLink:active {
   color: #087b98cb;
+}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  .header {
+    padding-block: 3rem;
+    padding-inline: 3rem;
+    font-size: 1.25rem;
+  }
+
+  .fadedWrapper {
+    padding-block: 4rem;
+    padding-inline: 4rem;
+  }
+
+  .headingWrapper {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  :global(body) {
+    background-attachment: scroll;
+  }
+
+  .main {
+    padding-inline: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .mainNav ul {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .fadedWrapper {
+    padding-block: 3rem;
+    padding-inline: 3rem;
+    margin-block-start: 2rem;
+    border-radius: 1.5rem;
+  }
+
+  .partyWrapper {
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .CSA, .AWS {
+    text-align: center;
+  }
+
+  .AWS .headingWrapper {
+    border-right: none;
+    border-bottom: solid #ffffff;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+    padding-block-end: 1rem;
+    margin-block-end: 1rem;
+  }
+
+  .CSA .headingWrapper {
+    border-left: none;
+    border-top: solid #ffffff;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    padding-block-start: 1rem;
+    margin-block-start: 1rem;
+  }
+
+  .headingWrapper {
+    font-size: 1.125rem;
+  }
+
+  .register {
+    max-inline-size: 10rem;
+    margin-inline: 2rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .header {
+    padding-block: 1.5rem;
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+
+  .mainNav ul {
+    gap: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .fadedWrapper {
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .partyWrapper {
+    gap: 2rem;
+  }
+
+  .headingWrapper {
+    font-size: 1rem;
+    margin-block-start: 0.5rem;
+  }
+
+  .register {
+    max-inline-size: 9rem;
+    padding: 0.75rem;
+    margin-block: 3rem;
+    margin-inline: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .registerLink {
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .main {
+    padding-inline: 0.5rem;
+  }
+
+  .header {
+    padding-inline: 0.5rem;
+  }
+
+  .fadedWrapper {
+    padding-inline: 1rem;
+    margin-inline: 0.5rem;
+  }
+
+  .mainNav ul {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .register {
+    max-inline-size: 8rem;
+    font-size: 0.8rem;
+  }
 }

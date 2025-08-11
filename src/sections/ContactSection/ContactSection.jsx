@@ -27,7 +27,7 @@ const ContactSection = () => {
         </div>
         <div className={logoDiv}>
           <Logo src="/logo/upescsa.png" />
-          <Logo src="/logo/Hackathon4.0.png" />
+          {/* <Logo src="/logo/Hackathon4.0.png" /> */}
         </div>
         <div className={contactInfoDiv}>
           <div className={contactField}>
@@ -50,7 +50,7 @@ const ContactSection = () => {
               alt="phone"
             />
             <p className={contactFieldInfo}>
-              +91 89586 11888 <br /> +91 88280 44674
+              +91 98768 66366 <br /> +91 95181 67802
             </p>
           </div>
           <div className={contactField}>
@@ -65,7 +65,7 @@ const ContactSection = () => {
         </div>
       </div>
       <div className={copyRight}>
-        Copyright © 2024 All rights reserved | Designed and Developed by UPES
+        Copyright © 2025 All rights reserved | Designed and Developed by UPES
         CSA Technical Team
       </div>
     </div>
