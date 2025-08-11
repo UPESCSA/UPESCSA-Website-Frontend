@@ -4,10 +4,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  /* Apply min-width only on larger screens */
+  min-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.couponWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .fadedWrapper {
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.125);
   padding-block: 5rem;
   padding-inline: 5rem;
   margin-block-start: 3rem;
@@ -15,6 +29,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  backdrop-filter: blur(5px);
 }
 
 .partyWrapper {
@@ -22,19 +37,56 @@
   gap: 1.5rem;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 .CSA, .AWS {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CSA {
+  text-align: left;
 }
 
 .AWS {
-    text-align: end;
+  text-align: right;
 }
 
-.AWS img {
-    display: inline;   
+.xImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
+
+.xImg img {
+  max-width: 150px;
+  height: auto;
+}
+
+.CSA img, .AWS img {
+  max-width: 240px;
+  display: block;
+}
+
+.CSA img {
+  max-width: 200px;
+  height: auto;
+  left: 7rem;
+  top: 5rem;
+  position: absolute;
+}
+
+.CSA {
+  margin-top: 9.5rem;
+}
+
+/* .AWS img {
+  margin-inline-start: auto;
+} */
 
 .headingWrapper {
   padding-block-start: 0.3rem;
@@ -50,37 +102,57 @@
 
 .CSA .headingWrapper {
   border-left: solid #ffffff;
-  margin-inline-start: 1rem;
+  margin-top: 50px;
+  margin-inline-start: -10rem;
   padding-inline-start: 1rem;
 }
 
 .headingMain {
   color: #ffffff;
   margin: 0;
+  font-size: 1.5rem;
 }
 
 .headingSub {
   color: #ff9900;
   margin: 0;
+  font-size: 1.2rem;
 }
 
-/* New container for the register button */
+/* Register section */
 .registerContainer {
-  width: 100%;                /* full width of parent */
-  display: flex;              /* enable flex alignment */
-  justify-content: flex-start;/* align child to left */
-  margin-block: 2rem;
-  margin-inline-start: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2rem;
+  gap: 1rem;
 }
 
+.couponText {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1rem;
+}
 
 .register {
-  background-color: #ffa600;
+  background-color: #00000000;
+  color: #fff;
   padding: 1rem;
+  font-size: 1.5rem;
   max-inline-size: 12rem;
   border-radius: 2rem;
   text-align: center;
-  min-inline-size: 10rem;
+  min-inline-size: 15rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: #FFA600 solid 5px;
+}
+
+.register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #FFA600;
 }
 
 .registerLink {
@@ -89,11 +161,460 @@
   font-weight: bold;
 }
 
-.registerLink:hover,
-.registerLink:focus-visible {
+.registerLink:hover, .registerLink:focus-visible {
   color: #087a98;
 }
 
 .registerLink:active {
   color: #087b98cb;
+}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+
+/* Large tablets and small desktops - Remove min-width here */
+@media (max-width: 1024px) {
+  .container {
+    min-width: 900px;
+  }
+
+  .fadedWrapper {
+    padding-block: 4rem;
+    padding-inline: 4rem;
+  }
+
+  .headingWrapper {
+    font-size: 1.25rem;
+  }
+
+  .headingMain {
+    font-size: 1.25rem;
+  }
+
+  .headingSub {
+    font-size: 1rem;
+  }
+
+  .registerContainer {
+    margin-inline-start: 4rem;
+  }
+
+  .CSA {
+    margin-top: 9.5rem;
+  }
+
+  .CSA img {
+    min-width: 225px;
+    position: absolute;
+    top: 3rem;
+    left: 1.75rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+    min-width: 700px;
+    /* Ensure no min-width constraint */
+  }
+
+  .fadedWrapper {
+    padding-block: 3rem;
+    padding-inline: 2rem;
+    margin-block-start: 2rem;
+    border-radius: 1.5rem;
+  }
+
+  .partyWrapper {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .CSA, .AWS {
+    text-align: center;
+    width: 100%;
+  }
+
+  .xImg {
+    order: 2;
+  }
+
+  .CSA {
+    order: 1;
+  }
+
+  .AWS {
+    order: 3;
+  }
+
+  .xImg img {
+    min-width: 90px;
+  }
+
+  .CSA img, .AWS img {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  .CSA {
+    margin-top: 14rem;
+  }
+
+  .CSA img {
+    max-width: 100px;
+    position: absolute;
+    top: 4rem;
+    left: 14.5rem;
+  }
+
+  .AWS .headingWrapper {
+    border-right: none;
+    border-bottom: solid #ffffff 2px;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+    padding-block-end: 1rem;
+    margin-block-end: 1rem;
+    text-align: center;
+  }
+
+  .CSA .headingWrapper {
+    border-left: none;
+    border-top: solid #ffffff 2px;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    padding-block-start: 1rem;
+    margin-block-start: 1rem;
+    text-align: center;
+  }
+
+  .headingWrapper {
+    font-size: 1.125rem;
+  }
+
+  .headingMain {
+    font-size: 1.125rem;
+  }
+
+  .headingSub {
+    font-size: 0.9rem;
+  }
+
+  .registerContainer {
+    align-items: center;
+    margin-inline-start: 0;
+    text-align: center;
+  }
+
+  .register {
+    max-inline-size: 10rem;
+    min-inline-size: 8rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .container {
+    min-width: 330px;
+    /* No min-width constraint */
+    max-width: none;
+    /* Let it be flexible */
+    width: 100%;
+  }
+
+  .fadedWrapper {
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .partyWrapper {
+    gap: 1.5rem;
+  }
+
+  .xImg img {
+    min-width: 80px;
+  }
+
+  .CSA img, .AWS img {
+    max-width: 250px;
+  }
+
+  .CSA {
+    margin-top: 14rem;
+  }
+
+  .CSA img {
+    min-width: 100px;
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+  }
+
+  .headingWrapper {
+    font-size: 1rem;
+    margin-block-start: 0.5rem;
+  }
+
+  .headingMain {
+    font-size: 1rem;
+  }
+
+  .headingSub {
+    font-size: 0.8rem;
+  }
+
+  .couponText {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .register {
+    max-inline-size: 9rem;
+    min-inline-size: 7rem;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+  }
+
+  .registerLink {
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 0.25rem;
+    min-width: unset;
+    /* No min-width constraint */
+    max-width: none;
+    /* Let it be flexible */
+    width: 100%;
+  }
+
+  .fadedWrapper {
+    padding-inline: 1rem;
+    margin-inline: 0.5rem;
+  }
+
+  .CSA img, .AWS img {
+    max-width: 80px;
+  }
+
+  .xImg img {
+    max-width: 25px;
+  }
+
+  .headingMain {
+    font-size: 0.9rem;
+  }
+
+  .headingSub {
+    font-size: 0.75rem;
+  }
+
+  .couponText {
+    font-size: 0.8rem;
+  }
+
+  .register {
+    max-inline-size: 8rem;
+    min-inline-size: 6rem;
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Add these styles to your ACDFadedSection.module.css */
+
+/* Coupon Wrapper */
+.couponWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.couponLabel {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0;
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+/* Coupon Code Styling */
+.couponCode {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 12px rgba(255, 166, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px dashed #FFA600;
+  user-select: none;
+  outline: none;
+}
+
+.couponCode:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 8px 20px rgba(255, 166, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #ffb520 0%, #ff9500 100%);
+}
+
+.couponCode:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 2px 8px rgba(255, 166, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.couponCode:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Copied State */
+.couponCode.copied {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  box-shadow:
+    0 4px 12px rgba(74, 222, 128, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.couponCode.copied:hover {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Code Text */
+.codeText {
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+/* Copy Icon */
+.copyIcon {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.couponCode:hover .copyIcon {
+  transform: scale(1.1);
+}
+
+.copied .copyIcon {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+/* Tooltip */
+.copyTooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  margin-bottom: 0.5rem;
+}
+
+.copyTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.couponCode:hover .copyTooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.copied .copyTooltip {
+  background: rgba(34, 197, 94, 0.9);
+}
+
+.copied .copyTooltip::after {
+  border-top-color: rgba(34, 197, 94, 0.9);
+}
+
+/* Animation for copied state */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.copied {
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .couponWrapper {
+    align-items: center;
+    text-align: center;
+  }
+
+  .couponCode {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .codeText {
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .couponLabel {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .couponCode {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .codeText {
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 320px) {
+  .couponCode {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 }

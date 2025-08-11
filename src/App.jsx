@@ -35,7 +35,8 @@ import EventRegistration from "./pages/EventRegistrationPage/EventRegistrationPa
 import RegistrationPage from "./pages/EventRegistrationPage/EventRegistrationPage/RegistrationPage/RegistrationPage";
 import PageHeading from "./components/PageHeading/PageHeading";
 import ComingSoonPage from "./pages/ComingSoonPage/ComingSoonPage";
-import ACDPage from './pages/ACDPage/ACDPage';
+import ACDPage from "./pages/ACDPage/ACDPage";
+import ContactSection from "./sections/ContactSection/ContactSection";
 
 function App() {
   return (
@@ -153,7 +154,15 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
-        <Route path="/acd" element={<ACDPage />} />
+        <Route
+          path="/acd"
+          element={
+            <>
+              <ACDPage />
+              <ContactSection />
+            </>
+          }
+        />
 
         {/* // * Past Events */}
         {/* {

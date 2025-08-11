@@ -58,6 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
+    {
+      title: "AWS ACD",
+      action: "/ACD",
+      glow: true,
+    },
     // {
     //   title: "AlumVerse",
     //   action: "/alumverse",
