@@ -35,6 +35,7 @@ import EventRegistration from "./pages/EventRegistrationPage/EventRegistrationPa
 import RegistrationPage from "./pages/EventRegistrationPage/EventRegistrationPage/RegistrationPage/RegistrationPage";
 import PageHeading from "./components/PageHeading/PageHeading";
 import ComingSoonPage from "./pages/ComingSoonPage/ComingSoonPage";
+import ACDPage from './pages/ACDPage/ACDPage';
 
 function App() {
   return (
@@ -152,6 +153,9 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
+        <Route path="/acd" element={<ACDPage />} />
+
+        {/* // * Past Events */}
         {/* {
           <Route
             path="/AlumVerse"
@@ -164,8 +168,6 @@ function App() {
             }
           />
         } */}
-
-        {/* // * Past Events */}
         {/* <Route
           path="/WebGenesis"
           element={

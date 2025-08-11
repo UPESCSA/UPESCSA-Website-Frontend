@@ -1,0 +1,99 @@
+/* src/components/ACDFadedSection/ACDFadedSection.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fadedWrapper {
+  background-color: rgba(255,255,255,0.15);
+  padding-block: 5rem;
+  padding-inline: 5rem;
+  margin-block-start: 3rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.partyWrapper {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.CSA, .AWS {
+  flex: 1;
+}
+
+.AWS {
+    text-align: end;
+}
+
+.AWS img {
+    display: inline;   
+}
+
+.headingWrapper {
+  padding-block-start: 0.3rem;
+  margin-block-start: 1rem;
+  font-size: 1.5rem;
+}
+
+.AWS .headingWrapper {
+  border-right: solid #ffffff;
+  margin-inline-end: 1rem;
+  padding-inline-end: 1rem;
+}
+
+.CSA .headingWrapper {
+  border-left: solid #ffffff;
+  margin-inline-start: 1rem;
+  padding-inline-start: 1rem;
+}
+
+.headingMain {
+  color: #ffffff;
+  margin: 0;
+}
+
+.headingSub {
+  color: #ff9900;
+  margin: 0;
+}
+
+/* New container for the register button */
+.registerContainer {
+  width: 100%;                /* full width of parent */
+  display: flex;              /* enable flex alignment */
+  justify-content: flex-start;/* align child to left */
+  margin-block: 2rem;
+  margin-inline-start: 5rem;
+}
+
+
+.register {
+  background-color: #ffa600;
+  padding: 1rem;
+  max-inline-size: 12rem;
+  border-radius: 2rem;
+  text-align: center;
+  min-inline-size: 10rem;
+}
+
+.registerLink {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.registerLink:hover,
+.registerLink:focus-visible {
+  color: #087a98;
+}
+
+.registerLink:active {
+  color: #087b98cb;
+}
