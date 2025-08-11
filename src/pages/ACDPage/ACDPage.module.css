@@ -1,0 +1,150 @@
+/* siteMain/front/src/pages/ACDPage/ACDPage.module.css */
+* {
+  box-sizing: border-box;
+}
+
+/* Reset margin & padding, ensure full-height root */
+:global(html), :global(body), :global(#root) {
+  margin: 0;
+  padding: 0;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+
+:global(body) {
+  background-image: url('/img/ACDbackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #150580;
+  font-family: sans-serif;
+}
+
+.main {
+  padding-inline: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 4rem;
+  padding-inline: 5rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.logo {
+  display: block;
+  max-inline-size: 100%;
+}
+
+.wrapper {
+  margin-inline: auto;
+  max-inline-size: 100rem;
+  min-block-size: 100vh;       /* ensure at least full viewport height */
+  display: flex;
+  flex-direction: column;      /* so header, main, etc. stack */
+}
+
+
+.mainNav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mainNav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.mainNav a:hover,
+.mainNav a:focus-visible {
+  color: #087a98;
+}
+
+.mainNav a:active {
+  color: #087b98cb;
+}
+
+.fadedWrapper {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding-block: 5rem;
+  padding-inline: 5rem;
+  margin-block-start: 3rem;
+  border-radius: 2rem;
+}
+
+.partyWrapper {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.CSA {
+  text-align: left;
+}
+
+.AWS {
+  text-align: right;
+}
+
+.AWS img {
+  margin-inline-start: auto;
+}
+
+.headingWrapper {
+  padding-block-start: 0.3rem;
+  margin-block-start: 1rem;
+  font-size: 1.5rem;
+}
+
+.AWS .headingWrapper {
+  border-right: solid #ffffff;
+  margin-inline-end: 1rem;
+  padding-inline-end: 1rem;
+}
+
+.CSA .headingWrapper {
+  border-left: solid #ffffff;
+  margin-inline-start: 1rem;
+  padding-inline-start: 1rem;
+}
+
+.headingMain {
+  color: #ffffff;
+  margin: 0;
+}
+
+.headingSub {
+  color: #ff9900;
+  margin: 0;
+}
+
+.register {
+  background-color: #ffa600;
+  padding: 1rem;
+  margin-block: 4rem;
+  max-inline-size: 12rem;
+  border-radius: 2rem;
+  text-align: center;
+  margin-inline: 3rem;
+}
+
+.registerLink {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.registerLink:hover,
+.registerLink:focus-visible {
+  color: #087a98;
+}
+
+.registerLink:active {
+  color: #087b98cb;
+}

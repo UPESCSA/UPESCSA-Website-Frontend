@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 4rem;
+  padding-inline: 5rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.logo {
+  display: block;
+  max-inline-size: 100%;
+}
+
+.mainNav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mainNav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.mainNav a:hover,
+.mainNav a:focus-visible {
+  color: #087a98;
+}
+
+.mainNav a:active {
+  color: #087b98cb;
+}
