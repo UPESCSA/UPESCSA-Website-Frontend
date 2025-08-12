@@ -156,7 +156,11 @@ const ACDTimeline = forwardRef((props, ref) => {
   };
 
   return (
-    <div className={styles.container} ref={ref}>
+    <div
+      className={styles.container}
+      ref={ref}
+      style={{ scrollMarginTop: "80px" }}
+    >
       <div className={styles.inner}>
         <h1 className={styles.title}>Project Timeline</h1>
 

@@ -3,8 +3,22 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
-  padding: 1rem 0 !important;
-  margin: 0 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 0 !important;
+  margin: 0px !important;
+  border-bottom: #FFA600 solid 2px;
+  position: fixed;
+  left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* top: 10px; */
+  width: 99.5%;
+  z-index: 1000;
+
+  /* Background blur effect */
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -72,17 +86,21 @@
 @media (max-width: 768px) {
   .menuToggle {
     display: flex;
+    margin-right: 15px;
   }
 
   /* Default hidden state */
   .navList {
     display: none;
+    align-items: center;
+    width: 80%;
+    margin-right: 5% !important;
     flex-direction: column;
-    background-color: rgba(1, 1, 71, 0.584);
-    padding: 1.5rem;
+    background-color: rgba(1, 1, 28, 0.784);
+    padding: 1rem;
     position: absolute;
-    top: 80px;
-    right: 1rem;
+    top: 100px;
+    right: 1.2rem;
     border-radius: 8px;
     overflow: hidden;
   }
