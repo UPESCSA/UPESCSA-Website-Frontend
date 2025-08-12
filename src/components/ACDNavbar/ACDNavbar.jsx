@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./ACDNavbar.module.css";
 import { Link } from "react-router-dom";
 
-const ACDNavbar = () => {
+const ACDNavbar = ({ onTimelineClick }) => {
   const [menuState, setMenuState] = useState("hidden"); // hidden, open, closing
 
   const toggleMenu = () => {
@@ -12,6 +12,17 @@ const ACDNavbar = () => {
       setTimeout(() => setMenuState("hidden"), 300); // Match animation duration
     } else {
       setMenuState("open");
+    }
+  };
+
+  const handleTimelineClick = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    onTimelineClick(); // Call the scroll function
+
+    // Close mobile menu if it's open
+    if (menuState === "open") {
+      setMenuState("closing");
+      setTimeout(() => setMenuState("hidden"), 300);
     }
   };
 
@@ -47,16 +58,18 @@ const ACDNavbar = () => {
           }`}
         >
           <li>
-            <a href="/acd">About ACD</a>
+            <a href="">About ACD</a>
           </li>
           <li>
-            <a href="/acd/timeline">Timeline</a>
+            <a href="#timeline" onClick={handleTimelineClick}>
+              Timeline
+            </a>
           </li>
           <li>
             <a href="">Speakers</a>
           </li>
           <li>
-            <a href="">FAQ’s</a>
+            <a href="">FAQ's</a>
           </li>
         </ul>
       </nav>

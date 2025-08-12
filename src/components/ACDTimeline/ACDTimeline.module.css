@@ -1,0 +1,414 @@
+/* ACDTimeline.module.css - CSS Module for the Modern Timeline component */
+
+/* Container styles */
+.container {
+    min-height: 100vh;
+    background: transparent;
+    /* Remove background to inherit from parent */
+    padding: 1rem;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
+}
+
+.inner {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    /* White text for visibility on blurred background */
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* Add text shadow for better readability */
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 2.25rem;
+    }
+}
+
+/* Timeline wrapper */
+.timelineWrapper {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    min-height: 24rem;
+}
+
+/* Timeline line */
+.timelineLine {
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+    border-radius: 9999px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.timelineLineMobile {
+    left: 2rem;
+}
+
+.timelineLineDesktop {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Timeline items */
+.timelineItem {
+    position: relative;
+    min-height: 5rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.timelineItemMobile {
+    margin-bottom: 4rem;
+}
+
+.timelineItemDesktop {
+    margin-bottom: 5rem;
+}
+
+.timelineItem:last-child {
+    margin-bottom: 0;
+}
+
+/* Staggered animation delays */
+.timelineItem:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.timelineItem:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.timelineItem:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.timelineItem:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.timelineItem:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.timelineItem:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Timeline nodes */
+.timelineNode {
+    position: absolute;
+    top: 2rem;
+    z-index: 10;
+}
+
+.timelineNodeMobile {
+    left: 2rem;
+    transform: translateX(-50%);
+}
+
+.timelineNodeDesktop {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nodeCircle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nodeCircleSelected {
+    transform: scale(1.25);
+}
+
+.nodeCircleActive {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Detail boxes */
+.detailBox {
+    position: absolute;
+    top: 0;
+    width: 20rem;
+    max-width: 24rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detailBoxMobile {
+    left: 2rem;
+    margin-left: 2rem;
+}
+
+.detailBoxLeft {
+    right: 50%;
+    margin-right: 2rem;
+}
+
+.detailBoxRight {
+    left: 50%;
+    margin-left: 2rem;
+}
+
+.detailBoxSelected {
+    transform: scale(1.05);
+}
+
+/* Cards */
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Semi-transparent white for glass effect */
+    backdrop-filter: blur(10px);
+    /* Glass morphism effect */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.cardSelected {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 2rem;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 8px solid rgba(255, 255, 255, 0.8);
+}
+
+.arrowMobile,
+.arrowRight {
+    left: 0;
+    transform: translateX(-100%);
+    border-right: 8px solid rgba(255, 255, 255, 0.8);
+    border-left: none;
+}
+
+.arrowLeft {
+    right: 0;
+    transform: translateX(100%);
+    border-left: 8px solid rgba(255, 255, 255, 0.8);
+    border-right: none;
+}
+
+/* Content styles */
+.dateContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.dateDot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #cbd5e1;
+}
+
+.dateText {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.itemTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #334155;
+}
+
+.itemTitleSelected {
+    color: #0f172a;
+}
+
+.description {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Instructions */
+.instructions {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.instructionsText {
+    font-size: 0.875rem;
+    color: #ffffff;
+    /* White text for visibility */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    /* Add text shadow */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* Focus styles for accessibility */
+.timelineItem:focus-within {
+    outline: 2px solid #3b82f6;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .timelineItem {
+        animation: none;
+        opacity: 1;
+    }
+
+    .nodeCircle,
+    .detailBox,
+    .card,
+    .arrow,
+    .dateDot,
+    .itemTitle {
+        transition: none;
+    }
+
+    .nodeCircleActive {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .timelineLine {
+        background: #000;
+    }
+
+    .nodeCircle {
+        border-color: #000;
+    }
+
+    .card {
+        border: 2px solid #000;
+    }
+}
+
+/* Remove dark mode overrides since we're using the parent's background */
+/* Dark mode support - commented out since we inherit parent background
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+  
+  .title {
+    color: #f8fafc;
+  }
+  
+  .card {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+  }
+  
+  .dateText {
+    color: #94a3b8;
+  }
+  
+  .description {
+    color: #cbd5e1;
+  }
+  
+  .instructionsText {
+    color: #94a3b8;
+  }
+}
+*/
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+    .timelineItem {
+        margin-bottom: 12rem !important;
+        font-size: 0.875rem;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .detailBox {
+        max-width: 250PX;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .detailBox {
+        width: 17.5rem;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1440px) {
+    .detailBox {
+        width: 22.5rem;
+    }
+}

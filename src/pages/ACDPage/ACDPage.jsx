@@ -1,18 +1,28 @@
-// siteMain/front/src/pages/ACDPage/ACDPage.jsx
-import React from 'react';
-import Navbar from '../../components/ACDNavbar/ACDNavbar';
-import FadedSection from '../../components/ACDFadedSection/ACDFadedSection';
-import Timeline from '../../components/ACDTimeline/ACDTimeline';
-import styles from './ACDPage.module.css';
+import React, { useRef } from "react";
+import Navbar from "../../components/ACDNavbar/ACDNavbar";
+import FadedSection from "../../components/ACDFadedSection/ACDFadedSection";
+import styles from "./ACDPage.module.css";
+import ACDTimeLine from "../../components/ACDTimeline/ACDTimeline";
 
-const ACDPage = () => (
+const ACDPage = () => {
+  const timelineRef = useRef(null);
+
+  const scrollToTimeline = () => {
+    timelineRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  return (
     <div className={styles.wrapper}>
-      <Navbar />
+      <Navbar onTimelineClick={scrollToTimeline} />
       <main className={styles.main}>
         <FadedSection />
-        <Timeline />
+        <ACDTimeLine ref={timelineRef} />
       </main>
     </div>
-);
+  );
+};
 
 export default ACDPage;
