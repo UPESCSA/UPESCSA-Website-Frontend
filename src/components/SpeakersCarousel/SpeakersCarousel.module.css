@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.speakersSection {
+  padding: 4rem 0;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.carousel {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+.carouselInner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideContent {
+  display: flex;
+  height: 100%;
+  min-height: 500px;
+}
+
+/* ==== FULL IMAGE LEFT SECTION ==== */
+.imageSection {
+  flex: 1;
+  position: relative;     /* allow absolute image */
+  overflow: hidden;       /* clip overflow */
+  background: #000;       /* fallback while image loads */
+}
+
+.speakerImage {
+  position: absolute;     /* fill section */
+  inset: 0;               /* shorthand for top/right/bottom/left = 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* crop & fill */
+  border-radius: 0;       /* remove rounded corners */
+  box-shadow: none;       /* remove shadow */
+  max-width: none;
+}
+
+.contentSection {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.speakerName {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.speakerTitle {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 0 0 0.25rem 0;
+}
+
+.speakerCompany {
+  font-size: 1.125rem;
+  color: #718096;
+  margin: 0 0 1.5rem 0;
+}
+
+.speakerBio {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.navButton:hover {
+  background: #ffffff;
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #eed6a5;
+  cursor: pointer;
+}
+
+.indicatorActive {
+  background:  #ffa600;
+}
+.indicator:hover {
+  background: #ffd000;
+}
+
+.speakerCompany {
+  font-size: 1.125rem;
+  color: #718096;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;     /* space before the line */
+  position: relative;       /* needed for ::after positioning */
+}
+
+/* Decorative yellow line under the company name */
+.speakerCompany::after {
+  content: "";
+  position: absolute;
+  bottom: 0;                /* position at the bottom of the text */
+  left: 0;                  /* align to the left */
+  width: 100px;              /* length of the line */
+  height: 3px;              /* thickness of the line */
+  background: #ffa600;      /* yellow color */
+  border-radius: 2px;       /* slight rounding on the edges */
+}
+
+/* ===== MOBILE GRID VIEW ===== */
+@media (max-width: 1024px) {
+  .imageSection {
+    width: 250px;
+    height: 250px;
+  }
+}
+@media (max-width: 768px) {
+
+  /* Make whole carousel transparent in mobile */
+  .carousel {
+    background: transparent; /* remove solid white box */
+    border-radius: 0;         /* remove rounded box clipping */
+    box-shadow: none;         /* remove shadow in grid mode */
+    overflow: visible;        /* allow grid gaps to show */
+  }
+
+  /* Grid layout instead of slider */
+  .carouselInner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptive columns */
+    gap: 1.5rem; /* vertical & horizontal space between cards */
+    position: static;
+    height: auto;
+    background: transparent; /* let background show in gaps */
+    padding: 0.5rem; /* space from screen edges */
+  }
+
+  /* Card wrapper */
+  .slide {
+    all: unset; /* remove absolute positioning and transitions */
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent; /* transparent outer wrapper */
+    box-shadow: none;
+  }
+
+  /* Inner card layout: image then content */
+  .slideContent {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none;
+    border-radius: 12px;
+    background: #ffffff; /* white inner card so text is readable */
+  }
+
+  /* Image block */
+  .imageSection {
+    width: 250px;
+    height: 250px;
+  }
+
+  .speakerImage {
+    position: static;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Text block */
+  .contentSection {
+    padding: 1rem;
+    text-align: center;
+    background: #ffffff;
+  }
+
+  /* Hide navigation arrows & dots on mobile */
+  .navButton,
+  .indicators {
+    display: none !important;
+  }
+  .speakerCompany {
+    text-align: center;  /* center the text and pseudo-element container */
+  }
+
+  .speakerCompany::after {
+    left: 50%;                       /* start at half the container */
+    transform: translateX(-50%);     /* shift back half its width */
+  }
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(0) ;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-100%) ;
+    opacity: 1;
+  }
+}
+
+/* Apply to the image inside an active slide */
+.slide.active .slideContent  {
+  animation: slideInFromLeft 0.5s ease-out;
+}
