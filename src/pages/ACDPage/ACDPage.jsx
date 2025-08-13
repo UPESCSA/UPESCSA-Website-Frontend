@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Navbar from "../../components/ACDNavbar/ACDNavbar";
 import FadedSection from "../../components/ACDFadedSection/ACDFadedSection";
+import SpeakersCarousel from "../../components/SpeakersCarousel/SpeakersCarousel";
 import styles from "./ACDPage.module.css";
 import ACDTimeLine from "../../components/ACDTimeline/ACDTimeline";
 
@@ -19,6 +20,7 @@ const ACDPage = () => {
       <Navbar onTimelineClick={scrollToTimeline} />
       <main className={styles.main}>
         <FadedSection />
+        <SpeakersCarousel />
         <ACDTimeLine ref={timelineRef} />
       </main>
     </div>
