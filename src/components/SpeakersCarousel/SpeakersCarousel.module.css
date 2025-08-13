@@ -236,7 +236,7 @@
 
   /* Image block */
   .imageSection {
-    width: 250px;
+    width: auto;
     height: 250px;
   }
 
@@ -268,31 +268,17 @@
     transform: translateX(-50%);     /* shift back half its width */
   }
 }
-/* ==== WHOLE CARD SLIDE-IN ==== */
-/* Hide non-active slides */
-.hidden {
-  display: none;
-}
 
-/* Slide in from right (next) */
-.slideInNext {
-  display: block;
-  animation: slideInFromRight 0.6s ease-in-out both;
+.slide.active .slideContent  {
+  animation: slideInFromLeft 0.5s ease-out;
 }
-
-/* Slide in from left (prev) */
-.slideInPrev {
-  display: block;
-  animation: slideInFromLeft 0.6s ease-in-out both;
-}
-
 /* Keyframes */
 @keyframes slideInFromRight {
-  from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+  from { transform: translateX(0%); opacity: 0; }
+  to   { transform: translateX(100%);    opacity: 1; }
 }
 
 @keyframes slideInFromLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to   { transform: translateX(0);     opacity: 1; }
+  from { transform: translateX(0); opacity: 0; }
+  to   { transform: translateX(-100%);     opacity: 1; }
 }
