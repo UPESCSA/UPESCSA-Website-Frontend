@@ -1,0 +1,52 @@
+.about-container {
+  text-align: center;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.about-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1); /* translucent */
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem 1.5rem; /* extra top padding so text doesn’t overlap */
+  border-radius: 1rem;
+  width: 350px;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: white;
+}
+
+.star-icon {
+  position: absolute;
+  top: -30px; /* moves it above the card */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: none; /* ensure no background */
+  border-radius: 50%; /* optional if you want it circular */
+}
+
+.footer-text {
+  margin-top: 2rem;
+  font-weight: 500;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
+  display: inline-block;
+}
