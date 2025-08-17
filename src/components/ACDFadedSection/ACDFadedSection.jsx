@@ -1,59 +1,79 @@
-// src/components/ACDFadedSection/ACDFadedSection.jsx
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styles from "./ACDFadedSection.module.css";
-import { Link } from "react-router-dom";
 
 const ACDFadedSection = () => {
   const [copied, setCopied] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleCouponClick = async () => {
+  const handleCouponClick = useCallback(async () => {
+    if (isLoading || copied) return;
+
+    setIsLoading(true);
+
     try {
       await navigator.clipboard.writeText("UPESCSA");
       setCopied(true);
-      setTimeout(() => setCopied(false), 5000); // Reset after 2 seconds
+      setTimeout(() => setCopied(false), 3000);
     } catch (err) {
       // Fallback for older browsers
       const textArea = document.createElement("textarea");
       textArea.value = "UPESCSA";
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
       document.body.appendChild(textArea);
       textArea.focus();
       textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+
+      try {
+        document.execCommand("copy");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      } catch (execErr) {
+        console.error("Failed to copy text: ", execErr);
+      } finally {
+        document.body.removeChild(textArea);
+      }
+    } finally {
+      setIsLoading(false);
     }
-  };
+  }, [isLoading, copied]);
 
   return (
     <div className={styles.container}>
       <div className={styles.fadedWrapper}>
         <div className={styles.partyWrapper}>
           <div className={styles.CSA}>
-            <img src="/img/UPESlogo.png" alt="UPES CSA Logo" />
-
+            <img src="/img/UPESlogo.png" alt="UPES CSA Logo" loading="lazy" />
             <div className={styles.headingWrapper}>
               <h2 className={styles.headingMain}>UPES CSA</h2>
-              <h2 className={styles.headingSub}>Student Chapter</h2>
+              <h3 className={styles.headingSub}>Student Chapter</h3>
             </div>
           </div>
+
           <div className={styles.xImg}>
-            <img src="/img/x.png" alt="and" />
+            <img src="/img/x.png" alt="Partnership symbol" loading="lazy" />
           </div>
+
           <div className={styles.AWS}>
-            <img src="/img/logoAWS.png" alt="The AWS UG logo" />
+            <img
+              src="/img/logoAWS.png"
+              alt="AWS User Group Dehradun Logo"
+              loading="lazy"
+            />
             <div className={styles.headingWrapper}>
               <h2 className={styles.headingMain}>AWS User Group</h2>
-              <h2 className={styles.headingSub}>Dehradun</h2>
+              <h3 className={styles.headingSub}>Dehradun</h3>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Register button now outside fadedWrapper */}
+      {/* Register button and coupon section outside fadedWrapper */}
       <div className={styles.registerContainer}>
         <div className={styles.couponWrapper}>
-          <p className={styles.couponLabel}>USE COUPON CODE FOR 21% OFF</p>
+          <p className={styles.couponLabel}>Use Coupon Code for 21% Off</p>
+
           <div
             className={`${styles.couponCode} ${copied ? styles.copied : ""}`}
             onClick={handleCouponClick}
@@ -66,17 +86,21 @@ const ACDFadedSection = () => {
               }
             }}
             aria-label="Click to copy coupon code UPESCSA"
+            disabled={isLoading}
           >
             <span className={styles.codeText}>UPESCSA</span>
-            <span className={styles.copyIcon}>{copied ? "✓" : "📋"}</span>
+            <span className={styles.copyIcon}>
+              {isLoading ? "⏳" : copied ? "✓" : "📋"}
+            </span>
             <div className={styles.copyTooltip}>
-              {copied ? "Copied!" : "Click to copy"}
+              {isLoading ? "Copying..." : copied ? "Copied!" : "Click to copy"}
             </div>
           </div>
+
           <a
             className={styles.registerLink}
-            href=""
-            aria-label="Register for the event"
+            href="#register"
+            aria-label="Register for the AWS Cloud Day event"
           >
             <div className={styles.register}>Register Now</div>
           </a>

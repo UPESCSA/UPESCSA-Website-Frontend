@@ -56,7 +56,7 @@
 }
 
 .timelineLineMobile {
-    left: 2rem;
+    left: 1rem;
 }
 
 .timelineLineDesktop {
@@ -118,7 +118,7 @@
 }
 
 .timelineNodeMobile {
-    left: 2rem;
+    left: 1rem;
     transform: translateX(-50%);
 }
 
@@ -155,7 +155,7 @@
 }
 
 .detailBoxMobile {
-    left: 2rem;
+    left: 1rem;
     margin-left: 2rem;
 }
 
@@ -351,37 +351,6 @@
         border: 2px solid #000;
     }
 }
-
-/* Remove dark mode overrides since we're using the parent's background */
-/* Dark mode support - commented out since we inherit parent background
-@media (prefers-color-scheme: dark) {
-  .container {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  }
-  
-  .title {
-    color: #f8fafc;
-  }
-  
-  .card {
-    background-color: #1e293b;
-    border-color: #334155;
-    color: #f8fafc;
-  }
-  
-  .dateText {
-    color: #94a3b8;
-  }
-  
-  .description {
-    color: #cbd5e1;
-  }
-  
-  .instructionsText {
-    color: #94a3b8;
-  }
-}
-*/
 
 /* Mobile responsive adjustments */
 @media (max-width: 767px) {

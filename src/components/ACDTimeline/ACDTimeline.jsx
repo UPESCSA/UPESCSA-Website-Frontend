@@ -90,26 +90,33 @@ const ACDTimeline = forwardRef((props, ref) => {
   // Handle scroll events on timeline and page
   useEffect(() => {
     const handleWheel = (e) => {
-      // Only prevent default if we're inside the timeline container
+      // Check if cursor is over timeline
       const rect = timelineRef.current?.getBoundingClientRect();
-      if (
+      const isOverTimeline =
         rect &&
         e.clientX >= rect.left &&
         e.clientX <= rect.right &&
         e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
-      ) {
-        e.preventDefault();
+        e.clientY <= rect.bottom;
+
+      if (isOverTimeline) {
+        // Only prevent default if we're actually going to change the selection
+        let newIndex = selectedIndex;
 
         if (e.deltaY > 0) {
           // Scrolling down - select next node
-          setSelectedIndex((prev) =>
-            Math.min(prev + 1, timelineData.length - 1)
-          );
+          newIndex = Math.min(selectedIndex + 1, timelineData.length - 1);
         } else {
           // Scrolling up - select previous node
-          setSelectedIndex((prev) => Math.max(prev - 1, 0));
+          newIndex = Math.max(selectedIndex - 1, 0);
         }
+
+        // Only prevent default scroll if we're actually changing selection
+        if (newIndex !== selectedIndex) {
+          e.preventDefault();
+          setSelectedIndex(newIndex);
+        }
+        // If newIndex === selectedIndex, let normal scrolling happen
       }
     };
 
