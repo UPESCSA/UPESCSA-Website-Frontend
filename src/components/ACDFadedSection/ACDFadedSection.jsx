@@ -11,13 +11,13 @@ const ACDFadedSection = () => {
     setIsLoading(true);
 
     try {
-      await navigator.clipboard.writeText("UPESCSA");
+      await navigator.clipboard.writeText("UPESCSAOFF");
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch (err) {
       // Fallback for older browsers
       const textArea = document.createElement("textarea");
-      textArea.value = "UPESCSA";
+      textArea.value = "UPESCSAOFF";
       textArea.style.position = "fixed";
       textArea.style.left = "-999999px";
       textArea.style.top = "-999999px";
@@ -88,7 +88,7 @@ const ACDFadedSection = () => {
             aria-label="Click to copy coupon code UPESCSA"
             disabled={isLoading}
           >
-            <span className={styles.codeText}>UPESCSA</span>
+            <span className={styles.codeText}>UPESCSAOFF</span>
             <span className={styles.copyIcon}>
               {isLoading ? "⏳" : copied ? "✓" : "📋"}
             </span>
@@ -99,7 +99,7 @@ const ACDFadedSection = () => {
 
           <a
             className={styles.registerLink}
-            href="#register"
+            href="https://konfhub.com/aws-community-day-dehradun-2025"
             aria-label="Register for the AWS Cloud Day event"
           >
             <div className={styles.register}>Register Now</div>

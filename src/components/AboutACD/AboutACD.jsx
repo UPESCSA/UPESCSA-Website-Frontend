@@ -1,14 +1,16 @@
-// AboutACD.jsx
-import React from "react";
+import React, { forwardRef } from "react";
 import "./AboutACD.css";
 import starIcon from "./star.png"; // <- Add your star image in the same folder
 
-const AboutACD = () => {
+const AboutACD = forwardRef((props, ref) => {
   return (
-    <div className="about-container">
+    <div
+      style={{ scrollMarginTop: "80px" }}
+      className="about-container"
+      ref={ref}
+    >
       <h2 className="about-heading">ABOUT ACD</h2>
       <div className="cards-container">
-        
         {/* Card 1 */}
         <div className="card">
           <img src={starIcon} alt="star" className="star-icon" />
@@ -26,8 +28,9 @@ const AboutACD = () => {
           <img src={starIcon} alt="star" className="star-icon" />
           <p>
             AWS Community Day Dehradun 2025 is a full-day technical event
-            showcasing cutting-edge topics in cloud computing, practical insights
-            into the latest AWS products and services, and real-world use cases.
+            showcasing cutting-edge topics in cloud computing, practical
+            insights into the latest AWS products and services, and real-world
+            use cases.
           </p>
         </div>
 
@@ -49,6 +52,8 @@ const AboutACD = () => {
       </p>
     </div>
   );
-};
+});
+
+AboutACD.displayName = "AboutACD";
 
 export default AboutACD;

@@ -7,7 +7,7 @@
 .about-heading {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .cards-container {
@@ -19,9 +19,11 @@
 
 .card {
   position: relative;
-  background: rgba(255, 255, 255, 0.1); /* translucent */
+  background: rgba(255, 255, 255, 0.1);
+  /* translucent */
   backdrop-filter: blur(10px);
-  padding: 2rem 1.5rem 1.5rem; /* extra top padding so text doesn’t overlap */
+  padding: 2rem 1.5rem 1.5rem;
+  /* extra top padding so text doesn’t overlap */
   border-radius: 1rem;
   width: 350px;
   text-align: left;
@@ -32,13 +34,16 @@
 
 .star-icon {
   position: absolute;
-  top: -30px; /* moves it above the card */
+  top: -30px;
+  /* moves it above the card */
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
   height: 50px;
-  background: none; /* ensure no background */
-  border-radius: 50%; /* optional if you want it circular */
+  background: none;
+  /* ensure no background */
+  border-radius: 50%;
+  /* optional if you want it circular */
 }
 
 .footer-text {
