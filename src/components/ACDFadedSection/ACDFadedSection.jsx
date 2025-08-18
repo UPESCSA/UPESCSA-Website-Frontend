@@ -2,42 +2,19 @@ import React, { useState, useCallback } from "react";
 import styles from "./ACDFadedSection.module.css";
 
 const ACDFadedSection = () => {
-  const [copied, setCopied] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
 
-  const handleCouponClick = useCallback(async () => {
-    if (isLoading || copied) return;
+  const handleContactClick = useCallback(() => {
+    setShowContactModal(true);
+  }, []);
 
-    setIsLoading(true);
+  const handleCloseModal = useCallback(() => {
+    setShowContactModal(false);
+  }, []);
 
-    try {
-      await navigator.clipboard.writeText("UPESCSAOFF");
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    } catch (err) {
-      // Fallback for older browsers
-      const textArea = document.createElement("textarea");
-      textArea.value = "UPESCSAOFF";
-      textArea.style.position = "fixed";
-      textArea.style.left = "-999999px";
-      textArea.style.top = "-999999px";
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-
-      try {
-        document.execCommand("copy");
-        setCopied(true);
-        setTimeout(() => setCopied(false), 3000);
-      } catch (execErr) {
-        console.error("Failed to copy text: ", execErr);
-      } finally {
-        document.body.removeChild(textArea);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  }, [isLoading, copied]);
+  const handleCallClick = useCallback((number) => {
+    window.location.href = `tel:${number}`;
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -69,32 +46,25 @@ const ACDFadedSection = () => {
         </div>
       </div>
 
-      {/* Register button and coupon section outside fadedWrapper */}
+      {/* Register button and contact section outside fadedWrapper */}
       <div className={styles.registerContainer}>
         <div className={styles.couponWrapper}>
-          <p className={styles.couponLabel}>Use Coupon Code for 21% Off</p>
+          <p className={styles.couponMessage}>Contact us for coupon code</p>
 
           <div
-            className={`${styles.couponCode} ${copied ? styles.copied : ""}`}
-            onClick={handleCouponClick}
+            className={styles.contactButton}
+            onClick={handleContactClick}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                handleCouponClick();
+                handleContactClick();
               }
             }}
-            aria-label="Click to copy coupon code UPESCSA"
-            disabled={isLoading}
+            aria-label="Contact us for coupon code"
           >
-            <span className={styles.codeText}>UPESCSAOFF</span>
-            <span className={styles.copyIcon}>
-              {isLoading ? "⏳" : copied ? "✓" : "📋"}
-            </span>
-            <div className={styles.copyTooltip}>
-              {isLoading ? "Copying..." : copied ? "Copied!" : "Click to copy"}
-            </div>
+            <span className={styles.contactText}>Contact Us</span>
           </div>
 
           <a
@@ -106,6 +76,57 @@ const ACDFadedSection = () => {
           </a>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className={styles.modalOverlay} onClick={handleCloseModal}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <h3>Contact Us</h3>
+              <button
+                className={styles.closeButton}
+                onClick={handleCloseModal}
+                aria-label="Close contact modal"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.modalContent}>
+              <div
+                className={styles.contactItem}
+                onClick={() => handleCallClick("+918168947503")}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleCallClick("+918168947503");
+                  }
+                }}
+              >
+                <div className={styles.contactName}>Nityvardhan Singh</div>
+                <div className={styles.contactNumber}>+91 81689 47503</div>
+              </div>
+
+              <div
+                className={styles.contactItem}
+                onClick={() => handleCallClick("+919958113098")}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleCallClick("+919958113098");
+                  }
+                }}
+              >
+                <div className={styles.contactName}>Utkarsh Saroha</div>
+                <div className={styles.contactNumber}>+91 99581 13098</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,18 @@
-/* src/components/ACDFadedSection/ACDFadedSection.module.css */
+.contactItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 166, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  min-height: 80
+    /* src/components/ACDFadedSection/ACDFadedSection.module.css */
+}
 
 .container {
   display: flex;
@@ -20,15 +34,16 @@
 }
 
 .fadedWrapper {
-  background-color: rgba(255, 255, 255, 0.125);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 5rem;
   border-radius: 2rem;
   display: flex;
   justify-content: center;
   width: 100%;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 166, 0, 0.2);
 }
 
 .partyWrapper {
@@ -120,19 +135,21 @@
   gap: 1.5rem;
 }
 
-.couponLabel {
+/* Coupon Message Styling */
+.couponMessage {
   color: #ffffff;
   font-weight: 600;
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   opacity: 0.9;
   text-align: center;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
 }
 
-/* Coupon Code Styling */
-.couponCode {
+/* Contact Button Styling */
+.contactButton {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -148,12 +165,12 @@
   box-shadow:
     0 4px 12px rgba(255, 166, 0, 0.3),
     0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   user-select: none;
   outline: none;
 }
 
-.couponCode:hover {
+.contactButton:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow:
     0 8px 20px rgba(255, 166, 0, 0.4),
@@ -161,87 +178,151 @@
   background: linear-gradient(135deg, #ffb520 0%, #ff9500 100%);
 }
 
-.couponCode:active {
+.contactButton:active {
   transform: translateY(0) scale(0.98);
 }
 
-.couponCode:focus-visible {
+.contactButton:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
-/* Copied State */
-.couponCode.copied {
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-  box-shadow:
-    0 4px 12px rgba(74, 222, 128, 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Code Text */
-.codeText {
+/* Contact Button Text */
+.contactText {
   color: #fff;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 800;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Copy Icon */
-.copyIcon {
+/* Contact Icon */
+.contactIcon {
   font-size: 1rem;
   transition: transform 0.2s ease;
 }
 
-.couponCode:hover .copyIcon {
+.contactButton:hover .contactIcon {
   transform: scale(1.1);
 }
 
-.copied .copyIcon {
-  transform: scale(1.2);
-  color: #ffffff;
+/* Modal Styling */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 50, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
-/* Tooltip */
-.copyTooltip {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.9);
-  color: #ffffff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
+.modal {
+  background: transparent;
+  border-radius: 16px;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid #FFA600;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #FFA600 0%, #FF8C00 100%);
+  color: #fff;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   transition: all 0.2s ease;
-  pointer-events: none;
-  margin-bottom: 0.5rem;
 }
 
-.copyTooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 4px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.9);
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
 }
 
-.couponCode:hover .copyTooltip {
-  opacity: 1;
-  visibility: visible;
+.modalContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.copied .copyTooltip {
-  background: rgba(34, 197, 94, 0.9);
+.contactItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 166, 0, 0.15);
+  position: relative;
+  overflow: hidden;
 }
 
-.copied .copyTooltip::after {
-  border-top-color: rgba(34, 197, 94, 0.9);
+.contactItem:hover {
+  background: rgba(255, 166, 0, 0.15);
+  border-color: rgba(255, 166, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 166, 0, 0.25);
+}
+
+.contactItem:active {
+  transform: translateY(0);
+}
+
+.contactName {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.contactNumber {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFA600;
+  letter-spacing: 0.5px;
+}
+
+.callIcon {
+  font-size: 1.5rem;
+  color: #FFA600;
+  transition: transform 0.2s ease;
+}
+
+.contactItem:hover .callIcon {
+  transform: scale(1.2);
 }
 
 .register {
@@ -269,21 +350,6 @@
 .registerLink {
   text-decoration: none;
   color: inherit;
-}
-
-/* Animation for copied state */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.copied {
-  animation: pulse 0.3s ease-in-out;
 }
 
 /* ============ RESPONSIVE BREAKPOINTS ============ */
@@ -333,11 +399,7 @@
     font-size: 1rem;
   }
 
-  .couponLabel {
-    font-size: 1rem;
-  }
-
-  .couponCode {
+  .contactButton {
     font-size: 1.1rem;
     padding: 0.6rem 1.2rem;
   }
@@ -417,11 +479,7 @@
     font-size: 0.9rem;
   }
 
-  .couponLabel {
-    font-size: 0.9rem;
-  }
-
-  .couponCode {
+  .contactButton {
     font-size: 1rem;
     padding: 0.6rem 1.2rem;
   }
@@ -429,6 +487,27 @@
   .register {
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
+  }
+
+  .modal {
+    width: 95%;
+    max-width: 350px;
+  }
+
+  .modalContent {
+    padding: 1.5rem;
+  }
+
+  .contactItem {
+    padding: 1rem 1.25rem;
+  }
+
+  .contactName {
+    font-size: 1.1rem;
+  }
+
+  .contactNumber {
+    font-size: 0.9rem;
   }
 }
 
@@ -468,22 +547,58 @@
     font-size: 0.8rem;
   }
 
-  .couponLabel {
-    font-size: 0.8rem;
-  }
-
-  .couponCode {
+  .contactButton {
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
   }
 
-  .codeText {
-    letter-spacing: 1px;
+  .contactText {
+    letter-spacing: 0.5px;
   }
 
   .register {
     font-size: 0.9rem;
     padding: 0.75rem 1.25rem;
+  }
+
+  .modal {
+    width: 95%;
+    margin: 1rem;
+  }
+
+  .modalHeader {
+    padding: 1rem 1.5rem;
+  }
+
+  .modalHeader h3 {
+    font-size: 1.25rem;
+  }
+
+  .modalContent {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .contactItem {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .contactName {
+    font-size: 1rem;
+  }
+
+  .contactNumber {
+    font-size: 0.85rem;
+  }
+
+  .callIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -515,11 +630,7 @@
     font-size: 0.75rem;
   }
 
-  .couponLabel {
-    font-size: 0.75rem;
-  }
-
-  .couponCode {
+  .contactButton {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
   }
@@ -527,5 +638,21 @@
   .register {
     font-size: 0.8rem;
     padding: 0.6rem 1rem;
+  }
+
+  .modalHeader h3 {
+    font-size: 1rem;
+  }
+
+  .contactName {
+    font-size: 0.9rem;
+  }
+
+  .contactNumber {
+    font-size: 0.8rem;
+  }
+
+  .callIcon {
+    font-size: 1.1rem;
   }
 }
