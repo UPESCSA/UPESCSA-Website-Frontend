@@ -2,26 +2,111 @@ import React, { useState, useCallback } from "react";
 import styles from "./ACDFadedSection.module.css";
 
 const ACDFadedSection = () => {
-  const [showContactModal, setShowContactModal] = useState(false);
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState(""); // "success" or "error"
 
-  const handleContactClick = useCallback(() => {
-    setShowContactModal(true);
+  const handleGetCouponClick = useCallback(() => {
+    setShowEmailModal(true);
+    setEmail("");
+    setMessage("");
+    setMessageType("");
   }, []);
 
   const handleCloseModal = useCallback(() => {
-    setShowContactModal(false);
+    setShowEmailModal(false);
+    setEmail("");
+    setMessage("");
+    setMessageType("");
+    setIsLoading(false);
   }, []);
 
-  const handleCallClick = useCallback((number) => {
-    window.location.href = `tel:${number}`;
+  const validateEmail = useCallback((email) => {
+    // Check if email matches the UPES domain format
+    const emailRegex = /^[a-zA-Z0-9._-]+@stu\.upes\.ac\.in$/;
+    return emailRegex.test(email);
   }, []);
+
+  const sendCouponCode = useCallback(async (email) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: "Name",
+            email: email,
+            template: "COUPONCODE",
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        return {
+          success: true,
+          message: data.message || "Coupon code sent successfully!",
+        };
+      } else {
+        return {
+          success: false,
+          message: data.message || "Failed to send coupon code",
+        };
+      }
+    } catch (error) {
+      return { success: false, message: "Network error. Please try again." };
+    }
+  }, []);
+
+  const handleSubmitEmail = useCallback(
+    async (e) => {
+      e.preventDefault();
+
+      if (!email.trim()) {
+        setMessage("Please enter your email address");
+        setMessageType("error");
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        setMessage(
+          "Please enter a valid UPES email address (format: yourname@stu.upes.ac.in)"
+        );
+        setMessageType("error");
+        return;
+      }
+
+      setIsLoading(true);
+      setMessage("");
+
+      const result = await sendCouponCode(email);
+
+      setIsLoading(false);
+      setMessage(result.message);
+      setMessageType(result.success ? "success" : "error");
+
+      if (result.success) {
+        // Optional: Close modal after a delay
+        setTimeout(() => {
+          handleCloseModal();
+        }, 2000);
+      }
+    },
+    [email, validateEmail, sendCouponCode, handleCloseModal]
+  );
 
   return (
     <div className={styles.container}>
       <div className={styles.fadedWrapper}>
         <div className={styles.partyWrapper}>
           <div className={styles.CSA}>
-            <img src="/img/UPESlogo.png" alt="UPES CSA Logo" loading="lazy" />
+            <img src="/img/UPESlogo.avif" alt="UPES CSA Logo" loading="lazy" />
             <div className={styles.headingWrapper}>
               <h2 className={styles.headingMain}>UPES CSA</h2>
               <h3 className={styles.headingSub}>Student Chapter</h3>
@@ -46,25 +131,27 @@ const ACDFadedSection = () => {
         </div>
       </div>
 
-      {/* Register button and contact section outside fadedWrapper */}
+      {/* Register button and coupon section outside fadedWrapper */}
       <div className={styles.registerContainer}>
         <div className={styles.couponWrapper}>
-          <p className={styles.couponMessage}>Contact us for coupon code</p>
+          <p className={styles.couponMessage}>
+            Get your coupon code with UPES email
+          </p>
 
           <div
             className={styles.contactButton}
-            onClick={handleContactClick}
+            onClick={handleGetCouponClick}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                handleContactClick();
+                handleGetCouponClick();
               }
             }}
-            aria-label="Contact us for coupon code"
+            aria-label="Get coupon code with UPES email"
           >
-            <span className={styles.contactText}>Contact Us</span>
+            <span className={styles.contactText}>Get Coupon Code</span>
           </div>
 
           <a
@@ -77,52 +164,56 @@ const ACDFadedSection = () => {
         </div>
       </div>
 
-      {/* Contact Modal */}
-      {showContactModal && (
+      {/* Email Verification Modal */}
+      {showEmailModal && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
-              <h3>Contact Us</h3>
+              <h3>Get Coupon Code</h3>
               <button
                 className={styles.closeButton}
                 onClick={handleCloseModal}
-                aria-label="Close contact modal"
+                aria-label="Close email modal"
               >
                 ×
               </button>
             </div>
             <div className={styles.modalContent}>
-              <div
-                className={styles.contactItem}
-                onClick={() => handleCallClick("+918168947503")}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleCallClick("+918168947503");
-                  }
-                }}
-              >
-                <div className={styles.contactName}>Nityvardhan Singh</div>
-                <div className={styles.contactNumber}>+91 81689 47503</div>
-              </div>
+              <form onSubmit={handleSubmitEmail}>
+                <div className={styles.emailFormGroup}>
+                  <label htmlFor="email" className={styles.emailLabel}>
+                    Enter your UPES email address:
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="yourname@stu.upes.ac.in"
+                    className={styles.emailInput}
+                    disabled={isLoading}
+                  />
+                  <small className={styles.emailHint}>
+                    Please use your UPES student email (@stu.upes.ac.in)
+                  </small>
+                </div>
 
-              <div
-                className={styles.contactItem}
-                onClick={() => handleCallClick("+919958113098")}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleCallClick("+919958113098");
-                  }
-                }}
-              >
-                <div className={styles.contactName}>Utkarsh Saroha</div>
-                <div className={styles.contactNumber}>+91 99581 13098</div>
-              </div>
+                {message && (
+                  <div className={`${styles.message} ${styles[messageType]}`}>
+                    {message}
+                  </div>
+                )}
+
+                <div className={styles.modalActions}>
+                  <button
+                    type="submit"
+                    className={styles.submitButton}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Sending..." : "Send Coupon Code"}
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

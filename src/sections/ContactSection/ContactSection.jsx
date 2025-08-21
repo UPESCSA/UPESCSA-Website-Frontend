@@ -38,8 +38,7 @@ const ContactSection = () => {
               alt="location"
             />
             <p className={contactFieldInfo}>
-              SOCS, University of <br /> Petroleum & Energy <br /> Studies,
-              Dehradun
+              School of Computer Science, UPES, Dehradun
             </p>
           </div>
           <div className={contactField}>

@@ -42,7 +42,7 @@ const ACDNavbar = ({ onTimelineClick, onAboutClick }) => {
       <Link to="/" className={styles.logo}>
         <img
           className={styles.logo}
-          src="/img/UPESlogo.png"
+          src="/img/UPESlogo.avif"
           alt="UPES CSA Logo"
         />
       </Link>
