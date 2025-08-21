@@ -15,11 +15,10 @@ const SpeakersCarousel = () => {
     },
     {
       id: 2,
-      name: "Michael Chen",
-      title: "Senior Software Architect",
-      company: "Innovation Labs",
-      bio: "Michael is a full-stack developer and cloud architecture specialist with expertise in scalable systems.",
-      image: "public/img/ACDSpeaker/speaker1.jpg",
+      name: "Shubham Londhe",
+      title: "Developer Advocate",
+      company: "Amazon Web Services",
+      image: "public/img/ACDSpeaker/speaker2.jpg",
     },
     {
       id: 3,
