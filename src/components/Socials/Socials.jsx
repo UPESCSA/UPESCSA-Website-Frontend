@@ -11,6 +11,7 @@ const socials = [
     image: "/icons/instagram.png",
     alt: "instagram",
   },
+
   {
     link: "https://www.linkedin.com/company/upescsa/",
     image: "/icons/linkedin.png",
@@ -30,6 +31,16 @@ const socials = [
     link: "https://twitter.com/upescsa",
     image: "/icons/twitterx.png",
     alt: "twitterx",
+  },
+  {
+    link: "https://www.linkedin.com/company/upes-socs/",
+    image: "/icons/linkedin.png",
+    alt: "linkedinUPES",
+  },
+  {
+    link: "https://www.instagram.com/upes_schoolofcomputerscience/?hl=en",
+    image: "/icons/instagram.png",
+    alt: "instagramUPES",
   },
 ];
 

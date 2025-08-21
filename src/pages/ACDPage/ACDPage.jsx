@@ -8,6 +8,7 @@ import ACDTimeLine from "../../components/ACDTimeline/ACDTimeline";
 
 const ACDPage = () => {
   const timelineRef = useRef(null);
+  const aboutRef = useRef(null);
 
   const scrollToTimeline = () => {
     timelineRef.current?.scrollIntoView({
@@ -16,14 +17,21 @@ const ACDPage = () => {
     });
   };
 
+  const scrollToAbout = () => {
+    aboutRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className={styles.wrapper}>
-      <Navbar onTimelineClick={scrollToTimeline} />
+      <Navbar onTimelineClick={scrollToTimeline} onAboutClick={scrollToAbout} />
       <main className={styles.main}>
         <FadedSection />
-        <ACDAbout />
-        <SpeakersCarousel />
-        <ACDTimeLine ref={timelineRef} />
+        <ACDAbout ref={aboutRef} />
+        {/* <SpeakersCarousel />
+        <ACDTimeLine ref={timelineRef} /> */}
       </main>
     </div>
   );
