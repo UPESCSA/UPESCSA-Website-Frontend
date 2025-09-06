@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, forwardRef } from "react";
 import styles from "./SpeakersCarousel.module.css";
 
-const SpeakersCarousel = () => {
+const SpeakersCarousel = forwardRef((props, ref) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -11,36 +11,36 @@ const SpeakersCarousel = () => {
       name: "Ridhima Kapoor",
       title: "Sr. Community Manager",
       company: "Amazon Web Services",
-      image: "public/img/ACDSpeaker/speaker1.jpg",
+      image: "/img/ACDSpeaker/speaker1.jpg",
     },
     {
       id: 2,
       name: "Shubham Londhe",
       title: "Developer Advocate",
       company: "Amazon Web Services",
-      image: "public/img/ACDSpeaker/speaker2.jpg",
+      image: "/img/ACDSpeaker/speaker2.jpg",
     },
     {
       id: 3,
       name: "Ameya Vaidya",
       title: "AWS Trainer",
       company: "Brainfloss (AWS Trainer)",
-      image: "public/img/ACDSpeaker/speaker3.jpg",
+      image: "/img/ACDSpeaker/speaker3.jpg",
     },
     {
       id: 4,
       name: "Kushal Nagrani",
       title: "Data Solutions Architect",
       company: "EPAM Systems",
-      image: "public/img/ACDSpeaker/speaker4.jpg",
+      image: "/img/ACDSpeaker/speaker4.jpg",
     },
     {
       id: 5,
       name: "Himank varshney",
       title: "GitHub Campus Expert",
       company: "GitHub",
-      
-      image: "public/img/ACDSpeaker/speaker5.jpg",
+
+      image: "/img/ACDSpeaker/speaker5.jpg",
     },
   ];
 
@@ -95,7 +95,7 @@ const SpeakersCarousel = () => {
   };
 
   return (
-    <section className={styles.speakersSection}>
+    <section className={styles.speakersSection} ref={ref}>
       <div className={styles.container}>
         <h2 className={styles.title}>OUR SPEAKERS</h2>
 
@@ -158,6 +158,6 @@ const SpeakersCarousel = () => {
       </div>
     </section>
   );
-};
+});
 
 export default SpeakersCarousel;

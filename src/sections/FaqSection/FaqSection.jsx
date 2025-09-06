@@ -1,36 +1,55 @@
+import { forwardRef } from "react";
 import Faq from "../../components/Faq/Faq";
 
 import styles from "./FaqSection.module.css";
 
 const { mainDiv, faqQuestions } = styles;
 
-const FaqSection = () => {
+const FaqSection = forwardRef((props, ref) => {
   const faqData = [
     {
-      question: "What is a Hackathon?",
+      question: "What is AWS Community Day Dehradun?",
       answer:
-        "A hackathon is an event where individuals or teams collaborate intensively, usually over a short period, to develop innovative projects to solve specific challenges. Hackathons bring together programmers, designers, and other tech enthusiasts to tackle challenges, explore new technologies, and showcase their skills, fostering an environment of creativity, learning, and rapid prototyping in the technology sector.",
+        "AWS Community Day Dehradun is a community-led event organized by AWS User Group Dehradun. It brings together cloud enthusiasts, industry experts, and developers to share knowledge, discuss innovative solutions, and network with peers.",
     },
     {
-      question: "How does an online hackathon work?",
+      question: "Who can attend AWS Community Day 2025?",
       answer:
-        "In an online hackathon, participants join remotely using online collaboration tools. They work on their projects from their own locations, communicate with team members and organisers through digital platforms, and submit their projects on platforms like GitHub. Online hackathons offer the flexibility to work from anywhere, connect with a global community of participants, and engage in a wide range of activities, such as workshops, mentorship sessions, and networking events.",
+        "The event is open to anyone interested in AWS and cloud computing, including developers, students, IT professionals, and business leaders.",
     },
     {
-      question: "Do we need to be good at coding to participate?",
+      question: "When and where will AWS Community Day 2025 be held?",
       answer:
-        "No, it is not absolutely necessary to have good coding skills, Hackathons can also be a great way to solve problems using your design, business, or marketing skills. You can also join a team and contribute to the project in other ways, such as creating a business plan, designing a user interface, or developing a marketing strategy.",
+        "AWS Community Day 2025 is scheduled to take place on 10 September 2025, at UPES, Dehradun. Stay tuned for updates on the official website or social media channels.",
     },
     {
-      question:
-        "How would my resume benefit from participating in this hackathon?",
+      question: "Is there a participation fee for the event?",
+      answer: "AWS Community Day Dehradun 2025 is paid.",
+    },
+    {
+      question: "Will there be a certificate for attendees?",
       answer:
-        "Participating in a hackathon can be a great way to enhance your resume. It demonstrates your ability to work in a team, solve problems, and think creatively. It also shows that you are passionate about learning new technologies and are willing to take on challenges. Additionally, you can showcase the projects you worked on during the hackathon on your resume and GitHub profile, which can help you stand out to potential employers.",
+        "Yes, attendees will receive a certificate of participation after the event.",
+    },
+    {
+      question: "How can I stay updated about the event?",
+      answer:
+        "Follow us on social media or check our website regularly for the latest updates.",
+    },
+    {
+      question: "What can I expect from the event?",
+      answer:
+        "Keynote Sessions: Insights from AWS experts and community leaders. Workshops: Hands-on sessions on AWS technologies. Networking Opportunities: Meet industry peers and AWS professionals. Goodies and Prizes: Exciting giveaways for attendees and participants.",
     },
   ];
 
   return (
-    <div className={mainDiv} id="faq">
+    <div
+      className={mainDiv}
+      id="faq"
+      ref={ref}
+      style={{ scrollMarginTop: "80px" }}
+    >
       <h1 className="heading" style={{ marginInline: "1.5rem" }}>
         Frequently Asked Questions
       </h1>
@@ -46,6 +65,6 @@ const FaqSection = () => {
       </div>
     </div>
   );
-};
+});
 
 export default FaqSection;
