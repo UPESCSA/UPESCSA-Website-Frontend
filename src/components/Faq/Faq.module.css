@@ -1,17 +1,22 @@
 .faqQuestionContent {
   width: max(350px, 45dvw);
-  background-color: var(--hackbuttonDark);
+  /* background-color: var(--hackbuttonDark); */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
   padding: 1rem 2rem;
   border-radius: 10px;
   overflow-y: hidden;
   cursor: pointer;
+  border: 1px solid #ffa600;
   transition: all 0.5s ease;
+
   &:hover {
-    box-shadow: 0 0 5px 1px var(--hackneonHighlight);
+    box-shadow: 0 0 15px 5px #087b98;
   }
 }
 
 .faqQuestion {
+  ;
   position: relative;
   padding-right: 1.75rem;
   font-weight: 600;

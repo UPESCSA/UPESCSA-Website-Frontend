@@ -130,9 +130,15 @@ const ACDFadedSection = () => {
           </div>
         </div>
       </div>
-
+      <a
+        className={styles.registerLink}
+        href="https://konfhub.com/aws-community-day-dehradun-2025"
+        aria-label="Register for the AWS Cloud Day event"
+      >
+        <div className={styles.register}>Register Now</div>
+      </a>
       {/* Register button and coupon section outside fadedWrapper */}
-      <div className={styles.registerContainer}>
+      {/* <div className={styles.registerContainer}>
         <div className={styles.couponWrapper}>
           <p className={styles.couponMessage}>
             Get your coupon code with UPES email
@@ -154,18 +160,12 @@ const ACDFadedSection = () => {
             <span className={styles.contactText}>Get Coupon Code</span>
           </div>
 
-          <a
-            className={styles.registerLink}
-            href="https://konfhub.com/aws-community-day-dehradun-2025"
-            aria-label="Register for the AWS Cloud Day event"
-          >
-            <div className={styles.register}>Register Now</div>
-          </a>
+          
         </div>
-      </div>
+      </div> */}
 
       {/* Email Verification Modal */}
-      {showEmailModal && (
+      {/* {showEmailModal && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
@@ -217,7 +217,7 @@ const ACDFadedSection = () => {
             </div>
           </div>
         </div>
-      )}
+      )}{" "} */}
     </div>
   );
 };

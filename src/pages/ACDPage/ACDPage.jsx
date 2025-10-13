@@ -5,10 +5,13 @@ import ACDAbout from "../../components/AboutACD/AboutACD";
 import SpeakersCarousel from "../../components/SpeakersCarousel/SpeakersCarousel";
 import styles from "./ACDPage.module.css";
 import ACDTimeLine from "../../components/ACDTimeline/ACDTimeline";
+import FaqSection from "../../sections/FaqSection/FaqSection";
 
 const ACDPage = () => {
   const timelineRef = useRef(null);
   const aboutRef = useRef(null);
+  const speakerRef = useRef(null);
+  const faqRef = useRef(null);
 
   const scrollToTimeline = () => {
     timelineRef.current?.scrollIntoView({
@@ -24,14 +27,33 @@ const ACDPage = () => {
     });
   };
 
+  const scrollToSpeakers = () => {
+    speakerRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+  const scrollToFaq = () => {
+    faqRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className={styles.wrapper}>
-      <Navbar onTimelineClick={scrollToTimeline} onAboutClick={scrollToAbout} />
+      <Navbar
+        onTimelineClick={scrollToTimeline}
+        onAboutClick={scrollToAbout}
+        onSpeakersClick={scrollToSpeakers}
+        onFaqClick={scrollToFaq}
+      />
       <main className={styles.main}>
         <FadedSection />
         <ACDAbout ref={aboutRef} />
-        {/* <SpeakersCarousel />
-        <ACDTimeLine ref={timelineRef} /> */}
+        <SpeakersCarousel ref={speakerRef} />
+        <FaqSection ref={faqRef} />
+        {/* <ACDTimeLine ref={timelineRef} /> */}
       </main>
     </div>
   );

@@ -156,7 +156,9 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
-        <Route
+        
+        
+        {/* <Route
           path="/acd"
           element={
             <>
@@ -164,7 +166,7 @@ function App() {
               <ContactSection />
             </>
           }
-        />
+        /> */}
 
         {/* // * Past Events */}
         {/* {
