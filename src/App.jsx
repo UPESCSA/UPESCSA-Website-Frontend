@@ -156,6 +156,16 @@ function App() {
 
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
+        <Route
+            path="/Register"
+            element={
+              <>
+                <Navbar />
+                <RegistrationDriveForm />
+                <Contact />
+              </>
+            }
+          />
         
         
         {/* <Route
@@ -191,16 +201,6 @@ function App() {
             </>
           }
         /> */}
-        {/* <Route
-            path="/Register"
-            element={
-              <>
-                <Navbar />
-                <RegistrationDriveForm />
-                <Contact />
-              </>
-            }
-          /> */}
         {/* <Route
           path="/Entropedia"
           element={
