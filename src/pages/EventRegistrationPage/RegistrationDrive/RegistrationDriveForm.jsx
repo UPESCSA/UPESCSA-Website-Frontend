@@ -55,10 +55,10 @@ const RegistrationDriveForm = () => {
     eventImageURL: "/img/events/live/MEMOIR 3.0.jpg", //TODO Change this to the actual image URL
     eventHeading: "REGISTRATION",
     IsFree: false,
-    whatsGroup: "LGu6r9GyK5A68gDVSVc4wr",
+    whatsGroup: "EZOp969ItDH52s3v28FCS4",
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1hvnjVnSxqCz5sS1W51nwwlVgwrmupqiei4TIuOm71gE/edit?usp=sharing",
-    FolderId: "143xPA3LdYIfD3pVPofjjT36paadmt8WK",
+      "https://docs.google.com/spreadsheets/d/12Fsz0U439H0L9vdXlCrwZ9qKbLFveSSirnnqK3pMsl8/edit?usp=sharing",
+    FolderId: "1zvpYjiQ4tCCW3rBKfJaCQ8B-SpaHSKx4",
     eventTemplate: "RegistrationDrive2025",
   };
 

@@ -157,7 +157,7 @@ function App() {
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
         <Route
-            path="/Register"
+            path="/register"
             element={
               <>
                 <Navbar />
@@ -168,6 +168,9 @@ function App() {
           />
         
         
+        
+
+        {/* // * Past Events */}
         {/* <Route
           path="/acd"
           element={
@@ -177,8 +180,6 @@ function App() {
             </>
           }
         /> */}
-
-        {/* // * Past Events */}
         {/* {
           <Route
             path="/AlumVerse"
