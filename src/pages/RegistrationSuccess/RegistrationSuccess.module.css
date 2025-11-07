@@ -6,6 +6,7 @@
   justify-content: center;
   color: var(--textDark);
   margin-inline: 1rem;
+  color: white;
 }
 
 .successAnimation {
@@ -152,5 +153,5 @@
 
 .NoteMail {
   border-bottom: 1px solid black;
-  color: black !important
+  color: white !important
 }
