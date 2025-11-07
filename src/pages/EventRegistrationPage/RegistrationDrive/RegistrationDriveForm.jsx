@@ -597,7 +597,7 @@ const RegistrationDriveForm = () => {
 
                     <img
                       loading="lazy"
-                      src="/img/PaymentModes/QR (2).jpeg"
+                      src="/img/PaymentModes/RegistrationDrive2025QR.jpeg"
                       alt="Payment OR"
                     />
                   </div>

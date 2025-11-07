@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,7 +52,7 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="img/events/live/RegistrationDrive.avif"
+          eventPosterURL="/img/events/live/registrationPoster2025.avif"
           eventHeading="UPES-CSA: Register Now"
           eventText={
             <>
