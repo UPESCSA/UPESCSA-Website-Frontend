@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = false;
+  const eventActive = true;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,56 +52,49 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/AlumVerse.avif"
-          eventHeading="AlumVerse: REGISTER NOW!"
+          eventPosterURL="/img/events/live/registrationPoster2025.avif"
+          eventHeading="UPES-CSA: Register Now"
           eventText={
             <>
               <p>
-                <strong>
-                  Step Into the AlumVerse: A CSA Alumni Panel Event
-                </strong>
+                <strong>Ignite Your Future with the UPES Cloud Security Alliance Student Chapter!</strong> 🌟
               </p>
               <p>
-                Ever wondered what life looks like after college? What choices
-                shaped the journeys of your seniors? What mistakes to avoid and
-                what paths to chase?
+                The UPES-CSA Student Chapter invites passionate learners and innovators to be a part of its growing community.
+                Dedicated to fostering knowledge, collaboration, and professional growth, we provide a platform that empowers you
+                to explore, learn, and lead in the evolving world of cloud and security.
               </p>
               <p>
-                <strong>AlumVerse</strong> is your chance to connect directly
-                with three accomplished alumni of the{" "}
-                <strong>UPES Cloud Security Alliance Student Chapter</strong>,
-                as they return to share their real-life stories, career
-                insights, academic experiences, and answer your burning
-                questions!
+                <strong>Why Join UPES-CSA?</strong>
               </p>
               <ul>
                 <li>
-                  <strong>Date:</strong> 26th July, 2025
+                  ✨ <strong>Exclusive Learning Opportunities:</strong> Access premium workshops and events to boost your technical and professional growth.
                 </li>
                 <li>
-                  <strong>Mode:</strong> Online through Microsoft Teams
+                  🌐 <strong>Professional Networking:</strong> Connect with mentors, industry experts, and like-minded peers to expand your circle.
                 </li>
                 <li>
-                  <strong>Featuring:</strong> A live panel discussion + Q&A with
-                  Alumni
+                  📜 <strong>Skill Enhancement:</strong> Build in-demand skills through hands-on projects and real-world challenges.
+                </li>
+                <li>
+                  🎯 <strong>Career Development:</strong> Gain the experience and exposure needed to accelerate your professional journey.
+                </li>
+                <li>
+                  💼 <strong>Internship Benefits:</strong> Unlock exclusive internship opportunities with top organizations and startups.
                 </li>
               </ul>
               <p>
-                🚀 Whether you’re curious about job roles, higher studies,
-                research, or just navigating life after graduation; this is your
-                moment to ask, listen, and learn.
+                Take the lead in organizing initiatives, representing the chapter, and driving impactful change within the UPES community.
               </p>
               <p>
-                👥 <strong>Seats are limited!</strong> Don’t miss this
-                opportunity to learn directly from those who were once in your
-                shoes.
+                🔗 Secure your spot today by registering via the link below!
               </p>
-              <p>
-                👉 <strong>Register Now to reserve your spot!</strong>
-              </p>
+              
             </>
           }
-          eventFormURL="/AlumVerse"
+
+          eventFormURL="/Register"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />

@@ -58,6 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
+    {
+      title: "Register Now",
+      action: "/register",
+      glow: true,
+    },
     // {
     //   title: "AWS ACD",
     //   action: "/ACD",
@@ -68,11 +73,7 @@ const Navbar = () => {
     //   action: "/alumverse",
     //   glow: true,
     // },
-    // {
-    //   title: "Register Now",
-    //   action: "/register",
-    //   glow: true,
-    // },
+    // 
     // {
     //   title: "ENTROPEDIA 2.0",
     //   action: "/entropedia",
