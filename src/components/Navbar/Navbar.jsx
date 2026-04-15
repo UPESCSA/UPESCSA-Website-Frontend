@@ -59,8 +59,8 @@ const Navbar = () => {
       action: "#contact",
     },
     {
-      title: "Register Now",
-      action: "/register",
+      title: "Funtopia 6.0",
+      action: "/Funtopia",
       glow: true,
     },
     // {
@@ -73,7 +73,7 @@ const Navbar = () => {
     //   action: "/alumverse",
     //   glow: true,
     // },
-    // 
+    //
     // {
     //   title: "ENTROPEDIA 2.0",
     //   action: "/entropedia",
@@ -186,7 +186,7 @@ const Navbar = () => {
                   closeNavbar={displayNavBar}
                   glow={false}
                 />
-              )
+              ),
             )}
 
             {/* <hr className={verticalLine} />

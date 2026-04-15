@@ -39,7 +39,6 @@ import ACDPage from "./pages/ACDPage/ACDPage";
 import ACDTimelinePage from "./pages/ACDPage/ACDTimelinePage";
 import ContactSection from "./sections/ContactSection/ContactSection";
 
-
 function App() {
   return (
     <div className="mainDiv">
@@ -157,18 +156,15 @@ function App() {
         {/* EVENT ROUTES */}
         {/* // * Active Events */}
         <Route
-            path="/register"
-            element={
-              <>
-                <Navbar />
-                <RegistrationDriveForm />
-                <Contact />
-              </>
-            }
-          />
-        
-        
-        
+          path="/register"
+          element={
+            <>
+              <Navbar />
+              <RegistrationDriveForm />
+              <Contact />
+            </>
+          }
+        />
 
         {/* // * Past Events */}
         {/* <Route
@@ -225,16 +221,17 @@ function App() {
           }
         /> */}
 
-        {/* <Route
-          path="/Funtopia/Registration"
+        <Route
+          path="/Funtopia"
           element={
             <>
               <Navbar />
+              {/* <ComingSoonPage /> */}
               <FuntopiaRegistrationsPage />
               <Contact />
             </>
           }
-        /> */}
+        />
         {/* <Route
           path="/memoir3.0"
           element={

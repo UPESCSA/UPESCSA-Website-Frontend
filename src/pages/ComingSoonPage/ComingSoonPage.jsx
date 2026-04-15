@@ -39,7 +39,7 @@ const ComingSoonPage = () => {
       const formData = new FormData();
       formData.append(
         "SheetUrl",
-        "https://docs.google.com/spreadsheets/d/1jabJxxffvBoNFL_0toxZF55vwdAD0gnPde1VKkuw_nY/edit?usp=sharing"
+        "https://docs.google.com/spreadsheets/d/1jabJxxffvBoNFL_0toxZF55vwdAD0gnPde1VKkuw_nY/edit?usp=sharing",
       );
       formData.append("email", email);
       formData.append("type", "coming_soon_notification");
@@ -50,7 +50,7 @@ const ComingSoonPage = () => {
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
 
       if (response.ok) {
@@ -70,7 +70,7 @@ const ComingSoonPage = () => {
         const errorText = await response.text();
         console.error("Form submission failed:", response.status, errorText);
         setError(
-          `Submission failed: ${response.status} ${response.statusText}`
+          `Submission failed: ${response.status} ${response.statusText}`,
         );
       }
     } catch (error) {
@@ -104,7 +104,7 @@ const ComingSoonPage = () => {
 
         <div className={`${styles.fadeInUp} ${styles.delay200}`}>
           <p className={styles.subtitle}>
-            Alumini Page is on the way. Stay tuned for updates!
+            Funtopia 6 is on the way. Stay tuned for updates!
           </p>
         </div>
 
