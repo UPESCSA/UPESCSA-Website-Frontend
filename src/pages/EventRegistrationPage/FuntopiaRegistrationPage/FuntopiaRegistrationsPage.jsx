@@ -81,6 +81,7 @@ const EventsData = [
     csaDiscountFee: "160",
     eventDate: "18/04/26",
     IsFree: false,
+    isRegistrationEnabled: true,
     whatsGroup: "KDE48FYq4uMHeGHAWDP0T7",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/13aWpLM2RvMEgkhclhCJ74egt7qnbWupm3gewWfWJexs/edit?usp=sharing",
@@ -110,6 +111,7 @@ const EventsData = [
     csaDiscountFee: "120",
     eventDate: "17/04/26",
     IsFree: false,
+    isRegistrationEnabled: false,
     whatsGroup: "KDE48FYq4uMHeGHAWDP0T7",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1DSJ0cqqlqe8dxUOS5O_K6CHE6xGPxc_oKBk97giCf5c/edit?usp=sharing",
@@ -139,6 +141,7 @@ const EventsData = [
     csaDiscountFee: "120",
     eventDate: "19/04/26",
     IsFree: false,
+    isRegistrationEnabled: true,
     whatsGroup: "KDE48FYq4uMHeGHAWDP0T7",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1fdTSulaoJEZx_xdKT-M91cCvEIraL4Le1XVhzxrpAZw/edit?usp=sharing",
