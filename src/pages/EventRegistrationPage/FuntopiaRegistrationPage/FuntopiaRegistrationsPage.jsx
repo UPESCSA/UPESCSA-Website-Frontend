@@ -721,8 +721,8 @@ const FuntopiaRegistrationsPage = () => {
             key={i}
             className={`${eventCard} ${ev.themeClass} ${
               selectedEventIndex === i ? eventCardSelected : ""
-            }`}
-            onClick={() => handleSelectEvent(i)}
+            } ${!ev.isRegistrationEnabled ? styles.eventCardDisabled : ""}`}
+            onClick={() => ev.isRegistrationEnabled && handleSelectEvent(i)}
           >
             <div className={eventImage}>
               <img
@@ -731,7 +731,10 @@ const FuntopiaRegistrationsPage = () => {
                 alt={ev.eventHeading}
               />
             </div>
-            <div className={cardBody}>
+            <div
+              className={cardBody}
+              style={!ev.isRegistrationEnabled ? { opacity: 0.6 } : {}}
+            >
               <h3 className={cardTitle}>{ev.eventHeading}</h3>
               <div className={eventDetailsDiv}>
                 <div className={eventDetail}>{ev.eventMode}</div>
@@ -752,7 +755,19 @@ const FuntopiaRegistrationsPage = () => {
                 </div>
               </div>
             </div>
-            <button className={cardButton}>Register Now &rarr;</button>
+            <button
+              className={cardButton}
+              disabled={!ev.isRegistrationEnabled}
+              style={
+                !ev.isRegistrationEnabled
+                  ? { opacity: 0.6, cursor: "not-allowed" }
+                  : {}
+              }
+            >
+              {ev.isRegistrationEnabled
+                ? "Register Now →"
+                : "Registration Closed"}
+            </button>
           </div>
         ))}
         <div className={scrollSpacer} aria-hidden="true" />
