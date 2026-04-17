@@ -441,8 +441,12 @@ const FuntopiaRegistrationsPage = () => {
   };
 
   const handleSelectEvent = (index) => {
-    setSelectedEventIndex(index);
     const ev = EventsData[index];
+    if (!ev.isRegistrationEnabled) {
+      toast.error("Registration for this event is currently closed.");
+      return;
+    }
+    setSelectedEventIndex(index);
     setLeaderRiotID("");
     setLeaderInGameName("");
     setLeaderUID("");
