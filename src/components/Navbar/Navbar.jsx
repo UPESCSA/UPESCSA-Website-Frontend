@@ -58,11 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
-    {
-      title: "Register Now",
-      action: "/register",
-      glow: true,
-    },
+    // {
+    //   title: "Funtopia 6.0",
+    //   action: "/Funtopia",
+    //   glow: true,
+    // },
     // {
     //   title: "AWS ACD",
     //   action: "/ACD",
@@ -73,7 +73,7 @@ const Navbar = () => {
     //   action: "/alumverse",
     //   glow: true,
     // },
-    // 
+    //
     // {
     //   title: "ENTROPEDIA 2.0",
     //   action: "/entropedia",
@@ -186,7 +186,7 @@ const Navbar = () => {
                   closeNavbar={displayNavBar}
                   glow={false}
                 />
-              )
+              ),
             )}
 
             {/* <hr className={verticalLine} />

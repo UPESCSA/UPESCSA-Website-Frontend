@@ -18,7 +18,7 @@ const { homepageContainer } = styles;
 const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
-  const eventActive = true;
+  const eventActive = false;
   const [popupOpen, setPopupOpen] = useState(false);
 
   // USE EFFECTS
@@ -52,49 +52,56 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/events/live/registrationPoster2025.avif"
-          eventHeading="UPES-CSA: Register Now"
+          eventPosterURL="/img/funtopia_6.0.jpg.jpeg"
+          eventHeading="🎉 Funtopia 6.0 - The Ultimate Campus Adventure!"
           eventText={
             <>
               <p>
-                <strong>Ignite Your Future with the UPES Cloud Security Alliance Student Chapter!</strong> 🌟
+                <strong>Adventure begins where comfort zones end!</strong>
               </p>
               <p>
-                The UPES-CSA Student Chapter invites passionate learners and innovators to be a part of its growing community.
-                Dedicated to fostering knowledge, collaboration, and professional growth, we provide a platform that empowers you
-                to explore, learn, and lead in the evolving world of cloud and security.
+                Get ready for Funtopia 6.0, the exciting 3-day annual fest.
+                Experience a thrilling mix of campus adventures, competitive
+                gaming, and mind-challenging activities designed to test your
+                skills, strategy, and teamwork.
               </p>
               <p>
-                <strong>Why Join UPES-CSA?</strong>
+                <strong>📅 Event Dates: 27 - 29 March 2026</strong>
+              </p>
+              <p>
+                <strong>🔎 Event Line-Up</strong>
               </p>
               <ul>
                 <li>
-                  ✨ <strong>Exclusive Learning Opportunities:</strong> Access premium workshops and events to boost your technical and professional growth.
+                  <strong>🗺 Treasure Hunt: 27 March</strong>
+                  <br />
+                  Decode clues, solve puzzles, and race across campus to uncover
+                  the hidden treasure.
                 </li>
                 <li>
-                  🌐 <strong>Professional Networking:</strong> Connect with mentors, industry experts, and like-minded peers to expand your circle.
+                  <strong>🎮 Valorant Tournament: 28 March</strong>
+                  <br />
+                  Assemble your squad and compete in intense 5v5 battles where
+                  strategy and coordination decide the champions.
                 </li>
                 <li>
-                  📜 <strong>Skill Enhancement:</strong> Build in-demand skills through hands-on projects and real-world challenges.
-                </li>
-                <li>
-                  🎯 <strong>Career Development:</strong> Gain the experience and exposure needed to accelerate your professional journey.
-                </li>
-                <li>
-                  💼 <strong>Internship Benefits:</strong> Unlock exclusive internship opportunities with top organizations and startups.
+                  <strong>🔥 BGMI Tournament: 29 March</strong>
+                  <br />
+                  Enter the battleground with your squad and fight for survival
+                  to claim the ultimate victory.
                 </li>
               </ul>
               <p>
-                Take the lead in organizing initiatives, representing the chapter, and driving impactful change within the UPES community.
+                <strong>🚀 Registrations are now open.</strong>
               </p>
               <p>
-                🔗 Secure your spot today by registering via the link below!
+                Form your team, mark your calendars, and get ready to experience
+                three days of competition, excitement, and campus adventure at
+                Funtopia 6.0.
               </p>
-              
             </>
           }
-
-          eventFormURL="/Register"
+          eventFormURL="/Funtopia"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />

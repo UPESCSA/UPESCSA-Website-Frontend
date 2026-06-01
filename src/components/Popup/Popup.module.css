@@ -29,7 +29,7 @@
 .popupImage img {
   height: max(25dvw, 25rem);
   width: max(25dvw, 25rem);
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .popupTextDiv {

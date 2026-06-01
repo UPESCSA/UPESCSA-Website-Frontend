@@ -1,306 +1,1012 @@
 .mainDiv {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    /* background: url("/img/registrationBg.jpg") center !important; */
-    background: linear-gradient(to right,
-            #080E1A,
-            /* rich black */
-            #04070E,
-            /* rich black */
-            #151D2C,
-            /* rich black */
-            #2B2D3C,
-            /* raisin black */
-            #3F333F,
-            /* raisin black */
-            #4A2F36,
-            /* eggplant */
-            #3D1E23,
-            /* black bean */
-            #261013,
-            /* licorice */
-            #14080A,
-            /* licorice */
-            #0A0406
-            /* black */
-        );
-
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    gap: 5rem;
-    width: 100%;
-    padding-block: 10rem;
-    position: relative;
-    font-family: "Maven Pro", sans-serif;
-    min-height: 100dvh;
-    color: var(--textDark);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(245, 180, 35, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 85% 30%,
+      rgba(224, 64, 32, 0.07) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(37, 99, 168, 0.1) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      160deg,
+      #0a0a1a 0%,
+      #0d1025 20%,
+      #12132e 40%,
+      #1a1030 55%,
+      #1e0f28 70%,
+      #1c0c1a 85%,
+      #120810 100%
+    );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  gap: 1rem;
+  width: 100%;
+  padding-block: 6rem 3rem;
+  position: relative;
+  font-family: "Maven Pro", sans-serif;
+  min-height: 100dvh;
+  color: var(--textDark);
+  overflow: visible !important;
 }
 
 .loadingDiv {
-    position: absolute;
-    z-index: 100;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* ─── STEP INDICATOR ───────────────────────────────────────────────── */
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+}
 
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stepDot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.stepDotActive {
+  border-color: #fff;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.stepLabel {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.stepLabelActive {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.stepLine {
+  width: 2rem;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-inline: 0.4rem;
+  flex-shrink: 0;
+  margin-bottom: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.stepLineActive {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── EVENT CARDS (Step 0) ─────────────────────────────────────────── */
+.eventCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  width: min(340px, 88vw);
+  flex: 0 1 calc(33.333% - 1.75rem);
+  cursor: pointer;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.eventCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.eventCardSelected {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── CARD THEMES ─────────────────────────────────────────────────── */
+.eventCardYellow {
+  border: 2px solid rgba(245, 180, 35, 0.35);
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 180, 35, 0.12),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+.eventCardYellow:hover {
+  border-color: rgba(245, 180, 35, 0.7);
+  box-shadow:
+    0 20px 50px rgba(245, 180, 35, 0.15),
+    0 0 30px rgba(245, 180, 35, 0.08);
+}
+.eventCardYellow .cardButton {
+  color: #f5b423;
+  border-top-color: rgba(245, 180, 35, 0.15);
+}
+.eventCardYellow .cardButton:hover {
+  background: rgba(245, 180, 35, 0.12);
+}
+.eventCardYellow .cardTitle {
+  color: #ffd54f;
+}
+.eventCardYellow .eventDetail {
+  background-color: rgba(245, 180, 35, 0.1);
+  color: rgba(255, 213, 79, 0.75);
+}
+
+.eventCardBlue {
+  border: 2px solid rgba(37, 99, 168, 0.4);
+  background: linear-gradient(
+    to bottom,
+    rgba(37, 99, 168, 0.15),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+.eventCardBlue:hover {
+  border-color: rgba(37, 99, 168, 0.75);
+  box-shadow:
+    0 20px 50px rgba(37, 99, 168, 0.2),
+    0 0 30px rgba(37, 99, 168, 0.1);
+}
+.eventCardBlue .cardButton {
+  color: #5ba3e6;
+  border-top-color: rgba(37, 99, 168, 0.2);
+}
+.eventCardBlue .cardButton:hover {
+  background: rgba(37, 99, 168, 0.15);
+}
+.eventCardBlue .cardTitle {
+  color: #7bbcf5;
+}
+.eventCardBlue .eventDetail {
+  background-color: rgba(37, 99, 168, 0.12);
+  color: rgba(123, 188, 245, 0.75);
+}
+
+.eventCardRed {
+  border: 2px solid rgba(224, 64, 32, 0.35);
+  background: linear-gradient(
+    to bottom,
+    rgba(224, 64, 32, 0.12),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+.eventCardRed:hover {
+  border-color: rgba(224, 64, 32, 0.7);
+  box-shadow:
+    0 20px 50px rgba(224, 64, 32, 0.15),
+    0 0 30px rgba(224, 64, 32, 0.08);
+}
+.eventCardRed .cardButton {
+  color: #e86040;
+  border-top-color: rgba(224, 64, 32, 0.15);
+}
+.eventCardRed .cardButton:hover {
+  background: rgba(224, 64, 32, 0.12);
+}
+.eventCardRed .cardTitle {
+  color: #f08060;
+}
+.eventCardRed .eventDetail {
+  background-color: rgba(224, 64, 32, 0.1);
+  color: rgba(240, 128, 96, 0.75);
+}
+
+.cardBody {
+  padding: 1.25rem 1rem 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── HEADING ──────────────────────────────────────────────────────── */
 .heading {
-    font-size: 2.5rem;
-    color: var(--textLight);
-    background-color: rgba(0, 0, 0, 0.152);
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding-block: 1.5rem;
-    width: 100%;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: rgb(0, 0, 0);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-block: 1.5rem;
+  padding-inline: 3.5rem;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
+.pageTitle {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.15em;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(245, 180, 35, 0.3);
+}
+
+.pageTitleAccent {
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #e04020, #f5b423, #2563a8);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+.pageSubtitle {
+  font-family: "Rajdhani", sans-serif;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sectionHeading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 1rem 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+  width: 100%;
+  text-align: left;
+}
+
+/* ─── HEADING ROW (arrow + title) ──────────────────────────────────── */
+.headingRow {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── BACK ARROW ───────────────────────────────────────────────────── */
+.backArrow {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 2;
+}
+
+.backArrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── FORM CONTAINER ───────────────────────────────────────────────── */
 .formDiv {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
 }
 
 .formContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 350px;
-    width: 40dvw;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 2px;
-    padding-bottom: 1rem;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+  width: 40dvw;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  padding-bottom: 1rem;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  overflow: hidden;
 }
 
+/* ─── EVENTS CONTAINER ─────────────────────────────────────────────── */
 .eventsContainer {
-    border-radius: 10px;
-    padding: 0;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--textDark);
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--textDark);
 }
 
+/* ─── EVENT IMAGE ──────────────────────────────────────────────────── */
 .eventImage img {
-    margin: auto;
-    width: max(20dvw, 350px);
-    height: auto;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .eventImage {
-    color: #ffff;
+  color: #ffff;
+  width: 100%;
 }
 
+/* ─── EVENT DESCRIPTION ────────────────────────────────────────────── */
 .eventDescripton {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    width: max(20dvw, 350px);
-    height: max(20dvw, 100%);
-    color: var(--textDark);
-    background-color: var(--bgLight);
-    padding: 1.5rem 0rem 1rem 1rem;
-    margin-bottom: 0 !important;
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: max(20dvw, 350px);
+  height: max(20dvw, 100%);
+  color: var(--textDark);
+  background-color: var(--bgLight);
+  padding: 1.5rem 0rem 1rem 1rem;
+  margin-bottom: 0 !important;
 }
 
 .eventHeading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 -0.75rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 -0.75rem 0;
 }
 
 .eventText {
-    font-size: 1.1rem;
-    font-weight: 400;
-    overflow-y: scroll;
-    padding-right: 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  overflow-y: scroll;
+  padding-right: 1rem;
 }
 
+/* ─── EVENT DETAILS PILLS ──────────────────────────────────────────── */
 .eventDetailsDiv {
-    display: flex;
-    width: max(20dvw, 350px);
-    align-items: center;
-    justify-content: center;
-    margin-block: 10px;
-    box-sizing: border-box;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem;
+  box-sizing: border-box;
+  gap: 0.35rem;
+  flex-wrap: wrap;
 }
 
 .eventDetail {
-    background-color: var(--bgLight);
-    padding: 0 0.75rem;
-    height: 2.5rem;
-    width: 31.7%;
-    border-radius: 5px;
-    gap: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0 0.6rem;
+  height: 2rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  border-radius: 4px;
+  gap: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
 }
 
 .eventDetail img {
-    height: 1.5rem;
+  height: 0.9rem;
+  opacity: 0.5;
+  filter: brightness(0) invert(1);
 }
 
+.eventDetailFull {
+  composes: eventDetail;
+  flex-basis: 100%;
+}
+
+/* ─── CARDS GRID ───────────────────────────────────────────────────── */
+.cardsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start !important;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.5rem;
+}
+
+/* Hidden on desktop, visible on mobile for scroll spacing */
+.scrollSpacer {
+  display: none;
+}
+
+/* ─── EVENT NAME ON CARD ───────────────────────────────────────────── */
+.cardTitle {
+  font-family: "Rajdhani", sans-serif;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── BUTTONS ──────────────────────────────────────────────────────── */
 .submitButton {
-    background-color: black;
-    color: white;
-    margin-top: 0 !important;
-    border: none;
-    text-align: center;
-    width: 100%;
-    border-radius: 0 0 5px 5px;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    width: max(20dvw, 350px);
+  background-color: black;
+  color: white;
+  margin-top: 1rem;
+  border: none;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
 }
 
 .submitButton:hover {
-    opacity: 0.9;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+}
+
+.cardButton {
+  font-family: "Rajdhani", sans-serif;
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  width: 100%;
+  border-radius: 0;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.cardButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+  letter-spacing: 0.18em;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: #333;
+  margin-top: 0.5rem;
+  border: 2px solid #ccc;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.secondaryButton:hover {
+  border-color: #333;
+}
+
+/* ─── FORM SECTIONS ────────────────────────────────────────────────── */
+.memberSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.75rem;
+  width: 100%;
 }
 
 .errorMessage {
-    color: #ff0000;
-    font-size: 0.8rem;
-    text-align: left;
-    width: 100%;
-    margin-block: -1rem 1.25rem;
+  color: #ff0000;
+  font-size: 0.8rem;
+  text-align: left;
+  width: 100%;
+  margin-block: -1rem 1.25rem;
 }
 
+/* ─── TEAM MEMBER CARDS ────────────────────────────────────────────── */
+.teamMemberCard {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  background-color: #fafafa;
+}
+
+.teamMemberHeader {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* ─── PAYMENT QR ───────────────────────────────────────────────────── */
+.paymentQRDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.paymentQRDiv img {
+  min-width: 16rem;
+  width: max(20dvw, 10rem);
+  height: auto;
+}
+
+/* ═════════════════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                          */
+/* ═════════════════════════════════════════════════════════════════════ */
 
 @media screen and (min-width: 800px) {
+  .eventsContainer {
+    border-radius: 10px;
+    width: 100% !important;
+    padding: 0;
+    gap: 2rem;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--textDark);
+  }
+}
 
-    .submitButton {
-        width: max(20dvw, 350px);
-    }
-
-    .eventsContainer {
-        /* background-color: #ffff; */
-        border-radius: 10px;
-        width: 100% !important;
-        padding: 0;
-        gap: 2rem;
-        margin-bottom: 10px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        color: var(--textDark);
-    }
+@media (max-width: 768px) {
+  .formContainer {
+    width: 60dvw !important;
+    min-width: 95% !important;
+  }
 }
 
 @media screen and (max-width: 1000px) {
-    .mainDiv {
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-block: 7.5rem 5rem;
-        gap: 1rem;
-    }
+  .mainDiv {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block: 5.5rem 3rem;
+    gap: 0.75rem;
+  }
 
+  .formContainer {
+    width: 60dvw;
+    min-width: 75%;
+  }
 
-    .eventsContainer {
-        flex-direction: column;
-        gap: 0;
-        /* display: none; */
-    }
+  .eventsContainer {
+    flex-direction: column;
+    gap: 0;
+  }
 
-    .eventImage img {
-        width: max(30dvw, 350px);
-        height: auto;
-    }
+  .eventImage img {
+    width: 100%;
+    height: auto;
+  }
 
-    /* .eventDescripton {
-        height: max(20dvw, 100%);
-        width: max(20dvw, 350px);
-        padding-left: 1rem;
-        margin-bottom: 0 !important;
-    } */
+  .eventHeading {
+    font-size: 1.25rem;
+  }
 
-    .eventHeading {
-        font-size: 1.25rem;
-    }
+  .eventText {
+    font-size: 1rem;
+  }
 
-    .eventText {
-        font-size: 1rem;
-    }
+  .eventDetailsDiv {
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+  }
 
-    .eventDetails {
-        padding-right: 1rem;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+  .eventDetail img {
+    height: 1rem;
+  }
 
-    .eventDetailsDiv {
-        align-items: center;
-        width: max(30dvw, 350px);
-        justify-content: space-evenly;
-        gap: 0.5rem;
-    }
+  .backArrow {
+    left: 0.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
 
-    .eventDetail img {
-        height: 1rem;
-    }
+  .backArrow svg {
+    width: 16px;
+    height: 16px;
+  }
 
-    .eventRegisterButton {
-        width: 100%;
-        margin-inline: 1rem;
-        justify-content: center;
-    }
+  .stepIndicator {
+    padding: 0.6rem 1rem;
+  }
 
-    .backArrow {
-        top: -5rem;
-        left: -2rem;
-    }
+  .stepDot {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.65rem;
+  }
+
+  .stepLabel {
+    font-size: 0.5rem;
+  }
+
+  .stepLine {
+    width: 1.25rem;
+    margin-inline: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .cardsGrid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: auto;
+    touch-action: pan-x pan-y pinch-zoom;
+    gap: 1rem;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .scrollSpacer {
+    display: block;
+    flex: 0 0 1rem;
+    min-width: 1rem;
+    height: 1px;
+  }
+
+  .cardsGrid::-webkit-scrollbar {
+    height: 8px;
+    display: block !important;
+  }
+
+  .cardsGrid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin-inline: 2rem;
+  }
+
+  .cardsGrid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    min-width: 40px;
+  }
+
+  .cardsGrid::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Force scrollbar to always show on mobile */
+  .cardsGrid {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.6) rgba(255, 255, 255, 0.2);
+  }
+
+  .eventCard {
+    flex: 0 0 280px;
+    max-width: 320px;
+    min-width: 280px;
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .eventCard .eventImage {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .eventCard .eventImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .eventCard .cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .eventCard .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .eventCard .cardButton {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: none;
+    padding: 0.85rem 1.5rem;
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  .eventDetailsDiv {
+    gap: 0.3rem;
+  }
+
+  .eventDetail {
+    padding: 0 0.5rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+  }
+
+  .eventDetailFull {
+    flex-basis: auto;
+    flex: 1 1 auto;
+  }
 }
 
 @media (max-width: 600px) {
-    .eventDescripton {
-        display: none;
-    }
+  .eventDescripton {
+    display: none;
+  }
 
-    .mainDiv {
-        background: linear-gradient(135deg,
-                #080E1A 0%,
-                /* rich black */
-                #04070E 10%,
-                /* rich black */
-                #151D2C 25%,
-                /* rich black */
-                #2B2D3C 40%,
-                /* raisin black */
-                #3F333F 55%,
-                /* raisin black */
-                #4A2F36 65%,
-                /* eggplant */
-                #3D1E23 75%,
-                /* black bean */
-                #261013 85%,
-                /* licorice */
-                #14080A 95%,
-                /* licorice */
-                #0A0406 100%
-                /* black */
-            );
+  .mainDiv {
+    background:
+      radial-gradient(
+        ellipse at 20% 15%,
+        rgba(245, 180, 35, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 50%,
+        rgba(224, 64, 32, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 50% 90%,
+        rgba(37, 99, 168, 0.1) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        160deg,
+        #0a0a1a 0%,
+        #0d1025 20%,
+        #12132e 40%,
+        #1a1030 55%,
+        #1e0f28 70%,
+        #1c0c1a 85%,
+        #120810 100%
+      );
+    padding-block: 5rem 2rem;
+  }
 
-    }
+  .heading {
+    font-size: 1.5rem;
+    padding-block: 0.85rem;
+    padding-inline: 2.5rem;
+  }
+
+  .pageTitle {
+    font-size: 1.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .pageSubtitle {
+    font-size: 0.8rem;
+    margin: 0.25rem 0 1rem;
+  }
+
+  .stepIndicator {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .stepDot {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.6rem;
+  }
+
+  .stepLabel {
+    font-size: 0.45rem;
+  }
+
+  .stepLine {
+    width: 1rem;
+    margin-inline: 0.2rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .cardsGrid {
+    gap: 0.75rem;
+    padding: 0.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .scrollSpacer {
+    flex: 0 0 0.75rem;
+    min-width: 0.75rem;
+  }
+
+  .eventCard {
+    flex: 0 0 240px;
+    max-width: 280px;
+    min-width: 240px;
+  }
+
+  .eventCard .eventImage {
+    aspect-ratio: 3 / 4;
+  }
+
+  .eventCard .cardBody {
+    padding: 0.85rem;
+  }
+
+  .eventCard .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .eventDetailsDiv {
+    margin-top: 0.5rem;
+  }
+
+  .eventDetail {
+    height: 1.6rem;
+    font-size: 0.7rem;
+    padding: 0 0.4rem;
+  }
+
+  .eventCard .cardButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .formContainer {
+    border-radius: 6px;
+  }
+
+  .sectionHeading {
+    font-size: 1.1rem;
+    margin: 0.75rem 0 0.5rem 0;
+  }
+
+  .teamMemberCard {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .teamMemberHeader {
+    font-size: 1rem;
+  }
+
+  .submitButton {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .paymentQRDiv img {
+    min-width: 12rem;
+    width: 14rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+  .pageTitle {
+    font-size: 1.6rem;
+  }
+
+  .pageSubtitle {
+    font-size: 0.75rem;
+  }
+
+  .stepIndicator {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .stepDot {
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 0.55rem;
+  }
+
+  .stepLabel {
+    font-size: 0.4rem;
+  }
+
+  .stepLine {
+    width: 0.75rem;
+    margin-inline: 0.15rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+    padding-inline: 2rem;
+  }
+
+  .scrollSpacer {
+    flex: 0 0 0.5rem;
+    min-width: 0.5rem;
+  }
+
+  .eventCard {
+    flex: 0 0 200px;
+    max-width: 220px;
+    min-width: 200px;
+  }
+
+  .eventCard .cardTitle {
+    font-size: 1rem;
+  }
+
+  .eventDetail {
+    height: 1.5rem;
+    font-size: 0.65rem;
+    padding: 0 0.35rem;
+  }
 }
