@@ -58,11 +58,11 @@ const Navbar = () => {
       title: "Contact Us",
       action: "#contact",
     },
-    {
-      title: "Funtopia 6.0",
-      action: "/Funtopia",
-      glow: true,
-    },
+    // {
+    //   title: "Funtopia 6.0",
+    //   action: "/Funtopia",
+    //   glow: true,
+    // },
     // {
     //   title: "AWS ACD",
     //   action: "/ACD",

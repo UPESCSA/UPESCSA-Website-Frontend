@@ -221,17 +221,17 @@ function App() {
           }
         /> */}
 
-        <Route
+        {/* <Route
           path="/Funtopia"
           element={
             <>
               <Navbar />
-              {/* <ComingSoonPage /> */}
+               <ComingSoonPage />
               <FuntopiaRegistrationsPage />
               <Contact />
             </>
           }
-        />
+        /> */}
         {/* <Route
           path="/memoir3.0"
           element={
@@ -292,3 +292,4 @@ function App() {
   );
 }
 export default App;
+// GG
