@@ -52,56 +52,90 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/funtopia_6.0.jpg.jpeg"
-          eventHeading="🎉 Funtopia 6.0 - The Ultimate Campus Adventure!"
+          eventPosterURL="/img/funtopia_6.0.jpg.jpeg" // Update New Poster
+          eventHeading="🌐 UPES CSA Registration Drive 2026-27 - Join the Core Team!"
           eventText={
             <>
               <p>
-                <strong>Adventure begins where comfort zones end!</strong>
+                <strong>"The best way to predict the future is to create it." - Peter Drucker</strong>
               </p>
               <p>
-                Get ready for Funtopia 6.0, the exciting 3-day annual fest.
-                Experience a thrilling mix of campus adventures, competitive
-                gaming, and mind-challenging activities designed to test your
-                skills, strategy, and teamwork.
+                The wait is over! Registrations for the UPES Cloud Security Alliance (CSA) Student Chapter 
+                Core Team <strong>2026–27</strong> are now officially open!
               </p>
               <p>
-                <strong>📅 Event Dates: 27 - 29 March 2026</strong>
+                We are proud to be the <strong>first student chapter</strong> of the international Cloud Security 
+                Alliance research organization in Uttarakhand. Join a thriving community that fosters innovation, 
+                leadership, and continuous growth.
               </p>
               <p>
-                <strong>🔎 Event Line-Up</strong>
+                <strong>✨ Why Join UPES-CSA?</strong>
               </p>
               <ul>
                 <li>
-                  <strong>🗺 Treasure Hunt: 27 March</strong>
+                  <strong>Drive Meaningful Experiences</strong>
                   <br />
-                  Decode clues, solve puzzles, and race across campus to uncover
-                  the hidden treasure.
+                  Be a part of planning and executing workshops, competitions, speaker sessions, and flagship events.
                 </li>
                 <li>
-                  <strong>🎮 Valorant Tournament: 28 March</strong>
+                  <strong>Build Leadership Skills</strong>
                   <br />
-                  Assemble your squad and compete in intense 5v5 battles where
-                  strategy and coordination decide the champions.
+                  Take ownership of projects and gain practical experience that extends beyond academics.
                 </li>
                 <li>
-                  <strong>🔥 BGMI Tournament: 29 March</strong>
+                  <strong>Earn Valuable Certifications</strong>
                   <br />
-                  Enter the battleground with your squad and fight for survival
-                  to claim the ultimate victory.
+                  Access opportunities to earn industry-recognized certifications with long-term professional value.
+                </li>
+                <li>
+                  <strong>Expand Your Network</strong>
+                  <br />
+                  Connect with ambitious peers, experienced mentors, and industry experts.
+                </li>
+                <li>
+                  <strong>Exclusive Internship Opportunities</strong>
+                  <br />
+                  Outstanding contributions can lead to exclusive internship opportunities and valuable industry exposure.
                 </li>
               </ul>
               <p>
-                <strong>🚀 Registrations are now open.</strong>
+                <strong>📋 Available Committees:</strong>
+              </p>
+              <ul>
+                <li>Editorial Team</li>
+                <li>Events Team</li>
+                <li>Technical Team</li>
+                <li>Design & VFX Team</li>
+                <li>Public Relations Team</li>
+                <li>Social Media Team</li>
+                <li>Photography Team</li>
+                <li>Registration Team</li>
+                <li>Logistics Team</li>
+              </ul>
+              <p>
+                <strong>💰 Registration Fee: ₹300/-</strong>
               </p>
               <p>
-                Form your team, mark your calendars, and get ready to experience
-                three days of competition, excitement, and campus adventure at
-                Funtopia 6.0.
+                <strong>📅 Academic Year: 2026-27</strong>
+              </p>
+              <p>
+                <strong>🚀 Registrations are now open!</strong>
+              </p>
+              <p>
+                This is more than just a position — it's an opportunity to learn, lead, innovate, and grow 
+                alongside a community that shares your passion for technology. Join us as we work together 
+                to make this tenure bigger, better, and more impactful than ever.
+              </p>
+              <p>
+                <strong>For queries, contact:</strong>
+                <br />
+                Vansh Garg (Events Head): +91 95282 54655
+                <br />
+                Siya Singh (Events Head): +91 73075 18413
               </p>
             </>
           }
-          eventFormURL="/Funtopia"
+          eventFormURL="/register"
           closePopup={togglePopup}
           buttonText="REGISTER NOW"
         />
@@ -119,6 +153,78 @@ const HomePage = () => {
       </Suspense>
     </div>
   );
+
+  // return (
+  //   <div className={homepageContainer}>
+  //     {popupOpen && (
+  //       <Popup
+  //         eventPosterURL="/img/funtopia_6.0.jpg.jpeg"
+  //         eventHeading="🎉 Funtopia 6.0 - The Ultimate Campus Adventure!"
+  //         eventText={
+  //           <>
+  //             <p>
+  //               <strong>Adventure begins where comfort zones end!</strong>
+  //             </p>
+  //             <p>
+  //               Get ready for Funtopia 6.0, the exciting 3-day annual fest.
+  //               Experience a thrilling mix of campus adventures, competitive
+  //               gaming, and mind-challenging activities designed to test your
+  //               skills, strategy, and teamwork.
+  //             </p>
+  //             <p>
+  //               <strong>📅 Event Dates: 27 - 29 March 2026</strong>
+  //             </p>
+  //             <p>
+  //               <strong>🔎 Event Line-Up</strong>
+  //             </p>
+  //             <ul>
+  //               <li>
+  //                 <strong>🗺 Treasure Hunt: 27 March</strong>
+  //                 <br />
+  //                 Decode clues, solve puzzles, and race across campus to uncover
+  //                 the hidden treasure.
+  //               </li>
+  //               <li>
+  //                 <strong>🎮 Valorant Tournament: 28 March</strong>
+  //                 <br />
+  //                 Assemble your squad and compete in intense 5v5 battles where
+  //                 strategy and coordination decide the champions.
+  //               </li>
+  //               <li>
+  //                 <strong>🔥 BGMI Tournament: 29 March</strong>
+  //                 <br />
+  //                 Enter the battleground with your squad and fight for survival
+  //                 to claim the ultimate victory.
+  //               </li>
+  //             </ul>
+  //             <p>
+  //               <strong>🚀 Registrations are now open.</strong>
+  //             </p>
+  //             <p>
+  //               Form your team, mark your calendars, and get ready to experience
+  //               three days of competition, excitement, and campus adventure at
+  //               Funtopia 6.0.
+  //             </p>
+  //           </>
+  //         }
+  //         eventFormURL="/Funtopia"
+  //         closePopup={togglePopup}
+  //         buttonText="REGISTER NOW"
+  //       />
+  //     )}
+  //     <Home showTrigger={eventActive && !popupOpen} openPopup={togglePopup} />
+  //     <About />
+  //     <Suspense fallback={<Loading />}>
+  //       <HomeEvents />
+  //     </Suspense>
+  //     <Suspense fallback={<Loading />}>
+  //       <Alliance />
+  //     </Suspense>
+  //     <Suspense fallback={<Loading />}>
+  //       <HomeBlogs />
+  //     </Suspense>
+  //   </div>
+  // );
 };
 
 export default HomePage;
