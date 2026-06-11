@@ -55,11 +55,11 @@ const RegistrationDriveForm = () => {
     eventImageURL: "/img/events/live/MEMOIR 3.0.jpg", //TODO Change this to the actual image URL
     eventHeading: "REGISTRATION",
     IsFree: false,
-    whatsGroup: "EZOp969ItDH52s3v28FCS4",
+    whatsGroup: "K68n2hC9M2v6y9OH4i6hhS", // New Logistics group link
     SheetUrl:
-      "https://docs.google.com/spreadsheets/d/12Fsz0U439H0L9vdXlCrwZ9qKbLFveSSirnnqK3pMsl8/edit?usp=sharing",
-    FolderId: "1zvpYjiQ4tCCW3rBKfJaCQ8B-SpaHSKx4",
-    eventTemplate: "RegistrationDrive2025",
+      "https://docs.google.com/spreadsheets/d/1Z98LClauDRrpwTpsJUgmkXY_Yhw57ICSxLfo2fyHK20/edit?usp=sharing",
+    FolderId: "1g5gOXam6bdhYf1lv5OxYOjbX3kEnIxPX",
+    eventTemplate: "RegistrationDrive2026",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
@@ -219,7 +219,7 @@ const RegistrationDriveForm = () => {
     const EmailValid = VALIDATEEMAIL(email, setIsEmailValid);
     const CollegeEmailValid = VALIDATEEMAIL(
       collegeEmail,
-      setIsCollegeEmailValid
+      setIsCollegeEmailValid,
     );
     const PhoneValid = VALIDATEPHONE(phone, setIsPhoneValid);
     const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid);
@@ -227,7 +227,7 @@ const RegistrationDriveForm = () => {
     const CSAMemberValid = VALIDATECSAMEMBER(csaMember, setIsCSAMemberValid);
     const YearOfStudyValid = VALIDATEYEAROFSTUDY(
       yearOfStudy,
-      setIsYearOfStudyValid
+      setIsYearOfStudyValid,
     );
     const SapIDValid = VALIDATESAPID(sapID, setIsSapIDValid);
     const GenderValid = VALIDATEGENDER(Gender, setIsGenderValid);
@@ -235,7 +235,7 @@ const RegistrationDriveForm = () => {
     const Committee2Valid = VALIDATECOMMITTEE(committee2, setIsCommittee2Valid);
     const ModeOfPaymentValid = VALIDATEPAYMENTMODE(
       ModeOfPayment,
-      setIsModeOfPaymentValid
+      setIsModeOfPaymentValid,
     );
 
     if (
@@ -302,7 +302,7 @@ const RegistrationDriveForm = () => {
       if (!eventDetails.IsFree) {
         finalData.append(
           "fileName",
-          `${name}_${phone}_${EventName}`
+          `${name}_${phone}_${EventName}`,
           // `${name}_${phone}_${EventName}_${ModeOfPayment}`
         );
         finalData.append("fileData", PaymentSS.fileData);
@@ -315,15 +315,16 @@ const RegistrationDriveForm = () => {
         console.log("Final Data:", finalData.entries());
         // First POST request to Google Apps Script URL (now executed first)
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbxegUi1O6lk3_wCbJNLd-bwrk4_SRvP6yA7M6F55Pp7Kr7q4ja0dvdUjAAhy7f_mk2j/exec",
+          "https://script.google.com/macros/s/AKfycbwMv2ib7jNij5p6LKYgmKWAp6rSYt4PYdfa-gnokdZZ4dcLM3c-X3aGCZjjjFLx899-IA/exec",
           {
             method: "POST",
+            mode: "no-cors",
             body: finalData,
-          }
+          },
         );
 
-        const data = await response.json();
-        console.log(data.status);
+        // const data = await response.json();
+        // console.log(data.status);
         const sendMailResponse = await fetch(
           `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
           {
@@ -336,33 +337,32 @@ const RegistrationDriveForm = () => {
               email: email,
               template: eventDetails.eventTemplate,
             }),
-          }
+          },
         );
 
-        if (data.status == "success") {
+        if (sendMailResponse.ok) {
           const sendMailData = await sendMailResponse.json();
-          console.log(sendMailData);
+          console.log("Email sent:", sendMailData);
+
           navigate(
-            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`
+            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`,
           );
-          setLoading(false);
-        } else if (data.status === "duplicate") {
-          toast.error("This SAP ID has already been registered.");
-          setLoading(false);
-          setdisabled(false);
-          setPaymentPage(false);
+          toast.success("Registration successful! Check your email.");
         } else {
-          toast.error(
-            "An error occurred while submitting the form. Please try again."
+          console.error("Email failed:", await sendMailResponse.text());
+          toast.warning(
+            "Registration received but email confirmation failed. Please contact support.",
           );
-          setLoading(false);
-          setdisabled(false);
-          setPaymentPage(false);
+          navigate(
+            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`,
+          );
         }
+
+        setLoading(false);
       } catch (error) {
         console.error("Error:", error);
         toast.error(
-          "An error occurred while submitting the form. Please try again."
+          "An error occurred while submitting the form. Please try again.",
         );
         setLoading(false);
         setdisabled(false);
@@ -579,7 +579,7 @@ const RegistrationDriveForm = () => {
                   fontSize: "1.5rem",
                 }}
               >
-                ₹300{" "}
+                ₹250{" "}
               </h3>
 
               {ModeOfPayment.toUpperCase() == "UPI" ? (
@@ -597,7 +597,7 @@ const RegistrationDriveForm = () => {
 
                     <img
                       loading="lazy"
-                      src="/img/PaymentModes/RegistrationDrive2025QR.jpeg"
+                      src="/img/PaymentModes/RegistrationDrive2026QR.jpeg"
                       alt="Payment OR"
                     />
                   </div>
