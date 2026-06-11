@@ -18,12 +18,12 @@ const EventsPage = () => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
-  const [activeYear, setActiveYear] = useState(2024);
+  const [activeYear, setActiveYear] = useState(2025);
   const [url, setUrl] = useState(
     `${import.meta.env.VITE_SERVER_URL}/api/previousevent/?year=${activeYear}`
   );
 
-  const yearData = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
+  const yearData = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018];
 
   const changeYear = (year) => {
     setActiveYear(year);
