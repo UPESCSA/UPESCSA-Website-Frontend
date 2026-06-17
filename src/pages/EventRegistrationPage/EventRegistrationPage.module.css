@@ -79,7 +79,7 @@
 .eventImage img {
   margin: auto;
   width: max(20dvw, 450px);
-  height: 400px;
+  height: 410px;
 }
 
 .eventImage {
@@ -92,7 +92,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
-  width: max(20dvw, 350px);
+  width: max(20dvw, 400px);
   height: max(20dvw, 475px);
   color: var(--textDark);
   background-color: var(--bgLight);
