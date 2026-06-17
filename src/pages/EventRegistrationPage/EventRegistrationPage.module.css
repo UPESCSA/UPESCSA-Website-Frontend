@@ -286,6 +286,12 @@
     margin-top: 0.5rem;
   }
 
+  .registrationDriveButtonDiv {
+    width: 330px !important;
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+
   .RegisterButton {
     background-color: black;
     color: white;
