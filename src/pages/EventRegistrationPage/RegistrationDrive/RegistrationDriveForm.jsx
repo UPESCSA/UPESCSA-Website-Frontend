@@ -34,8 +34,8 @@ const {
   eventText,
   eventDetailsDiv,
   eventDetail,
-  RegisterButton,
-  RegisterButtonDiv,
+  registrationDriveButtonDiv,
+  registrationDriveButton,
 } = eventCSS;
 
 const {
@@ -706,9 +706,9 @@ const RegistrationDriveForm = () => {
               ></p>
             </div>
           </div>
-          <div className={RegisterButtonDiv}>
+          <div className={registrationDriveButtonDiv}>
             <button
-              className={RegisterButton}
+              className={registrationDriveButton}
               onClick={() => {
                 if (
                   navigator.userAgent.includes("iPhone") ||
