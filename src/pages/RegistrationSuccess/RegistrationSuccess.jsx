@@ -15,6 +15,7 @@ const {
   csabackToHome,
   Note,
   NoteMail,
+  whatsappButton,
 } = styles;
 
 const RegistrationSuccess = () => {
@@ -97,7 +98,7 @@ const RegistrationSuccess = () => {
             href={wgLink}
             target="_blank"
             rel="noreferrer"
-            className={csabackToHome}
+              className={whatsappButton}
             id="backToHome"
           >
             Join Whatsapp
