@@ -204,7 +204,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
   .formContainer {
     width: 60dvw;
     min-width: 75%;
@@ -310,17 +309,26 @@
 @keyframes glow {
   0% {
     /* text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; */
-    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    box-shadow:
+      0 0 10px white,
+      0 0 20px white,
+      0 0 30px white;
   }
 
   50% {
     /* text-shadow: 0 0 25px white, 0 0 35px white, 0 0 45px white; */
-    box-shadow: 0 0 25px white, 0 0 35px white, 0 0 45px white;
+    box-shadow:
+      0 0 25px white,
+      0 0 35px white,
+      0 0 45px white;
   }
 
   100% {
     /* text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; */
-    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    box-shadow:
+      0 0 10px white,
+      0 0 20px white,
+      0 0 30px white;
   }
 }
 
@@ -344,6 +352,71 @@
   font-weight: 600;
   color: white;
   /* text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; */
-  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+  box-shadow:
+    0 0 10px white,
+    0 0 20px white,
+    0 0 30px white;
   animation: glow 1.5s ease-in-out infinite;
+}
+
+/* Registration Drive Button Specific to the Poster */
+
+.registrationDriveButtonDiv {
+  margin: 0;
+  margin-top: 1rem;
+  width: 700px;
+}
+
+.registrationDriveButton {
+  background: linear-gradient(135deg, #0a0a1a 0%, #0d1b2a 50%, #1a2a3a 100%);
+  color: #ffffff;
+  margin-top: 1rem;
+  border: 2px solid #00d4ff;
+  text-align: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow:
+    0 0 15px rgba(0, 212, 255, 0.3),
+    0 0 30px rgba(0, 212, 255, 0.1);
+  transition: all 0.3s ease;
+  font-family: "Arial", sans-serif;
+  position: relative;
+  overflow: hidden;
+  animation: cyanGlow 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+@keyframes cyanGlow {
+  0% {
+    box-shadow:
+      0 0 10px rgba(0, 212, 255, 0.2),
+      0 0 20px rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(0, 212, 255, 0.6),
+      0 0 50px rgba(0, 212, 255, 0.3),
+      0 0 80px rgba(0, 212, 255, 0.1);
+    border-color: #00e5ff;
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(0, 212, 255, 0.2),
+      0 0 20px rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+  }
+}
+
+.registrationDriveButton:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a2a3a 50%, #0a0a1a 100%);
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.6),
+    0 0 60px rgba(0, 212, 255, 0.3);
 }
