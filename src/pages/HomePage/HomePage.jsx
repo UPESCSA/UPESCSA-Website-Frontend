@@ -19,7 +19,7 @@ const HomePage = () => {
   // STATES
   // SET THIS TO TRUE TO ENABLE THE POPUP
   const eventActive = false;
-  const [popupOpen, setPopupOpen] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(true);
 
   // USE EFFECTS
   useEffect(() => {
@@ -52,7 +52,7 @@ const HomePage = () => {
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
-          eventPosterURL="/img/funtopia_6.0.jpg.jpeg" // Update New Poster
+          eventPosterURL="/img/Registration2026Poster.png"
           eventHeading="🌐 UPES CSA Registration Drive 2026-27 - Join the Core Team!"
           eventText={
             <>
