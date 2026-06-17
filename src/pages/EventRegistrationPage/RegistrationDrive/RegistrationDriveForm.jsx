@@ -90,13 +90,16 @@ const RegistrationDriveForm = () => {
         <strong>📋 Available Committees:</strong> Editorial, Events, Technical, Design & VFX, Public Relations, Social Media, Photography, Registration, Logistics
       </p>
       <p>
-        <strong>💰 Registration Fee: ₹300/-</strong>
+        <strong>💰 Registration Fee: <span style="text-decoration: line-through; color: #888;">₹300/-</span> <span style="color: #ff6b6b; font-weight: bold;">₹250/-</span> (Early Bird Discount!)</strong>
       </p>
       <p>
         <strong>📅 Academic Year: 2026-27</strong>
       </p>
       <p>
         <strong>🚀 Registrations are now open!</strong>
+      </p>
+      <p>
+        <em>🎯 Early bird offer valid for a limited time only. Register now to avail the discount!</em>
       </p>
       <p>
         This is more than just a position — it's an opportunity to learn, lead, innovate, and grow 
@@ -110,7 +113,7 @@ const RegistrationDriveForm = () => {
         Siya Singh (Events Head): +91 73075 18413
       </p>
     `,
-    eventRegistrationFee: "₹300",
+    eventRegistrationFee: "₹250 (Early Bird)",
     eventDate: "2026-27",
     IsFree: false,
     whatsGroup: "K68n2hC9M2v6y9OH4i6hhS",
@@ -607,7 +610,9 @@ const RegistrationDriveForm = () => {
                     fontSize: "1.5rem",
                   }}
                 >
-                  ₹300
+                  <span style={{ textDecoration: 'line-through', color: '#888', fontSize: '1.2rem' }}>₹300</span>
+                  <span style={{ color: '#ff6b6b', fontWeight: 'bold', marginLeft: '10px' }}>₹250</span>
+                  <span style={{ fontSize: '1rem', color: '#4CAF50', display: 'block' }}>🎯 Early Bird Discount!</span>
                 </h3>
 
                 {ModeOfPayment.toUpperCase() == "UPI" ? (

@@ -48,7 +48,7 @@ const HomePage = () => {
     setPopupOpen(!popupOpen);
   };
 
-  return (
+    return (
     <div className={homepageContainer}>
       {popupOpen && (
         <Popup
@@ -113,13 +113,16 @@ const HomePage = () => {
                 <li>Logistics Team</li>
               </ul>
               <p>
-                <strong>💰 Registration Fee: ₹300/-</strong>
+                <strong>💰 Registration Fee: <span style={{ textDecoration: 'line-through', color: '#888' }}>₹300/-</span> <span style={{ color: '#ff6b6b', fontWeight: 'bold' }}>₹250/-</span> (Early Bird Discount!)</strong>
               </p>
               <p>
                 <strong>📅 Academic Year: 2026-27</strong>
               </p>
               <p>
                 <strong>🚀 Registrations are now open!</strong>
+              </p>
+              <p>
+                <em>🎯 Early bird offer valid for a limited time only. Register now to avail the discount!</em>
               </p>
               <p>
                 This is more than just a position — it's an opportunity to learn, lead, innovate, and grow 
