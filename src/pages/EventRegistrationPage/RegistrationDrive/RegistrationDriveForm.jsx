@@ -114,13 +114,14 @@ const RegistrationDriveForm = () => {
     eventDate: "2026-27",
     IsFree: false,
     whatsGroup: "K68n2hC9M2v6y9OH4i6hhS",
-    SheetUrl: "https://docs.google.com/spreadsheets/d/1Z98LClauDRrpwTpsJUgmkXY_Yhw57ICSxLfo2fyHK20/edit?usp=sharing",
+    SheetUrl:
+      "https://docs.google.com/spreadsheets/d/1Z98LClauDRrpwTpsJUgmkXY_Yhw57ICSxLfo2fyHK20/edit?usp=sharing",
     FolderId: "1g5gOXam6bdhYf1lv5OxYOjbX3kEnIxPX",
     eventTemplate: "RegistrationDrive2026",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
-  
+
   // FORM STATES
   const [paymentPage, setPaymentPage] = useState(false);
   const [transactionID, setTransactionID] = useState("");
@@ -346,10 +347,7 @@ const RegistrationDriveForm = () => {
         finalData.append(key, data[key]);
       }
       if (!eventDetails.IsFree) {
-        finalData.append(
-          "fileName",
-          `${name}_${phone}_${EventName}`,
-        );
+        finalData.append("fileName", `${name}_${phone}_${EventName}`);
         finalData.append("fileData", PaymentSS.fileData);
         finalData.append("fileType", PaymentSS.fileType);
       }
@@ -418,7 +416,7 @@ const RegistrationDriveForm = () => {
         </div>
       )}
       <Toaster />
-      
+
       {DisplayForm ? (
         <div className={formContainer}>
           <h2 className={heading}>Registration Drive 2026-27</h2>
@@ -493,7 +491,9 @@ const RegistrationDriveForm = () => {
                     required={true}
                   />
                   {!isWhatsAppValid && (
-                    <span className={errorMessage}>Invalid WhatsApp Number</span>
+                    <span className={errorMessage}>
+                      Invalid WhatsApp Number
+                    </span>
                   )}
                   <InputField
                     id="participantCollegeEmail"
@@ -676,7 +676,11 @@ const RegistrationDriveForm = () => {
           <div className={eventsContainer}>
             <div>
               <div className={eventImage}>
-                <img loading="lazy" src={eventDetails.eventImageURL} alt="eventPoster" />
+                <img
+                  loading="lazy"
+                  src={eventDetails.eventImageURL}
+                  alt="eventPoster"
+                />
               </div>
               <div className={eventDetailsDiv}>
                 <div className={eventDetail}>
@@ -691,14 +695,32 @@ const RegistrationDriveForm = () => {
             </div>
             <div className={eventDescripton}>
               <h4 className={eventHeading}>Event Details</h4>
-              <p className={eventText} dangerouslySetInnerHTML={{ __html: eventDetails.eventText }}></p>
+              <p
+                className={eventText}
+                dangerouslySetInnerHTML={{ __html: eventDetails.eventText }}
+              ></p>
             </div>
           </div>
           <div className={RegisterButtonDiv}>
-            <button className={RegisterButton} onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              setDisplayForm(true);
-            }}>
+            <button
+              className={RegisterButton}
+              onClick={() => {
+                if (
+                  navigator.userAgent.includes("iPhone") ||
+                  navigator.userAgent.includes("iPad")
+                ) {
+                  window.scrollTo(0, 0);
+                  document.documentElement.scrollTop = 0;
+                  document.body.scrollTop = 0;
+                  setTimeout(() => {
+                    setDisplayForm(true);
+                  }, 50);
+                } else {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setDisplayForm(true);
+                }
+              }}
+            >
               REGISTER NOW
             </button>
           </div>
@@ -710,7 +732,8 @@ const RegistrationDriveForm = () => {
 
 export default RegistrationDriveForm;
 
-// Old registration with comments
+// Old registration drive form with comments
+
 // import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import styles from "./RegistrationDriveForm.module.css";
