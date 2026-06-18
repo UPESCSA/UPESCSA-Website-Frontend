@@ -116,7 +116,7 @@ const RegistrationDriveForm = () => {
     eventRegistrationFee: "₹250 (Early Bird)",
     eventDate: "2026-27",
     IsFree: false,
-    whatsGroup: "K68n2hC9M2v6y9OH4i6hhS",
+    whatsGroup: "EEBG4EGuiieLNrmmE0TPSl",
     SheetUrl:
       "https://docs.google.com/spreadsheets/d/1Z98LClauDRrpwTpsJUgmkXY_Yhw57ICSxLfo2fyHK20/edit?usp=sharing",
     FolderId: "1g5gOXam6bdhYf1lv5OxYOjbX3kEnIxPX",
