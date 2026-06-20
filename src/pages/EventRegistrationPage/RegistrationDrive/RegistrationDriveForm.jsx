@@ -162,7 +162,7 @@ const RegistrationDriveForm = () => {
     "Registrations",
   ];
 
-  const Years = ["1st", "2nd", "3rd", "4th", "5th"];
+  const Years = ["2nd", "3rd", "4th", "5th"];
 
   // UPDATE FUNCTIONS
   const updateTransactionID = (e) => {
