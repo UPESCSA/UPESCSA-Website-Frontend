@@ -20,8 +20,6 @@ const TeamPage = () => {
     url: `${import.meta.env.VITE_SERVER_URL}/api/head/`,
   });
 
-  console.log(data);
-
   const faculties = useMemo(
     () =>
       data
