@@ -3,23 +3,17 @@ import { useNavigate } from "react-router-dom";
 import styles from "./EventRegistrationPage.module.css";
 import InputField from "../../components/InputField/InputField";
 import DropDownSelectField from "../../components/DropDownSelectField/DropDownSelectField";
-
 import {
   VALIDATENAME,
   VALIDATEEMAIL,
   VALIDATEPHONE,
   VALIDATECOURSE,
-  VALIDATESAPID,
-  VALIDATECSAMEMBER,
-  VALIDATECSAID,
   VALIDATEYEAROFSTUDY,
   VALIDATEGENDER,
-  // VALIDATECOLLEGENAME, // Removed college name validation import
 } from "../../utils/registrationValidations";
 import FormLoading from "../../components/FormLoading/FormLoading";
 import FileSelect from "../../components/FileSelect/FileSelect";
 import toast, { Toaster } from "react-hot-toast";
-import CheckBoxField from "../../components/RegistrationFormComponents/CheckBoxFeild/CheckBoxField";
 
 const {
   mainDiv,
@@ -54,43 +48,44 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/AlumVerse.avif",
-    eventHeading: "AlumVerse: A CSA Alumni Panel",
+    eventImageURL: "/img/events/live/webgenesis.jpg",
+    eventHeading: "WebGenesis: An AI Innovation Bootcamp",
     eventText: `
     <p>
-      <strong>🚀 Step Into the AlumVerse: A CSA Alumni Panel Event</strong>
+      <strong>🤖 WEBGENESIS 2026: Your Journey from Prompts to AI-Powered Solutions 🚀</strong>
     </p>
     <p>
-      Ever wondered what life looks like after college? Connect directly with accomplished alumni as they return to share their real-life stories, career insights, and academic experiences.
+      UPES Cloud Security Alliance Student Chapter presents WebGenesis, a dynamic 2-Weekend online AI Innovation Bootcamp designed to equip you with the skills needed to thrive in the age of Artificial Intelligence.
     </p>
     <ul>
-      <li>✅ <strong>Career Insights:</strong> Learn about different job roles and industries.</li>
-      <li>✅ <strong>Higher Studies:</strong> Get advice on pursuing further education and research.</li>
-      <li>✅ <strong>Real-World Advice:</strong> Discover mistakes to avoid and paths to chase.</li>
-      <li>✅ <strong>Live Q&A:</strong> Get your burning questions answered directly by the panelists.</li>
-      <li>✅ <strong>Free Registration:</strong> Open to all students.</li>
+      <li>✅ <strong>Understand Claude:</strong> Learn its capabilities for real-world applications.</li>
+      <li>✅ <strong>Context Engineering:</strong> Master techniques for building effective AI workflows.</li>
+      <li>✅ <strong>Vibe Coding:</strong> Dive into AI-assisted software development.</li>
+      <li>✅ <strong>Prompt Engineering:</strong> Master strategies for accurate and reliable outputs.</li>
+      <li>✅ <strong>Hands-On Practices:</strong> Work on practical use cases and build productivity-focused AI tools.</li>
+      <li>✅ <strong>Certificate of Participation:</strong> Awarded to all who successfully complete the bootcamp.</li>
     </ul>
     <p>
-      👥 <strong>Seats are limited!</strong> Don’t miss this opportunity to learn from those who were once in your shoes.
+      📅 <strong>Bootcamp Dates:</strong> 04th-05th July & 11th-12th July 2026
     </p>
     <p>
-      <strong>📩 Secure your seat by filling out the form below!</strong>
+      👥 <strong>Open to all!</strong> Whether you're a beginner exploring AI for the first time or an enthusiast looking to enhance your skills, this bootcamp is for you.
+    </p>
+    <p>
+      <strong>📩 Register now to secure your seat!</strong>
     </p>
   `,
     eventMode: "Online",
     eventTeamSize: "1",
     eventRegistrationFee: "Free",
-    eventDate: "26/07/2025",
+    eventDate: "04/07/2026",
     IsFree: true,
-    whatsGroup: "EdzliRgo1iY68DrtbiEaAj", // To be updated
-    SheetUrl:
-      "https://docs.google.com/spreadsheets/d/1Cn5zaL4kwLiRSXWThqpLXqrfBoxN2FqrjhIvdjUPaQo/edit?gid=0#gid=0", // To be updated
-    // FolderId: "NEW_FOLDER_ID",
-    eventTemplate: "ALUMVERSE",
+    whatsGroup: "EYjVBXmSVJGAlOZHYxILU5",
+    SheetUrl: "https://docs.google.com/spreadsheets/d/1-Gaw359JgJVkjwH8dqdAhjqo1cSDKNexXEKmLjja_OU/edit?gid=0#gid=0",
+    eventTemplate: "WEBGENESIS",
   };
 
   const EventName = eventDetails.eventHeading.replace(/\s+/g, "");
-  // FORM STATES
 
   const [paymentPage, setPaymentPage] = useState(false);
   const [transactionID, setTransactionID] = useState("");
@@ -106,22 +101,15 @@ const EventRegistrationForm = () => {
   const [WhatsApp, setWhatsApp] = useState("");
   const [course, setCourse] = useState("");
   const [yearOfStudy, setYearOfStudy] = useState("");
-  const [sapID, setSapID] = useState("");
-  const [csaMember, setCSAMember] = useState("");
-  const [csaID, setCSAID] = useState("");
-  const [collegeEmail, setCollegeEmail] = useState("");
-  const [collegeName, setCollegeName] = useState(""); // Added collegeName state
-  const [session, setSession] = useState("Select");
+  const [collegeName, setCollegeName] = useState("");
   const [disabled, setdisabled] = useState(false);
   const [DisplayForm, setDisplayForm] = useState(false);
   const [gender, setGender] = useState("");
-  const [selectedSessions, setSelectedSessions] = useState([]);
 
-  // UPDATE FUNCTIONS
-
-  function updateTransactionID(e) {
+  const updateTransactionID = (e) => {
     setTransactionID(e.target.value);
-  }
+  };
+
   const updateTransactionSS = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -130,7 +118,6 @@ const EventRegistrationForm = () => {
         const base64Data = reader.result.split(",")[1];
         const fileType = file.type;
         const fileName = file.name;
-
         setPaymentSS({
           fileData: base64Data,
           fileType: fileType,
@@ -144,55 +131,34 @@ const EventRegistrationForm = () => {
   const updateName = (e) => {
     setName(e.target.value);
   };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
+
   const updatePhone = (e) => {
     setPhone(e.target.value);
   };
+
   const updateWhatsApp = (e) => {
     setWhatsApp(e.target.value);
   };
+
   const updateCourse = (e) => {
     setCourse(e.target.value);
   };
+
   const updateYearOfStudy = (e) => {
     setYearOfStudy(e.target.value);
   };
-  const updateSapID = (e) => {
-    setSapID(e.target.value);
-  };
-  const updateCSAMember = (e) => {
-    setCSAMember(e.target.value);
-    if (e.target.value === "no") {
-      setCSAID("not a csa member");
-    } else if (e.target.value === "yes") {
-      setCSAID("");
-    }
-  };
-  const updateCSAID = (e) => {
-    let value = e.target.value;
-    setCSAID(value.toUpperCase());
-  };
-  const updateCollegeEmail = (e) => {
-    setCollegeEmail(e.target.value);
-  };
+
   const updateCollegeName = (e) => {
-    // Added updateCollegeName function
     setCollegeName(e.target.value);
   };
-  const updateSession = (e) => {
-    setSession(e.target.value);
-    console.log(e.target.value);
-  };
+
   const updateGender = (e) => {
     setGender(e.target.value);
   };
-
-  const handleSessionsChange = (newSelectedValues) => {
-    setSelectedSessions(newSelectedValues);
-  };
-  // VALIDATION STATES
 
   const [isNameValid, setIsNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -200,41 +166,8 @@ const EventRegistrationForm = () => {
   const [isWhatsAppValid, setIsWhatsAppValid] = useState(true);
   const [isCourseValid, setIsCourseValid] = useState(true);
   const [isYearOfStudyValid, setIsYearOfStudyValid] = useState(true);
-  const [isSapIDValid, setIsSapIDValid] = useState(true);
-  const [isCSAMemberValid, setIsCSAMemberValid] = useState(true);
-  const [isCSAIDValid, setIsCSAIDValid] = useState(true);
-  const [isCollegeEmailValid, setIsCollegeEmailValid] = useState(true);
-  const [isCollegeNameValid, setIsCollegeNameValid] = useState(true); // Added isCollegeNameValid state
-  const [isSessionValid, setIsSessionValid] = useState(true);
+  const [isCollegeNameValid, setIsCollegeNameValid] = useState(true);
   const [isGenderValid, setIsGenderValid] = useState(true);
-  const options = [
-    "Week 1: Web Development",
-    "Week 2: Collaboration & Version Control",
-    "Week 3: DevOps & Automation",
-    "Week 4: Cloud Deployment",
-  ];
-  const disabledOptions = [
-    "Week 1: Web Development",
-    "Week 2: Collaboration & Version Control",
-    "Week 3: DevOps & Automation",
-  ]; // Options that should be disabled in the dropdown
-
-  // VALIDATION FUNCTIONS
-  // const VALIDATESESSION = (value, setValid) => {
-  //   // Convert value to lowercase and check if any option matches (case-insensitive)
-  //   const isValid = options.some(
-  //     (option) => option.toLowerCase() === value.toLowerCase()
-  //   );
-
-  //   if (isValid) {
-  //     setValid(true);
-  //     return true;
-  //   }
-
-  //   toast.error("Please select a valid option");
-  //   setValid(false);
-  //   return false;
-  // };
 
   const validate = () => {
     const NameValid = VALIDATENAME(name, setIsNameValid);
@@ -242,43 +175,24 @@ const EventRegistrationForm = () => {
     const PhoneValid = VALIDATEPHONE(phone, setIsPhoneValid);
     const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid);
     const CourseValid = VALIDATECOURSE(course, setIsCourseValid);
-    const YearOfStudyValid = VALIDATEYEAROFSTUDY(
-      yearOfStudy,
-      setIsYearOfStudyValid
-    );
-    // const CollegeEmailValid = VALIDATEEMAIL(
-    //   collegeEmail,
-    //   setIsCollegeEmailValid
-    // );
+    const YearOfStudyValid = VALIDATEYEAROFSTUDY(yearOfStudy, setIsYearOfStudyValid);
     const CollegeNameValid = VALIDATENAME(collegeName, setIsCollegeNameValid);
     const GenderValid = VALIDATEGENDER(gender, setIsGenderValid);
-    // const SessionValid = VALIDATESESSION(session, setIsSessionValid);
-    // const SapIDValid = VALIDATESAPID(sapID, setIsSapIDValid);
-    const CSAMemberValid = VALIDATECSAMEMBER(csaMember, setIsCSAMemberValid);
 
     if (
       NameValid &&
       EmailValid &&
       PhoneValid &&
-      WhatsAppValid && // Enforce WhatsApp validation
+      WhatsAppValid &&
       CourseValid &&
       CollegeNameValid &&
       YearOfStudyValid &&
       GenderValid
-
-      // SessionValid &&
-      // WhatsAppValid &&
-      // CollegeEmailValid &&
-      //&& SapIDValid
-      //&& CSAMemberValid
     ) {
-      if (csaMember === "yes") {
-        return VALIDATECSAID(csaID, setIsCSAIDValid);
-      } else {
-        window.scrollTo({ top: 0, behavior: "instant" });
-        return true;
-      }
+      window.scrollTo({ top: 0, behavior: "instant" });
+      return true;
     }
+    return false;
   };
 
   const submitFormOne = (e) => {
@@ -290,59 +204,42 @@ const EventRegistrationForm = () => {
 
   const submitFormFinal = async (e) => {
     e.preventDefault();
-    // VALIDATION
     if (validate()) {
       setLoading(true);
-      // setdisabled(true);
-      // Prepare data for Google Spreadsheet columns
+      
       const data = {
-        Name: name, // Name
-        Gender: gender, // Gender
-        "Contact Number": phone, // Contact Number
-        "WhatsApp Number": WhatsApp, // WhatsApp Number
-        "Email ID": email, // Email ID
-        Course: course, // Course
-        "Year Of Study": yearOfStudy, // Year Of Study
-        College: collegeName, // College
-        // Timestamp: new Date().toISOString(), // Optional: Apps Script can handle this
-        // selectedSessions, // Not needed for spreadsheet, comment out
-        // collegeEmail, // Not needed for spreadsheet, comment out
-        // session,
-        // sapID,
-        // csaMember,
-        // csaID,
-        // transactionID,
-        SheetUrl: eventDetails.SheetUrl, // Not needed for spreadsheet, comment out
-        // FolderId: eventDetails.FolderId, // Not needed for spreadsheet, comment out
+        Name: name,
+        Gender: gender,
+        "Contact Number": phone,
+        "WhatsApp Number": WhatsApp,
+        "Email ID": email,
+        Course: course,
+        "Year Of Study": yearOfStudy,
+        College: collegeName,
       };
-      // console.log(data);
+      
       const finalData = new FormData();
-
       for (const key in data) {
         finalData.append(key, data[key]);
       }
+      
       if (!eventDetails.IsFree) {
         finalData.append("fileName", `${name}_${phone}_${EventName}_PaymentSS`);
         finalData.append("fileData", PaymentSS.fileData);
         finalData.append("fileType", PaymentSS.fileType);
       }
-      // console.log(finalData);
+      
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbxegUi1O6lk3_wCbJNLd-bwrk4_SRvP6yA7M6F55Pp7Kr7q4ja0dvdUjAAhy7f_mk2j/exec",
+          "https://script.google.com/macros/s/AKfycby8C_hEoj1zFcbccGMUyHTCRc6pVDPmSFQ1Ec96Sgk9aXqmS4LF6QMcjOsACvT3yHsZ9w/exec",
           {
             method: "POST",
             body: finalData,
           }
         );
-        const data = await response.json();
-        console.log(data);
-        if (data.message === "Duplicate SAP ID") {
-          toast.error("Duplicate SAP ID");
-          setLoading(false);
-          setIsSapIDValid(false);
-          return;
-        }
+        const result = await response.json();
+        console.log(result);
+        
         const sendMailResponse = await fetch(
           `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
           {
@@ -355,18 +252,27 @@ const EventRegistrationForm = () => {
               email: email,
               template: eventDetails.eventTemplate,
             }),
-          }
+          },
         );
 
-        if (data.status == "success") {
+        if (sendMailResponse.ok) {
           const sendMailData = await sendMailResponse.json();
-          console.log(sendMailData);
-          toast.success("Form Submitted Successfully");
+          console.log("Email sent:", sendMailData);
+
           navigate(
-            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Sap=${sapID}&Email=${email}&Event=${eventDetails.eventHeading}`
+            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Email=${email}&Event=${eventDetails.eventHeading}`,
           );
-          setLoading(false);
+          toast.success("Registration successful! Check your email.");
+        } else {
+          console.error("Email failed:", await sendMailResponse.text());
+          toast.warning(
+            "Registration received but email confirmation failed. Please contact support.",
+          );
+          navigate(
+            `/registrationSuccess?wg=${eventDetails.whatsGroup}&Name=${name}&Email=${email}&Event=${eventDetails.eventHeading}`,
+          );
         }
+        setLoading(false);
       } catch (error) {
         toast.error("Error Submitting Form");
         setLoading(false);
@@ -400,13 +306,10 @@ const EventRegistrationForm = () => {
               className={backArrow}
               onClick={() => setDisplayForm(false)}
             />
-            {/* TEAM DETAILS SECTION START */}
+            
             {!paymentPage ? (
               <div className={formDiv}>
                 <h3 className={sectionHeading}>Participant Details</h3>
-
-                {/* USER SECTION START */}
-
                 <div className={memberSection}>
                   <InputField
                     id="participantName"
@@ -419,8 +322,9 @@ const EventRegistrationForm = () => {
                   {!isNameValid && (
                     <span className={errorMessage}>Invalid Name</span>
                   )}
+                  
                   <DropDownSelectField
-                    id="participantCSAMember"
+                    id="participantGender"
                     value={gender}
                     valueUpdater={updateGender}
                     inputLabel="Gender"
@@ -431,6 +335,7 @@ const EventRegistrationForm = () => {
                   {!isGenderValid && (
                     <span className={errorMessage}>Invalid Gender</span>
                   )}
+                  
                   <InputField
                     id="participantPhone"
                     type="text"
@@ -442,8 +347,9 @@ const EventRegistrationForm = () => {
                   {!isPhoneValid && (
                     <span className={errorMessage}>Invalid Phone</span>
                   )}
+                  
                   <InputField
-                    id="participantPhone"
+                    id="participantWhatsApp"
                     type="text"
                     inputLabel="WhatsApp Number"
                     value={WhatsApp}
@@ -451,10 +357,9 @@ const EventRegistrationForm = () => {
                     required={true}
                   />
                   {!isWhatsAppValid && (
-                    <span className={errorMessage}>
-                      Invalid WhatsApp Number
-                    </span>
+                    <span className={errorMessage}>Invalid WhatsApp Number</span>
                   )}
+                  
                   <InputField
                     id="participantEmail"
                     type="email"
@@ -466,6 +371,7 @@ const EventRegistrationForm = () => {
                   {!isEmailValid && (
                     <span className={errorMessage}>Invalid Email</span>
                   )}
+                  
                   <InputField
                     id="participantCourse"
                     type="text"
@@ -477,6 +383,7 @@ const EventRegistrationForm = () => {
                   {!isCourseValid && (
                     <span className={errorMessage}>Invalid Course</span>
                   )}
+                  
                   <InputField
                     id="participantYearOfStudy"
                     type="text"
@@ -488,6 +395,7 @@ const EventRegistrationForm = () => {
                   {!isYearOfStudyValid && (
                     <span className={errorMessage}>Invalid Year of Study</span>
                   )}
+                  
                   <InputField
                     id="participantCollegeName"
                     type="text"
@@ -499,80 +407,7 @@ const EventRegistrationForm = () => {
                   {!isCollegeNameValid && (
                     <span className={errorMessage}>Invalid College Name</span>
                   )}
-                  {/* <CheckBoxField
-                    id="participantSessions"
-                    selectedValues={selectedSessions}
-                    valueUpdater={handleSessionsChange}
-                    inputLabel="Select Sessions"
-                    required={true}
-                    options={options}
-                    disabledOptions={disabledOptions}
-                  /> */}
-                  {/* <DropDownSelectField
-                      id="participantCSAMember"
-                      value={session}
-                      valueUpdater={updateSession}
-                      inputLabel="Select Session"
-                      required={true}
-                      options={options}
-                      defaultOption="Select"
-                    />
-                    {!isSessionValid && (
-                      <span className={errorMessage}>Invalid Option</span>
-                    )} */}
-                  {/* <InputField
-                    id="participantCollegeEmail"
-                    type="email"
-                    inputLabel="College Email"
-                    value={collegeEmail}
-                    valueUpdater={updateCollegeEmail}
-                    required={true}
-                  />
-                  {!isCollegeEmailValid && (
-                    <span className={errorMessage}>Invalid College Email</span>
-                  )} */}
-                  {/* <InputField
-                    id="participantSapID"
-                    type="text"
-                    inputLabel="SAP ID"
-                    value={sapID}
-                    valueUpdater={updateSapID}
-                    required={true}
-                  />
-                  {!isSapIDValid && (
-                    <span className={errorMessage}>Invalid SAP ID</span>
-                  )} */}
-
-                  {/* <DropDownSelectField
-                  id="participantCSAMember"
-                  value={csaMember}
-                  valueUpdater={updateCSAMember}
-                  inputLabel="Are you a CSA Member?"
-                  required={true}
-                  options={["Yes", "No"]}
-                  defaultOption="Select"
-                />
-                {!isCSAMemberValid && (
-                  <span className={errorMessage}>Invalid Option</span>
-                )} */}
-                  {/* {csaMember === "yes" && (
-                  <InputField
-                    id="participantCSAID"
-                    type="text"
-                    inputLabel="CSA ID"
-                    value={csaID}
-                    valueUpdater={updateCSAID}
-                    required={csaMember === "yes"}
-                  />
-                )} */}
-                  {/* {!isCSAIDValid && (
-                    <span className={errorMessage}>Invalid CSA ID</span>
-                  )} */}
                 </div>
-
-                {/* USER SECTION END */}
-
-                {/* ------------------------------------------------------------------------------------ */}
 
                 {eventDetails.IsFree ? (
                   <button
@@ -609,7 +444,7 @@ const EventRegistrationForm = () => {
                 </h3>
 
                 <div className={paymentQRDiv}>
-                  <img loading="lazy" src="/img/qr/QR.jpg" alt="Payment OR" />
+                  <img loading="lazy" src="/img/qr/QR.jpg" alt="Payment QR" />
                 </div>
 
                 <InputField
