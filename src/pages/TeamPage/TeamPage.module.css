@@ -10,13 +10,138 @@
 
 .managementPageContainer h2 {
   margin-block: 5rem -2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .managementDiv {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Each card/item - BIGGER */
+.managementDiv > * {
+  width: 280px;
+  max-width: 280px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Image container - WHITE BACKGROUND */
+.managementDiv [class*="imageContainer"],
+.managementDiv [class*="img-wrapper"],
+.managementDiv > * > div:first-child {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Force all images to be consistent */
+.managementDiv img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1/1 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 12px !important;
+  background-color: #ffffff !important;
+  display: block !important;
+}
+
+/* Bigger text */
+.managementDiv h3,
+.managementDiv .title {
+  text-align: center !important;
+  width: 100%;
+  word-wrap: break-word;
+  margin: 0.75rem 0 0.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.managementDiv p,
+.managementDiv .subtitle {
+  text-align: center !important;
+  width: 100%;
+  word-wrap: break-word;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* Consistent card styling */
+.managementDiv .card,
+.managementDiv [class*="card"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .managementDiv > * {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .managementDiv {
+    gap: 3rem;
+  }
+  
+  .managementDiv > * {
+    width: 200px;
+  }
+  
+  .managementDiv h3,
+  .managementDiv .title {
+    font-size: 1rem;
+  }
+  
+  .managementDiv p,
+  .managementDiv .subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .managementDiv {
+    gap: 2rem;
+  }
+  
+  .managementDiv > * {
+    width: 160px;
+  }
+  
+  .managementDiv h3,
+  .managementDiv .title {
+    font-size: 0.9rem;
+  }
+  
+  .managementDiv p,
+  .managementDiv .subtitle {
+    font-size: 0.8rem;
+  }
 }
 
 .teamPageContainer {

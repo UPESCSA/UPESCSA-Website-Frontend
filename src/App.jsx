@@ -188,7 +188,7 @@ function App() {
             }
           />
         } */}
-        {/* <Route
+        <Route
           path="/WebGenesis"
           element={
             <>
@@ -197,7 +197,7 @@ function App() {
               <Contact />
             </>
           }
-        /> */}
+        />
         {/* <Route
           path="/Entropedia"
           element={
