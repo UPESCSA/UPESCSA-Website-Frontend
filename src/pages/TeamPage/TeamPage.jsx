@@ -20,42 +20,42 @@ const TeamPage = () => {
     url: `${import.meta.env.VITE_SERVER_URL}/api/head/`,
   });
 
-  console.log(data)
-  
+  console.log(data);
+
   const faculties = useMemo(
     () =>
       data
         ?.filter((member) => member.category === "Faculty")
         .sort((a, b) => a.order - b.order),
-    [data]
+    [data],
   );
   const presidents = useMemo(
     () =>
       data
         ?.filter((member) => member.category === "President")
         .sort((a, b) => a.order - b.order),
-    [data]
+    [data],
   );
   const management = useMemo(
     () =>
       data
         ?.filter((member) => member.category === "Management")
         .sort((a, b) => a.order - b.order),
-    [data]
+    [data],
   );
   const heads = useMemo(
     () =>
       data
         ?.filter((member) => member.position === "Head")
         .sort((a, b) => a.order - b.order),
-    [data]
+    [data],
   );
   const associates = useMemo(
     () =>
       data
         ?.filter((member) => member.position === "Associate")
         .sort((a, b) => a.order - b.order),
-    [data]
+    [data],
   );
 
   if (loading) {
@@ -73,24 +73,35 @@ const TeamPage = () => {
   // Helper function to render members with consistent styling
   const renderMembers = (members, title) => {
     if (!members || members.length === 0) return null;
-    
+
     return (
       <>
         <h2>{title}</h2>
         <div className={managementDiv}>
-          {members.map((member) => (
-            <ImageText
-              key={member._id}
-              title={member.name}
-              titleAlign="center"
-              subTitle={member.position}
-              subTitleAlign="center"
-              link={member.linkedInURL}
-              mainImg={member.headImgURL}
-              textColor={textColor}
-              externalLink={true}
-            />
-          ))}
+          {members.map((member) => {
+            let subtitle = member.position;
+
+            if (
+              member.category !== "Management" &&
+              member.category !== "Faculty"
+            ) {
+              subtitle = `${member.category} ${member.position}`;
+            }
+
+            return (
+              <ImageText
+                key={member._id}
+                title={member.name}
+                titleAlign="center"
+                subTitle={subtitle}
+                subTitleAlign="center"
+                link={member.linkedInURL}
+                mainImg={member.headImgURL}
+                textColor={textColor}
+                externalLink={true}
+              />
+            );
+          })}
         </div>
       </>
     );
