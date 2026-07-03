@@ -48,25 +48,25 @@ const EventRegistrationForm = () => {
   const [loading, setLoading] = useState(false);
 
   const eventDetails = {
-    eventImageURL: "/img/events/live/webgenesis.jpg",
+    eventImageURL: "/img/events/live/WebGenesis 2.0 .png",
     eventHeading: "WebGenesis: An AI Innovation Bootcamp",
     eventText: `
     <p>
       <strong>🤖 WEBGENESIS 2026: Your Journey from Prompts to AI-Powered Solutions 🚀</strong>
     </p>
     <p>
-      UPES Cloud Security Alliance Student Chapter presents WebGenesis, a dynamic 2-Weekend online AI Innovation Bootcamp designed to equip you with the skills needed to thrive in the age of Artificial Intelligence.
+      UPES Cloud Security Alliance Student Chapter presents WebGenesis, a dynamic 2-Day online AI Innovation Bootcamp designed to equip you with the skills needed to thrive in the age of Artificial Intelligence.
     </p>
     <ul>
-      <li>✅ <strong>Understand Claude:</strong> Learn its capabilities for real-world applications.</li>
       <li>✅ <strong>Context Engineering:</strong> Master techniques for building effective AI workflows.</li>
+      <li>✅ <strong>Best Practices:</strong> Learn industry-standard approaches for working with modern AI systems.</li>
       <li>✅ <strong>Vibe Coding:</strong> Dive into AI-assisted software development.</li>
       <li>✅ <strong>Prompt Engineering:</strong> Master strategies for accurate and reliable outputs.</li>
       <li>✅ <strong>Hands-On Practices:</strong> Work on practical use cases and build productivity-focused AI tools.</li>
       <li>✅ <strong>Certificate of Participation:</strong> Awarded to all who successfully complete the bootcamp.</li>
     </ul>
     <p>
-      📅 <strong>Bootcamp Dates:</strong> 04th-05th July & 11th-12th July 2026
+      📅 <strong>Bootcamp Dates:</strong> 11th & 12th July 2026
     </p>
     <p>
       👥 <strong>Open to all!</strong> Whether you're a beginner exploring AI for the first time or an enthusiast looking to enhance your skills, this bootcamp is for you.
@@ -74,14 +74,20 @@ const EventRegistrationForm = () => {
     <p>
       <strong>📩 Register now to secure your seat!</strong>
     </p>
+    <p>
+      For queries, contact:<br>
+      Vansh Garg (Events Head): 9528254655<br>
+      Siya Singh (Events Head): 7307518413
+    </p>
   `,
     eventMode: "Online",
     eventTeamSize: "1",
     eventRegistrationFee: "Free",
-    eventDate: "04/07/2026",
+    eventDate: "11/07/2026",
     IsFree: true,
     whatsGroup: "EYjVBXmSVJGAlOZHYxILU5",
-    SheetUrl: "https://docs.google.com/spreadsheets/d/1-Gaw359JgJVkjwH8dqdAhjqo1cSDKNexXEKmLjja_OU/edit?gid=0#gid=0",
+    SheetUrl:
+      "https://docs.google.com/spreadsheets/d/1-Gaw359JgJVkjwH8dqdAhjqo1cSDKNexXEKmLjja_OU/edit?gid=0#gid=0",
     eventTemplate: "WEBGENESIS",
   };
 
@@ -105,6 +111,7 @@ const EventRegistrationForm = () => {
   const [disabled, setdisabled] = useState(false);
   const [DisplayForm, setDisplayForm] = useState(false);
   const [gender, setGender] = useState("");
+  const [session, setSession] = useState("");
 
   const updateTransactionID = (e) => {
     setTransactionID(e.target.value);
@@ -160,6 +167,10 @@ const EventRegistrationForm = () => {
     setGender(e.target.value);
   };
 
+  const updateSession = (e) => {
+    setSession(e.target.value);
+  };
+
   const [isNameValid, setIsNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
@@ -168,6 +179,7 @@ const EventRegistrationForm = () => {
   const [isYearOfStudyValid, setIsYearOfStudyValid] = useState(true);
   const [isCollegeNameValid, setIsCollegeNameValid] = useState(true);
   const [isGenderValid, setIsGenderValid] = useState(true);
+  const [isSessionValid, setIsSessionValid] = useState(true);
 
   const validate = () => {
     const NameValid = VALIDATENAME(name, setIsNameValid);
@@ -175,9 +187,14 @@ const EventRegistrationForm = () => {
     const PhoneValid = VALIDATEPHONE(phone, setIsPhoneValid);
     const WhatsAppValid = VALIDATEPHONE(WhatsApp, setIsWhatsAppValid);
     const CourseValid = VALIDATECOURSE(course, setIsCourseValid);
-    const YearOfStudyValid = VALIDATEYEAROFSTUDY(yearOfStudy, setIsYearOfStudyValid);
+    const YearOfStudyValid = VALIDATEYEAROFSTUDY(
+      yearOfStudy,
+      setIsYearOfStudyValid,
+    );
     const CollegeNameValid = VALIDATENAME(collegeName, setIsCollegeNameValid);
     const GenderValid = VALIDATEGENDER(gender, setIsGenderValid);
+    const SessionValid =
+      session !== "" ? true : (setIsSessionValid(false), false);
 
     if (
       NameValid &&
@@ -187,7 +204,8 @@ const EventRegistrationForm = () => {
       CourseValid &&
       CollegeNameValid &&
       YearOfStudyValid &&
-      GenderValid
+      GenderValid &&
+      SessionValid
     ) {
       window.scrollTo({ top: 0, behavior: "instant" });
       return true;
@@ -206,7 +224,7 @@ const EventRegistrationForm = () => {
     e.preventDefault();
     if (validate()) {
       setLoading(true);
-      
+
       const data = {
         Name: name,
         Gender: gender,
@@ -216,30 +234,31 @@ const EventRegistrationForm = () => {
         Course: course,
         "Year Of Study": yearOfStudy,
         College: collegeName,
+        Session: session,
       };
-      
+
       const finalData = new FormData();
       for (const key in data) {
         finalData.append(key, data[key]);
       }
-      
+
       if (!eventDetails.IsFree) {
         finalData.append("fileName", `${name}_${phone}_${EventName}_PaymentSS`);
         finalData.append("fileData", PaymentSS.fileData);
         finalData.append("fileType", PaymentSS.fileType);
       }
-      
+
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycby8C_hEoj1zFcbccGMUyHTCRc6pVDPmSFQ1Ec96Sgk9aXqmS4LF6QMcjOsACvT3yHsZ9w/exec",
+          "https://script.google.com/macros/s/AKfycbzDcHcY8SxWEr1T82yivFfGEUfukN4PFaibzGjAGwtE0R56Glu_rinbTJ3-XS0kukSmvQ/exec",
           {
             method: "POST",
             body: finalData,
-          }
+          },
         );
         const result = await response.json();
         console.log(result);
-        
+
         const sendMailResponse = await fetch(
           `${import.meta.env.VITE_SERVER_URL}/api/sendmail/`,
           {
@@ -306,7 +325,7 @@ const EventRegistrationForm = () => {
               className={backArrow}
               onClick={() => setDisplayForm(false)}
             />
-            
+
             {!paymentPage ? (
               <div className={formDiv}>
                 <h3 className={sectionHeading}>Participant Details</h3>
@@ -322,7 +341,7 @@ const EventRegistrationForm = () => {
                   {!isNameValid && (
                     <span className={errorMessage}>Invalid Name</span>
                   )}
-                  
+
                   <DropDownSelectField
                     id="participantGender"
                     value={gender}
@@ -335,7 +354,7 @@ const EventRegistrationForm = () => {
                   {!isGenderValid && (
                     <span className={errorMessage}>Invalid Gender</span>
                   )}
-                  
+
                   <InputField
                     id="participantPhone"
                     type="text"
@@ -347,7 +366,7 @@ const EventRegistrationForm = () => {
                   {!isPhoneValid && (
                     <span className={errorMessage}>Invalid Phone</span>
                   )}
-                  
+
                   <InputField
                     id="participantWhatsApp"
                     type="text"
@@ -357,9 +376,11 @@ const EventRegistrationForm = () => {
                     required={true}
                   />
                   {!isWhatsAppValid && (
-                    <span className={errorMessage}>Invalid WhatsApp Number</span>
+                    <span className={errorMessage}>
+                      Invalid WhatsApp Number
+                    </span>
                   )}
-                  
+
                   <InputField
                     id="participantEmail"
                     type="email"
@@ -371,7 +392,7 @@ const EventRegistrationForm = () => {
                   {!isEmailValid && (
                     <span className={errorMessage}>Invalid Email</span>
                   )}
-                  
+
                   <InputField
                     id="participantCourse"
                     type="text"
@@ -383,7 +404,7 @@ const EventRegistrationForm = () => {
                   {!isCourseValid && (
                     <span className={errorMessage}>Invalid Course</span>
                   )}
-                  
+
                   <InputField
                     id="participantYearOfStudy"
                     type="text"
@@ -395,7 +416,7 @@ const EventRegistrationForm = () => {
                   {!isYearOfStudyValid && (
                     <span className={errorMessage}>Invalid Year of Study</span>
                   )}
-                  
+
                   <InputField
                     id="participantCollegeName"
                     type="text"
@@ -406,6 +427,25 @@ const EventRegistrationForm = () => {
                   />
                   {!isCollegeNameValid && (
                     <span className={errorMessage}>Invalid College Name</span>
+                  )}
+
+                  <DropDownSelectField
+                    id="participantSession"
+                    value={session}
+                    valueUpdater={updateSession}
+                    // inputLabel="Select Session"
+                    required={true}
+                    options={[
+                      "Day 1 Only (11th July)",
+                      "Day 2 Only (12th July)",
+                      "Both Days (11th & 12th July)",
+                    ]}
+                    defaultOption="Select Session"
+                  />
+                  {!isSessionValid && (
+                    <span className={errorMessage}>
+                      Please select a session
+                    </span>
                   )}
                 </div>
 
