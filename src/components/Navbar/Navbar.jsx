@@ -63,11 +63,11 @@ const Navbar = () => {
       action: "/register",
       glow: true,
     },
-    // {
-    //   title: "AWS ACD",
-    //   action: "/ACD",
-    //   glow: true,
-    // },
+    {
+      title: "WebGenesis 2.0",
+      action: "/WebGenesis",
+      glow: true,
+    },
     // {
     //   title: "AlumVerse",
     //   action: "/alumverse",
